@@ -12,7 +12,7 @@ public class ClientServiceLocator {
     public void setService(String ip, String port, String hostname) {
         String name = "rmi://" + ip + ":" + port + "/" + hostname;
         try {
-            IRemoteFacade server = (IRemoteFacade) Naming.lookup(name);
+            RemoteFacade server = (RemoteFacade) Naming.lookup(name);
             System.out.println("eooo");
             this.service = server;
             System.out.println(this.service.getA());

@@ -2,6 +2,7 @@ package service;
 
 import data.dao.BookDAO;
 import data.domain.Book;
+import data.dto.BookDTO;
 
 import java.util.Date;
 import java.util.List;
@@ -40,6 +41,12 @@ public class BookAppService {
     public void deleteBook(String name){
         Book book = getBookByName(name);
         BookDAO.getInstance().delete(book);
+    }
+
+    public boolean updateBook(String name, String author, Date publishDate, Boolean available){
+        Book book = new Book(name,author,publishDate,available);
+        BookDAO.getInstance().update(book);
+        return true;
     }
 
     public String getA(){

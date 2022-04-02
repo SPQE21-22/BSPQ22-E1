@@ -9,7 +9,6 @@ import java.util.List;
 @PersistenceCapable(detachable="true")
 public class User {
     @PrimaryKey
-    private int id;
     private String name;
     private String email;
     private String password;
@@ -18,17 +17,12 @@ public class User {
     //@PersistenceCapable(defaultFetchGroup="true")
     private List<Book> books;
 
-    public User(int id, String name, String email, String password, Date birthDate, List<Book> books) {
-        this.id = id;
+    public User(String name, String email, String password, Date birthDate, List<Book> books) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.birthDate = birthDate;
         this.books = books;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getName() {
@@ -51,9 +45,6 @@ public class User {
         return books;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public void setName(String name) {
         this.name = name;
@@ -78,8 +69,7 @@ public class User {
     @Override
     public String toString() {
         return "data.domain.User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", birthDate=" + birthDate +

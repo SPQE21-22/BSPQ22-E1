@@ -38,9 +38,9 @@ public class UserController {
         }
     }
 
-    public long register(int id, String name, String email, String password, Date birthDate, List<Book> books) {
+    public long register(String name, String email, String password, Date birthDate, List<Book> books) {
         try {
-            this.token = this.serviceLocator.getService().register(id, name, email, password, birthDate, books);
+            this.token = this.serviceLocator.getService().register(name, email, password, birthDate, books);
             return token;
         } catch (RemoteException e) {
             System.out.println("- Register error: " + e);

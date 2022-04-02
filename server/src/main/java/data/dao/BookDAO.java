@@ -1,6 +1,7 @@
 package data.dao;
 
 import data.domain.Book;
+import data.dto.BookDTO;
 
 import javax.jdo.Extent;
 import javax.jdo.PersistenceManager;
@@ -22,6 +23,12 @@ public class BookDAO extends DAOBase implements IDAO<Book> {
         return instance;
     }
 
+    @Override
+    public boolean update(Book book) {
+        super.deleteObject(find(book.getName()));
+        super.saveObject(book);
+        return true;
+    }
 
     @Override
     public void save(Book book) {
@@ -32,6 +39,7 @@ public class BookDAO extends DAOBase implements IDAO<Book> {
     public void delete(Book book) {
         super.deleteObject(book);
     }
+
 
     @Override
     public List<Book> getAll() {

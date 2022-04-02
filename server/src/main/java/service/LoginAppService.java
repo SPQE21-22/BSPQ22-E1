@@ -18,8 +18,8 @@ public class LoginAppService {
         }
         return instance;
     }
-    public User register(int id, String name, String email, String password, Date birthDate, List<Book> books) throws RemoteException {
-        User user = new User(id, name, email, password, birthDate, books);
+    public User register(String name, String email, String password, Date birthDate, List<Book> books) throws RemoteException {
+        User user = new User(name, email, password, birthDate, books);
         System.out.println(" - Added new user: " + name + " - " + email);
         UserDAO.getInstance().save(user);
         return user;
