@@ -1,5 +1,6 @@
 package data.dao;
 
+import data.domain.Book;
 import data.domain.User;
 
 import javax.jdo.Extent;

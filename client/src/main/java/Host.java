@@ -1,21 +1,16 @@
-import gui.GuiLogin;
+import controller.LibraryController;
+import controller.UserController;
+import data.domain.Book;
+import data.dto.BookDTO;
+import remote.ClientServiceLocator;
 
-import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class Host{
 
     public static void main(String[] args){
-
-        /* Pruebas de ventanas */
-
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                GuiLogin vl = new GuiLogin();
-            }
-        });
-
-        /*
         String hostname = args[0];
         String port = args[1];
         String name = args[2];
@@ -42,7 +37,6 @@ public class Host{
         userController.register(nombre,email,contrasena, birthDate,books);
         System.out.println("Pasar pestaña de listado libros");
 
-
         //COSAS DE LA PESTAÑA DE LISTADO
         List<BookDTO> availableBooks  = libraryController.getListedBooks();
         System.out.println("Hacer un listado de los titulos de los libros tipo enlace");
@@ -57,8 +51,7 @@ public class Host{
         //COSAS DE LA PESTAÑA DE LIBROS
         System.out.println("Boton para reservar");
         BookDTO book= libraryController.getBookByName(titulo);
-        libraryController.updateBook(book.getName(), book.getAuthor(), book.getPublishDate(), false);
-        System.out.println("Te devuelve a la pestaña de listado en la que ya no se ve este libro");
-        */
+        libraryController.deleteBook(book.getName());
+        libraryController.addBook(titulo, autor, publishDate, disponible);        System.out.println("Te devuelve a la pestaña de listado en la que ya no se ve este libro");
     }
 }

@@ -1,7 +1,6 @@
 package data.dao;
 
 import data.domain.Book;
-import data.dto.BookDTO;
 
 import javax.jdo.Extent;
 import javax.jdo.PersistenceManager;
@@ -24,13 +23,6 @@ public class BookDAO extends DAOBase implements IDAO<Book> {
     }
 
     @Override
-    public boolean update(Book book) {
-        super.deleteObject(find(book.getName()));
-        super.saveObject(book);
-        return true;
-    }
-
-    @Override
     public void save(Book book) {
         super.saveObject(book);
     }
@@ -39,7 +31,6 @@ public class BookDAO extends DAOBase implements IDAO<Book> {
     public void delete(Book book) {
         super.deleteObject(book);
     }
-
 
     @Override
     public List<Book> getAll() {
@@ -80,7 +71,7 @@ public class BookDAO extends DAOBase implements IDAO<Book> {
         try {
             tx.begin();
 
-            Query<?> query = pm.newQuery("SELECT FROM " + Book.class.getName() + " WHERE id == " + param);
+            Query<?> query = pm.newQuery("SELECT FROM " + Book.class.getName() + " WHERE titulo == " + param);
             query.setUnique(true);
             challenge = (Book) query.execute();
 

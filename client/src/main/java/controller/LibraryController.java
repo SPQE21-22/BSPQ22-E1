@@ -48,14 +48,6 @@ public class LibraryController {
         }
     }
 
-    public void updateBook(String name, String author, Date publishDate, Boolean available) {
-        try {
-            this.serviceLocator.getService().updateBook(name, author, publishDate, available);
-        } catch (RemoteException e) {
-            System.out.println(" - Error: could not delete book. " + e);
-        }
-    }
-
     public String getA() {
         try {
             return this.serviceLocator.getService().getA();

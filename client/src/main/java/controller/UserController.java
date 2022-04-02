@@ -3,10 +3,8 @@ package controller;
 import data.domain.Book;
 import data.domain.User;
 import remote.*;
-import data.dto.UserDTO;
 
 import java.rmi.RemoteException;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -38,13 +36,11 @@ public class UserController {
         }
     }
 
-    public long register(String name, String email, String password, Date birthDate, List<Book> books) {
+    public void register(String name, String email, String password, Date birthDate, List<Book> books) {
         try {
-            this.token = this.serviceLocator.getService().register(name, email, password, birthDate, books);
-            return token;
+            this.serviceLocator.getService().register(name, email, password, birthDate, books);
         } catch (RemoteException e) {
             System.out.println("- Register error: " + e);
-            return -1;
         }
     }
 
