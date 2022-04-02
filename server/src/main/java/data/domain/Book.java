@@ -1,8 +1,12 @@
 package data.domain;
 
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.PrimaryKey;
 import java.util.Date;
 
+@PersistenceCapable(detachable="true")
 public class Book {
+    @PrimaryKey
     private String name;
     private String author;
     private Date publishDate;

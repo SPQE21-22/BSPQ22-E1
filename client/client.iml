@@ -12,8 +12,13 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="server" />
+    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-core:5.2.10" level="project" />
+    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-api-jdo:5.2.8" level="project" />
+    <orderEntry type="library" name="Maven: org.datanucleus:datanucleus-rdbms:5.2.10" level="project" />
     <orderEntry type="library" name="Maven: org.datanucleus:javax.jdo:3.2.0-release" level="project" />
     <orderEntry type="library" name="Maven: javax.transaction:javax.transaction-api:1.3" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.corba:glassfish-corba-omgapi:4.2.2" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.23" level="project" />
+    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
   </component>
 </module>

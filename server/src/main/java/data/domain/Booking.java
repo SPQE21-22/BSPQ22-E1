@@ -1,16 +1,30 @@
 package data.domain;
 
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.PrimaryKey;
 import java.util.Date;
-
+@PersistenceCapable(detachable = "true")
 public class Booking {
+    @PrimaryKey
+    private int id;
     private User user;
     private Book book;
     private Date dueDate;
+    private static int count = 0;
 
     public Booking(User user, Book book, Date dueDate) {
+        this.id = count++;
         this.user = user;
         this.book = book;
         this.dueDate = dueDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public User getUser() {
@@ -37,10 +51,19 @@ public class Booking {
         this.dueDate = dueDate;
     }
 
+    public static int getCount() {
+        return count;
+    }
+
+    public static void setCount(int count) {
+        Booking.count = count;
+    }
+
     @Override
     public String toString() {
         return "Booking{" +
-                "user=" + user +
+                "id=" + id +
+                ", user=" + user +
                 ", book=" + book +
                 ", dueDate=" + dueDate +
                 '}';

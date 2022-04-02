@@ -1,15 +1,21 @@
 package data.domain;
 
+import javax.jdo.annotations.Join;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.PrimaryKey;
 import java.util.Date;
 import java.util.List;
 
-
+@PersistenceCapable(detachable="true")
 public class User {
+    @PrimaryKey
     private int id;
     private String name;
     private String email;
     private String password;
     private Date birthDate;
+    @Join
+    //@PersistenceCapable(defaultFetchGroup="true")
     private List<Book> books;
 
     public User(int id, String name, String email, String password, Date birthDate, List<Book> books) {
