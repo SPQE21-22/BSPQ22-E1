@@ -29,7 +29,7 @@ public class LoginAppService {
         User user = UserDAO.getInstance().find(email);
         boolean check;
 
-        if (user.getEmail() == email && user != null) {
+        if (user.getEmail() == email) {
             check = user.getPassword().equals(password);
         } else {
             check = false;

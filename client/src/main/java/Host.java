@@ -34,7 +34,7 @@ public class Host{
         String nombre = "Paco";
         Date birthDate = new Date();
         List<Book> books = new ArrayList<Book>();
-        userController.register(0,nombre,email,contrasena, birthDate,books);
+        userController.register(nombre,email,contrasena, birthDate,books);
         System.out.println("Pasar pestaña de listado libros");
 
         //COSAS DE LA PESTAÑA DE LISTADO

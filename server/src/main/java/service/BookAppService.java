@@ -43,12 +43,6 @@ public class BookAppService {
         BookDAO.getInstance().delete(book);
     }
 
-    public boolean updateBook(String name, String author, Date publishDate, Boolean available){
-        Book book = new Book(name,author,publishDate,available);
-        BookDAO.getInstance().update(book);
-        return true;
-    }
-
     public String getA(){
         return "AAHH";
     }
