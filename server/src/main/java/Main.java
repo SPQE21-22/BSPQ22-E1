@@ -12,10 +12,9 @@ public class Main {
     public static void main(String[] args){
         String name = "//" + args[0] + ":" + args[1] + "/" + args[2];
         try {
-            RemoteFacade remoteFacade = new RemoteFacade();
-            IRemoteFacade stub = (IRemoteFacade) UnicastRemoteObject.exportObject(remoteFacade, 0);
-            Registry registry = LocateRegistry.getRegistry();
-            registry.bind("Prueba", stub);
+            IRemoteFacade remoteFacade = new RemoteFacade();
+            Registry registry = LocateRegistry.createRegistry(8080);
+            registry.rebind(name, remoteFacade);
             System.out.println(" - Library server '" + name + "' started");
         } catch (Exception e) {
             System.err.println(" - Library Server Exception: " + e.getMessage());

@@ -9,11 +9,13 @@ import java.rmi.registry.Registry;
 public class ClientServiceLocator {
     private IRemoteFacade service;
 
-    public void setService(String ip, String port, String name) {
+    public void setService(String ip, String port, String hostname) {
+        String name = "rmi://" + ip + ":" + port + "/" + hostname;
         try {
-            Registry registry = LocateRegistry.getRegistry(null);
-            IRemoteFacade stub = (IRemoteFacade) registry.lookup("Prueba");
-            System.out.println(stub.getA());
+            IRemoteFacade server = (IRemoteFacade) Naming.lookup(name);
+            System.out.println("eooo");
+            this.service = server;
+            System.out.println(this.service.getA());
         } catch (Exception ex) {
             System.err.println("# Error locating remote facade: " + ex);
         }

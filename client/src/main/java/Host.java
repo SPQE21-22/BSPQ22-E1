@@ -15,7 +15,6 @@ public class Host{
         UserController userController = new UserController(serviceLocator);
         LibraryController libraryController = new LibraryController(serviceLocator);
 
-        System.out.println(libraryController.getA());
         System.out.println("Hola soy el cliente");
     }
 }
