@@ -17,7 +17,7 @@ public class UserDTO implements Serializable {
     private String email;
     private String password;
     private Date birthDate;
-    private List<Book> books = new ArrayList<>();
+    private List<BookDTO> books = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -39,7 +39,7 @@ public class UserDTO implements Serializable {
         return birthDate;
     }
 
-    public List<Book> getBooks() {
+    public List<BookDTO> getBooks() {
         return books;
     }
 
@@ -63,7 +63,7 @@ public class UserDTO implements Serializable {
         this.birthDate = birthDate;
     }
 
-    public void setBooks(List<Book> books) {
+    public void setBooks(List<BookDTO> books) {
         this.books = books;
     }
 }

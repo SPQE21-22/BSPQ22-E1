@@ -1,7 +1,5 @@
 package server;
-
 import server.data.domain.Book;
-
 import java.util.Date;
 
 public class Main {
