@@ -20,7 +20,6 @@ public interface IRemoteFacade extends Remote {
     BookDTO getBookByName(String name) throws RemoteException;
     void addBook(String name, String author, Date publishDate, Boolean available) throws RemoteException;
     void deleteBook(String name) throws RemoteException;
-
     String getA() throws RemoteException;
 
 /*    public void getListedRooms() throws RemoteException;

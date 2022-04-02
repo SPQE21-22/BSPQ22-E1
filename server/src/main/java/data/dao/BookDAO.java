@@ -22,7 +22,6 @@ public class BookDAO extends DAOBase implements IDAO<Book> {
         return instance;
     }
 
-
     @Override
     public void save(Book book) {
         super.saveObject(book);
@@ -72,7 +71,7 @@ public class BookDAO extends DAOBase implements IDAO<Book> {
         try {
             tx.begin();
 
-            Query<?> query = pm.newQuery("SELECT FROM " + Book.class.getName() + " WHERE id == " + param);
+            Query<?> query = pm.newQuery("SELECT FROM " + Book.class.getName() + " WHERE titulo == " + param);
             query.setUnique(true);
             challenge = (Book) query.execute();
 
