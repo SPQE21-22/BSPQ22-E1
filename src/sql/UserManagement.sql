@@ -1,4 +1,0 @@
-/* DELETE 'libraryDB' database*/
-DROP SCHEMA IF EXISTS libraryDB;
-/* DELETE USER 'sd' AT LOCAL SERVER*/
-DROP USER IF EXISTS ''@'%';
