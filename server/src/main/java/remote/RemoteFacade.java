@@ -28,8 +28,8 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade{
     }
 
     @Override
-    public long register(int id, String name, String email, String password, Date birthDate, List<Book> books) throws RemoteException {
-        User registerUser = LoginAppService.getInstance().register(id, name, email, password, birthDate, books);
+    public long register(String name, String email, String password, Date birthDate, List<Book> books) throws RemoteException {
+        User registerUser = LoginAppService.getInstance().register(name, email, password, birthDate, books);
         if (registerUser != null) {
             long token = Calendar.getInstance().getTimeInMillis();
             this.tokenState.put(token, registerUser);
@@ -106,6 +106,13 @@ public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade{
     public void deleteBook(String name) throws RemoteException {
         BookAppService.getInstance().deleteBook(name);
         System.out.println("Deleted book: '" + name + "'");
+    }
+
+    @Override
+    public boolean updateBook(String name, String author, Date publishDate, Boolean available) throws RemoteException {
+        BookAppService.getInstance().updateBook(name, author, publishDate, available);
+        System.out.println("Book updated: '" + name + "'");
+        return true;
     }
 
     @Override

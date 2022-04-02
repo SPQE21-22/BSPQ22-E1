@@ -4,10 +4,8 @@ import remote.ClientServiceLocator;
 import data.dto.BookDTO;
 
 import java.rmi.RemoteException;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 public class LibraryController {
     private final ClientServiceLocator serviceLocator;
@@ -45,6 +43,14 @@ public class LibraryController {
     public void deleteBook(String name) {
         try {
             this.serviceLocator.getService().deleteBook(name);
+        } catch (RemoteException e) {
+            System.out.println(" - Error: could not delete book. " + e);
+        }
+    }
+
+    public void updateBook(String name, String author, Date publishDate, Boolean available) {
+        try {
+            this.serviceLocator.getService().updateBook(name, author, publishDate, available);
         } catch (RemoteException e) {
             System.out.println(" - Error: could not delete book. " + e);
         }

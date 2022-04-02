@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args){
         String name = "//" + args[0] + ":" + args[1] + "/" + args[2];
         try {
-            IRemoteFacade remoteFacade = new RemoteFacade();
+            RemoteFacade remoteFacade = new RemoteFacade();
             Registry registry = LocateRegistry.createRegistry(8080);
             registry.rebind(name, remoteFacade);
             System.out.println(" - Library server '" + name + "' started");

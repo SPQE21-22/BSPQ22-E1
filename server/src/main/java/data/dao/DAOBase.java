@@ -1,12 +1,14 @@
 package data.dao;
 
+import data.dto.BookDTO;
+
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.PersistenceManagerFactory;
 import javax.jdo.Transaction;
 
 //This class defines the basic methods of the DAO pattern.
-public class DAOBase {
+public abstract class DAOBase {
     protected static PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("datanucleus.properties");
 
     public void deleteObject(Object object) {
