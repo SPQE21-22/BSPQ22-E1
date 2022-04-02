@@ -33,6 +33,11 @@ public class UserDAO extends DAOBase implements IDAO<User> {
     }
 
     @Override
+    public boolean update(User object) {
+        return false;
+    }
+
+    @Override
     public List<User> getAll() {
         PersistenceManager pm = pmf.getPersistenceManager();
         Transaction tx = pm.currentTransaction();
