@@ -13,14 +13,19 @@ import service.LoginAppService;
 
 import java.io.Serial;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.Date;
 import java.util.List;
 import java.util.*;
 
-public class RemoteFacade implements IRemoteFacade{
+public class RemoteFacade extends UnicastRemoteObject implements IRemoteFacade{
     @Serial
     private static final long serialVersionUID = 1L;
     public Map<Long, User> tokenState = new HashMap<>();
+
+    public RemoteFacade() throws RemoteException {
+        super();
+    }
 
     @Override
     public long register(int id, String name, String email, String password, Date birthDate, List<Book> books) throws RemoteException {
@@ -101,5 +106,10 @@ public class RemoteFacade implements IRemoteFacade{
     public void deleteBook(String name) throws RemoteException {
         BookAppService.getInstance().deleteBook(name);
         System.out.println("Deleted book: '" + name + "'");
+    }
+
+    @Override
+    public String getA() throws RemoteException {
+        return BookAppService.getInstance().getA();
     }
 }

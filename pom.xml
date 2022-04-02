@@ -8,50 +8,24 @@
     <artifactId>library</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <properties>
-        <config.files.dir>${basedir}/src/main/resources</config.files.dir>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <policy.file>${basedir}/resources/security/java.policy</policy.file>
-        <doxygen.config.file>${basedir}/src/main/resources/Doxyfile</doxygen.config.file>
-        <server.IP>127.0.0.1</server.IP>
-        <server.port>1099</server.port>
-        <server.Name>BSPQ19-S4</server.Name>
-    </properties>
-<dependencies>
-    <dependency>
-        <groupId>org.datanucleus</groupId>
-        <artifactId>datanucleus-core</artifactId>
-        <version>[5.1.6, 5.9)</version>
-    </dependency>
-    <dependency>
-        <groupId>org.datanucleus</groupId>
-        <artifactId>datanucleus-api-jdo</artifactId>
-        <version>[5.1.4, 5.9)</version>
-    </dependency>
-    <dependency>
-        <groupId>org.datanucleus</groupId>
-        <artifactId>datanucleus-rdbms</artifactId>
-        <version>[5.1.6, 5.9)</version>
-    </dependency>
-    <dependency>
-        <groupId>org.datanucleus</groupId>
-        <artifactId>javax.jdo</artifactId>
-        <version>[3.2.0-m8, )</version>
-    </dependency>
-    <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>8.0.23</version>
-    </dependency>
-</dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>javax.jdo</artifactId>
+            <version>3.2.0-release</version>
+        </dependency>
+    </dependencies>
 
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.0.0</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>18</source>
+                    <target>18</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -59,5 +33,14 @@
         <module>client</module>
         <module>server</module>
     </modules>
+
+    <properties>
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <server.hostname>127.0.0.1</server.hostname>
+        <server.port>8080</server.port>
+        <server.name>library</server.name>
+    </properties>
 
 </project>

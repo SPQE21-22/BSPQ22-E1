@@ -41,4 +41,8 @@ public class BookAppService {
         Book book = getBookByName(name);
         BookDAO.getInstance().delete(book);
     }
+
+    public String getA(){
+        return "AAHH";
+    }
 }

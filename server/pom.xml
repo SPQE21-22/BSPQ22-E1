@@ -12,15 +12,20 @@
     <artifactId>server</artifactId>
     <build>
         <plugins>
-        <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <version>3.0.0</version>
-            <configuration>
-                <mainClass>Main</mainClass>
-            </configuration>
-        </plugin>
-    </plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <mainClass>Main</mainClass>
+                    <arguments>
+                        <argument>${server.hostname}</argument>
+                        <argument>${server.port}</argument>
+                        <argument>${server.name}</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 </project>
