@@ -1,5 +1,7 @@
 package server.service;
 
+import server.data.dao.BookDAO;
+import server.data.dao.UserDAO;
 import server.data.domain.Book;
 import server.data.domain.User;
 
@@ -19,12 +21,12 @@ public class LoginAppService {
     public User register(int id, String name, String email, String password, Date birthDate, List<Book> books) throws RemoteException {
         User user = new User(id, name, email, password, birthDate, books);
         System.out.println(" - Added new user: " + name + " - " + email);
-        //UserDAO.getInstance().save(user);
+        UserDAO.getInstance().save(user);
         return user;
     }
 
     public User login(String email, String password){
-        User user = new User(0,"Paco","paco@gmail.com","12345",null,null); //TODO sacar de la BD
+        User user = UserDAO.getInstance().find(email);
         boolean check;
 
         if (user.getEmail() == email && user != null) {
@@ -43,10 +45,7 @@ public class LoginAppService {
         }
     }
 
-    public void logout(long token){
-
-    }
-    public void deleteUser(long token) throws RemoteException {
-
+    public void deleteUser(User user) throws RemoteException {
+        UserDAO.getInstance().delete(user);
     }
 }

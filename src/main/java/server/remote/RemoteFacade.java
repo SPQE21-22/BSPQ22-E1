@@ -6,6 +6,8 @@ import server.data.domain.Book;
 import server.data.domain.User;
 import server.data.dto.BookAssembler;
 import server.data.dto.BookDTO;
+import server.data.dto.UserAssembler;
+import server.data.dto.UserDTO;
 import server.service.BookAppService;
 import server.service.LoginAppService;
 
@@ -67,8 +69,9 @@ public class RemoteFacade implements IRemoteFacade{
     }
 
     @Override
-    public void deleteUser(long token) throws RemoteException {
-
+    public void deleteUser(User user) throws RemoteException {
+        LoginAppService.getInstance().deleteUser(user);
+        System.out.println("User deleted '" + user.getName() + "'");
     }
 
     @Override
@@ -91,11 +94,12 @@ public class RemoteFacade implements IRemoteFacade{
     @Override
     public void addBook(String name, String author, Date publishDate, Boolean available) throws RemoteException {
         BookAppService.getInstance().addBook(name, author, publishDate, available);
-        System.out.println("Created new challenge '" + name + "'");
+        System.out.println("Added new book: '" + name + "'");
     }
 
     @Override
     public void deleteBook(String name) throws RemoteException {
-
+        BookAppService.getInstance().deleteBook(name);
+        System.out.println("Deleted book: '" + name + "'");
     }
 }

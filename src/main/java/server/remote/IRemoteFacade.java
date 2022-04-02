@@ -12,7 +12,7 @@ public interface IRemoteFacade {
     long register(int id, String name, String email, String password, Date birthDate, List<Book> books) throws RemoteException;
     long login(String email, String password) throws RemoteException;
     void logout(long token) throws RemoteException;
-    void deleteUser(long token) throws RemoteException;
+    void deleteUser(User user) throws RemoteException;
 
 
     List<BookDTO> getListedBooks() throws RemoteException;
