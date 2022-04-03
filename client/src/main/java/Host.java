@@ -4,9 +4,13 @@ import data.domain.Book;
 import data.dto.BookDTO;
 import remote.ClientServiceLocator;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import GUI.*;
+
+import javax.swing.*;
 
 public class Host{
 
@@ -15,13 +19,14 @@ public class Host{
         String port = args[1];
         String name = args[2];
 
-        ClientServiceLocator serviceLocator = new ClientServiceLocator();
-        serviceLocator.setService(args[0], args[1], args[2]);
+        //ClientServiceLocator serviceLocator = new ClientServiceLocator();
+        //serviceLocator.setService(args[0], args[1], args[2]);
+        //UserController userController = new UserController(serviceLocator);
+        //LibraryController libraryController = new LibraryController(serviceLocator);
+        //TODO pasarle los controller como parametros a la ventana
+        SwingUtilities.invokeLater(() -> new MainWindow());
 
-        UserController userController = new UserController(serviceLocator);
-        LibraryController libraryController = new LibraryController(serviceLocator);
-
-        System.out.println("Hola soy el cliente");
+        /*
 
         //COSAS DE LA PESTAÑA DE LOGIN
         String email = "paco@gmail.com";
@@ -52,6 +57,8 @@ public class Host{
         System.out.println("Boton para reservar");
         BookDTO book= libraryController.getBookByName(titulo);
         libraryController.deleteBook(book.getName());
-        libraryController.addBook(titulo, autor, publishDate, disponible);        System.out.println("Te devuelve a la pestaña de listado en la que ya no se ve este libro");
+        libraryController.addBook(titulo, autor, publishDate, disponible);
+        System.out.println("Te devuelve a la pestaña de listado en la que ya no se ve este libro");
+        */
     }
 }
