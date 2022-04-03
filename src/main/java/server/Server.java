@@ -15,11 +15,16 @@ import server.data.domain.User;
 public class Server {
 
     private List<User> listaUsuarios;
+    private List<Book> listaLibros;
 
     public Server(){
         listaUsuarios= new ArrayList<User>();
         listaUsuarios.add(new User("Alex", "a@mail", "1234", new Date(), new ArrayList<Book>()));
         listaUsuarios.add(new User("Ruben", "r@mail", "1234", new Date(), new ArrayList<Book>()));
+
+        listaLibros= new ArrayList<Book>();
+        listaLibros.add(new Book("El camino", "BD", new Date(), true));
+        listaLibros.add(new Book("El imperio", "BD", new Date(), true));
     };
 
     @GET
@@ -45,6 +50,22 @@ public class Server {
         this.listaUsuarios.add(userRequest);
         //return Response.status(Status.CREATED).build();
         return Response.ok(listaUsuarios).build();
+
+    }
+
+    @GET
+    @Path("/books")
+    public Response getBooks() {
+        return Response.ok(this.listaLibros).build();
+    }
+
+    @POST
+    @Path("/addBook")
+    public Response createUser(Book book) {
+
+        this.listaLibros.add(book);
+        //return Response.status(Status.CREATED).build();
+        return Response.ok(listaLibros).build();
 
     }
 
