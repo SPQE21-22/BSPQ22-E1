@@ -1,7 +1,15 @@
 package client.GUI;
 
 import javax.swing.*;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 import client.controller.*;
+import server.data.domain.User;
+
 import java.awt.*;
 
 public class LoginDialog extends JDialog {
@@ -15,7 +23,6 @@ public class LoginDialog extends JDialog {
         this.setMinimumSize(new Dimension(300, 200));
         this.email = new JTextField();
         this.password = new JPasswordField();
-        //this.userController = userController;
 
         JLabel emailLabel = new JLabel("Email");
         JLabel passwordLabel = new JLabel("Password");
@@ -25,15 +32,22 @@ public class LoginDialog extends JDialog {
         submitButton.addActionListener(actionEvent -> {
             if (!this.getEmail().isEmpty() && this.password.getPassword().length != 0) {
                 //boolean loginResult = this.userController.login(this.getEmail(), this.getPassword()));
-                boolean loginResult = false;
-                if (this.getEmail().equals("paco@gmail.com") && this.getPassword().equals("1234")){
-                    loginResult = true;
-                }
-                if (loginResult) {
-                    mainWindow.getTabbedPane().setVisible(true);
-                    this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(this, "Wrong email/password.", "Error", JOptionPane.ERROR_MESSAGE);
+                WebTarget loginwebtarget = mainWindow.webTarget.path("users/"+this.getEmail());
+                Invocation.Builder invocationBuilder = loginwebtarget.request(MediaType.APPLICATION_JSON);
+                Response response = invocationBuilder.get();
+                System.out.println("EOOOOOOOOOOOOOOOOO");
+                if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+                    User user = response.readEntity(User.class);
+                    boolean loginResult = false;
+                    if (this.getEmail().equals(user.getEmail()) && this.getPassword().equals(user.getPassword())){
+                        loginResult = true;
+                    }
+                    if (loginResult) {
+                        mainWindow.getTabbedPane().setVisible(true);
+                        this.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Wrong email/password.", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Please fill in all fields.", "Error", JOptionPane.ERROR_MESSAGE);
