@@ -1,11 +1,18 @@
 package client.GUI;
 
+import server.data.domain.Book;
+import server.data.domain.User;
+import server.data.dto.BookDTO;
+import server.data.dto.UserDTO;
+
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Font;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -77,7 +84,9 @@ public class GuiLogin extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (!textEmail.getText().isEmpty() && !textPasword.getText().isEmpty()) {
                     if (textEmail.getText().equals("prueba") && textPasword.getText().equals("1234")) {
-                        new GuiMain();
+                        UserDTO u = new UserDTO();
+                        ArrayList<BookDTO> ab = new ArrayList<BookDTO>();
+                        new GuiMain(u, ab);
                         guiLogin.dispose();
                     } else {
                         JOptionPane.showMessageDialog((Component)null, "Incorrect email or password.", "Error", 0);

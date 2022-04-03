@@ -1,18 +1,20 @@
 package client.GUI;
 
+import server.data.domain.Book;
+import server.data.domain.User;
+import server.data.dto.BookDTO;
+import server.data.dto.UserDTO;
+
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import javax.swing.JButton;
-import javax.swing.JFormattedTextField;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JSeparator;
-import javax.swing.JTextField;
+import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.*;
 
 public class GuiCreateBook extends JFrame {
     private static JFrame guiCreateBook;
@@ -30,7 +32,7 @@ public class GuiCreateBook extends JFrame {
     private Font arialBlack13;
     private Font arialBlack30;
 
-    public GuiCreateBook() {
+    public GuiCreateBook(UserDTO u, ArrayList<BookDTO> ab) {
         guiCreateBook = new JFrame();
         labelTitle = new JLabel("CREATE BOOK");
         separatorTop = new JSeparator();
@@ -83,19 +85,33 @@ public class GuiCreateBook extends JFrame {
         buttonCancel.setFont(arialBlack13);
         buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new GuiMain();
-                GuiCreateBook.guiCreateBook.dispose();
+                new GuiMain(u, ab);
+                guiCreateBook.dispose();
             }
         });
         buttonCancel.setBounds(40, 258, 92, 25);
         buttonCreate.setFont(arialBlack13);
         buttonCreate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new GuiMain();
-                GuiCreateBook.guiCreateBook.dispose();
+
+                if (valid()){
+                    BookDTO b0 = new BookDTO();
+                    b0.setName(textName.getText());
+                    b0.setAuthor(textAuthor.getText());
+                    b0.setPublishDate(datePublish());
+                    b0.setAvailable(true);
+
+                    ab.add(b0);
+                    System.out.println(ab.get(0));
+                    new GuiMain(u, ab);
+                    guiCreateBook.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please, fill in all the data.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         buttonCreate.setBounds(186, 259, 92, 25);
+
         guiCreateBook.getContentPane().add(labelTitle);
         guiCreateBook.getContentPane().add(separatorTop);
         guiCreateBook.getContentPane().add(labelName);
@@ -107,5 +123,21 @@ public class GuiCreateBook extends JFrame {
         guiCreateBook.getContentPane().add(separatorBottom);
         guiCreateBook.getContentPane().add(buttonCancel);
         guiCreateBook.getContentPane().add(buttonCreate);
+    }
+
+    private Date datePublish(){
+        String publishStr = textDate.getText();
+        SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+        Date publishDate = new Date();
+        try {
+            f.parse(publishStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return publishDate;
+    }
+
+    private boolean valid(){
+        return !textName.getText().isEmpty() && !textAuthor.getText().isEmpty() && !textDate.getText().isEmpty();
     }
 }

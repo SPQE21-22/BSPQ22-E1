@@ -5,18 +5,23 @@
 
 package client.GUI;
 
+import server.data.domain.Book;
+import server.data.domain.User;
+import server.data.dto.BookDTO;
+import server.data.dto.UserDTO;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JSeparator;
-import javax.swing.JSpinner;
-import javax.swing.JTextField;
-import javax.swing.SpinnerNumberModel;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import javax.swing.*;
 
 public class GuiSignUp extends JFrame {
     private static JFrame guiSignUp;
@@ -29,9 +34,7 @@ public class GuiSignUp extends JFrame {
     private JLabel labelPassword;
     private JTextField textPassword;
     private JLabel labelDob;
-    private JSpinner spinnerDay;
-    private JSpinner spinnerMonth;
-    private JSpinner spinnerYear;
+    private JFormattedTextField textDob;
     private JSeparator separatorBottom;
     private JButton buttonSignUp;
     private Font arialBlack13;
@@ -48,9 +51,8 @@ public class GuiSignUp extends JFrame {
         labelPassword = new JLabel("PASSWORD");
         textPassword = new JTextField();
         labelDob = new JLabel("DATE OF BIRTH (day, month, year)");
-        spinnerDay = new JSpinner();
-        spinnerMonth = new JSpinner();
-        spinnerYear = new JSpinner();
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        textDob = new JFormattedTextField(df);
         separatorBottom = new JSeparator();
         buttonSignUp = new JButton("SIGN UP");
 
@@ -85,13 +87,7 @@ public class GuiSignUp extends JFrame {
 
         labelDob.setFont(arialBlack13);
         labelDob.setBounds(40, 245, 218, 16);
-        spinnerDay.setModel(new SpinnerNumberModel(0, 0, 31, 1));
-
-        spinnerDay.setBounds(40, 272, 39, 21);
-        spinnerMonth.setModel(new SpinnerNumberModel(0, 0, 12, 1));
-        spinnerMonth.setBounds(78, 272, 39, 21);
-        spinnerYear.setModel(new SpinnerNumberModel(2000, 1922, 2022, 1));
-        spinnerYear.setBounds(112, 272, 63, 21);
+        textDob.setBounds(40, 272, 238, 20);
 
         separatorBottom.setForeground(Color.BLACK);
         separatorBottom.setBackground(Color.BLACK);
@@ -101,6 +97,36 @@ public class GuiSignUp extends JFrame {
         buttonSignUp.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                if (valid()){
+                    BookDTO b0 = new BookDTO();
+                    b0.setName("b0");
+                    b0.setAuthor("b0");
+                    b0.setPublishDate(new Date());
+                    b0.setAvailable(true);
+                    BookDTO b1 = new BookDTO();
+                    b1.setName("b1");
+                    b1.setAuthor("b1");
+                    b1.setPublishDate(new Date());
+                    b1.setAvailable(true);
+                    ArrayList<BookDTO> prueba = new ArrayList<BookDTO>();
+                    prueba.add(b1);
+                    prueba.add(b0);
+
+                    UserDTO u0 = new UserDTO();
+                    u0.setName(textName.getText());
+                    u0.setEmail(textEmail.getText());
+                    u0.setPassword(textPassword.getText());
+                    u0.setBirthDate(dateDob());
+                    u0.setBooks(prueba);
+
+                    ArrayList<BookDTO> ab = new ArrayList<BookDTO>();
+
+                    new GuiMain(u0, ab);
+                    guiSignUp.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please, fill in all the data.", "Error", JOptionPane.ERROR_MESSAGE);
+                }
 
             }
         });
@@ -115,10 +141,24 @@ public class GuiSignUp extends JFrame {
         guiSignUp.getContentPane().add(labelPassword);
         guiSignUp.getContentPane().add(textPassword);
         guiSignUp.getContentPane().add(labelDob);
-        guiSignUp.getContentPane().add(spinnerDay);
-        guiSignUp.getContentPane().add(spinnerMonth);
-        guiSignUp.getContentPane().add(spinnerYear);
+        guiSignUp.getContentPane().add(textDob);
         guiSignUp.getContentPane().add(separatorBottom);
         guiSignUp.getContentPane().add(buttonSignUp);
+    }
+
+    private Date dateDob(){
+        String dobStr = textDob.getText();
+        SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+        Date dobD = new Date();
+        try {
+            f.parse(dobStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return dobD;
+    }
+
+    private boolean valid(){
+        return !textName.getText().isEmpty() && !textEmail.getText().isEmpty() && !textPassword.getText().isEmpty() && !textDob.getText().isEmpty();
     }
 }

@@ -1,16 +1,15 @@
 package client.GUI;
 
+import server.data.dto.BookDTO;
+import server.data.dto.UserDTO;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JSeparator;
+import java.util.ArrayList;
+import javax.swing.*;
 
 public class GuiMain extends JFrame {
     private static JFrame guiMain;
@@ -23,10 +22,13 @@ public class GuiMain extends JFrame {
     private JPanel panel;
     private JMenu menuAdmin;
     private JMenuItem menuItemAddBook;
+
     private Font arialBlack13;
     private Font arial13;
 
-    public GuiMain() {
+    public ArrayList<BookDTO> ab = new ArrayList<>();
+
+    public GuiMain(UserDTO u, ArrayList<BookDTO> ab) {
         guiMain = new JFrame();
         menuBar = new JMenuBar();
         menuUser = new JMenu("USER");
@@ -37,6 +39,8 @@ public class GuiMain extends JFrame {
         menuAdmin = new JMenu("ADMIN");
         menuItemAddBook = new JMenuItem("Add Book");
         panel = new JPanel();
+
+        loadBooks();
 
         arialBlack13 = new Font("Arial", 1, 13);
         arial13 = new Font("Arial", 0, 13);
@@ -56,7 +60,7 @@ public class GuiMain extends JFrame {
         menuItemUserInfo.setFont(arial13);
         menuItemUserInfo.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new GuiUser();
+                new GuiUser(u, ab);
                 guiMain.dispose();
             }
         });
@@ -89,7 +93,7 @@ public class GuiMain extends JFrame {
         menuItemAddBook.setFont(arial13);
         menuItemAddBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new GuiCreateBook();
+                new GuiCreateBook(u, ab);
                 guiMain.dispose();
             }
         });
@@ -100,5 +104,13 @@ public class GuiMain extends JFrame {
 
         guiMain.getContentPane().add(menuBar);
         guiMain.getContentPane().add(panel);
+    }
+
+    private void loadBooks(){
+        for (BookDTO book:ab) {
+            JButton button = new JButton(book.getName());
+            panel.add(button);
+        }
+        panel.revalidate();
     }
 }
