@@ -11,8 +11,20 @@ public class BookDTO implements Serializable {
     private String author;
     private Date publishDate;
     private Boolean available;
+    
+    public BookDTO() {
+		super();
+	}
 
-    public String getName() {
+	public BookDTO(String name, String author, Date publishDate, Boolean available) {
+		super();
+		this.name = name;
+		this.author = author;
+		this.publishDate = publishDate;
+		this.available = available;
+	}
+
+	public String getName() {
         return name;
     }
 

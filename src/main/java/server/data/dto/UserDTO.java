@@ -4,6 +4,7 @@ import server.data.domain.Book;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,7 +20,23 @@ public class UserDTO implements Serializable {
     private Date birthDate;
     private List<BookDTO> books = new ArrayList<>();
 
-    public int getId() {
+    public UserDTO(int id, String name, String email, String password, Date birthDate, Array array) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.birthDate = birthDate;
+		this.books = (List<BookDTO>) array;
+	}
+    
+
+	public UserDTO() {
+		super();
+	}
+
+
+	public int getId() {
         return id;
     }
 
