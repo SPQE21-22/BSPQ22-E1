@@ -37,7 +37,7 @@ public class GuiLogin extends JFrame {
     private Font arialBlack30;
     private Font arial13;
 
-    public GuiLogin() {
+    public GuiLogin(String hostname, String port) {
         guiLogin = new JFrame();
         labelTittle = new JLabel("LOGIN");
         labelEmail = new JLabel("E-MAIL");
@@ -86,7 +86,19 @@ public class GuiLogin extends JFrame {
                     if (textEmail.getText().equals("prueba") && textPasword.getText().equals("1234")) {
                         UserDTO u = new UserDTO();
                         ArrayList<BookDTO> ab = new ArrayList<BookDTO>();
-                        new GuiMain(u, ab);
+                        BookDTO b0 = new BookDTO();
+                        b0.setName("El imperio final");
+                        b0.setAuthor("Brandon Sanderson");
+                        b0.setPublishDate(new Date());
+                        b0.setAvailable(true);
+                        ab.add(b0);
+                        BookDTO b1 = new BookDTO();
+                        b1.setName("El pozo de la ascension");
+                        b1.setAuthor("Brandon Sanderson");
+                        b1.setPublishDate(new Date());
+                        b1.setAvailable(false);
+                        ab.add(b1);
+                        new GuiMain(u, ab, hostname, port);
                         guiLogin.dispose();
                     } else {
                         JOptionPane.showMessageDialog((Component)null, "Incorrect email or password.", "Error", 0);
@@ -105,7 +117,7 @@ public class GuiLogin extends JFrame {
         buttonSignUp.setFont(arialBlack13);
         buttonSignUp.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new GuiSignUp();
+                new GuiSignUp(hostname, port);
                 GuiLogin.guiLogin.dispose();
             }
         });

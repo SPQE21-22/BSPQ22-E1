@@ -32,7 +32,7 @@ public class GuiCreateBook extends JFrame {
     private Font arialBlack13;
     private Font arialBlack30;
 
-    public GuiCreateBook(UserDTO u, ArrayList<BookDTO> ab) {
+    public GuiCreateBook(UserDTO u, ArrayList<BookDTO> ab, String hostname, String port) {
         guiCreateBook = new JFrame();
         labelTitle = new JLabel("CREATE BOOK");
         separatorTop = new JSeparator();
@@ -85,7 +85,7 @@ public class GuiCreateBook extends JFrame {
         buttonCancel.setFont(arialBlack13);
         buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new GuiMain(u, ab);
+                new GuiMain(u, ab, hostname, port);
                 guiCreateBook.dispose();
             }
         });
@@ -102,7 +102,7 @@ public class GuiCreateBook extends JFrame {
                     b0.setAvailable(true);
 
                     ab.add(b0);
-                    new GuiMain(u, ab);
+                    new GuiMain(u, ab, hostname, port);
                     guiCreateBook.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Please, fill in all the data.", "Error", JOptionPane.ERROR_MESSAGE);

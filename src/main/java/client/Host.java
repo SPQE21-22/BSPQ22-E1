@@ -17,8 +17,8 @@ import javax.swing.*;
 public class Host{
 
     public static void main(String[] args){
-        //String hostname = args[0];
-        //String port = args[1];
+        String hostname = args[0];
+        String port = args[1];
 
         //ClientServiceLocator serviceLocator = new ClientServiceLocator();
         //serviceLocator.setService(args[0], args[1], args[2]);
@@ -30,7 +30,7 @@ public class Host{
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new GuiLogin();
+                new GuiLogin(hostname, port);
             }
         });
 

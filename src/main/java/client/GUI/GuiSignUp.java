@@ -40,7 +40,7 @@ public class GuiSignUp extends JFrame {
     private Font arialBlack13;
     private Font arialBlack30;
 
-    public GuiSignUp() {
+    public GuiSignUp(String hostname, String port) {
         guiSignUp = new JFrame();
         separatorTop = new JSeparator();
         labelTitle = new JLabel("SIGN UP");
@@ -122,7 +122,7 @@ public class GuiSignUp extends JFrame {
 
                     ArrayList<BookDTO> ab = new ArrayList<BookDTO>();
 
-                    new GuiMain(u0, ab);
+                    new GuiMain(u0, ab, hostname, port);
                     guiSignUp.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Please, fill in all the data.", "Error", JOptionPane.ERROR_MESSAGE);

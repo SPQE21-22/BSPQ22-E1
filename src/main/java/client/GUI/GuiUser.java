@@ -30,7 +30,7 @@ public class GuiUser extends JFrame {
     private Font arial13;
     private Font arialBlack30;
 
-    public GuiUser(UserDTO u, ArrayList<BookDTO> ab){
+    public GuiUser(UserDTO u, ArrayList<BookDTO> ab, String hostname, String port){
         guiUser = new JFrame();
         labelTitle = new JLabel("USER INFORMATION");
         separatorTop = new JSeparator();
@@ -96,7 +96,7 @@ public class GuiUser extends JFrame {
         buttonBack.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new GuiMain(u, ab);
+                new GuiMain(u, ab, hostname, port);
                 guiUser.dispose();
             }
         });
