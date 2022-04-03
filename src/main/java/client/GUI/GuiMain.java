@@ -26,8 +26,6 @@ public class GuiMain extends JFrame {
     private Font arialBlack13;
     private Font arial13;
 
-    public ArrayList<BookDTO> ab = new ArrayList<>();
-
     public GuiMain(UserDTO u, ArrayList<BookDTO> ab) {
         guiMain = new JFrame();
         menuBar = new JMenuBar();
@@ -39,8 +37,7 @@ public class GuiMain extends JFrame {
         menuAdmin = new JMenu("ADMIN");
         menuItemAddBook = new JMenuItem("Add Book");
         panel = new JPanel();
-
-        loadBooks();
+        panel.setVisible(true);
 
         arialBlack13 = new Font("Arial", 1, 13);
         arial13 = new Font("Arial", 0, 13);
@@ -103,14 +100,14 @@ public class GuiMain extends JFrame {
         panel.setLayout(new GridLayout(10, 10, 0, 0));
 
         guiMain.getContentPane().add(menuBar);
-        guiMain.getContentPane().add(panel);
+        guiMain.getContentPane().add(loadBooks(panel, ab));
     }
 
-    private void loadBooks(){
-        for (BookDTO book:ab) {
-            JButton button = new JButton(book.getName());
-            panel.add(button);
+    private JPanel loadBooks(JPanel p2, ArrayList<BookDTO> ab2){
+        for (int i = 0; i < ab2.size(); i++){
+            JButton button = new JButton(ab2.get(i).getName());
+            p2.add(button);
         }
-        panel.revalidate();
+        return p2;
     }
 }

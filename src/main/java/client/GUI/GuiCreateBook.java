@@ -102,7 +102,6 @@ public class GuiCreateBook extends JFrame {
                     b0.setAvailable(true);
 
                     ab.add(b0);
-                    System.out.println(ab.get(0));
                     new GuiMain(u, ab);
                     guiCreateBook.dispose();
                 } else {
