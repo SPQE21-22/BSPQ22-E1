@@ -3,11 +3,12 @@ package server.data.domain;
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @PersistenceCapable(detachable="true")
-public class User {
+public class User implements Serializable {
     @PrimaryKey
     private String name;
     private String email;

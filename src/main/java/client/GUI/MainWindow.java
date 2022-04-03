@@ -6,6 +6,9 @@ import server.data.domain.Book;
 import server.data.dto.BookDTO;
 
 import javax.swing.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.io.Serial;
@@ -26,6 +29,9 @@ public class MainWindow extends JFrame {
     private final JTabbedPane tabbedPane;
     private JPanel sessionsPanel;
 
+    Client client;
+    WebTarget webTarget;
+
     private BookModel bookModel;
     private JList<BookDTO> booksJList;    // Contains all user training sessions
     List<BookDTO> bookstoadd = new ArrayList<>();
@@ -37,6 +43,9 @@ public class MainWindow extends JFrame {
 
     public MainWindow(String hostname, String port) {
         ///////////////////// 1. Settings /////////////////////
+        client = ClientBuilder.newClient();
+        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+
         generateBooks();
         setTitle("Library");
         setSize(650, 400);

@@ -1,5 +1,11 @@
 package client.GUI;
 import javax.swing.*;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
 import client.controller.*;
 import server.data.domain.Book;
 import server.data.domain.User;
@@ -44,7 +50,13 @@ public class RegisterDialog extends JDialog {
                 boolean registerResult = false;
                 try {
                     User reguser = new User(this.getName(), this.getEmail(), this.getPassword(), this.getBirthDate(), new ArrayList<Book>());
-                    registerResult = true;
+                    WebTarget registerWebTarget = mainWindow.webTarget.path("users/createUser");
+                    Invocation.Builder invocationBuilder = registerWebTarget.request(MediaType.APPLICATION_JSON);
+
+                    Response response = invocationBuilder.post(Entity.entity(reguser, MediaType.APPLICATION_JSON));
+                    if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+                        registerResult = true;
+                    }
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
