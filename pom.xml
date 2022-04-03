@@ -5,9 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>library</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>BSPQ22-E1</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <server.hostname>127.0.0.1</server.hostname>
+        <server.port>8080</server.port>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.datanucleus</groupId>
@@ -47,15 +53,15 @@
         </dependency>
     </dependencies>
 
-
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
                 <configuration>
-                    <source>18</source>
-                    <target>18</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
             <plugin>
@@ -63,20 +69,58 @@
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.4.19.v20190610</version>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>14</source>
+                    <target>14</target>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
-    <modules>
-        <module>client</module>
-        <module>server</module>
-    </modules>
 
-    <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <server.hostname>127.0.0.1</server.hostname>
-        <server.port>8080</server.port>
-        <server.name>library</server.name>
-    </properties>
+    <profiles>
+        <!-- run as 'mvn exec:java -Pmanager' -->
+        <profile>
+            <id>manager</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.2.1</version>
+                        <configuration>
+                            <mainClass>server.Main</mainClass>
+                            <arguments>
+                                <argument>${server.hostname}</argument>
+                                <argument>${server.port}</argument>
+                            </arguments>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 
+        <profile>
+            <!-- run as 'mvn exec:java -Pclient' -->
+            <id>client</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.2.1</version>
+                        <configuration>
+                            <mainClass>client.Host</mainClass>
+                            <arguments>
+                                <argument>${server.hostname}</argument>
+                                <argument>${server.port}</argument>
+                            </arguments>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>

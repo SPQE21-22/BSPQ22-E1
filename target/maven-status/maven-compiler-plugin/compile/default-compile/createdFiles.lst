@@ -1,0 +1,5 @@
+client\GUI\MainWindow$BookModel.class
+client\GUI\GuiLogin$1.class
+client\GUI\GuiSignUp$1.class
+client\GUI\GuiLogin$2.class
+server\Server.class
