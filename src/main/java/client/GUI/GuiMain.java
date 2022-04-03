@@ -9,7 +9,11 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
 
 public class GuiMain extends JFrame {
     private static JFrame guiMain;
@@ -22,11 +26,15 @@ public class GuiMain extends JFrame {
     private JPanel panel;
     private JMenu menuAdmin;
     private JMenuItem menuItemAddBook;
-
+    Client client;
+    WebTarget webTarget;
     private Font arialBlack13;
     private Font arial13;
 
-    public GuiMain(UserDTO u, ArrayList<BookDTO> ab) {
+    public GuiMain(UserDTO u, ArrayList<BookDTO> ab, String hostname, String port) {
+        client = ClientBuilder.newClient();
+        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+
         guiMain = new JFrame();
         menuBar = new JMenuBar();
         menuUser = new JMenu("USER");
@@ -57,7 +65,7 @@ public class GuiMain extends JFrame {
         menuItemUserInfo.setFont(arial13);
         menuItemUserInfo.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new GuiUser(u, ab);
+                new GuiUser(u, ab, hostname, port);
                 guiMain.dispose();
             }
         });
@@ -66,7 +74,7 @@ public class GuiMain extends JFrame {
         menuItemLogOut.setFont(arial13);
         menuItemLogOut.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new GuiLogin();
+                new GuiLogin(hostname, port);
                 guiMain.dispose();
             }
         });
@@ -90,7 +98,7 @@ public class GuiMain extends JFrame {
         menuItemAddBook.setFont(arial13);
         menuItemAddBook.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new GuiCreateBook(u, ab);
+                new GuiCreateBook(u, ab, hostname, port);
                 guiMain.dispose();
             }
         });
@@ -104,9 +112,13 @@ public class GuiMain extends JFrame {
     }
 
     private JPanel loadBooks(JPanel p2, ArrayList<BookDTO> ab2){
+        p2.removeAll();
+
         for (int i = 0; i < ab2.size(); i++){
-            JButton button = new JButton(ab2.get(i).getName());
-            p2.add(button);
+            if(ab2.get(i).getAvailable()){
+                JButton button = new JButton(ab2.get(i).getName());
+                p2.add(button);
+            }
         }
         return p2;
     }
