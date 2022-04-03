@@ -5,7 +5,7 @@ import server.data.domain.Book;
 import javax.swing.*;
 import java.awt.*;
 
-public class guiUser extends JFrame {
+public class GuiUser extends JFrame {
 
     private static JFrame guiUser;
     private JLabel labelTitle;
@@ -24,7 +24,7 @@ public class guiUser extends JFrame {
     private Font arial13;
     private Font arialBlack30;
 
-    public guiUser(){
+    public GuiUser(){
         guiUser = new JFrame();
         labelTitle = new JLabel("USER INFORMATION");
         separatorTop = new JSeparator();

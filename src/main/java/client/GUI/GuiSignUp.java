@@ -1,9 +1,22 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 package client.GUI;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JSeparator;
+import javax.swing.JSpinner;
+import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
 
 public class GuiSignUp extends JFrame {
     private static JFrame guiSignUp;
@@ -21,11 +34,10 @@ public class GuiSignUp extends JFrame {
     private JSpinner spinnerYear;
     private JSeparator separatorBottom;
     private JButton buttonSignUp;
-
     private Font arialBlack13;
     private Font arialBlack30;
 
-    public GuiSignUp(){
+    public GuiSignUp() {
         guiSignUp = new JFrame();
         separatorTop = new JSeparator();
         labelTitle = new JLabel("SIGN UP");
@@ -40,16 +52,15 @@ public class GuiSignUp extends JFrame {
         spinnerMonth = new JSpinner();
         spinnerYear = new JSpinner();
         separatorBottom = new JSeparator();
-        buttonSignUp =  new JButton("SIGN UP");
+        buttonSignUp = new JButton("SIGN UP");
 
-        arialBlack13 = new Font("Arial", Font.BOLD, 13);
-        arialBlack30 = new Font("Arial", Font.BOLD, 30);
+        arialBlack13 = new Font("Arial", 1, 13);
+        arialBlack30 = new Font("Arial", 1, 30);
 
-        /* Parametrizaciones */
         guiSignUp.setTitle("Sign up");
         guiSignUp.setResizable(false);
         guiSignUp.setBounds(100, 100, 330, 430);
-        guiSignUp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        guiSignUp.setDefaultCloseOperation(3);
         guiSignUp.getContentPane().setLayout(null);
         guiSignUp.setVisible(true);
 
@@ -62,28 +73,23 @@ public class GuiSignUp extends JFrame {
 
         labelName.setFont(arialBlack13);
         labelName.setBounds(40, 71, 37, 16);
-
         textName.setBounds(40, 98, 238, 20);
 
         labelEmail.setFont(arialBlack13);
         labelEmail.setBounds(40, 129, 44, 16);
-
         textEmail.setBounds(40, 156, 238, 20);
 
         labelPassword.setFont(arialBlack13);
         labelPassword.setBounds(40, 187, 77, 16);
-
         textPassword.setBounds(40, 214, 238, 20);
 
         labelDob.setFont(arialBlack13);
         labelDob.setBounds(40, 245, 218, 16);
-
         spinnerDay.setModel(new SpinnerNumberModel(0, 0, 31, 1));
-        spinnerDay.setBounds(40, 272, 39, 21);
 
+        spinnerDay.setBounds(40, 272, 39, 21);
         spinnerMonth.setModel(new SpinnerNumberModel(0, 0, 12, 1));
         spinnerMonth.setBounds(78, 272, 39, 21);
-
         spinnerYear.setModel(new SpinnerNumberModel(2000, 1922, 2022, 1));
         spinnerYear.setBounds(112, 272, 63, 21);
 
@@ -100,7 +106,6 @@ public class GuiSignUp extends JFrame {
         });
         buttonSignUp.setBounds(112, 324, 89, 25);
 
-        /* Añadir los componentes */
         guiSignUp.getContentPane().add(labelTitle);
         guiSignUp.getContentPane().add(separatorTop);
         guiSignUp.getContentPane().add(labelName);
@@ -116,5 +121,4 @@ public class GuiSignUp extends JFrame {
         guiSignUp.getContentPane().add(separatorBottom);
         guiSignUp.getContentPane().add(buttonSignUp);
     }
-
 }

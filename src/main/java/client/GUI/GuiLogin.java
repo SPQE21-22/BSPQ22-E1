@@ -1,12 +1,20 @@
 package client.GUI;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
 
 public class GuiLogin extends JFrame {
-
     private static JFrame guiLogin;
     private JLabel labelTittle;
     private JLabel labelEmail;
@@ -18,12 +26,11 @@ public class GuiLogin extends JFrame {
     private JButton buttonLogin;
     private JLabel labelAccount;
     private JButton buttonSignUp;
-
     private Font arialBlack13;
     private Font arialBlack30;
     private Font arial13;
 
-    public GuiLogin(){
+    public GuiLogin() {
         guiLogin = new JFrame();
         labelTittle = new JLabel("LOGIN");
         labelEmail = new JLabel("E-MAIL");
@@ -36,11 +43,10 @@ public class GuiLogin extends JFrame {
         labelAccount = new JLabel("Don't have an account?");
         buttonSignUp = new JButton("SIGN UP");
 
-        arialBlack13 = new Font("Arial", Font.BOLD, 13);
-        arialBlack30 = new Font("Arial", Font.BOLD, 30);
-        arial13 = new Font("Arial",Font.PLAIN, 13);
+        arialBlack13 = new Font("Arial", 1, 13);
+        arialBlack30 = new Font("Arial", 1, 30);
+        arial13 = new Font("Arial", 0, 13);
 
-        /* Parametrizaciones */
         guiLogin.setTitle("Login");
         guiLogin.setResizable(false);
         guiLogin.getContentPane().setLayout(null);
@@ -68,8 +74,17 @@ public class GuiLogin extends JFrame {
 
         buttonLogin.setFont(arialBlack13);
         buttonLogin.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
+                if (!textEmail.getText().isEmpty() && !textPasword.getText().isEmpty()) {
+                    if (textEmail.getText().equals("prueba") && textPasword.getText().equals("1234")) {
+                        new GuiMain();
+                        guiLogin.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog((Component)null, "Incorrect email or password.", "Error", 0);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog((Component)null, "Please fill in all fields.", "Error", 0);
+                }
 
             }
         });
@@ -80,14 +95,13 @@ public class GuiLogin extends JFrame {
 
         buttonSignUp.setFont(arialBlack13);
         buttonSignUp.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
-                GuiSignUp su = new GuiSignUp();
+                new GuiSignUp();
+                GuiLogin.guiLogin.dispose();
             }
         });
         buttonSignUp.setBounds(40, 297, 89, 23);
 
-        /* Añadir los componentes a la ventana */
         guiLogin.getContentPane().add(labelTittle);
         guiLogin.getContentPane().add(labelEmail);
         guiLogin.getContentPane().add(textEmail);
@@ -101,7 +115,6 @@ public class GuiLogin extends JFrame {
 
         guiLogin.setBounds(100, 100, 330, 400);
         guiLogin.setVisible(true);
-        guiLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+        guiLogin.setDefaultCloseOperation(3);
     }
 }
