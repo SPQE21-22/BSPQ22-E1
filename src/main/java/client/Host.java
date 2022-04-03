@@ -17,15 +17,22 @@ import javax.swing.*;
 public class Host{
 
     public static void main(String[] args){
-        String hostname = args[0];
-        String port = args[1];
+        //String hostname = args[0];
+        //String port = args[1];
 
         //ClientServiceLocator serviceLocator = new ClientServiceLocator();
         //serviceLocator.setService(args[0], args[1], args[2]);
         //UserController userController = new UserController(serviceLocator);
         //LibraryController libraryController = new LibraryController(serviceLocator);
         //TODO pasarle los controller como parametros a la ventana
-        SwingUtilities.invokeLater(() -> new MainWindow(hostname, port));
+        //SwingUtilities.invokeLater(() -> new MainWindow(hostname, port));
+
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                new GuiLogin();
+            }
+        });
 
         /*
 

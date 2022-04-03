@@ -8,7 +8,6 @@ import server.data.dto.BookDTO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.Serial;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -113,7 +112,6 @@ public class MainWindow extends JFrame {
     }
 
     private static class BookModel extends DefaultListModel<BookDTO> {
-        @Serial
         private static final long serialVersionUID = 1L;
 
         public List<BookDTO> getbooks() {

@@ -1,9 +1,15 @@
 package client.GUI;
 
 import server.data.domain.Book;
+import server.data.domain.User;
+import server.data.dto.BookDTO;
+import server.data.dto.UserDTO;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class GuiUser extends JFrame {
 
@@ -15,7 +21,7 @@ public class GuiUser extends JFrame {
     private JLabel labelEmail;
     private JTextField textEmail;
     private JLabel labelBooks;
-    private JList<Book> listBooks;
+    private JList<String> listBooks;
     private JSeparator separatorBottom;
     private JButton buttonBack;
     private JButton buttonUpdate;
@@ -24,7 +30,7 @@ public class GuiUser extends JFrame {
     private Font arial13;
     private Font arialBlack30;
 
-    public GuiUser(){
+    public GuiUser(UserDTO u, ArrayList<BookDTO> ab){
         guiUser = new JFrame();
         labelTitle = new JLabel("USER INFORMATION");
         separatorTop = new JSeparator();
@@ -33,7 +39,7 @@ public class GuiUser extends JFrame {
         labelEmail = new JLabel("E-MAIL");
         textEmail = new JTextField();
         labelBooks = new JLabel("BOOKS");
-        listBooks = new JList<Book>();
+        listBooks = new JList<String>(modelBooks(u));
         separatorBottom = new JSeparator();
         buttonBack = new JButton("BACK");
         buttonUpdate = new JButton("UPDATE");
@@ -61,7 +67,7 @@ public class GuiUser extends JFrame {
         labelName.setBounds(66, 75, 37, 16);
 
         textName.setBackground(Color.WHITE);
-        textName.setText("ejemploNombre");
+        textName.setText(u.getName());
         textName.setFont(arial13);
         textName.setEditable(false);
         textName.setBounds(153, 71, 215, 20);
@@ -71,7 +77,7 @@ public class GuiUser extends JFrame {
 
         textEmail.setBackground(Color.WHITE);
         textEmail.setFont(arial13);
-        textEmail.setText("ejemploMail");
+        textEmail.setText(u.getEmail());
         textEmail.setEditable(false);
         textEmail.setBounds(153, 102, 215, 20);
 
@@ -87,13 +93,19 @@ public class GuiUser extends JFrame {
         separatorBottom.setBounds(55, 308, 324, 2);
 
         buttonBack.setFont(arialBlack13);
-        buttonBack.setBounds(66, 324, 69, 25);
+        buttonBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new GuiMain(u, ab);
+                guiUser.dispose();
+            }
+        });
+        buttonBack.setBounds(66, 324, 70, 25);
 
         buttonUpdate.setFont(arialBlack13);
         buttonUpdate.setBounds(279, 325, 89, 23);
 
         /* Add the components to the GUI */
-        guiUser.getContentPane().add(guiUser);
         guiUser.getContentPane().add(labelTitle);
         guiUser.getContentPane().add(separatorTop);
         guiUser.getContentPane().add(labelName);
@@ -104,7 +116,13 @@ public class GuiUser extends JFrame {
         guiUser.getContentPane().add(listBooks);
         guiUser.getContentPane().add(separatorBottom);
         guiUser.getContentPane().add(buttonBack);
-        guiUser.getContentPane().add(buttonUpdate);
     }
 
+    public DefaultListModel<String> modelBooks(UserDTO u){
+        DefaultListModel<String> model = new DefaultListModel<String>();
+        for (int i = 0; i < u.getBooks().size(); i++){
+            model.add(i, u.getBooks().get(i).toString());
+        }
+        return model;
+    }
 }
