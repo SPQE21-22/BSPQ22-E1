@@ -18,19 +18,32 @@ public class DB extends Exception {
 //	private static ArrayList<BookDTO> booksList;
 	private static ArrayList<Book> booksList;
 
-	public static Connection initBD() throws DBException {
+	public static Connection initBD() throws DBException, SQLException {
 		Connection con = null;
 		try {
-			Class.forName("org.sqlite.JDBC");
-			con = DriverManager.getConnection("jdbc:sqlite:libraryDB");
+			String driver = "com.mysql.cj.jdbc.Driver";
+			String url = "jdbc:mysql://localhost:3306/libraryDB";
+			String username = "mysql"; //root
+			String password = "mysql"; //""
+			Class.forName(driver);
+			con = DriverManager.getConnection(url, username, password);
+			System.out.println("Connection success.");
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			throw new DBException("Cannot load database driver", e);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return con;
+//		Connection con = null;
+//		try {
+//			Class.forName("org.sqlite.JDBC");
+//			con = DriverManager.getConnection("jdbc:sqlite:libraryDB");
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
+//			throw new DBException("Cannot load database driver", e);
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		return con;
 	}
 
 	public static void closeBD(Connection con) throws DBException {
