@@ -1,7 +1,7 @@
 package client.GUI;
 
-import server.data.dto.BookDTO;
-import server.data.dto.UserDTO;
+import server.data.domain.Book;
+import server.data.domain.User;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -26,12 +26,13 @@ public class GuiMain extends JFrame {
     private JPanel panel;
     private JMenu menuAdmin;
     private JMenuItem menuItemAddBook;
+
     Client client;
     WebTarget webTarget;
     private Font arialBlack13;
     private Font arial13;
 
-    public GuiMain(UserDTO u, ArrayList<BookDTO> ab, String hostname, String port) {
+    public GuiMain(User u, ArrayList<Book> ab, String hostname, String port) {
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
 
@@ -111,12 +112,23 @@ public class GuiMain extends JFrame {
         guiMain.getContentPane().add(loadBooks(panel, ab));
     }
 
-    private JPanel loadBooks(JPanel p2, ArrayList<BookDTO> ab2){
+    private JPanel loadBooks(JPanel p2, ArrayList<Book> ab2){
         p2.removeAll();
 
         for (int i = 0; i < ab2.size(); i++){
             if(ab2.get(i).getAvailable()){
+                System.out.println("AAAAAAA");
                 JButton button = new JButton(ab2.get(i).getName());
+                button.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        for (int i = 0; i < ab2.size(); i++) {
+                            if(ab2.get(i).getName().equals(button.getText())){
+                                System.out.println("EEEEE");
+                                ab2.get(i).setAvailable(false);
+                            }
+                        }
+                    }
+                });
                 p2.add(button);
             }
         }

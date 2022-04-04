@@ -2,8 +2,6 @@ package client.GUI;
 
 import server.data.domain.Book;
 import server.data.domain.User;
-import server.data.dto.BookDTO;
-import server.data.dto.UserDTO;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -84,15 +82,15 @@ public class GuiLogin extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (!textEmail.getText().isEmpty() && !textPasword.getText().isEmpty()) {
                     if (textEmail.getText().equals("prueba") && textPasword.getText().equals("1234")) {
-                        UserDTO u = new UserDTO();
-                        ArrayList<BookDTO> ab = new ArrayList<BookDTO>();
-                        BookDTO b0 = new BookDTO();
+                        User u = new User();
+                        ArrayList<Book> ab = new ArrayList<Book>();
+                        Book b0 = new Book();
                         b0.setName("El imperio final");
                         b0.setAuthor("Brandon Sanderson");
                         b0.setPublishDate(new Date());
                         b0.setAvailable(true);
                         ab.add(b0);
-                        BookDTO b1 = new BookDTO();
+                        Book b1 = new Book();
                         b1.setName("El pozo de la ascension");
                         b1.setAuthor("Brandon Sanderson");
                         b1.setPublishDate(new Date());

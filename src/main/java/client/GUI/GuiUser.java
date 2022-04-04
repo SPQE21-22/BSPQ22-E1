@@ -2,9 +2,6 @@ package client.GUI;
 
 import server.data.domain.Book;
 import server.data.domain.User;
-import server.data.dto.BookDTO;
-import server.data.dto.UserDTO;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -30,7 +27,7 @@ public class GuiUser extends JFrame {
     private Font arial13;
     private Font arialBlack30;
 
-    public GuiUser(UserDTO u, ArrayList<BookDTO> ab, String hostname, String port){
+    public GuiUser(User u, ArrayList<Book> ab, String hostname, String port){
         guiUser = new JFrame();
         labelTitle = new JLabel("USER INFORMATION");
         separatorTop = new JSeparator();
@@ -118,7 +115,7 @@ public class GuiUser extends JFrame {
         guiUser.getContentPane().add(buttonBack);
     }
 
-    public DefaultListModel<String> modelBooks(UserDTO u){
+    public DefaultListModel<String> modelBooks(User u){
         DefaultListModel<String> model = new DefaultListModel<String>();
         for (int i = 0; i < u.getBooks().size(); i++){
             model.add(i, u.getBooks().get(i).toString());

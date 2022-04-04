@@ -2,8 +2,6 @@ package client.GUI;
 
 import server.data.domain.Book;
 import server.data.domain.User;
-import server.data.dto.BookDTO;
-import server.data.dto.UserDTO;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -32,7 +30,7 @@ public class GuiCreateBook extends JFrame {
     private Font arialBlack13;
     private Font arialBlack30;
 
-    public GuiCreateBook(UserDTO u, ArrayList<BookDTO> ab, String hostname, String port) {
+    public GuiCreateBook(User u, ArrayList<Book> ab, String hostname, String port) {
         guiCreateBook = new JFrame();
         labelTitle = new JLabel("CREATE BOOK");
         separatorTop = new JSeparator();
@@ -95,7 +93,7 @@ public class GuiCreateBook extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 if (valid()){
-                    BookDTO b0 = new BookDTO();
+                    Book b0 = new Book();
                     b0.setName(textName.getText());
                     b0.setAuthor(textAuthor.getText());
                     b0.setPublishDate(datePublish());

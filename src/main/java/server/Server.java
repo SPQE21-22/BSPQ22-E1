@@ -7,22 +7,15 @@ import javax.ws.rs.core.Response;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-//import java.util.ArrayList;
-//import java.util.Date;
 import java.util.List;
-
 import server.data.domain.Book;
 import server.data.domain.User;
-//import server.data.dto.BookDTO;
-//import server.data.dto.UserDTO;
-//import server.DB;
+
 
 @Path("/users")
 @Produces(MediaType.APPLICATION_JSON)
 public class Server {
 
-//    private List<UserDTO> usersList;
-//    private List<BookDTO> booksList;
 	private List<User> usersList;
 	private List<Book> booksList;
 	private List<User> listaUsuarios;
@@ -81,7 +74,9 @@ public class Server {
 	@GET
 	@Path("/books")
 	public Response getBooks() {
-		return Response.ok(this.listaLibros).build();
+		String s = "AHHHHH";
+		return Response.ok(s).build();
+		//return Response.ok(this.listaLibros).build();
 	}
 
 	@POST

@@ -7,8 +7,7 @@ package client.GUI;
 
 import server.data.domain.Book;
 import server.data.domain.User;
-import server.data.dto.BookDTO;
-import server.data.dto.UserDTO;
+
 
 import java.awt.Color;
 import java.awt.Font;
@@ -99,28 +98,28 @@ public class GuiSignUp extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 if (valid()){
-                    BookDTO b0 = new BookDTO();
+                    Book b0 = new Book();
                     b0.setName("b0");
                     b0.setAuthor("b0");
                     b0.setPublishDate(new Date());
                     b0.setAvailable(true);
-                    BookDTO b1 = new BookDTO();
+                    Book b1 = new Book();
                     b1.setName("b1");
                     b1.setAuthor("b1");
                     b1.setPublishDate(new Date());
                     b1.setAvailable(true);
-                    ArrayList<BookDTO> prueba = new ArrayList<BookDTO>();
+                    ArrayList<Book> prueba = new ArrayList<Book>();
                     prueba.add(b1);
                     prueba.add(b0);
 
-                    UserDTO u0 = new UserDTO();
+                    User u0 = new User();
                     u0.setName(textName.getText());
                     u0.setEmail(textEmail.getText());
                     u0.setPassword(textPassword.getText());
                     u0.setBirthDate(dateDob());
                     u0.setBooks(prueba);
 
-                    ArrayList<BookDTO> ab = new ArrayList<BookDTO>();
+                    ArrayList<Book> ab = new ArrayList<Book>();
 
                     new GuiMain(u0, ab, hostname, port);
                     guiSignUp.dispose();
