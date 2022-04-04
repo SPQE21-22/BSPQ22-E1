@@ -2,16 +2,13 @@ package server;
 
 import server.data.domain.Book;
 import server.data.domain.User;
+import server.sql.DBTest;
+import server.sql.DBException;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 
-import javax.security.auth.login.LoginException;
-import javax.swing.JButton;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
@@ -19,8 +16,6 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 public class Main {
     private Client client;
@@ -37,10 +32,10 @@ public class Main {
 
         System.out.println("Obtaining data from server...");
         try {
-            con = DB.initBD();
-            DB.createTables(con);
-            usersList = DB.getUsersList(con);
-            booksList = DB.getBooksList(con);
+            con = DBTest.initBD();
+            DBTest.createTables(con);
+            usersList = DBTest.getUsersList(con);
+            booksList = DBTest.getBooksList(con);
         } catch (DBException e) {
             e.printStackTrace();
         } catch (SQLException e) {

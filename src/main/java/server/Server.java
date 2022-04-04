@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.List;
 import server.data.domain.Book;
 import server.data.domain.User;
+import server.sql.DBTest;
+import server.sql.DBException;
 
 
 @Path("/users")
@@ -26,10 +28,10 @@ public class Server {
 	public Server() throws SQLException {
 
 		try {
-			con = DB.initBD();
-			DB.createTables(con);
-			usersList = DB.getUsersList(con);
-			booksList = DB.getBooksList(con);
+			con = DBTest.initBD();
+			DBTest.createTables(con);
+			usersList = DBTest.getUsersList(con);
+			booksList = DBTest.getBooksList(con);
 			System.out.println("List of users stored in the database: " + usersList);
 			System.out.println("List of books stored in the database: " + booksList);
 		} catch (DBException e) {

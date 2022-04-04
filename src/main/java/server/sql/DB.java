@@ -1,4 +1,5 @@
-package server;
+/*
+package server.sql;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -18,20 +19,7 @@ public class DB extends Exception {
 //	private static ArrayList<BookDTO> booksList;
 	private static ArrayList<Book> booksList;
 
-	public static Connection initBD() throws DBException, SQLException {
-		Connection con = null;
-		try {
-			String driver = "com.mysql.cj.jdbc.Driver";
-			String url = "jdbc:mysql://localhost:3306/libraryDB";
-			String username = "mysql"; //root
-			String password = "mysql"; //""
-			Class.forName(driver);
-			con = DriverManager.getConnection(url, username, password);
-			System.out.println("Connection success.");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return con;
+
 //		Connection con = null;
 //		try {
 //			Class.forName("org.sqlite.JDBC");
@@ -249,3 +237,4 @@ public class DB extends Exception {
 	}
 
 }
+*/

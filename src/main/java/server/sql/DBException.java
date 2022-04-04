@@ -1,4 +1,4 @@
-package server;
+package server.sql;
 
 /**
  * Represents an error in the database.
