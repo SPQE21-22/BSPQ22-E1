@@ -21,8 +21,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.*;
+import javax.ws.rs.client.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 public class GuiSignUp extends JFrame {
+    private Client client = ClientBuilder.newClient();
+    private WebTarget webTarget;
     private static JFrame guiSignUp;
     private JLabel labelTitle;
     private JSeparator separatorTop;
@@ -40,6 +45,7 @@ public class GuiSignUp extends JFrame {
     private Font arialBlack30;
 
     public GuiSignUp(String hostname, String port) {
+        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
         guiSignUp = new JFrame();
         separatorTop = new JSeparator();
         labelTitle = new JLabel("SIGN UP");
@@ -98,28 +104,36 @@ public class GuiSignUp extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 if (valid()){
+                    User u0 = new User();
+                    u0.setName(textName.getText());
+                    u0.setEmail(textEmail.getText());
+                    u0.setPassword(textPassword.getText());
+                    u0.setBirthDate(dateDob());
+                    u0.setBooks(new ArrayList<Book>());
+
+                    WebTarget bookWebTarget = webTarget.path("users/createUser");
+                    Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+                    Response response = invocationBuilder.post(Entity.entity(u0, MediaType.APPLICATION_JSON));
+                    if (response.getStatus() != Response.Status.OK.getStatusCode()) {
+                        System.out.println("Error");
+                    }
                     Book b0 = new Book();
-                    b0.setName("b0");
-                    b0.setAuthor("b0");
+                    b0.setName("El imperio final");
+                    b0.setAuthor("Brandon Sanderson");
                     b0.setPublishDate(new Date());
                     b0.setAvailable(true);
                     Book b1 = new Book();
-                    b1.setName("b1");
-                    b1.setAuthor("b1");
+                    b1.setName("El pozo de la ascension");
+                    b1.setAuthor("Brandon Sanderson");
                     b1.setPublishDate(new Date());
                     b1.setAvailable(true);
                     ArrayList<Book> prueba = new ArrayList<Book>();
                     prueba.add(b1);
                     prueba.add(b0);
 
-                    User u0 = new User();
-                    u0.setName(textName.getText());
-                    u0.setEmail(textEmail.getText());
-                    u0.setPassword(textPassword.getText());
-                    u0.setBirthDate(dateDob());
-                    u0.setBooks(prueba);
-
-                    ArrayList<Book> ab = new ArrayList<Book>();
+                    List<Book> ab = new ArrayList<Book>();
+                    ab.add(b0);
+                    ab.add(b1);
 
                     new GuiMain(u0, ab, hostname, port);
                     guiSignUp.dispose();

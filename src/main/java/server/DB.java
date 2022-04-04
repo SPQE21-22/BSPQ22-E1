@@ -188,6 +188,7 @@ public class DB extends Exception {
 
 	@SuppressWarnings("unchecked")
 	public static ArrayList<User> getUsersList(Connection con) throws SQLException {
+		System.out.println("PERRO");
 		String sent = "SELECT * FROM User";
 		Statement st = null;
 		st = con.createStatement();

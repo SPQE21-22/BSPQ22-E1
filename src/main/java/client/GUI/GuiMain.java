@@ -8,8 +8,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.List;
 import javax.swing.*;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -32,7 +31,7 @@ public class GuiMain extends JFrame {
     private Font arialBlack13;
     private Font arial13;
 
-    public GuiMain(User u, ArrayList<Book> ab, String hostname, String port) {
+    public GuiMain(User u, List<Book> ab, String hostname, String port) {
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
 
@@ -109,22 +108,23 @@ public class GuiMain extends JFrame {
         panel.setLayout(new GridLayout(10, 10, 0, 0));
 
         guiMain.getContentPane().add(menuBar);
-        guiMain.getContentPane().add(loadBooks(panel, ab));
+        guiMain.getContentPane().add(loadBooks(panel, ab, u));
     }
 
-    private JPanel loadBooks(JPanel p2, ArrayList<Book> ab2){
+    private JPanel loadBooks(JPanel p2, List<Book> ab2, User us){
         p2.removeAll();
 
         for (int i = 0; i < ab2.size(); i++){
             if(ab2.get(i).getAvailable()){
-                System.out.println("AAAAAAA");
                 JButton button = new JButton(ab2.get(i).getName());
                 button.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         for (int i = 0; i < ab2.size(); i++) {
                             if(ab2.get(i).getName().equals(button.getText())){
-                                System.out.println("EEEEE");
                                 ab2.get(i).setAvailable(false);
+                                List<Book> bookList = us.getBooks();
+                                bookList.add(ab2.get(i));
+                                us.setBooks(bookList);
                             }
                         }
                     }

@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 public class GuiUser extends JFrame {
 
@@ -27,7 +28,7 @@ public class GuiUser extends JFrame {
     private Font arial13;
     private Font arialBlack30;
 
-    public GuiUser(User u, ArrayList<Book> ab, String hostname, String port){
+    public GuiUser(User u, List<Book> ab, String hostname, String port){
         guiUser = new JFrame();
         labelTitle = new JLabel("USER INFORMATION");
         separatorTop = new JSeparator();

@@ -22,32 +22,31 @@ import javax.ws.rs.core.Response.Status;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class Main {
+public class Main implements Runnable{
     private Client client;
     private WebTarget webTarget;
-    private List<User> usersList;
-    private List<Book> booksList;
+    private Thread thread;
+    private final AtomicBoolean running = new AtomicBoolean(false);
 
-    private Connection con;
 
     public Main(String hostname, String port)  throws ServerException{
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
-        //Cosas de la interfaz de server
 
-        System.out.println("Obtaining data from server...");
-        try {
-            con = DB.initBD();
-            DB.createTables(con);
-            usersList = DB.getUsersList(con);
-            booksList = DB.getBooksList(con);
-        } catch (DBException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        WebTarget donationsWebTarget = webTarget.path("users/response");
+        Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.get();
+        if (response.getStatus() == Status.OK.getStatusCode()) {
+            String answer = response.readEntity(String.class);
+            System.out.println(answer);
+        } else {
+            System.out.println("///////////");
         }
-        System.out.println(usersList.get(0));
 
+        //Cosas de la interfaz de server
+        System.out.println("Server ready");
+        thread = new Thread(this);
+        thread.start();
     }
 
 
@@ -59,6 +58,22 @@ public class Main {
             new Main(hostname, port);
         } catch (ServerException e) {
             e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void run() {
+        running.set(true);
+        while(running.get()) {
+            try {
+                Thread.sleep(2000);
+                System.out.println("Obtaining data from server...");
+
+            } catch (InterruptedException e){
+                Thread.currentThread().interrupt();
+                System.out.println("Thread was interrupted, Failed to complete operation");
+            }
         }
     }
 }
