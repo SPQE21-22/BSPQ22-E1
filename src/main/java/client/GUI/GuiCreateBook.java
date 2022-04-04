@@ -10,11 +10,16 @@ import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.swing.*;
+import javax.ws.rs.client.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 public class GuiCreateBook extends JFrame {
+    private Client client = ClientBuilder.newClient();
+    private WebTarget webTarget;
     private static JFrame guiCreateBook;
     private JLabel labelTitle;
     private JSeparator separatorTop;
@@ -30,7 +35,8 @@ public class GuiCreateBook extends JFrame {
     private Font arialBlack13;
     private Font arialBlack30;
 
-    public GuiCreateBook(User u, ArrayList<Book> ab, String hostname, String port) {
+    public GuiCreateBook(User u, List<Book> ab, String hostname, String port) {
+        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
         guiCreateBook = new JFrame();
         labelTitle = new JLabel("CREATE BOOK");
         separatorTop = new JSeparator();
@@ -100,6 +106,12 @@ public class GuiCreateBook extends JFrame {
                     b0.setAvailable(true);
 
                     ab.add(b0);
+                    WebTarget bookWebTarget = webTarget.path("users/addBook");
+                    Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+                    Response response = invocationBuilder.post(Entity.entity(b0, MediaType.APPLICATION_JSON));
+                    if (response.getStatus() != Response.Status.OK.getStatusCode()) {
+                        System.out.println("");
+                    }
                     new GuiMain(u, ab, hostname, port);
                     guiCreateBook.dispose();
                 } else {

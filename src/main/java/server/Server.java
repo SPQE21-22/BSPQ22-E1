@@ -76,9 +76,7 @@ public class Server {
 	@GET
 	@Path("/books")
 	public Response getBooks() {
-		String s = "AHHHHH";
-		return Response.ok(s).build();
-		//return Response.ok(this.listaLibros).build();
+		return Response.ok(this.listaLibros).build();
 	}
 
 	@POST
@@ -89,6 +87,13 @@ public class Server {
 		// return Response.status(Status.CREATED).build();
 		return Response.ok(listaLibros).build();
 
+	}
+
+	@GET
+	@Path("/response")
+	public Response getResp() {
+		String s = "Response";
+		return Response.ok(s).build();
 	}
 
 }

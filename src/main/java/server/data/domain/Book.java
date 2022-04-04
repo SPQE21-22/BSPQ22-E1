@@ -57,11 +57,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return "data.domain.Book{" +
-                "name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", publishDate=" + publishDate +
-                ", available=" + available +
-                '}';
+        return name + '\'' + " ------ " + author;
     }
 }

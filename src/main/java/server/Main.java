@@ -5,10 +5,15 @@ import server.data.domain.User;
 import server.sql.DBTest;
 import server.sql.DBException;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
+import javax.security.auth.login.LoginException;
+import javax.swing.JButton;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
@@ -16,33 +21,34 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
+import java.sql.Connection;
+import java.sql.SQLException;
 
-public class Main {
+public class Main implements Runnable{
     private Client client;
     private WebTarget webTarget;
-    private List<User> usersList;
-    private List<Book> booksList;
+    private Thread thread;
+    private final AtomicBoolean running = new AtomicBoolean(false);
 
-    private Connection con;
 
     public Main(String hostname, String port)  throws ServerException{
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
-        //Cosas de la interfaz de server
 
-        System.out.println("Obtaining data from server...");
-        try {
-            con = DBTest.initBD();
-            DBTest.createTables(con);
-            usersList = DBTest.getUsersList(con);
-            booksList = DBTest.getBooksList(con);
-        } catch (DBException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        WebTarget donationsWebTarget = webTarget.path("users/response");
+        Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.get();
+        if (response.getStatus() == Status.OK.getStatusCode()) {
+            String answer = response.readEntity(String.class);
+            System.out.println(answer);
+        } else {
+            System.out.println("///////////");
         }
-        System.out.println(usersList.get(0));
 
+        //Cosas de la interfaz de server
+        System.out.println("Server ready");
+        thread = new Thread(this);
+        thread.start();
     }
 
 
@@ -54,6 +60,22 @@ public class Main {
             new Main(hostname, port);
         } catch (ServerException e) {
             e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void run() {
+        running.set(true);
+        while(running.get()) {
+            try {
+                Thread.sleep(2000);
+                System.out.println("Obtaining data from server...");
+
+            } catch (InterruptedException e){
+                Thread.currentThread().interrupt();
+                System.out.println("Thread was interrupted, Failed to complete operation");
+            }
         }
     }
 }
