@@ -30,9 +30,10 @@ public class Server {
     private Connection con;
 
     public Server() throws SQLException{
-    	
+
     	try {
 			con = DB.initBD();
+			DB.createTables(con);
 			usersList = DB.getUsersList(con);
 			booksList = DB.getBooksList(con);
 		} catch (DBException e) {

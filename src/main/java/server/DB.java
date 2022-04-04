@@ -17,17 +17,13 @@ public class DB extends Exception{
 		try {
 			Class.forName("org.sqlite.JDBC");
 			con = DriverManager.getConnection("jdbc:sqlite:libraryDB");
-			
-					
 		} catch (ClassNotFoundException e) {
-			
 			e.printStackTrace();
 			throw new DBException("Cannot load database driver", e);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return con;
 	}
 	
@@ -175,6 +171,17 @@ public class DB extends Exception{
 			rs.close();
 			return booksList;
 		}
+		
+		public static void deleteBook (Connection con, String name) {
+	    	String sent = "DELETE FROM usuario WHERE name = '" + name + "'";
+	    	Statement st = null;
+			try {
+				st = con.createStatement();
+				st.executeUpdate(sent);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	    }
 	
 
 }
