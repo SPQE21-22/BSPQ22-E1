@@ -63,7 +63,7 @@ public class Main implements Runnable  {
     }
 
     public static void main(String[] args) {
-        String hostname = args[0];
+        String hostname = args[0]; //Prestar atención a los properties, empieza en 1
         String port = args[1];
 
         new Main(hostname, port);
