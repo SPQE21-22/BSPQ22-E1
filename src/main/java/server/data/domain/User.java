@@ -9,8 +9,10 @@ import java.util.List;
 
 @PersistenceCapable(detachable="true")
 public class User implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
+	private String name;
     @PrimaryKey
-    private String name;
     private String email;
     private String password;
     private Date birthDate;
@@ -25,8 +27,12 @@ public class User implements Serializable {
         this.birthDate = birthDate;
         this.books = books;
     }
+    
+    public User() {
+		super();
+	}
 
-    public String getName() {
+	public String getName() {
         return name;
     }
 

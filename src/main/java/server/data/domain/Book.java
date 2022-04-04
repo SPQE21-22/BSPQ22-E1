@@ -19,7 +19,11 @@ public class Book {
         this.available = available;
     }
 
-    public String getName() {
+    public Book() {
+		super();
+	}
+
+	public String getName() {
         return name;
     }
 
