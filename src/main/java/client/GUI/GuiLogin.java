@@ -1,7 +1,7 @@
 package client.GUI;
 
-import server.DB;
-import server.DBException;
+import server.sql.DBTest;
+import server.sql.DBException;
 import server.ServerException;
 import server.data.domain.Book;
 import server.data.domain.User;
@@ -111,9 +111,9 @@ public class GuiLogin extends JFrame {
                         if (response.getStatus() == Response.Status.OK.getStatusCode()) {
                             List<Book> ab = new ArrayList<>();
                             try {
-                                ab = DB.getBooksList(con);
-                                con = DB.initBD();
-                                DB.createTables(con);
+                                ab = DBTest.getBooksList(con);
+                                con = DBTest.initBD();
+                                DBTest.createTables(con);
                             } catch (SQLException ex) {
                                 ex.printStackTrace();
                             } catch (DBException ex) {

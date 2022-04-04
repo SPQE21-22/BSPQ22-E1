@@ -155,16 +155,4 @@ public class DBTest {
         }
     }
 
-    public static void main(String args[]) {
-        try {
-            Connection con = initBD();
-            createTables(con);
-            addUser(con, "Alex", "a@mail", "1234", new Date(1999, 15, 10));
-            //usersList = getUsersList(con);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (DBException e) {
-            e.printStackTrace();
-        }
-    }
 }
