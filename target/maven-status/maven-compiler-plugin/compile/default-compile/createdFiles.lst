@@ -1,7 +1,6 @@
 server\data\dto\UserAssembler.class
 server\data\dto\BookDTO.class
 server\data\dto\UserDTO.class
-server\DBException.class
 client\GUI\GuiLogin$1.class
 client\GUI\GuiSignUp$1.class
 client\GUI\GuiMain$2.class
@@ -17,7 +16,6 @@ client\GUI\GuiLogin$2.class
 server\data\domain\Booking.class
 server\Server.class
 client\GUI\GuiMain$3.class
-server\DB.class
 client\GUI\GuiSignUp.class
 client\GUI\GuiCreateBook$2.class
 server\Main.class

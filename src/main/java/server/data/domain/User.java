@@ -75,12 +75,12 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "data.domain.User{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", birthDate=" + birthDate +
-                ", books=" + books +
-                '}';
+        return "User [" +
+                "name = " + name +
+                ", email = " + email +
+                ", password = " + password +
+                ", birthDate = " + birthDate +
+                ", books = " + books +
+                ']';
     }
 }

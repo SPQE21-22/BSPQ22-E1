@@ -57,6 +57,11 @@ public class Book {
 
     @Override
     public String toString() {
-        return name + '\'' + " ------ " + author;
+        return "Book [" +
+                "name = " + name +
+                ", author = " + author +
+                ", Date = " + publishDate +
+                ", Available = " + available +
+                ']';
     }
 }
