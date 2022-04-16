@@ -1,19 +1,7 @@
 package server;
 
-import server.data.domain.Book;
-import server.data.domain.User;
-import server.sql.DBTest;
-import server.sql.DBException;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import javax.security.auth.login.LoginException;
-import javax.swing.JButton;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Invocation;
@@ -21,8 +9,6 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import java.sql.Connection;
-import java.sql.SQLException;
 
 public class Main implements Runnable{
     private Client client;
