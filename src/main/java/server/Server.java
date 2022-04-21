@@ -7,6 +7,8 @@ import javax.ws.rs.core.Response;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import server.data.domain.Book;
 import server.data.domain.User;
@@ -37,7 +39,7 @@ public class Server {
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
-
+		System.out.println("AHHHHHHHHHHHHHH");
 //        listaUsuarios= new ArrayList<User>();
 //        listaUsuarios.add(new User("Alex", "a@mail", "1234", new Date(), new ArrayList<Book>()));
 //        listaUsuarios.add(new User("Ruben", "r@mail", "1234", new Date(), new ArrayList<Book>()));
