@@ -25,5 +25,37 @@ public class ServerTest {
     	 WebTarget donationsWebTarget = webTarget.path("users/response");
          Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
          Response response = invocationBuilder.get();
+         assertNotNull("The connection failed.", response);
     }
+    
+    @Test
+    public void testAddBook(){
+    	 WebTarget donationsWebTarget = webTarget.path("users/addBook");
+         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
+         Response response = invocationBuilder.post();
+         assertNotNull("The connection failed.", response);
+    }
+    
+    @Test
+    public void testGetBooks(){
+    	 WebTarget donationsWebTarget = webTarget.path("users/books");
+         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
+         Response response = invocationBuilder.get();
+    }
+    
+    @Test
+    public void testCreateUser(){
+    	 WebTarget donationsWebTarget = webTarget.path("users/createUser");
+         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
+         Response response = invocationBuilder.post();
+         assertNotNull("The connection failed.", response);
+    }
+    
+//    @Test
+//    public void testGetUserById(){
+//    	 WebTarget donationsWebTarget = webTarget.path("users/addBook");
+//         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
+//         Response response = invocationBuilder.get();
+//   	   assertNotNull("The connection failed.", response);
+//    }
 }

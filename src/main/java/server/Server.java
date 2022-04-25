@@ -83,7 +83,7 @@ public class Server {
 
 	@POST
 	@Path("/addBook")
-	public Response createUser(Book book) {
+	public Response addBook(Book book) {
 
 		this.listaLibros.add(book);
 		// return Response.status(Status.CREATED).build();
