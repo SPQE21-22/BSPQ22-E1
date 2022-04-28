@@ -17,7 +17,6 @@ import java.util.List;
 
 public class GuiCalendar {
 
-    /* @// TODO: 27/04/2022 Fix sizes */
     JFrame guiCalendar;
     String monthMove;
     HashMap<Integer, String> months;
@@ -202,6 +201,7 @@ public class GuiCalendar {
                     bookingPanel.updateUI();
                     monthMoveNum[0] = monthMoveNum[0] - 1;
                     monthMoveLabel.setText(months.get(monthMoveNum[0]));
+                    createDays(monthMoveLabel.getText(), calendarPanel, rooms, bookingPanel);
                 }
             }
         });
@@ -218,6 +218,7 @@ public class GuiCalendar {
                     bookingPanel.updateUI();
                     monthMoveNum[0] = monthMoveNum[0] + 1;
                     monthMoveLabel.setText(months.get(monthMoveNum[0]));
+                    createDays(monthMoveLabel.getText(), calendarPanel, rooms, bookingPanel);
                 }
             }
         });
@@ -241,6 +242,7 @@ public class GuiCalendar {
         selectLabel.setBounds(10, 46, 130, 14);
         gotoPanel.add(selectLabel);
 
+        gotoComboBox.setSelectedItem(months.get(monthMoveNum[0]));
         gotoComboBox.setMaximumRowCount(12);
         gotoComboBox.setBounds(10, 71, 130, 22);
         gotoPanel.add(gotoComboBox);
@@ -280,10 +282,6 @@ public class GuiCalendar {
         gbl_calendarPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
         calendarPanel.setLayout(gbl_calendarPanel);
 
-        /* @// TODO: 27/04/2022 improve  */
         createDays(monthMoveLabel.getText(), calendarPanel, rooms, bookingPanel);
-
-
     }
-
 }

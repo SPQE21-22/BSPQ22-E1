@@ -25,6 +25,7 @@ public class GuiMain extends JFrame {
     private JPanel panel;
     private JMenu menuAdmin;
     private JMenuItem menuItemAddBook;
+    private JMenuItem menuCalendar;
 
     Client client;
     WebTarget webTarget;
@@ -44,6 +45,7 @@ public class GuiMain extends JFrame {
         menuItemExit = new JMenuItem("Exit");
         menuAdmin = new JMenu("ADMIN");
         menuItemAddBook = new JMenuItem("Add Book");
+        menuCalendar = new JMenuItem("Calendar");
         panel = new JPanel();
         panel.setVisible(true);
 
@@ -103,6 +105,14 @@ public class GuiMain extends JFrame {
             }
         });
         menuAdmin.add(menuItemAddBook);
+
+        menuCalendar.setFont(arial13);
+        menuCalendar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new GuiCalendar();
+            }
+        });
 
         panel.setBounds(0, 22, 434, 238);
         panel.setLayout(new GridLayout(10, 10, 0, 0));

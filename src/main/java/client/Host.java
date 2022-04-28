@@ -12,15 +12,6 @@ public class Host{
 
     public static void main(String[] args){
 
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-
-                GuiCalendar c = new GuiCalendar();
-            }
-        });
-
-        /*
         String hostname = args[0];
         String port = args[1];
 
@@ -30,6 +21,5 @@ public class Host{
                 new GuiLogin(hostname, port);
             }
         });
-         */
     }
 }
