@@ -15,6 +15,7 @@ public class Host{
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
+
                 GuiCalendar c = new GuiCalendar();
             }
         });
