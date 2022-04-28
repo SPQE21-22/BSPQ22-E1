@@ -117,7 +117,8 @@ public class GuiCalendar {
         Date td = new Date();
         List<Book> tb = new ArrayList<Book>();
         User u = new User("Tyler", "tylerdemier@opendeusto.es", "1234", td, tb);
-        Room r0 = new Room(1, "Room1", u, 1, "January", 13, 16, true);
+        User u2 = new User();
+        Room r0 = new Room(1, "Room1", u, 1, "January", 13, 16, false);
         Room r1 = new Room(2, "Room2", u, 1, "January", 13, 16, true);
         Room r2 = new Room(3, "Room3", u, 1, "March", 13, 16, true);
         Room r3 = new Room(4, "Room4", u, 1, "April", 13, 16, true);
@@ -150,7 +151,7 @@ public class GuiCalendar {
         guiCalendar.setVisible(true);
 
         JPanel todayPanel = new JPanel();
-        JButton moveButton = new JButton("MOVE");
+        JButton addButton = new JButton("ADD");
         JLabel todayLabel = new JLabel(tdayString);
         JSeparator separatorTop = new JSeparator();
         JPanel monthMovePanel = new JPanel();
@@ -243,11 +244,7 @@ public class GuiCalendar {
         gotoPanel.add(selectLabel);
 
         gotoComboBox.setSelectedItem(months.get(monthMoveNum[0]));
-        gotoComboBox.setMaximumRowCount(12);
-        gotoComboBox.setBounds(10, 71, 130, 22);
-        gotoPanel.add(gotoComboBox);
-
-        moveButton.addActionListener(new ActionListener() {
+        gotoComboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 bookingPanel.removeAll();
@@ -262,8 +259,18 @@ public class GuiCalendar {
                 });
             }
         });
-        moveButton.setBounds(10, 117, 130, 23);
-        gotoPanel.add(moveButton);
+        gotoComboBox.setMaximumRowCount(12);
+        gotoComboBox.setBounds(10, 71, 130, 22);
+        gotoPanel.add(gotoComboBox);
+
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiAddRoom gar = new GuiAddRoom();
+            }
+        });
+        addButton.setBounds(10, 117, 130, 23);
+        gotoPanel.add(addButton);
 
         separatorBott.setForeground(Color.BLACK);
         separatorBott.setBackground(Color.BLACK);
