@@ -46,6 +46,12 @@ public class GuiCalendar {
         for (Room r: rArray){
             if (r.getDay() == dayInt && r.getMonth().equals(month)){
                 JButton b = new JButton(r.getName());
+                b.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        GuiRoom gr = new GuiRoom(r.getUser(), r);
+                    }
+                });
                 panel.add(b);
                 panel.updateUI();
             }
@@ -210,7 +216,7 @@ public class GuiCalendar {
         List<Book> tb = new ArrayList<Book>();
         User u = new User("Tyler", "tylerdemier@opendeusto.es", "1234", td, tb);
         Room r0 = new Room(1,"Room1", u, 1, "January", 13, 16, true);
-        Room r1 = new Room(2,"Room2", u, 1, "February", 13, 16, true);
+        Room r1 = new Room(2,"Room2", u, 1, "January", 13, 16, true);
         Room r2 = new Room(3,"Room3", u, 1, "March", 13, 16, true);
         Room r3 = new Room(4,"Room4", u, 1, "April", 13, 16, true);
         Room r4 = new Room(5,"Room5", u, 1, "June", 13, 16, true);
