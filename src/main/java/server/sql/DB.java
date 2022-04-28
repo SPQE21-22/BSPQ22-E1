@@ -291,7 +291,7 @@ public class DB {
         }
     }
 
-
+/* DB TESTING
     public static void main(String args[]) {
         Connection con = null;
         try {
@@ -336,4 +336,6 @@ public class DB {
             }
         }
     }
+
+ */
 }

@@ -8,7 +8,7 @@ import javax.ws.rs.core.Response;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import server.data.domain.Book;
 import server.data.domain.User;
@@ -26,19 +26,31 @@ public class Server {
 	private List<Book> listaLibros;
 
 	private Connection con;
+	private DB db = new DB();
 
 	public Server() throws SQLException {
 
 		try {
 			con = DB.initBD();
 			DB.createTables(con);
+			DB.addUser(con, "Alex", "a@mail", "1234",new Date(2022, 1, 10));
+			DB.addUser(con, "Aida", "a@mail", "1234", new Date(2001, 2, 10));
+			DB.addBook(con, "El nombre del Viento", "Path",  new Date(2006, 3, 15), true);
 			usersList = DB.getUsersList(con);
 			booksList = DB.getBooksList(con);
-			System.out.println("List of users stored in the database: " + usersList);
-			System.out.println("List of books stored in the database: " + booksList);
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
+		for (User u:
+				usersList) {
+			System.out.println(u);
+		}
+
+		for (Book b:
+				booksList) {
+			System.out.println(b);
+		}
+
 		System.out.println("AHHHHHHHHHHHHHH");
 //        listaUsuarios= new ArrayList<User>();
 //        listaUsuarios.add(new User("Alex", "a@mail", "1234", new Date(), new ArrayList<Book>()));
