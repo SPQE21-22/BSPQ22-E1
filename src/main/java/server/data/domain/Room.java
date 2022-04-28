@@ -9,15 +9,17 @@ public class Room {
     private String name;
     private User user;
     private int day;
+    private String month;
     private int hourBeg;
     private int hourEnd;
     private Boolean booked;
 
-    public Room(int id, String name, User user, int day, int hourBeg, int hourEnd, Boolean booked) {
+    public Room(int id, String name, User user, int day, String month, int hourBeg, int hourEnd, Boolean booked) {
         this.id = count++;
         this.name = name;
         this.user = user;
         this.day = day;
+        this.month = month;
         this.hourBeg = hourBeg;
         this.hourEnd = hourEnd;
         this.booked = booked;
@@ -28,6 +30,13 @@ public class Room {
     }
     public void setId(int id) {
         this.id = id;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+    public static void setCount(int count) {
+        Room.count = count;
     }
 
     public String getName() {
@@ -49,6 +58,13 @@ public class Room {
     }
     public void setDay(int day) {
         this.day = day;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+    public void setMonth(String month) {
+        this.month = month;
     }
 
     public int getHourBeg() {
@@ -79,10 +95,10 @@ public class Room {
                 ", name='" + name +
                 ", user=" + user +
                 ", day=" + day +
+                ", month=" + month +
                 ", hourBeg=" + hourBeg +
                 ", hourEnd=" + hourEnd +
                 ", booked=" + booked +
                 '}';
     }
-
 }
