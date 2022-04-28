@@ -113,6 +113,7 @@ public class GuiCalendar {
 
     public GuiCalendar() {
 
+        /* @// TODO: 29/04/2022 : IMPLEMENT DATABASE  */
         /* DATOS DE PRUEBA */
         Date td = new Date();
         List<Book> tb = new ArrayList<Book>();

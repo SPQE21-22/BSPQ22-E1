@@ -12,7 +12,6 @@ public class GuiAddRoom {
 
     public Boolean valid(int day, String month){
         boolean result = false;
-
         if (month.matches("January|March|May|July|August|October|December") && day <= 31) {
             result = true;
         } else if (month.matches("April|June|September|November") && day <= 30) {
@@ -20,7 +19,6 @@ public class GuiAddRoom {
         } else if (month.equals("February") && day <= 25) {
             result = true;
         }
-
         return result;
     }
 
@@ -110,12 +108,19 @@ public class GuiAddRoom {
         separatorBott.setBounds(10, 194, 344, 2);
         addRoom.getContentPane().add(separatorBott);
 
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                /* @// TODO: 29/04/2022 : DELETE FROM DATABASE  */
+            }
+        });
         deleteButton.setBounds(243, 207, 89, 23);
         addRoom.getContentPane().add(deleteButton);
 
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                /* @// TODO: 29/04/2022 ADD TO DATABASE */
                 if (valid((Integer)daySpinner.getValue(), monthCombo.getItemAt(monthCombo.getSelectedIndex()))){
                     Room r = new Room();
                     r.setDay((Integer)daySpinner.getValue());
