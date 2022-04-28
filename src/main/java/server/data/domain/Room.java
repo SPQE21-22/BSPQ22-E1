@@ -25,6 +25,10 @@ public class Room {
         this.booked = booked;
     }
 
+    public Room() {
+        super();
+    }
+
     public int getId() {
         return id;
     }

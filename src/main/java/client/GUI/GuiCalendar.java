@@ -151,7 +151,7 @@ public class GuiCalendar {
         guiCalendar.setVisible(true);
 
         JPanel todayPanel = new JPanel();
-        JButton addButton = new JButton("ADD");
+        JButton addButton = new JButton("MANAGE");
         JLabel todayLabel = new JLabel(tdayString);
         JSeparator separatorTop = new JSeparator();
         JPanel monthMovePanel = new JPanel();
@@ -267,6 +267,7 @@ public class GuiCalendar {
             @Override
             public void actionPerformed(ActionEvent e) {
                 GuiAddRoom gar = new GuiAddRoom();
+                guiCalendar.dispose();
             }
         });
         addButton.setBounds(10, 117, 130, 23);
