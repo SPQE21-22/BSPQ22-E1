@@ -19,10 +19,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.Connection;
@@ -99,28 +96,23 @@ public class GuiLogin extends JFrame {
         buttonLogin.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (!textEmail.getText().isEmpty() && !textPasword.getText().isEmpty()) {
-                    WebTarget bookWebTarget = webTarget.path("users/" + textEmail.getText());
+                    WebTarget bookWebTarget = webTarget.path("users/login");
                     Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
-                    Response response = invocationBuilder.get();
+                    Response response = invocationBuilder.post(Entity.entity(textEmail.getText(), MediaType.APPLICATION_JSON));
                     if (response.getStatus() == Response.Status.OK.getStatusCode()) {
                         User userInfo = response.readEntity(User.class);
                         bookWebTarget = webTarget.path("users/books");
                         invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
                         response = invocationBuilder.get();
                         if (response.getStatus() == Response.Status.OK.getStatusCode()) {
-                            List<Book> ab = new ArrayList<>();
-                            try {
-                                ab = DB.getBooksList(con);
-                                con = DB.initBD();
-                                DB.createTables(con);
-                            } catch (SQLException ex) {
-                                ex.printStackTrace();
-                            } catch (DBException ex) {
-                                ex.printStackTrace();
-                            }
+                            User admin = response.readEntity(User.class);
+                            List<Book> ab = admin.getBooks();
                             new GuiMain(userInfo, ab, hostname, port);
+                            guiLogin.dispose();
                         }
-                    }else {
+                    } else {
+                        System.out.println("Error");
+                        /*
                         Date d =new Date();
                         List<Book> bs = new ArrayList<>();
                         User u = new User("Paco","prueba","1234",d,bs);
@@ -128,7 +120,7 @@ public class GuiLogin extends JFrame {
                             setup(hostname, port, u);
                         } else {
                             JOptionPane.showMessageDialog((Component) null, "Incorrect email or password.", "Error", 0);
-                        }
+                        }*/
                     }
                 } else {
                     JOptionPane.showMessageDialog((Component) null, "Please fill in all fields.", "Error", 0);

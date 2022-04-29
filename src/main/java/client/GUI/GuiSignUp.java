@@ -104,19 +104,26 @@ public class GuiSignUp extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 if (valid()){
-                    User u0 = new User();
-                    u0.setName(textName.getText());
-                    u0.setEmail(textEmail.getText());
-                    u0.setPassword(textPassword.getText());
-                    u0.setBirthDate(dateDob());
-                    u0.setBooks(new ArrayList<Book>());
+                    User u0 = new User(textName.getText(),textEmail.getText(),textPassword.getText(),dateDob(),new ArrayList<Book>());
 
                     WebTarget bookWebTarget = webTarget.path("users/createUser");
                     Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
                     Response response = invocationBuilder.post(Entity.entity(u0, MediaType.APPLICATION_JSON));
                     if (response.getStatus() != Response.Status.OK.getStatusCode()) {
-                        System.out.println("Error");
+                        System.out.println("Error while registering");
+                    } else{
+                        User userInfo = response.readEntity(User.class);
+                        bookWebTarget = webTarget.path("users/books");
+                        invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+                        response = invocationBuilder.get();
+                        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+                            User admin = response.readEntity(User.class);
+                            List<Book> ab = admin.getBooks();
+                            new GuiMain(userInfo, ab, hostname, port);
+                            guiSignUp.dispose();
+                        }
                     }
+                    /*
                     Book b0 = new Book();
                     b0.setName("El imperio final");
                     b0.setAuthor("Brandon Sanderson");
@@ -134,9 +141,8 @@ public class GuiSignUp extends JFrame {
                     List<Book> ab = new ArrayList<Book>();
                     ab.add(b0);
                     ab.add(b1);
+                     */
 
-                    new GuiMain(u0, ab, hostname, port);
-                    guiSignUp.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Please, fill in all the data.", "Error", JOptionPane.ERROR_MESSAGE);
                 }

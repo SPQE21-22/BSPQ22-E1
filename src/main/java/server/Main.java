@@ -1,5 +1,7 @@
 package server;
 
+import server.data.domain.User;
+
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.ws.rs.client.Client;
@@ -37,6 +39,28 @@ public class Main implements Runnable{
         thread.start();
     }
 
+    @Override
+    public void run() {
+        running.set(true);
+        while(running.get()) {
+            try {
+                Thread.sleep(2000);
+                WebTarget donationsWebTarget = webTarget.path("users/user");
+                Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
+                Response response = invocationBuilder.get();
+                if (response.getStatus() == Status.OK.getStatusCode()) {
+                    User answer = response.readEntity(User.class);
+                    System.out.println("User recieved");
+                } else {
+                    System.out.println("///////////");
+                }
+
+            } catch (InterruptedException e){
+                Thread.currentThread().interrupt();
+                System.out.println("Thread was interrupted, Failed to complete operation");
+            }
+        }
+    }
 
     public static void main(String[] args) {
         String hostname = args[0]; //Prestar atención a los properties, empieza en 1
@@ -48,20 +72,5 @@ public class Main implements Runnable{
             e.printStackTrace();
         }
 
-    }
-
-    @Override
-    public void run() {
-        running.set(true);
-        while(running.get()) {
-            try {
-                Thread.sleep(2000);
-                System.out.println("Obtaining data from server...");
-
-            } catch (InterruptedException e){
-                Thread.currentThread().interrupt();
-                System.out.println("Thread was interrupted, Failed to complete operation");
-            }
-        }
     }
 }

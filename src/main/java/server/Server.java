@@ -22,9 +22,6 @@ public class Server {
 
 	private List<User> usersList;
 	private List<Book> booksList;
-	private List<User> listaUsuarios;
-	private List<Book> listaLibros;
-
 	private Connection con;
 	private DB db = new DB();
 
@@ -51,7 +48,7 @@ public class Server {
 			System.out.println(b);
 		}
 
-		System.out.println("AHHHHHHHHHHHHHH");
+		System.out.println("Servidor Iniciado");
 //        listaUsuarios= new ArrayList<User>();
 //        listaUsuarios.add(new User("Alex", "a@mail", "1234", new Date(), new ArrayList<Book>()));
 //        listaUsuarios.add(new User("Ruben", "r@mail", "1234", new Date(), new ArrayList<Book>()));
@@ -61,45 +58,48 @@ public class Server {
 //        listaLibros.add(new Book("El imperio", "BD", new Date(), true));
 	};
 
-	@GET
-	@Path("/{email}")
-	public Response getUserById(@PathParam("email") String email) {
+	@POST
+	@Path("/login")
+	public Response login(String email) {
 		User found = null;
-		for (int i = 0; i < listaUsuarios.size(); i++) {
-			if (listaUsuarios.get(i).getEmail().equalsIgnoreCase(email)) {
-				found = listaUsuarios.get(i);
+		for (int i = 0; i < usersList.size(); i++) {
+			if (usersList.get(i).getEmail().equalsIgnoreCase(email) ) {
+				found = usersList.get(i);
 			}
 		}
 		if (found == null) {
 			return Response.status(Response.Status.BAD_REQUEST).entity("User not found").build();
 		} else {
+			System.out.println("Login correcto");
 			return Response.ok(found).build();
 		}
 	}
 
 	@POST
 	@Path("/createUser")
-	public Response createUser(User userRequest) {
-
-		this.listaUsuarios.add(userRequest);
-		// return Response.status(Status.CREATED).build();
-		return Response.ok(listaUsuarios).build();
+	public Response createUser(User userRequest) throws DBException {
+		DB.addUser(con, userRequest.getName(), userRequest.getEmail(), userRequest.getPassword(), new Date(userRequest.getBirthDate().getYear(), userRequest.getBirthDate().getYear(), userRequest.getBirthDate().getDay()));
+		this.usersList.add(userRequest);
+		System.out.println("Usuario creado correctamente");
+		return Response.ok(userRequest).build();
 
 	}
 
 	@GET
 	@Path("/books")
 	public Response getBooks() {
-		return Response.ok(this.listaLibros).build();
+		System.out.println("Devolviendo listado de libros");
+		User admin = new User("","","",null,this.booksList);
+		return Response.ok(admin).build();
 	}
 
 	@POST
 	@Path("/addBook")
-	public Response addBook(Book book) {
-
-		this.listaLibros.add(book);
-		// return Response.status(Status.CREATED).build();
-		return Response.ok(listaLibros).build();
+	public Response addBook(Book book) throws DBException {
+		DB.addBook(con, book.getName(), book.getAuthor(),  new Date(book.getPublishDate().getYear(), book.getPublishDate().getMonth(), book.getPublishDate().getDay()), true);
+		this.booksList.add(book);
+		System.out.println("Libro añadido correctamente");
+		return Response.ok(book).build();
 
 	}
 

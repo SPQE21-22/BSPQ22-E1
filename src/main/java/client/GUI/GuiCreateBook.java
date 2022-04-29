@@ -110,10 +110,11 @@ public class GuiCreateBook extends JFrame {
                     Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
                     Response response = invocationBuilder.post(Entity.entity(b0, MediaType.APPLICATION_JSON));
                     if (response.getStatus() != Response.Status.OK.getStatusCode()) {
-                        System.out.println("");
+                        System.out.println("Error while creating book");
+                    } else{
+                        new GuiMain(u, ab, hostname, port);
+                        guiCreateBook.dispose();
                     }
-                    new GuiMain(u, ab, hostname, port);
-                    guiCreateBook.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Please, fill in all the data.", "Error", JOptionPane.ERROR_MESSAGE);
                 }
