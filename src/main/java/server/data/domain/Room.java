@@ -1,9 +1,7 @@
 package server.data.domain;
 
-import javax.jdo.annotations.PrimaryKey;
 
 public class Room {
-    @PrimaryKey
     private int id;
     private static int count = 0;
     private String name;

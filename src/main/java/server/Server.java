@@ -10,6 +10,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import server.data.domain.Book;
 import server.data.domain.User;
 import server.sql.DB;
@@ -24,6 +27,7 @@ public class Server {
 	private List<Book> booksList;
 	private Connection con;
 	private DB db = new DB();
+	private static final Logger logger = LogManager.getLogger(Server.class);
 
 	public Server() throws SQLException {
 
@@ -40,15 +44,15 @@ public class Server {
 		}
 		for (User u:
 				usersList) {
-			System.out.println(u);
+			logger.info(u);
 		}
 
 		for (Book b:
 				booksList) {
-			System.out.println(b);
+			logger.info(b);
 		}
 
-		System.out.println("Servidor Iniciado");
+		logger.info("Servidor Iniciado");
 //        listaUsuarios= new ArrayList<User>();
 //        listaUsuarios.add(new User("Alex", "a@mail", "1234", new Date(), new ArrayList<Book>()));
 //        listaUsuarios.add(new User("Ruben", "r@mail", "1234", new Date(), new ArrayList<Book>()));
@@ -70,7 +74,7 @@ public class Server {
 		if (found == null) {
 			return Response.status(Response.Status.BAD_REQUEST).entity("User not found").build();
 		} else {
-			System.out.println("Login correcto");
+			logger.info("Login correcto");
 			return Response.ok(found).build();
 		}
 	}
@@ -80,7 +84,7 @@ public class Server {
 	public Response createUser(User userRequest) throws DBException {
 		DB.addUser(con, userRequest.getName(), userRequest.getEmail(), userRequest.getPassword(), new Date(userRequest.getBirthDate().getYear(), userRequest.getBirthDate().getYear(), userRequest.getBirthDate().getDay()));
 		this.usersList.add(userRequest);
-		System.out.println("Usuario creado correctamente");
+		logger.info("Usuario creado correctamente");
 		return Response.ok(userRequest).build();
 
 	}
@@ -88,7 +92,7 @@ public class Server {
 	@GET
 	@Path("/books")
 	public Response getBooks() {
-		System.out.println("Devolviendo listado de libros");
+		logger.info("Devolviendo listado de libros");
 		User admin = new User("","","",null,this.booksList);
 		return Response.ok(admin).build();
 	}
@@ -98,7 +102,7 @@ public class Server {
 	public Response addBook(Book book) throws DBException {
 		DB.addBook(con, book.getName(), book.getAuthor(),  new Date(book.getPublishDate().getYear(), book.getPublishDate().getMonth(), book.getPublishDate().getDay()), true);
 		this.booksList.add(book);
-		System.out.println("Libro añadido correctamente");
+		logger.info("Libro añadido correctamente");
 		return Response.ok(book).build();
 
 	}
