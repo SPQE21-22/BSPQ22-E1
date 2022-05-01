@@ -102,12 +102,7 @@ public class GuiCreateBook extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 if (valid()){
-                    Book b0 = new Book();
-                    b0.setName(textName.getText());
-                    b0.setAuthor(textAuthor.getText());
-                    b0.setPublishDate(datePublish());
-                    b0.setAvailable(true);
-
+                    Book b0 = new Book(textName.getText(),textAuthor.getText(), datePublish(), true);
                     ab.add(b0);
                     WebTarget bookWebTarget = webTarget.path("users/addBook");
                     Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);

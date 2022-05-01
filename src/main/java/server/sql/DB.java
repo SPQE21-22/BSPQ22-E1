@@ -4,11 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//import server.data.dto.BookDTO;
-//import server.data.dto.UserDTO;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
 import server.Main;
 import server.data.domain.Book;
 import server.data.domain.User;
@@ -21,7 +18,7 @@ public class DB {
     //	private static ArrayList<BookDTO> booksList;
     private static ArrayList<Book> booksList;
 
-    private static final Logger logger = LogManager.getLogger(DB.class);
+    //private static final Logger logger = LogManager.getLogger(DB.class);
 
     public static Connection initBD() throws DBException, SQLException {
         Connection con = null;
@@ -33,7 +30,7 @@ public class DB {
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, username, password);
-            logger.info("Connection with librarydb succeeded");
+            //logger.info("Connection with librarydb succeeded");
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (SQLException throwable) {

@@ -14,6 +14,8 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import server.data.domain.Book;
+import server.data.domain.Reserv;
+import server.data.domain.Room;
 import server.data.domain.User;
 import server.sql.DB;
 import server.sql.DBException;
@@ -25,6 +27,7 @@ public class Server {
 
 	private List<User> usersList;
 	private List<Book> booksList;
+	private List<Room> roomList;
 	private Connection con;
 	private DB db = new DB();
 	private static final Logger logger = LogManager.getLogger(Server.class);
@@ -35,6 +38,7 @@ public class Server {
 			con = DB.initBD();
 			usersList = DB.getUsersList(con);
 			booksList = DB.getBooksList(con);
+			//roomList = DB.getBooksList(con);
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
@@ -108,6 +112,23 @@ public class Server {
 		logger.info("Libro actualizado correctamente");
 		return Response.ok(book).build();
 
+	}
+
+	@GET
+	@Path("/rooms")
+	public Response getRooms() {
+		logger.info("Devolviendo Reservas de habitaciones");
+		Reserv res = new Reserv(roomList);
+		return Response.ok(res).build();
+	}
+
+	@POST
+	@Path("/addRoom")
+	public Response addRoom(Room reserv) throws DBException {
+		//DB.addBook(con, reserv.getName(), reserv.getUser(),  reserv.getDay(), reserv.getMonth(), reserv.getHourBeg(), reserv.getHourEnd(), reserv.getBooked());
+		this.roomList.add(reserv);
+		logger.info("Sala añadido correctamente");
+		return Response.ok(reserv).build();
 	}
 
 	@GET

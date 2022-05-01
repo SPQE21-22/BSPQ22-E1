@@ -116,15 +116,7 @@ public class GuiLogin extends JFrame {
                         }
                     } else {
                         logger.error("Error while logging");
-                        /*
-                        Date d =new Date();
-                        List<Book> bs = new ArrayList<>();
-                        User u = new User("Paco","prueba","1234",d,bs);
-                        if (textEmail.getText().equals(u.getEmail()) && textPasword.getText().equals(u.getPassword())) {
-                            setup(hostname, port, u);
-                        } else {
-                            JOptionPane.showMessageDialog((Component) null, "Incorrect email or password.", "Error", 0);
-                        }*/
+                        JOptionPane.showMessageDialog((Component) null, "Login was unsuccessful", "Error", 0);
                     }
                 } else {
                     JOptionPane.showMessageDialog((Component) null, "Please fill in all fields.", "Error", 0);
