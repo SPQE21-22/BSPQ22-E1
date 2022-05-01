@@ -5,8 +5,8 @@
 
 package client.GUI;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
 import server.Main;
 import server.data.domain.Book;
 import server.data.domain.User;
