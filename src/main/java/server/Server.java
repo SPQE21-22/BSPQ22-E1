@@ -33,10 +33,6 @@ public class Server {
 
 		try {
 			con = DB.initBD();
-			DB.createTables(con);
-			DB.addUser(con, "Alex", "a@mail", "1234",new Date(2022, 1, 10));
-			DB.addUser(con, "Aida", "a@mail", "1234", new Date(2001, 2, 10));
-			DB.addBook(con, "El nombre del Viento", "Path",  new Date(2006, 3, 15), true);
 			usersList = DB.getUsersList(con);
 			booksList = DB.getBooksList(con);
 		} catch (DBException e) {
@@ -53,13 +49,6 @@ public class Server {
 		}
 
 		logger.info("Servidor Iniciado");
-//        listaUsuarios= new ArrayList<User>();
-//        listaUsuarios.add(new User("Alex", "a@mail", "1234", new Date(), new ArrayList<Book>()));
-//        listaUsuarios.add(new User("Ruben", "r@mail", "1234", new Date(), new ArrayList<Book>()));
-//
-//        listaLibros= new ArrayList<Book>();
-//        listaLibros.add(new Book("El camino", "BD", new Date(), true));
-//        listaLibros.add(new Book("El imperio", "BD", new Date(), true));
 	};
 
 	@POST
@@ -103,6 +92,20 @@ public class Server {
 		DB.addBook(con, book.getName(), book.getAuthor(),  new Date(book.getPublishDate().getYear(), book.getPublishDate().getMonth(), book.getPublishDate().getDay()), true);
 		this.booksList.add(book);
 		logger.info("Libro añadido correctamente");
+		return Response.ok(book).build();
+
+	}
+
+	@PUT
+	@Path("/updateBook")
+	public Response updateBook(Book book) throws DBException {
+		for (int i = 0; i < booksList.size(); i++) {
+			if (booksList.get(i).getName().equalsIgnoreCase(book.getName()) ) {
+				this.booksList.remove(booksList.get(i));
+			}
+		}
+		DB.updateBookAvailability(con, book.getName(), book.getAvailable());
+		logger.info("Libro actualizado correctamente");
 		return Response.ok(book).build();
 
 	}

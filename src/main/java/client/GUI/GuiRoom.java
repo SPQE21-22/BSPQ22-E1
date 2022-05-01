@@ -30,7 +30,6 @@ public class GuiRoom {
         JLabel bftLabel = new JLabel(Integer.toString(r.getHourEnd()));
         JSeparator separatorBott = new JSeparator();
         JButton backButton = new JButton("BACK");
-        JButton bookButton = new JButton("BOOK ROOM");
 
         titleLabel.setBounds(0, 13, 434, 36);
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -82,20 +81,5 @@ public class GuiRoom {
         });
         backButton.setBounds(305, 225, 89, 23);
         room.getContentPane().add(backButton);
-
-        if (r.getBooked()){
-            bookButton.setVisible(false);
-        }
-        bookButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                r.setUser(u);
-                JOptionPane.showMessageDialog(null, "Your booking has been completed, please check your email.", "Booking", JOptionPane.INFORMATION_MESSAGE);
-                System.out.println(r.getUser());
-                room.dispose();
-            }
-        });
-        bookButton.setBounds(44, 225, 107, 23);
-        room.getContentPane().add(bookButton);
     }
 }

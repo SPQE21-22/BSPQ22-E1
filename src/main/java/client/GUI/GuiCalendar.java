@@ -38,7 +38,7 @@ public class GuiCalendar {
         return months;
     }
 
-    public void checkBookings(JPanel panel, ArrayList<Room> rArray, String month, String day) {
+    public void checkBookings(JPanel panel, List<Room> rArray, String month, String day) {
         panel.removeAll();
         panel.updateUI();
         int dayInt = Integer.parseInt(day);
@@ -57,7 +57,7 @@ public class GuiCalendar {
         }
     }
 
-    public void createButtons(String month, JPanel calendarPanel, ArrayList<Room> r, JPanel bookingPanel, int x, int y, int count) {
+    public void createButtons(String month, JPanel calendarPanel, List<Room> r, JPanel bookingPanel, int x, int y, int count) {
         Button b = new Button(Integer.toString(count));
         b.addActionListener(new ActionListener() {
             @Override
@@ -74,7 +74,7 @@ public class GuiCalendar {
         calendarPanel.add(b, gbc_b);
     }
 
-    public void createDays(String month, JPanel calendarPanel, ArrayList<Room> r, JPanel bookingPanel) {
+    public void createDays(String month, JPanel calendarPanel, List<Room> r, JPanel bookingPanel) {
         calendarPanel.removeAll();
         int count = 0;
         for (int y = 0; y < 5; y++) {
@@ -111,25 +111,23 @@ public class GuiCalendar {
         calendarPanel.add(exitButton, gbc_exitButton);
     }
 
-    public GuiCalendar() {
+    public GuiCalendar(User u, List<Room> reservations) {
 
         /* @// TODO: 29/04/2022 : IMPLEMENT DATABASE  */
         /* DATOS DE PRUEBA */
         Date td = new Date();
         List<Book> tb = new ArrayList<Book>();
-        User u = new User("Tyler", "tylerdemier@opendeusto.es", "1234", td, tb);
-        User u2 = new User();
-        Room r0 = new Room(1, "Room1", u, 1, "January", 13, 16, false);
-        Room r1 = new Room(2, "Room2", u, 1, "January", 13, 16, true);
-        Room r2 = new Room(3, "Room3", u, 1, "March", 13, 16, true);
-        Room r3 = new Room(4, "Room4", u, 1, "April", 13, 16, true);
-        Room r4 = new Room(5, "Room5", u, 1, "June", 13, 16, true);
-        ArrayList<Room> rooms = new ArrayList<Room>();
-        rooms.add(r0);
-        rooms.add(r1);
-        rooms.add(r2);
-        rooms.add(r3);
-        rooms.add(r4);
+        User us = new User("Tyler", "tylerdemier@opendeusto.es", "1234", td, tb);
+        Room r0 = new Room(1, "SPQ meeting", us, 1, "May", 13, 16, false);
+        Room r1 = new Room(2, "DB teamwork", us, 1, "May", 13, 16, true);
+        Room r2 = new Room(3, "UI tracj review", us, 2, "May", 13, 16, true);
+        Room r3 = new Room(4, "Reunion", us, 3, "May", 13, 16, true);
+        Room r4 = new Room(5, "Algebra studying", us, 4, "May", 13, 16, true);
+        reservations.add(r0);
+        reservations.add(r1);
+        reservations.add(r2);
+        reservations.add(r3);
+        reservations.add(r4);
 
         months = new HashMap<>();
         months = createHashMonths();
@@ -203,7 +201,7 @@ public class GuiCalendar {
                     bookingPanel.updateUI();
                     monthMoveNum[0] = monthMoveNum[0] - 1;
                     monthMoveLabel.setText(months.get(monthMoveNum[0]));
-                    createDays(monthMoveLabel.getText(), calendarPanel, rooms, bookingPanel);
+                    createDays(monthMoveLabel.getText(), calendarPanel, reservations, bookingPanel);
                 }
             }
         });
@@ -220,7 +218,7 @@ public class GuiCalendar {
                     bookingPanel.updateUI();
                     monthMoveNum[0] = monthMoveNum[0] + 1;
                     monthMoveLabel.setText(months.get(monthMoveNum[0]));
-                    createDays(monthMoveLabel.getText(), calendarPanel, rooms, bookingPanel);
+                    createDays(monthMoveLabel.getText(), calendarPanel, reservations, bookingPanel);
                 }
             }
         });
@@ -255,7 +253,7 @@ public class GuiCalendar {
                     if (v.equals(value)) {
                         monthMoveNum[0] = k;
                         monthMoveLabel.setText(months.get(monthMoveNum[0]));
-                        createDays(monthMoveLabel.getText(), calendarPanel, rooms, bookingPanel);
+                        createDays(monthMoveLabel.getText(), calendarPanel, reservations, bookingPanel);
                     }
                 });
             }
@@ -267,7 +265,7 @@ public class GuiCalendar {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GuiAddRoom gar = new GuiAddRoom();
+                GuiAddRoom gar = new GuiAddRoom(u, reservations);
                 guiCalendar.dispose();
             }
         });
@@ -291,6 +289,6 @@ public class GuiCalendar {
         gbl_calendarPanel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
         calendarPanel.setLayout(gbl_calendarPanel);
 
-        createDays(monthMoveLabel.getText(), calendarPanel, rooms, bookingPanel);
+        createDays(monthMoveLabel.getText(), calendarPanel, reservations, bookingPanel);
     }
 }

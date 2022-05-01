@@ -1,11 +1,13 @@
 package client.GUI;
 
 import server.data.domain.Room;
+import server.data.domain.User;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class GuiAddRoom {
     JFrame addRoom;
@@ -22,7 +24,7 @@ public class GuiAddRoom {
         return result;
     }
 
-    public GuiAddRoom(){
+    public GuiAddRoom(User u, List<Room> reservations){
         addRoom = new JFrame();
         addRoom.setBounds(100, 100, 380, 284);
         addRoom.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -123,13 +125,16 @@ public class GuiAddRoom {
                 /* @// TODO: 29/04/2022 ADD TO DATABASE */
                 if (valid((Integer)daySpinner.getValue(), monthCombo.getItemAt(monthCombo.getSelectedIndex()))){
                     Room r = new Room();
+                    r.setName(nameText.getText());
+                    r.setUser(u);
                     r.setDay((Integer)daySpinner.getValue());
                     r.setMonth(monthCombo.getItemAt(monthCombo.getSelectedIndex()));
                     r.setHourBeg((Integer)spinner.getValue());
                     r.setHourEnd((Integer)fhSpinner.getValue());
                     r.setBooked(false);
                     JOptionPane.showMessageDialog(null, "The room has been created.", "Management", JOptionPane.INFORMATION_MESSAGE);
-                    GuiCalendar gc = new GuiCalendar();
+                    reservations.add(r);
+                    GuiCalendar gc = new GuiCalendar(u, reservations);
                 } else {
                     JOptionPane.showMessageDialog(null, "Please make sure the selected day corresponds to the selected month.", "Error", JOptionPane.ERROR_MESSAGE);
                 }

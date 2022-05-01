@@ -1,6 +1,7 @@
 package client.GUI;
 
 import server.data.domain.Book;
+import server.data.domain.Room;
 import server.data.domain.User;
 
 import java.awt.Color;
@@ -8,11 +9,12 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.client.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 public class GuiMain extends JFrame {
     private static JFrame guiMain;
@@ -108,11 +110,14 @@ public class GuiMain extends JFrame {
 
         menuCalendar.setFont(arial13);
         menuCalendar.addActionListener(new ActionListener() {
+            List<Room> reservations = new ArrayList<Room>();
             @Override
             public void actionPerformed(ActionEvent e) {
-                new GuiCalendar();
+                new GuiCalendar(u, reservations);
             }
         });
+        menuAdmin.add(menuCalendar);
+
 
         panel.setBounds(0, 22, 434, 238);
         panel.setLayout(new GridLayout(10, 10, 0, 0));
@@ -132,9 +137,13 @@ public class GuiMain extends JFrame {
                         for (int i = 0; i < ab2.size(); i++) {
                             if(ab2.get(i).getName().equals(button.getText())){
                                 ab2.get(i).setAvailable(false);
-                                List<Book> bookList = us.getBooks();
-                                bookList.add(ab2.get(i));
-                                us.setBooks(bookList);
+                                us.getBooks().add(ab2.get(i));
+                                WebTarget bookWebTarget = webTarget.path("users/updateBook");
+                                Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+                                Response response = invocationBuilder.put(Entity.entity(ab2.get(i), MediaType.APPLICATION_JSON));
+                                if (response.getStatus() != Response.Status.OK.getStatusCode()) {
+                                    System.out.println("Error while updating");
+                                }
                             }
                         }
                     }

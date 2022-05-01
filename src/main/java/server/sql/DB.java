@@ -149,7 +149,7 @@ public class DB {
         User user = new User();
         ResultSet rs = st.executeQuery(sent);
         while (rs.next()) {
-            user = new User(rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), null);
+            user = new User(rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), new ArrayList<Book>());
             usersList.add(user);
         }
         rs.close();
