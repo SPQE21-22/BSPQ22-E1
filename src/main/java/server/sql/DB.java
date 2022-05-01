@@ -7,6 +7,9 @@ import java.util.List;
 //import server.data.dto.BookDTO;
 //import server.data.dto.UserDTO;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import server.Main;
 import server.data.domain.Book;
 import server.data.domain.User;
 
@@ -18,6 +21,8 @@ public class DB {
     //	private static ArrayList<BookDTO> booksList;
     private static ArrayList<Book> booksList;
 
+    private static final Logger logger = LogManager.getLogger(DB.class);
+
     public static Connection initBD() throws DBException, SQLException {
         Connection con = null;
 
@@ -28,7 +33,7 @@ public class DB {
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, username, password);
-            System.out.println("Connection success.");
+            logger.info("Connection with librarydb succeeded");
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (SQLException throwable) {
@@ -304,12 +309,12 @@ public class DB {
             booksList = getBooksList(con);
             for (User u :
                     usersList) {
-                System.out.println(u);
+                logger.info(u);
             }
 
             for (Book u :
                     booksList) {
-                System.out.println(u);
+                logger.info(u);
             }
             updateBookAuthor(con, "El nombre del Viento", "yo");
             updateBookName(con, "El nombre del Viento", "hola");

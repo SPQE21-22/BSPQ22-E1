@@ -1,5 +1,8 @@
 package client.GUI;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import server.Main;
 import server.sql.DB;
 import server.sql.DBException;
 import server.data.domain.Book;
@@ -47,6 +50,7 @@ public class GuiLogin extends JFrame {
     private Font arialBlack13;
     private Font arialBlack30;
     private Font arial13;
+    private static final Logger logger = LogManager.getLogger(GuiLogin.class);
 
     public GuiLogin(String hostname, String port) {
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
@@ -111,7 +115,7 @@ public class GuiLogin extends JFrame {
                             guiLogin.dispose();
                         }
                     } else {
-                        System.out.println("Error");
+                        logger.error("Error while logging");
                         /*
                         Date d =new Date();
                         List<Book> bs = new ArrayList<>();
