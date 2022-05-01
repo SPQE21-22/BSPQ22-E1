@@ -1,5 +1,7 @@
 package client.GUI;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import server.data.domain.Room;
 import server.data.domain.User;
 
@@ -11,6 +13,7 @@ import java.awt.event.ActionListener;
 public class GuiRoom {
 
     public JFrame room;
+    private static final Logger logger = LogManager.getLogger(GuiRoom.class);
 
     public GuiRoom(User u, Room r) {
         room = new JFrame();
@@ -91,7 +94,7 @@ public class GuiRoom {
             public void actionPerformed(ActionEvent e) {
                 r.setUser(u);
                 JOptionPane.showMessageDialog(null, "Your booking has been completed, please check your email.", "Booking", JOptionPane.INFORMATION_MESSAGE);
-                System.out.println(r.getUser());
+                logger.info(r.getUser());
                 room.dispose();
             }
         });
