@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="BSPQ22-E1" target="1.8" />
+      <module name="BSPQ22-E1" target="8" />
       <module name="library" target="1.8" />
     </bytecodeTargetLevel>
   </component>
