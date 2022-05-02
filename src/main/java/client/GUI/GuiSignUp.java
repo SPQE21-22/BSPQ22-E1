@@ -5,9 +5,8 @@
 
 package client.GUI;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import server.Main;
+//import org.apache.logging.log4j.LogManager;
+//import org.apache.logging.log4j.Logger;
 import server.data.domain.Book;
 import server.data.domain.User;
 
@@ -46,7 +45,7 @@ public class GuiSignUp extends JFrame {
     private JButton buttonSignUp;
     private Font arialBlack13;
     private Font arialBlack30;
-    private static final Logger logger = LogManager.getLogger(GuiSignUp.class);
+    //private static final Logger logger = LogManager.getLogger(GuiSignUp.class);
 
     public GuiSignUp(String hostname, String port) {
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
@@ -114,7 +113,7 @@ public class GuiSignUp extends JFrame {
                     Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
                     Response response = invocationBuilder.post(Entity.entity(u0, MediaType.APPLICATION_JSON));
                     if (response.getStatus() != Response.Status.OK.getStatusCode()) {
-                        logger.error("Error while registering");
+                        //logger.error("Error while registering");
                     } else{
                         User userInfo = response.readEntity(User.class);
                         bookWebTarget = webTarget.path("users/books");

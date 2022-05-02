@@ -1,5 +1,6 @@
 package server;
 
+import server.data.domain.Room;
 import server.data.domain.User;
 
 import java.sql.Connection;
@@ -32,8 +33,10 @@ public class Main implements Runnable{
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
         try {
+            System.out.println("OUSSS");
             con = DB.initBD();
             DB.createTables(con);
+            System.out.println("OUSSS");
             DB.addUser(con, "Alex", "a@mail", "1234",new Date(2022, 1, 10));
             DB.addUser(con, "Aida", "ai@mail", "1234", new Date(2001, 2, 10));
             DB.addBook(con, "El nombre del Viento", "Path",  new Date(2006, 3, 15), true);
@@ -44,6 +47,11 @@ public class Main implements Runnable{
             DB.addBook(con, "Estudio en escarlata", "Arthur Conan Doyle",  new Date(2006, 3, 15), true);
             DB.addBook(con, "El ojo del mundo", "Robert Jordan",  new Date(2006, 3, 15), true);
             DB.addBook(con, "Dracula", "Bran Stroker",  new Date(2006, 3, 15), true);
+            DB.addRoom(con, "SPQ meeting", 1, "May", 13, 16, true);
+            DB.addRoom(con, "DB teamwork", 1, "May", 13, 16, true);
+            DB.addRoom(con, "UI track review", 2, "May", 13, 16, true);
+            DB.addRoom(con, "Reunion", 3, "May", 13, 16, true);
+            DB.addRoom(con, "Algebra studying", 4, "May", 13, 16, true);
         } catch (DBException e) {
             e.printStackTrace();
         }
@@ -59,13 +67,15 @@ public class Main implements Runnable{
         while(running.get()) {
             try {
                 Thread.sleep(2000);
-                WebTarget donationsWebTarget = webTarget.path("users/user");
+                WebTarget donationsWebTarget = webTarget.path("users/books");
                 Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
                 Response response = invocationBuilder.get();
                 if (response.getStatus() == Status.OK.getStatusCode()) {
                     User answer = response.readEntity(User.class);
                     //logger.info("User received");
+                    System.out.println(answer);
                 } else {
+                    System.out.println("AAAAAAAAAAA");
                     //logger.info("////////");
                 }
 

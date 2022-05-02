@@ -1,11 +1,14 @@
 package client.GUI;
 
-import server.data.domain.Book;
-import server.data.domain.Booking;
-import server.data.domain.Room;
-import server.data.domain.User;
+import server.data.domain.*;
 
 import javax.swing.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,9 +19,11 @@ import java.util.*;
 import java.util.List;
 
 public class GuiCalendar {
-
+    List<Room> reservations2;
     JFrame guiCalendar;
     String monthMove;
+    Client client;
+    WebTarget webTarget;
     HashMap<Integer, String> months;
 
     public HashMap<Integer, String> createHashMonths() {
@@ -111,24 +116,23 @@ public class GuiCalendar {
         calendarPanel.add(exitButton, gbc_exitButton);
     }
 
-    public GuiCalendar(User u, List<Room> reservations) {
+    public GuiCalendar(User u, List<Room> reservations, String hostname, String port) {
 
-        /* @// TODO: 29/04/2022 : IMPLEMENT DATABASE  */
+        client = ClientBuilder.newClient();
+        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+        WebTarget bookWebTarget = webTarget.path("users/rooms");
+        Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.get();
+        Reserv reserv = response.readEntity(Reserv.class);
         /* DATOS DE PRUEBA */
         Date td = new Date();
         List<Book> tb = new ArrayList<Book>();
         User us = new User("Tyler", "tylerdemier@opendeusto.es", "1234", td, tb);
-        Room r0 = new Room(1, "SPQ meeting", us, 1, "May", 13, 16, false);
-        Room r1 = new Room(2, "DB teamwork", us, 1, "May", 13, 16, true);
-        Room r2 = new Room(3, "UI tracj review", us, 2, "May", 13, 16, true);
-        Room r3 = new Room(4, "Reunion", us, 3, "May", 13, 16, true);
-        Room r4 = new Room(5, "Algebra studying", us, 4, "May", 13, 16, true);
-        reservations.add(r0);
-        reservations.add(r1);
-        reservations.add(r2);
-        reservations.add(r3);
-        reservations.add(r4);
-
+        reservations = reserv.getReservs();
+        for (Room r : reservations) {
+            r.setUser(us);
+        }
+        reservations2 = reservations;
         months = new HashMap<>();
         months = createHashMonths();
 
@@ -201,7 +205,7 @@ public class GuiCalendar {
                     bookingPanel.updateUI();
                     monthMoveNum[0] = monthMoveNum[0] - 1;
                     monthMoveLabel.setText(months.get(monthMoveNum[0]));
-                    createDays(monthMoveLabel.getText(), calendarPanel, reservations, bookingPanel);
+                    createDays(monthMoveLabel.getText(), calendarPanel, reservations2, bookingPanel);
                 }
             }
         });
@@ -218,7 +222,7 @@ public class GuiCalendar {
                     bookingPanel.updateUI();
                     monthMoveNum[0] = monthMoveNum[0] + 1;
                     monthMoveLabel.setText(months.get(monthMoveNum[0]));
-                    createDays(monthMoveLabel.getText(), calendarPanel, reservations, bookingPanel);
+                    createDays(monthMoveLabel.getText(), calendarPanel, reservations2, bookingPanel);
                 }
             }
         });
@@ -253,7 +257,7 @@ public class GuiCalendar {
                     if (v.equals(value)) {
                         monthMoveNum[0] = k;
                         monthMoveLabel.setText(months.get(monthMoveNum[0]));
-                        createDays(monthMoveLabel.getText(), calendarPanel, reservations, bookingPanel);
+                        createDays(monthMoveLabel.getText(), calendarPanel, reservations2, bookingPanel);
                     }
                 });
             }
@@ -265,7 +269,7 @@ public class GuiCalendar {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GuiAddRoom gar = new GuiAddRoom(u, reservations);
+                GuiAddRoom gar = new GuiAddRoom(u, reservations2, hostname, port);
                 guiCalendar.dispose();
             }
         });

@@ -4,6 +4,12 @@ import server.data.domain.Room;
 import server.data.domain.User;
 
 import javax.swing.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +17,8 @@ import java.util.List;
 
 public class GuiAddRoom {
     JFrame addRoom;
+    Client client;
+    WebTarget webTarget;
 
     public Boolean valid(int day, String month){
         boolean result = false;
@@ -24,7 +32,7 @@ public class GuiAddRoom {
         return result;
     }
 
-    public GuiAddRoom(User u, List<Room> reservations){
+    public GuiAddRoom(User u, List<Room> reservations, String hostname, String port){
         addRoom = new JFrame();
         addRoom.setBounds(100, 100, 380, 284);
         addRoom.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -122,7 +130,6 @@ public class GuiAddRoom {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                /* @// TODO: 29/04/2022 ADD TO DATABASE */
                 if (valid((Integer)daySpinner.getValue(), monthCombo.getItemAt(monthCombo.getSelectedIndex()))){
                     Room r = new Room();
                     r.setName(nameText.getText());
@@ -132,9 +139,18 @@ public class GuiAddRoom {
                     r.setHourBeg((Integer)spinner.getValue());
                     r.setHourEnd((Integer)fhSpinner.getValue());
                     r.setBooked(false);
-                    JOptionPane.showMessageDialog(null, "The room has been created.", "Management", JOptionPane.INFORMATION_MESSAGE);
-                    reservations.add(r);
-                    GuiCalendar gc = new GuiCalendar(u, reservations);
+                    WebTarget bookWebTarget = webTarget.path("users/addRoom");
+                    Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+                    Response response = invocationBuilder.post(Entity.entity(r, MediaType.APPLICATION_JSON));
+                    if (response.getStatus() != Response.Status.OK.getStatusCode()) {
+                        Room reserv = response.readEntity(Room.class);
+                        JOptionPane.showMessageDialog(null, "The room has been booked.", "Management", JOptionPane.INFORMATION_MESSAGE);
+                        reservations.add(r);
+                        GuiCalendar gc = new GuiCalendar(u, reservations, hostname, port);
+                    } else{
+                        JOptionPane.showMessageDialog(null, "Error while making reservation.", "Management", JOptionPane.INFORMATION_MESSAGE);
+                    }
+
                 } else {
                     JOptionPane.showMessageDialog(null, "Please make sure the selected day corresponds to the selected month.", "Error", JOptionPane.ERROR_MESSAGE);
                 }

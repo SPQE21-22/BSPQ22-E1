@@ -38,7 +38,8 @@ public class Server {
 			con = DB.initBD();
 			usersList = DB.getUsersList(con);
 			booksList = DB.getBooksList(con);
-			//roomList = DB.getBooksList(con);
+			roomList = DB.getRoomsList(con);
+			System.out.println(usersList.get(0));
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
@@ -125,7 +126,7 @@ public class Server {
 	@POST
 	@Path("/addRoom")
 	public Response addRoom(Room reserv) throws DBException {
-		//DB.addBook(con, reserv.getName(), reserv.getUser(),  reserv.getDay(), reserv.getMonth(), reserv.getHourBeg(), reserv.getHourEnd(), reserv.getBooked());
+		DB.addRoom(con, reserv.getName(), reserv.getDay(),  reserv.getMonth(), reserv.getHourBeg(), reserv.getHourEnd(), reserv.getBooked());
 		this.roomList.add(reserv);
 		//logger.info("Libro añadido correctamente");
 		return Response.ok(reserv).build();

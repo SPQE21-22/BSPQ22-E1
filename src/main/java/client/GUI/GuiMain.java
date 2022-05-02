@@ -113,7 +113,7 @@ public class GuiMain extends JFrame {
             List<Room> reservations = new ArrayList<Room>();
             @Override
             public void actionPerformed(ActionEvent e) {
-                new GuiCalendar(u, reservations);
+                new GuiCalendar(u, reservations, hostname, port);
             }
         });
         menuAdmin.add(menuCalendar);
