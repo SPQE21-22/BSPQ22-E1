@@ -4,10 +4,7 @@ import server.data.domain.Room;
 import server.data.domain.User;
 
 import javax.swing.*;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.awt.*;
@@ -139,14 +136,16 @@ public class GuiAddRoom {
                     r.setHourBeg((Integer)spinner.getValue());
                     r.setHourEnd((Integer)fhSpinner.getValue());
                     r.setBooked(false);
+                    client = ClientBuilder.newClient();
+                    webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
                     WebTarget bookWebTarget = webTarget.path("users/addRoom");
                     Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
                     Response response = invocationBuilder.post(Entity.entity(r, MediaType.APPLICATION_JSON));
-                    if (response.getStatus() != Response.Status.OK.getStatusCode()) {
-                        Room reserv = response.readEntity(Room.class);
+                    if (response.getStatus() == Response.Status.OK.getStatusCode()) {
                         JOptionPane.showMessageDialog(null, "The room has been booked.", "Management", JOptionPane.INFORMATION_MESSAGE);
                         reservations.add(r);
                         GuiCalendar gc = new GuiCalendar(u, reservations, hostname, port);
+                        addRoom.dispose();
                     } else{
                         JOptionPane.showMessageDialog(null, "Error while making reservation.", "Management", JOptionPane.INFORMATION_MESSAGE);
                     }

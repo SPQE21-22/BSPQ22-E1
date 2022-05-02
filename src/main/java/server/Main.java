@@ -33,10 +33,8 @@ public class Main implements Runnable{
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
         try {
-            System.out.println("OUSSS");
             con = DB.initBD();
             DB.createTables(con);
-            System.out.println("OUSSS");
             DB.addUser(con, "Alex", "a@mail", "1234",new Date(2022, 1, 10));
             DB.addUser(con, "Aida", "ai@mail", "1234", new Date(2001, 2, 10));
             DB.addBook(con, "El nombre del Viento", "Path",  new Date(2006, 3, 15), true);
@@ -73,9 +71,7 @@ public class Main implements Runnable{
                 if (response.getStatus() == Status.OK.getStatusCode()) {
                     User answer = response.readEntity(User.class);
                     //logger.info("User received");
-                    System.out.println(answer);
                 } else {
-                    System.out.println("AAAAAAAAAAA");
                     //logger.info("////////");
                 }
 

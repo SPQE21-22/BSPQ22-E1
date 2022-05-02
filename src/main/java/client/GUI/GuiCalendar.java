@@ -19,7 +19,6 @@ import java.util.*;
 import java.util.List;
 
 public class GuiCalendar {
-    List<Room> reservations2;
     JFrame guiCalendar;
     String monthMove;
     Client client;
@@ -107,6 +106,7 @@ public class GuiCalendar {
         JButton exitButton = new JButton("X");
         exitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                guiCalendar.dispose();
             }
         });
         GridBagConstraints gbc_exitButton = new GridBagConstraints();
@@ -117,22 +117,13 @@ public class GuiCalendar {
     }
 
     public GuiCalendar(User u, List<Room> reservations, String hostname, String port) {
-
-        client = ClientBuilder.newClient();
-        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
-        WebTarget bookWebTarget = webTarget.path("users/rooms");
-        Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
-        Response response = invocationBuilder.get();
-        Reserv reserv = response.readEntity(Reserv.class);
-        /* DATOS DE PRUEBA */
         Date td = new Date();
         List<Book> tb = new ArrayList<Book>();
         User us = new User("Tyler", "tylerdemier@opendeusto.es", "1234", td, tb);
-        reservations = reserv.getReservs();
+
         for (Room r : reservations) {
             r.setUser(us);
         }
-        reservations2 = reservations;
         months = new HashMap<>();
         months = createHashMonths();
 
@@ -205,7 +196,7 @@ public class GuiCalendar {
                     bookingPanel.updateUI();
                     monthMoveNum[0] = monthMoveNum[0] - 1;
                     monthMoveLabel.setText(months.get(monthMoveNum[0]));
-                    createDays(monthMoveLabel.getText(), calendarPanel, reservations2, bookingPanel);
+                    createDays(monthMoveLabel.getText(), calendarPanel, reservations, bookingPanel);
                 }
             }
         });
@@ -222,7 +213,7 @@ public class GuiCalendar {
                     bookingPanel.updateUI();
                     monthMoveNum[0] = monthMoveNum[0] + 1;
                     monthMoveLabel.setText(months.get(monthMoveNum[0]));
-                    createDays(monthMoveLabel.getText(), calendarPanel, reservations2, bookingPanel);
+                    createDays(monthMoveLabel.getText(), calendarPanel, reservations, bookingPanel);
                 }
             }
         });
@@ -257,7 +248,7 @@ public class GuiCalendar {
                     if (v.equals(value)) {
                         monthMoveNum[0] = k;
                         monthMoveLabel.setText(months.get(monthMoveNum[0]));
-                        createDays(monthMoveLabel.getText(), calendarPanel, reservations2, bookingPanel);
+                        createDays(monthMoveLabel.getText(), calendarPanel, reservations, bookingPanel);
                     }
                 });
             }
@@ -269,7 +260,7 @@ public class GuiCalendar {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                GuiAddRoom gar = new GuiAddRoom(u, reservations2, hostname, port);
+                GuiAddRoom gar = new GuiAddRoom(u, reservations, hostname, port);
                 guiCalendar.dispose();
             }
         });

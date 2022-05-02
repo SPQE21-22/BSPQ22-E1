@@ -215,7 +215,7 @@ public class DB {
         Room room = new Room();
         ResultSet rs = st.executeQuery(sent);
         while (rs.next()) {
-            room = new Room(rs.getString(2), (User)rs.getObject(3), rs.getInt(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getBoolean(8));
+            room = new Room(rs.getString(2), null, rs.getInt(3), rs.getString(4), rs.getInt(6), rs.getInt(6), rs.getBoolean(7));
             roomsList.add(room);
         }
         rs.close();

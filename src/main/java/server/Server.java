@@ -39,20 +39,9 @@ public class Server {
 			usersList = DB.getUsersList(con);
 			booksList = DB.getBooksList(con);
 			roomList = DB.getRoomsList(con);
-			System.out.println(usersList.get(0));
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
-		for (User u:
-				usersList) {
-			logger.info(u);
-		}
-
-		for (Book b:
-				booksList) {
-			logger.info(b);
-		}
-
 		logger.info("Servidor Iniciado");
 	};
 
@@ -120,12 +109,16 @@ public class Server {
 	public Response getRooms() {
 		logger.info("Devolviendo Reservas de habitaciones");
 		Reserv res = new Reserv(roomList);
+		System.out.println(res.getReservs().get(0));
 		return Response.ok(res).build();
 	}
 
 	@POST
 	@Path("/addRoom")
 	public Response addRoom(Room reserv) throws DBException {
+		System.out.println("///////////////////////////");
+		System.out.println(reserv);
+		System.out.println("///////////////////////////");
 		DB.addRoom(con, reserv.getName(), reserv.getDay(),  reserv.getMonth(), reserv.getHourBeg(), reserv.getHourEnd(), reserv.getBooked());
 		this.roomList.add(reserv);
 		logger.info("Libro añadido correctamente");

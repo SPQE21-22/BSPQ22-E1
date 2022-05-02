@@ -9,7 +9,12 @@ public class Reserv {
     public List<Room> getReservs() {
         return this.reservs;
     }
+
     public Reserv(List<Room> res) {
         this.reservs = res;
+    }
+
+    public Reserv() {
+        super();
     }
 }

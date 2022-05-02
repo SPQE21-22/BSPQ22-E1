@@ -1,6 +1,7 @@
 package client.GUI;
 
 import server.data.domain.Book;
+import server.data.domain.Reserv;
 import server.data.domain.Room;
 import server.data.domain.User;
 
@@ -110,10 +111,19 @@ public class GuiMain extends JFrame {
 
         menuCalendar.setFont(arial13);
         menuCalendar.addActionListener(new ActionListener() {
-            List<Room> reservations = new ArrayList<Room>();
             @Override
             public void actionPerformed(ActionEvent e) {
-                new GuiCalendar(u, reservations, hostname, port);
+                client = ClientBuilder.newClient();
+                webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+                WebTarget bookWebTarget = webTarget.path("users/rooms");
+                Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+                Response response = invocationBuilder.get();
+                if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+                    Reserv reserv = response.readEntity(Reserv.class);
+                    new GuiCalendar(u, reserv.getReservs(), hostname, port);
+                }
+
+
             }
         });
         menuAdmin.add(menuCalendar);
