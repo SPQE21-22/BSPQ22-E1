@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
 
-//import org.apache.logging.log4j.LogManager;
-//import org.apache.logging.log4j.Logger;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import server.data.domain.Book;
 import server.data.domain.Reserv;
 import server.data.domain.Room;
@@ -30,7 +30,7 @@ public class Server {
 	private List<Room> roomList;
 	private Connection con;
 	private DB db = new DB();
-	//private static final Logger logger = LogManager.getLogger(Server.class);
+	private static final Logger logger = LogManager.getLogger(Server.class);
 
 	public Server() throws SQLException {
 
@@ -45,15 +45,15 @@ public class Server {
 		}
 		for (User u:
 				usersList) {
-			//logger.info(u);
+			logger.info(u);
 		}
 
 		for (Book b:
 				booksList) {
-			//logger.info(b);
+			logger.info(b);
 		}
 
-		//logger.info("Servidor Iniciado");
+		logger.info("Servidor Iniciado");
 	};
 
 	@POST
@@ -68,7 +68,7 @@ public class Server {
 		if (found == null) {
 			return Response.status(Response.Status.BAD_REQUEST).entity("User not found").build();
 		} else {
-			//logger.info("Login correcto");
+			logger.info("Login correcto");
 			return Response.ok(found).build();
 		}
 	}
@@ -78,7 +78,7 @@ public class Server {
 	public Response createUser(User userRequest) throws DBException {
 		DB.addUser(con, userRequest.getName(), userRequest.getEmail(), userRequest.getPassword(), new Date(userRequest.getBirthDate().getYear(), userRequest.getBirthDate().getYear(), userRequest.getBirthDate().getDay()));
 		this.usersList.add(userRequest);
-		//logger.info("Usuario creado correctamente");
+		logger.info("Usuario creado correctamente");
 		return Response.ok(userRequest).build();
 
 	}
@@ -86,7 +86,7 @@ public class Server {
 	@GET
 	@Path("/books")
 	public Response getBooks() {
-		//logger.info("Devolviendo listado de libros");
+		logger.info("Devolviendo listado de libros");
 		User admin = new User("","","",null,this.booksList);
 		return Response.ok(admin).build();
 	}
@@ -96,7 +96,7 @@ public class Server {
 	public Response addBook(Book book) throws DBException {
 		DB.addBook(con, book.getName(), book.getAuthor(),  new Date(book.getPublishDate().getYear(), book.getPublishDate().getMonth(), book.getPublishDate().getDay()), true);
 		this.booksList.add(book);
-		//logger.info("Libro añadido correctamente");
+		logger.info("Libro añadido correctamente");
 		return Response.ok(book).build();
 
 	}
@@ -110,7 +110,7 @@ public class Server {
 			}
 		}
 		DB.updateBookAvailability(con, book.getName(), book.getAvailable());
-		//logger.info("Libro actualizado correctamente");
+		logger.info("Libro actualizado correctamente");
 		return Response.ok(book).build();
 
 	}
@@ -118,7 +118,7 @@ public class Server {
 	@GET
 	@Path("/rooms")
 	public Response getRooms() {
-		//logger.info("Devolviendo Reservas de habitaciones");
+		logger.info("Devolviendo Reservas de habitaciones");
 		Reserv res = new Reserv(roomList);
 		return Response.ok(res).build();
 	}
@@ -128,7 +128,7 @@ public class Server {
 	public Response addRoom(Room reserv) throws DBException {
 		DB.addRoom(con, reserv.getName(), reserv.getDay(),  reserv.getMonth(), reserv.getHourBeg(), reserv.getHourEnd(), reserv.getBooked());
 		this.roomList.add(reserv);
-		//logger.info("Libro añadido correctamente");
+		logger.info("Libro añadido correctamente");
 		return Response.ok(reserv).build();
 	}
 

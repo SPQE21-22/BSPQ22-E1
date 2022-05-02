@@ -2,6 +2,8 @@ package client.GUI;
 
 //import org.apache.logging.log4j.LogManager;
 //import org.apache.logging.log4j.Logger;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import server.Main;
 import server.sql.DB;
 import server.sql.DBException;
@@ -50,7 +52,7 @@ public class GuiLogin extends JFrame {
     private Font arialBlack13;
     private Font arialBlack30;
     private Font arial13;
-    //private static final Logger logger = LogManager.getLogger(GuiLogin.class);
+    private static final Logger logger = LogManager.getLogger(GuiLogin.class);
 
     public GuiLogin(String hostname, String port) {
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
@@ -115,7 +117,7 @@ public class GuiLogin extends JFrame {
                             guiLogin.dispose();
                         }
                     } else {
-                        //logger.error("Error while logging");
+                        logger.error("Error while logging");
                         JOptionPane.showMessageDialog((Component) null, "Login was unsuccessful", "Error", 0);
                     }
                 } else {

@@ -1,6 +1,9 @@
-
+import org.apache.log4j.Logger;
+import org.databene.contiperf.*;
+import org.databene.contiperf.junit.ContiPerfRule;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import server.data.domain.Book;
 import server.data.domain.User;
@@ -24,8 +27,15 @@ public class ServerTest {
     private Connection con;
     private DB db = new DB();
 
+    private static final Logger logger = Logger.getLogger(ServerTest.class.getName());
+
+
+    @Rule
+    public ContiPerfRule rule = new ContiPerfRule();
+
     @Before
     public void setUp() throws DBException, SQLException {
+        logger.info("Started Setup");
     	client = ClientBuilder.newClient();
     	webTarget = client.target(String.format("http://%s:%s/rest", "127.0.0.1", "8080"));
         con = DB.initBD();
@@ -34,10 +44,12 @@ public class ServerTest {
         DB.addUser(con, "Ruben", "r@mail", "4321",new Date(2022, 1, 10));
         DB.addBook(con, "El Camino de lo reyes", "Brandon Sanderson",  new Date(2006, 3, 15), true);
         DB.addBook(con, "El Imperio Final", "Sandon Branderson",  new Date(2006, 3, 15), true);
+        logger.info("Finished Setup");
     }
 
     @Test
     public void testUserLogin(){
+        logger.info("Started UserLogin");
         WebTarget donationsWebTarget = webTarget.path("users/login");
         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.post(Entity.entity("a@mail", MediaType.APPLICATION_JSON));
@@ -45,10 +57,14 @@ public class ServerTest {
         Assert.assertEquals(u1.getName(), "Alex");
         Assert.assertEquals(u1.getEmail(), "a@mail");
         Assert.assertEquals(u1.getPassword(), "1234");
+        logger.info("Finished UserLogin");
     }
 
     @Test
-    public void testCreateUser(){
+    @PerfTest(invocations = 30, threads = 3)
+    @Required(max = 500, average = 500)
+    public void testCreateUser() throws InterruptedException {
+        logger.info("Started CreateUser");
         User u0 = new User("Ruben", "r@mail", "4321", new Date(2022, 1, 10), new ArrayList<Book>());
         WebTarget donationsWebTarget = webTarget.path("users/createUser");
         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
@@ -57,19 +73,26 @@ public class ServerTest {
         Assert.assertEquals(u1.getName(), "Ruben");
         Assert.assertEquals(u1.getEmail(), "r@mail");
         Assert.assertEquals(u1.getPassword(), "4321");
+        logger.info("Finished CreateUser");
+        Thread.sleep(30);
     }
 
     @Test
     public void testGetBooks(){
+        logger.info("Started GetBooks");
         WebTarget donationsWebTarget = webTarget.path("users/books");
         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.get();
         User u1 = response.readEntity(User.class);
-        System.out.println(u1.getBooks().get(0));
+        logger.info(u1.getBooks().get(0));
+        logger.info("Finished CreateUser");
     }
 
     @Test
+    @PerfTest(invocations = 20, threads = 2)
+    @Required(max = 500, average = 500)
     public void testAddBook(){
+        logger.info("Started AddBook");
         Book b0 = new Book();
         b0.setName("A");
         b0.setAuthor("auth");
@@ -83,10 +106,14 @@ public class ServerTest {
         Assert.assertEquals(b1.getAuthor(), "auth");
         Assert.assertEquals(b1.getAvailable(), true);
         Assert.assertEquals(b1.getPublishDate(), new Date(2022, 1, 10));
+        logger.info("Finished AddBook");
     }
 
     @Test
+    @PerfTest(invocations = 20, threads = 3)
+    @Required(max = 500, average = 500)
     public void testUpdateBook(){
+        logger.info("Started UpdateBook");
         Book b0 = new Book();
         b0.setName("A");
         b0.setAuthor("auth");
@@ -100,14 +127,17 @@ public class ServerTest {
         Assert.assertEquals(b1.getAuthor(), "auth");
         Assert.assertEquals(b1.getAvailable(), false);
         Assert.assertEquals(b1.getPublishDate(), new Date(2022, 1, 10));
+        logger.info("Finished UpdateBook");
     }
 
     @Test
     public void testGetResp(){
+        logger.info("Started GetResp");
         WebTarget donationsWebTarget = webTarget.path("users/response");
         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.get();
         String str = response.readEntity(String.class);
         Assert.assertEquals("Response", str);
+        logger.info("Finished GetResp");
     }
 }
