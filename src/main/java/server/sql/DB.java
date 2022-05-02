@@ -8,6 +8,7 @@ import java.util.List;
 //import org.apache.logging.log4j.Logger;
 import server.Main;
 import server.data.domain.Book;
+import server.data.domain.Room;
 import server.data.domain.User;
 
 public class DB {
@@ -17,6 +18,7 @@ public class DB {
     private static ArrayList<User> usersList;
     //	private static ArrayList<BookDTO> booksList;
     private static ArrayList<Book> booksList;
+    private static ArrayList<Room> roomsList;
 
     //private static final Logger logger = LogManager.getLogger(DB.class);
 
@@ -44,11 +46,13 @@ public class DB {
         dropTables(con);
         String bookq = "CREATE TABLE IF NOT EXISTS Book (id int auto_increment PRIMARY KEY, name VARCHAR(255) , author VARCHAR(255) , publishDate Date, available Boolean)";
         String userq = "CREATE TABLE IF NOT EXISTS User (id int auto_increment PRIMARY KEY, name VARCHAR(255), email VARCHAR(255), password VARCHAR(255), birthDate Date)";
+        String roomq = "CREATE TABLE IF NOT EXISTS Room (id int auto_increment PRIMARY KEY, name VARCHAR(255), day INTEGER, month VARCHAR(255), hourBeg INTEGER, hourEnd INTEGER, booked Boolean)";
         Statement st = null;
         try {
             st = con.createStatement();
             st.executeUpdate(bookq);
             st.executeUpdate(userq);
+            st.executeUpdate(roomq);
             st.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -68,11 +72,13 @@ public class DB {
     public static void dropTables(Connection con) throws DBException {
         String bookq = "DROP TABLE IF EXISTS Book";
         String userq = "DROP TABLE IF EXISTS User";
+        String roomq = "DROP TABLE IF EXISTS Room";
         Statement st = null;
         try {
             st = con.createStatement();
             st.executeUpdate(bookq);
             st.executeUpdate(userq);
+            st.executeUpdate(roomq);
             st.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -141,6 +147,34 @@ public class DB {
             }
         }*/
     }
+    
+    public static void addRoom(Connection con, String name, int day, String month, int hourBeg, int hourEnd, Boolean booked)
+            throws DBException {
+        try (PreparedStatement stmt = con
+                .prepareStatement("INSERT INTO Room (name, day, month, hourBeg, hourEnd, booked) VALUES (?,?,?,?,?,?)");
+             Statement stmtForId = con.createStatement()) {
+            stmt.setString(1, name);
+            stmt.setInt(2, day);
+            stmt.setString(3, month);
+            stmt.setInt(4, hourBeg);
+            stmt.setInt(5, hourEnd);
+            stmt.setBoolean(6, booked);
+            stmt.executeUpdate();
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new DBException("Room cannot be added");
+        } /*finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }*/
+    }
 
 
     public static ArrayList<User> getUsersList(Connection con) throws SQLException {
@@ -172,6 +206,21 @@ public class DB {
         rs.close();
         return booksList;
     }
+    
+    public static ArrayList<Room> getRoomsList(Connection con) throws SQLException {
+        String sent = "SELECT * FROM Room";
+        Statement st = null;
+        st = con.createStatement();
+        roomsList = new ArrayList<Room>();
+        Room room = new Room();
+        ResultSet rs = st.executeQuery(sent);
+        while (rs.next()) {
+            room = new Room(rs.getString(2), (User)rs.getObject(3), rs.getInt(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getBoolean(8));
+            roomsList.add(room);
+        }
+        rs.close();
+        return roomsList;
+    }
 
     public static void deleteBook(Connection con, String name) {
         String sent = "DELETE FROM Book WHERE name = '" + name + "'";
@@ -186,6 +235,17 @@ public class DB {
 
     public static void deleteUser(Connection con, String name) {
         String sent = "DELETE FROM User WHERE name = '" + name + "'";
+        Statement st = null;
+        try {
+            st = con.createStatement();
+            st.executeUpdate(sent);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public static void deleteRoom(Connection con, String name) {
+        String sent = "DELETE FROM Room WHERE name = '" + name + "'";
         Statement st = null;
         try {
             st = con.createStatement();
@@ -292,6 +352,80 @@ public class DB {
             e.printStackTrace();
         }
     }
+    
+    public static void updateRoomName(Connection con, String name, int id) {
+        String sql = "UPDATE Room SET name = '" + name + "' WHERE id = " + id;
+
+        try {
+            Statement st = con.createStatement();
+            st.executeUpdate(sql);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    
+    public static void updateRoomDay(Connection con, int day, String name) {
+        String sql = "UPDATE Room SET day = " + day + " WHERE name = '" + name + "'";
+
+        try {
+            Statement st = con.createStatement();
+            st.executeUpdate(sql);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    
+    public static void updateRoomMonth(Connection con, String month, String name) {
+        String sql = "UPDATE Room SET month = '" + month + "' WHERE name = '" + name + "'";
+
+        try {
+            Statement st = con.createStatement();
+            st.executeUpdate(sql);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    
+    public static void updateRoomHourBeg(Connection con, int hourBeg, String name) {
+        String sql = "UPDATE Room SET hourBeg = " + hourBeg + " WHERE name = '" + name + "'";
+
+        try {
+            Statement st = con.createStatement();
+            st.executeUpdate(sql);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    
+    public static void updateRoomHourEnd(Connection con, int hourEnd, String name) {
+        String sql = "UPDATE Room SET hourEnd = " + hourEnd + " WHERE name = '" + name + "'";
+
+        try {
+            Statement st = con.createStatement();
+            st.executeUpdate(sql);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    
+    public static void updateRoomBooked(Connection con, Boolean booked, String name) {
+        String sql = "UPDATE Room SET booked = " + booked + " WHERE name = '" + name + "'";
+
+        try {
+            Statement st = con.createStatement();
+            st.executeUpdate(sql);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    
+    
 
 /* DB TESTING
     public static void main(String args[]) {

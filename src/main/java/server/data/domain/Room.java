@@ -12,7 +12,7 @@ public class Room {
     private int hourEnd;
     private Boolean booked;
 
-    public Room(int id, String name, User user, int day, String month, int hourBeg, int hourEnd, Boolean booked) {
+    public Room(String name, User user, int day, String month, int hourBeg, int hourEnd, Boolean booked) {
         this.id = count++;
         this.name = name;
         this.user = user;
