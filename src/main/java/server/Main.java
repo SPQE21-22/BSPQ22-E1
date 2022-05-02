@@ -1,5 +1,7 @@
 package server;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import server.data.domain.User;
 
 import java.sql.Connection;
@@ -14,7 +16,6 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-//import org.apache.logging.log4j.*;
 import server.sql.DB;
 import server.sql.DBException;
 
@@ -25,7 +26,7 @@ public class Main implements Runnable{
     private Connection con;
     private DB db = new DB();
     private final AtomicBoolean running = new AtomicBoolean(false);
-    //private static final Logger logger = LogManager.getLogger(Main.class);
+    private static final Logger logger = LogManager.getLogger(Main.class);
 
 
     public Main(String hostname, String port) throws SQLException {
@@ -48,7 +49,7 @@ public class Main implements Runnable{
             e.printStackTrace();
         }
         //Cosas de la interfaz de server
-        //logger.info("Server ready");
+        logger.info("Server ready");
         thread = new Thread(this);
         thread.start();
     }
@@ -64,14 +65,14 @@ public class Main implements Runnable{
                 Response response = invocationBuilder.get();
                 if (response.getStatus() == Status.OK.getStatusCode()) {
                     User answer = response.readEntity(User.class);
-                    //logger.info("User received");
+                    logger.info("User received");
                 } else {
-                    //logger.info("////////");
+                    logger.info("////////");
                 }
 
             } catch (InterruptedException e){
                 Thread.currentThread().interrupt();
-                //logger.error("Thread was interrupted, Failed to complete operation");
+                logger.error("Thread was interrupted, Failed to complete operation");
             }
         }
     }

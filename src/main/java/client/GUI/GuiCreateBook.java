@@ -1,7 +1,7 @@
 package client.GUI;
 
-//import org.apache.logging.log4j.LogManager;
-//import org.apache.logging.log4j.Logger;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import server.data.domain.Book;
 import server.data.domain.User;
 
@@ -36,7 +36,7 @@ public class GuiCreateBook extends JFrame {
     private JButton buttonCreate;
     private Font arialBlack13;
     private Font arialBlack30;
-    //private static final Logger logger = LogManager.getLogger(GuiCreateBook.class);
+    private static final Logger logger = LogManager.getLogger(GuiCreateBook.class);
 
     public GuiCreateBook(User u, List<Book> ab, String hostname, String port) {
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
@@ -108,7 +108,7 @@ public class GuiCreateBook extends JFrame {
                     Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
                     Response response = invocationBuilder.post(Entity.entity(b0, MediaType.APPLICATION_JSON));
                     if (response.getStatus() != Response.Status.OK.getStatusCode()) {
-                        //logger.error("Error while creating book");
+                        logger.error("Error while creating book");
                     } else{
                         new GuiMain(u, ab, hostname, port);
                         guiCreateBook.dispose();

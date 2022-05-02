@@ -4,8 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//import org.apache.logging.log4j.LogManager;
-//import org.apache.logging.log4j.Logger;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import server.Main;
 import server.data.domain.Book;
 import server.data.domain.Room;
@@ -20,7 +20,7 @@ public class DB {
     private static ArrayList<Book> booksList;
     private static ArrayList<Room> roomsList;
 
-    //private static final Logger logger = LogManager.getLogger(DB.class);
+    private static final Logger logger = LogManager.getLogger(DB.class);
 
     public static Connection initBD() throws DBException, SQLException {
         Connection con = null;
@@ -32,7 +32,7 @@ public class DB {
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, username, password);
-            //logger.info("Connection with librarydb succeeded");
+            logger.info("Connection with librarydb succeeded");
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (SQLException throwable) {
