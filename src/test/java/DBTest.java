@@ -3,6 +3,7 @@ import org.apache.log4j.Logger;
 import org.databene.contiperf.junit.ContiPerfRule;
 import org.junit.*;
 import server.data.domain.Book;
+import server.data.domain.Room;
 import server.data.domain.User;
 import server.sql.DB;
 import server.sql.DBException;
@@ -29,6 +30,9 @@ public class DBTest {
         DB.addUser(con, "Ruben", "r@mail", "4321",new Date(2022, 1, 10));
         DB.addBook(con, "El Camino de lo reyes", "Brandon Sanderson",  new Date(2006, 3, 15), true);
         DB.addBook(con, "El Imperio Final", "Sandon Branderson",  new Date(2006, 3, 15), true);
+        DB.addRoom(con, "Sala de ordenadores", 14, "Mayo", 17, 19, false);
+        DB.addRoom(con, "Sala de trabajo", 3, "Julio", 10, 13, false);
+        
         logger.info("Finished SetUp");
     }
 
@@ -62,6 +66,22 @@ public class DBTest {
     }
 
     @Test
+    public void testGetRooms() throws SQLException {
+        logger.info("Started GetRooms");
+        List<Room> roomsList = DB.getRoomsList(con);
+        Assert.assertEquals(roomsList.get(0).getName(), "Sala de ordenadores");
+        Assert.assertEquals(roomsList.get(0).getDay(), 14);
+        Assert.assertEquals(roomsList.get(0).getMonth(), "Mayo");
+        Assert.assertEquals(roomsList.get(0).getBooked(), false);
+
+        Assert.assertEquals(roomsList.get(1).getName(), "Sala de trabajo");
+        Assert.assertEquals(roomsList.get(1).getDay(), 3);
+        Assert.assertEquals(roomsList.get(1).getMonth(), "Julio");
+        Assert.assertEquals(roomsList.get(1).getBooked(), false);
+        logger.info("Finished GetRooms");
+    }
+    
+    @Test
     public void testAddUser() throws DBException, SQLException {
         logger.info("Started AddUser");
         DB.addUser(con, "Eneko", "e@mail", "12345", new Date(2006, 3, 15));
@@ -70,6 +90,7 @@ public class DBTest {
         Assert.assertEquals(usersList.get(2).getName(), "Eneko");
         Assert.assertEquals(usersList.get(2).getEmail(), "e@mail");
         Assert.assertEquals(usersList.get(2).getPassword(), "12345");
+        
         logger.info("Finished AddUser");
     }
 
@@ -83,6 +104,19 @@ public class DBTest {
         Assert.assertEquals(booksList.get(2).getAuthor(), "Paco");
         Assert.assertEquals(booksList.get(2).getAvailable(), false);
         logger.info("Finished AddBook");
+    }
+    
+    @Test
+    public void testAddRoom() throws DBException, SQLException {
+        logger.info("Started AddRoom");
+        DB.addRoom(con, "Sala de lectura", 2,  "Febrero",9,10, false);
+        List<Room> roomList = DB.getRoomsList(con);
+        Assert.assertEquals(roomList.size(), 3);
+        Assert.assertEquals(roomList.get(2).getName(), "Sala de lectura");
+        Assert.assertEquals(roomList.get(2).getDay(), 2);
+        Assert.assertEquals(roomList.get(2).getMonth(), "Febrero");
+        Assert.assertEquals(roomList.get(2).getBooked(), false);
+        logger.info("Finished AddRoom");
     }
 
     @Test
@@ -101,6 +135,15 @@ public class DBTest {
         List<User> usersList = DB.getUsersList(con);
         Assert.assertEquals(usersList.size(), 2);
         logger.info("Finished DeleteUser");
+    }
+    
+    @Test
+    public void testDeleteRoom() throws SQLException{
+        logger.info("Started DeleteRoom");
+        DB.deleteRoom(con, "Eneko");
+        List<Room> roomsList = DB.getRoomsList(con);
+        Assert.assertEquals(roomsList.size(), 2);
+        logger.info("Finished DeleteRoom");
     }
 
     @Test
@@ -132,5 +175,26 @@ public class DBTest {
         Assert.assertEquals(usersList.get(1).getEmail(), "uben@mail");
         Assert.assertEquals(usersList.get(1).getPassword(), "5678");
         logger.info("Finished UpdateUser");
+    }
+    
+    @Test
+    public void testUpdateRoom() throws SQLException {
+        logger.info("Started UpdateRoom");
+        List<Room> roomsList0 = DB.getRoomsList(con);
+        DB.updateRoomName(con, "Sala de portatiles", roomsList0.get(0).getId());
+        DB.updateRoomDay(con,2, "Sala de portatiles");
+        DB.updateRoomMonth(con, "Diciembre", "Sala de portatiles");
+        DB.updateRoomHourBeg(con, 18, "Sala de portatiles");
+        DB.updateRoomHourEnd(con, 21, "Sala de portatiles");
+        DB.updateRoomBooked(con, true, "Sala de portatiles");
+        List<Room> roomsList = DB.getRoomsList(con);
+        Assert.assertEquals(roomsList.size(), 2);
+        Assert.assertEquals(roomsList.get(1).getName(), "Sala de portatiles");
+        Assert.assertEquals(roomsList.get(1).getDay(), 2);
+        Assert.assertEquals(roomsList.get(1).getMonth(), "Diciembre");
+        Assert.assertEquals(roomsList.get(1).getHourBeg(), 18);
+        Assert.assertEquals(roomsList.get(1).getHourEnd(), 21);
+        Assert.assertEquals(roomsList.get(1).getBooked(), true);
+        logger.info("Finished UpdateRoom");
     }
 }
