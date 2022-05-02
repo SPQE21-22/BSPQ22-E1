@@ -118,7 +118,7 @@ public class GuiCalendar {
         Date td = new Date();
         List<Book> tb = new ArrayList<Book>();
         User us = new User("Tyler", "tylerdemier@opendeusto.es", "1234", td, tb);
-        Room r0 = new Room(1, "SPQ meeting", us, 1, "May", 13, 16, false);
+/*        Room r0 = new Room(1, "SPQ meeting", us, 1, "May", 13, 16, false);
         Room r1 = new Room(2, "DB teamwork", us, 1, "May", 13, 16, true);
         Room r2 = new Room(3, "UI tracj review", us, 2, "May", 13, 16, true);
         Room r3 = new Room(4, "Reunion", us, 3, "May", 13, 16, true);
@@ -127,7 +127,7 @@ public class GuiCalendar {
         reservations.add(r1);
         reservations.add(r2);
         reservations.add(r3);
-        reservations.add(r4);
+        reservations.add(r4);*/
 
         months = new HashMap<>();
         months = createHashMonths();
