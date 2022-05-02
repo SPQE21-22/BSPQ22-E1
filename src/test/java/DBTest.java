@@ -180,21 +180,20 @@ public class DBTest {
     @Test
     public void testUpdateRoom() throws SQLException {
         logger.info("Started UpdateRoom");
-        List<Room> roomsList0 = DB.getRoomsList(con);
-        DB.updateRoomName(con, "Sala de portatiles", roomsList0.get(0).getId());
-        DB.updateRoomDay(con,2, "Sala de portatiles");
-        DB.updateRoomMonth(con, "Diciembre", "Sala de portatiles");
-        DB.updateRoomHourBeg(con, 18, "Sala de portatiles");
-        DB.updateRoomHourEnd(con, 21, "Sala de portatiles");
-        DB.updateRoomBooked(con, true, "Sala de portatiles");
+        DB.updateRoomDay(con,2, "Sala de ordenadores");
+        DB.updateRoomMonth(con, "Diciembre", "Sala de ordenadores");
+        DB.updateRoomHourEnd(con, 21, "Sala de ordenadores");
+        DB.updateRoomHourBeg(con, 21, "Sala de ordenadores");
+        DB.updateRoomBooked(con, true, "Sala de ordenadores");
+        DB.updateRoomName(con, "Sala de ordenadores", "Sala de portatiles");
         List<Room> roomsList = DB.getRoomsList(con);
         Assert.assertEquals(roomsList.size(), 2);
-        Assert.assertEquals(roomsList.get(1).getName(), "Sala de portatiles");
-        Assert.assertEquals(roomsList.get(1).getDay(), 2);
-        Assert.assertEquals(roomsList.get(1).getMonth(), "Diciembre");
-        Assert.assertEquals(roomsList.get(1).getHourBeg(), 18);
-        Assert.assertEquals(roomsList.get(1).getHourEnd(), 21);
-        Assert.assertEquals(roomsList.get(1).getBooked(), true);
+        Assert.assertEquals(roomsList.get(0).getName(), "Sala de portatiles");
+        Assert.assertEquals(roomsList.get(0).getDay(), 2);
+        Assert.assertEquals(roomsList.get(0).getMonth(), "Diciembre");
+        Assert.assertEquals(roomsList.get(0).getHourEnd(), 21);
+        Assert.assertEquals(roomsList.get(0).getHourBeg(), 21);
+        Assert.assertEquals(roomsList.get(0).getBooked(), true);
         logger.info("Finished UpdateRoom");
     }
 }

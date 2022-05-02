@@ -353,8 +353,8 @@ public class DB {
         }
     }
     
-    public static void updateRoomName(Connection con, String name, int id) {
-        String sql = "UPDATE Room SET name = '" + name + "' WHERE id = " + id;
+    public static void updateRoomName(Connection con, String name, String newname) {
+        String sql = "UPDATE Room SET name = '" + newname + "' WHERE name = '" + name + "'";
 
         try {
             Statement st = con.createStatement();
@@ -391,7 +391,6 @@ public class DB {
     
     public static void updateRoomHourBeg(Connection con, int hourBeg, String name) {
         String sql = "UPDATE Room SET hourBeg = " + hourBeg + " WHERE name = '" + name + "'";
-
         try {
             Statement st = con.createStatement();
             st.executeUpdate(sql);
@@ -403,7 +402,6 @@ public class DB {
     
     public static void updateRoomHourEnd(Connection con, int hourEnd, String name) {
         String sql = "UPDATE Room SET hourEnd = " + hourEnd + " WHERE name = '" + name + "'";
-
         try {
             Statement st = con.createStatement();
             st.executeUpdate(sql);
