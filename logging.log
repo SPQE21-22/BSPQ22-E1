@@ -1,0 +1,538 @@
+2022-05-03 00:09:39 INFO  Server:60 - Login correcto
+2022-05-03 00:10:06 INFO  Server:102 - Libro actualizado correctamente
+2022-05-03 00:10:24 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:12:24 INFO  Main:59 - Server ready
+2022-05-03 00:12:26 INFO  Main:75 - User received
+2022-05-03 00:12:28 INFO  Main:75 - User received
+2022-05-03 00:12:30 INFO  Main:75 - User received
+2022-05-03 00:12:32 INFO  Main:75 - User received
+2022-05-03 00:12:34 INFO  Main:75 - User received
+2022-05-03 00:12:36 INFO  Main:75 - User received
+2022-05-03 00:12:38 INFO  Main:75 - User received
+2022-05-03 00:15:14 INFO  Main:59 - Server ready
+2022-05-03 00:15:29 INFO  Server:60 - Login correcto
+2022-05-03 00:15:33 INFO  Server:102 - Libro actualizado correctamente
+2022-05-03 00:15:48 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:15:50 INFO  Server:110 - Devolviendo Reservas de habitaciones
+2022-05-03 00:15:50 INFO  Server:112 - Room{id=105, name='SPQ meeting, user=null, day=1, month=May, hourBeg=16, hourEnd=16, booked=true}
+2022-05-03 00:17:11 INFO  DBTest:26 - Started SetUp
+2022-05-03 00:17:11 INFO  DBTest:36 - Finished SetUp
+2022-05-03 00:17:11 INFO  DBTest:56 - Started GetBooks
+2022-05-03 00:17:11 INFO  DBTest:65 - Finished GetBooks
+2022-05-03 00:17:11 INFO  DBTest:26 - Started SetUp
+2022-05-03 00:17:12 INFO  DBTest:36 - Finished SetUp
+2022-05-03 00:17:12 INFO  DBTest:70 - Started GetRooms
+2022-05-03 00:17:12 INFO  DBTest:81 - Finished GetRooms
+2022-05-03 00:17:12 INFO  DBTest:26 - Started SetUp
+2022-05-03 00:17:12 INFO  DBTest:36 - Finished SetUp
+2022-05-03 00:17:12 INFO  DBTest:41 - Started GetUsers
+2022-05-03 00:17:12 INFO  DBTest:50 - Finished GetUsers
+2022-05-03 00:17:12 INFO  DBTest:26 - Started SetUp
+2022-05-03 00:17:12 INFO  DBTest:36 - Finished SetUp
+2022-05-03 00:17:12 INFO  DBTest:99 - Started AddBook
+2022-05-03 00:17:12 INFO  DBTest:106 - Finished AddBook
+2022-05-03 00:17:12 INFO  DBTest:26 - Started SetUp
+2022-05-03 00:17:13 INFO  DBTest:36 - Finished SetUp
+2022-05-03 00:17:13 INFO  DBTest:111 - Started AddRoom
+2022-05-03 00:17:13 INFO  DBTest:119 - Finished AddRoom
+2022-05-03 00:17:13 INFO  DBTest:26 - Started SetUp
+2022-05-03 00:17:13 INFO  DBTest:36 - Finished SetUp
+2022-05-03 00:17:13 INFO  DBTest:86 - Started AddUser
+2022-05-03 00:17:13 INFO  DBTest:94 - Finished AddUser
+2022-05-03 00:17:13 INFO  DBTest:26 - Started SetUp
+2022-05-03 00:17:13 INFO  DBTest:36 - Finished SetUp
+2022-05-03 00:17:13 INFO  DBTest:151 - Started UpdateBook
+2022-05-03 00:17:13 INFO  DBTest:161 - Finished UpdateBook
+2022-05-03 00:17:13 INFO  DBTest:26 - Started SetUp
+2022-05-03 00:17:14 INFO  DBTest:36 - Finished SetUp
+2022-05-03 00:17:14 INFO  DBTest:182 - Started UpdateRoom
+2022-05-03 00:17:14 INFO  DBTest:197 - Finished UpdateRoom
+2022-05-03 00:17:14 INFO  DBTest:26 - Started SetUp
+2022-05-03 00:17:14 INFO  DBTest:36 - Finished SetUp
+2022-05-03 00:17:14 INFO  DBTest:167 - Started UpdateUser
+2022-05-03 00:17:14 INFO  DBTest:177 - Finished UpdateUser
+2022-05-03 00:17:14 INFO  DBTest:26 - Started SetUp
+2022-05-03 00:17:15 INFO  DBTest:36 - Finished SetUp
+2022-05-03 00:17:15 INFO  DBTest:124 - Started DeleteBook
+2022-05-03 00:17:15 INFO  DBTest:128 - Finished DeleteBook
+2022-05-03 00:17:15 INFO  DBTest:26 - Started SetUp
+2022-05-03 00:17:15 INFO  DBTest:36 - Finished SetUp
+2022-05-03 00:17:15 INFO  DBTest:142 - Started DeleteRoom
+2022-05-03 00:17:15 INFO  DBTest:146 - Finished DeleteRoom
+2022-05-03 00:17:15 INFO  DBTest:26 - Started SetUp
+2022-05-03 00:17:15 INFO  DBTest:36 - Finished SetUp
+2022-05-03 00:17:15 INFO  DBTest:133 - Started DeleteUser
+2022-05-03 00:17:15 INFO  DBTest:137 - Finished DeleteUser
+2022-05-03 00:17:21 INFO  ServerTest:39 - Started Setup
+2022-05-03 00:17:21 INFO  ServerTest:48 - Finished Setup
+2022-05-03 00:17:21 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:21 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:22 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:27 INFO  ServerTest:39 - Started Setup
+2022-05-03 00:17:28 INFO  ServerTest:48 - Finished Setup
+2022-05-03 00:17:28 INFO  ServerTest:83 - Started GetBooks
+2022-05-03 00:17:28 INFO  ServerTest:88 - Book [name = El Camino de lo reyes, author = Brandon Sanderson, Date = Sat Apr 15 00:00:00 CEST 2006, Available = true]
+2022-05-03 00:17:28 INFO  ServerTest:89 - Finished GetBooks
+2022-05-03 00:17:28 INFO  ServerTest:39 - Started Setup
+2022-05-03 00:17:28 INFO  ServerTest:48 - Finished Setup
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:28 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:28 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:28 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:28 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:28 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:28 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:28 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:28 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:28 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:28 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:28 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:28 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:28 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:28 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:28 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:28 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:29 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:29 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:29 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:29 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:29 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:29 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:29 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:29 INFO  ServerTest:97 - Started AddBook
+2022-05-03 00:17:29 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:29 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:111 - Finished AddBook
+2022-05-03 00:17:29 INFO  ServerTest:39 - Started Setup
+2022-05-03 00:17:29 INFO  ServerTest:48 - Finished Setup
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:29 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:29 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:29 INFO  ServerTest:39 - Started Setup
+2022-05-03 00:17:29 INFO  ServerTest:48 - Finished Setup
+2022-05-03 00:17:29 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:29 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:29 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:29 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:29 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:29 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:29 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:29 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:29 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:29 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:118 - Started UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  Server:88 - Libro añadido correctamente
+2022-05-03 00:17:30 INFO  ServerTest:132 - Finished UpdateBook
+2022-05-03 00:17:30 INFO  ServerTest:39 - Started Setup
+2022-05-03 00:17:30 INFO  ServerTest:48 - Finished Setup
+2022-05-03 00:17:30 INFO  ServerTest:159 - Started GetResp
+2022-05-03 00:17:30 INFO  ServerTest:165 - Finished GetResp
+2022-05-03 00:17:30 INFO  ServerTest:39 - Started Setup
+2022-05-03 00:17:30 INFO  ServerTest:48 - Finished Setup
+2022-05-03 00:17:30 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:30 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:30 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:30 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:30 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:30 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:30 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:30 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:30 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:30 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:30 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:30 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:30 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:30 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:30 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:30 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:30 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:30 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:30 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:30 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:30 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:30 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:30 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:30 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:30 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:30 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:30 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:30 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:30 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:30 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:30 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:30 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:30 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:30 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:30 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:30 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:30 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:68 - Started CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  Server:70 - Usuario creado correctamente
+2022-05-03 00:17:31 INFO  ServerTest:77 - Finished CreateUser
+2022-05-03 00:17:31 INFO  ServerTest:39 - Started Setup
+2022-05-03 00:17:31 INFO  ServerTest:48 - Finished Setup
+2022-05-03 00:17:31 INFO  ServerTest:53 - Started UserLogin
+2022-05-03 00:17:31 INFO  Server:60 - Login correcto
+2022-05-03 00:17:31 INFO  ServerTest:61 - Finished UserLogin
+2022-05-03 00:17:50 INFO  ServerTest:39 - Started Setup
+2022-05-03 00:17:51 INFO  ServerTest:48 - Finished Setup
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  ServerTest:139 - Started AddRoom
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:119 - Room{id=0, name='Sala de reuniones, user=null, day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom
+2022-05-03 00:17:51 INFO  Server:122 - Libro añadido correctamente
+2022-05-03 00:17:51 INFO  ServerTest:154 - Finished AddRoom

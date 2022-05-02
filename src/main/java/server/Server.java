@@ -42,7 +42,7 @@ public class Server {
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
-		logger.info("Servidor Iniciado");
+		//logger.info("Servidor Iniciado");
 	};
 
 	@POST
@@ -75,7 +75,7 @@ public class Server {
 	@GET
 	@Path("/books")
 	public Response getBooks() {
-		logger.info("Devolviendo listado de libros");
+		//logger.info("Devolviendo listado de libros");
 		User admin = new User("","","",null,this.booksList);
 		return Response.ok(admin).build();
 	}
@@ -109,16 +109,14 @@ public class Server {
 	public Response getRooms() {
 		logger.info("Devolviendo Reservas de habitaciones");
 		Reserv res = new Reserv(roomList);
-		System.out.println(res.getReservs().get(0));
+		logger.info(res.getReservs().get(0));
 		return Response.ok(res).build();
 	}
 
 	@POST
 	@Path("/addRoom")
 	public Response addRoom(Room reserv) throws DBException {
-		System.out.println("///////////////////////////");
-		System.out.println(reserv);
-		System.out.println("///////////////////////////");
+		logger.info(reserv);
 		DB.addRoom(con, reserv.getName(), reserv.getDay(),  reserv.getMonth(), reserv.getHourBeg(), reserv.getHourEnd(), reserv.getBooked());
 		this.roomList.add(reserv);
 		logger.info("Libro añadido correctamente");

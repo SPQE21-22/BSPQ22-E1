@@ -63,7 +63,7 @@ public class ServerTest {
 
     @Test
     @PerfTest(invocations = 30, threads = 3)
-    @Required(max = 500, average = 500)
+    @Required(max = 1000, average = 500)
     public void testCreateUser() throws InterruptedException {
         logger.info("Started CreateUser");
         User u0 = new User("Ruben", "r@mail", "4321", new Date(2022, 1, 10), new ArrayList<Book>());
@@ -92,7 +92,7 @@ public class ServerTest {
 
     @Test
     @PerfTest(invocations = 20, threads = 2)
-    @Required(max = 500, average = 500)
+    @Required(max = 1000, average = 500)
     public void testAddBook(){
         logger.info("Started AddBook");
         Book b0 = new Book();
@@ -113,7 +113,7 @@ public class ServerTest {
 
     @Test
     @PerfTest(invocations = 20, threads = 3)
-    @Required(max = 500, average = 500)
+    @Required(max = 1000, average = 500)
     public void testUpdateBook(){
         logger.info("Started UpdateBook");
         Book b0 = new Book();

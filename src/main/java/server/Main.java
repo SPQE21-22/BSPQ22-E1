@@ -1,5 +1,7 @@
 package server;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import server.data.domain.Room;
 import server.data.domain.User;
 
@@ -26,7 +28,7 @@ public class Main implements Runnable{
     private Connection con;
     private DB db = new DB();
     private final AtomicBoolean running = new AtomicBoolean(false);
-    //private static final Logger logger = LogManager.getLogger(Main.class);
+    private static final Logger logger = LogManager.getLogger(Main.class);
 
 
     public Main(String hostname, String port) throws SQLException {
@@ -54,7 +56,7 @@ public class Main implements Runnable{
             e.printStackTrace();
         }
         //Cosas de la interfaz de server
-        //logger.info("Server ready");
+        logger.info("Server ready");
         thread = new Thread(this);
         thread.start();
     }
@@ -77,7 +79,7 @@ public class Main implements Runnable{
 
             } catch (InterruptedException e){
                 Thread.currentThread().interrupt();
-                //logger.error("Thread was interrupted, Failed to complete operation");
+                logger.error("Thread was interrupted, Failed to complete operation");
             }
         }
     }

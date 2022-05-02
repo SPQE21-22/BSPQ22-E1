@@ -32,7 +32,7 @@ public class DB {
         try {
             Class.forName(driver);
             con = DriverManager.getConnection(url, username, password);
-            logger.info("Connection with librarydb succeeded");
+            //logger.info("Connection with librarydb succeeded");
         } catch (ClassNotFoundException ex) {
             ex.printStackTrace();
         } catch (SQLException throwable) {
@@ -425,17 +425,30 @@ public class DB {
     
     
 
-/* DB TESTING
+/* DB TESTING */
     public static void main(String args[]) {
         Connection con = null;
         try {
             con = initBD();
             createTables(con);
-            addUser(con, "Alex", "a@mail", "1234", new Date(2022, 1, 10));
-            addUser(con, "Aida", "a@mail", "1234", new Date(2001, 2, 10));
-            addBook(con, "El nombre del Viento", "Path", new Date(2006, 3, 15), true);
+            DB.addUser(con, "Alex", "a@mail", "1234",new Date(2022, 1, 10));
+            DB.addUser(con, "Aida", "ai@mail", "1234", new Date(2001, 2, 10));
+            DB.addBook(con, "El nombre del Viento", "Path",  new Date(2006, 3, 15), true);
+            DB.addBook(con, "El Camino de lo reyes", "Brandon Sanderson",  new Date(2006, 3, 15), true);
+            DB.addBook(con, "El Imperio Final", "Brandon Sanderson",  new Date(2006, 3, 15), true);
+            DB.addBook(con, "Asesinato en el Orient Express", "Agatha Christie",  new Date(2006, 3, 15), true);
+            DB.addBook(con, "Viaje al centro de la tierra", "Julio Verne",  new Date(2006, 3, 15), true);
+            DB.addBook(con, "Estudio en escarlata", "Arthur Conan Doyle",  new Date(2006, 3, 15), true);
+            DB.addBook(con, "El ojo del mundo", "Robert Jordan",  new Date(2006, 3, 15), true);
+            DB.addBook(con, "Dracula", "Bran Stroker",  new Date(2006, 3, 15), true);
+            DB.addRoom(con, "SPQ meeting", 1, "May", 13, 16, true);
+            DB.addRoom(con, "DB teamwork", 1, "May", 13, 16, true);
+            DB.addRoom(con, "UI track review", 2, "May", 13, 16, true);
+            DB.addRoom(con, "Reunion", 3, "May", 13, 16, true);
+            DB.addRoom(con, "Algebra studying", 4, "May", 13, 16, true);
             usersList = getUsersList(con);
             booksList = getBooksList(con);
+            ArrayList<Room> roomList = getRoomsList(con);
             for (User u :
                     usersList) {
                 logger.info(u);
@@ -444,6 +457,11 @@ public class DB {
             for (Book u :
                     booksList) {
                 logger.info(u);
+            }
+
+            for (Room r :
+                    roomList) {
+                logger.info(r.getHourBeg());
             }
             updateBookAuthor(con, "El nombre del Viento", "yo");
             updateBookName(con, "El nombre del Viento", "hola");
@@ -454,6 +472,8 @@ public class DB {
             updateUserEmail(con, "Aida2", "email@g.com");
             updateUserBirthdate(con, "Aida2", new Date(1900, 0, 3));
             updateUserPassword(con, "Aida2", "hola");
+
+
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -471,5 +491,4 @@ public class DB {
         }
     }
 
- */
 }

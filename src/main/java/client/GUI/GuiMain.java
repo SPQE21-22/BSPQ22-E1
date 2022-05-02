@@ -1,9 +1,12 @@
 package client.GUI;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import server.data.domain.Book;
 import server.data.domain.Reserv;
 import server.data.domain.Room;
 import server.data.domain.User;
+import server.sql.DB;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -34,6 +37,7 @@ public class GuiMain extends JFrame {
     WebTarget webTarget;
     private Font arialBlack13;
     private Font arial13;
+    private static final Logger logger = LogManager.getLogger(GuiMain.class);
 
     public GuiMain(User u, List<Book> ab, String hostname, String port) {
         client = ClientBuilder.newClient();
@@ -152,7 +156,7 @@ public class GuiMain extends JFrame {
                                 Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
                                 Response response = invocationBuilder.put(Entity.entity(ab2.get(i), MediaType.APPLICATION_JSON));
                                 if (response.getStatus() != Response.Status.OK.getStatusCode()) {
-                                    System.out.println("Error while updating");
+                                    logger.error("Error while updating");
                                 }
                             }
                         }
