@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import server.data.domain.Book;
+import server.data.domain.Room;
 import server.data.domain.User;
 import server.sql.DB;
 import server.sql.DBException;
@@ -85,8 +86,9 @@ public class ServerTest {
         Response response = invocationBuilder.get();
         User u1 = response.readEntity(User.class);
         logger.info(u1.getBooks().get(0));
-        logger.info("Finished CreateUser");
+        logger.info("Finished GetBooks");
     }
+    
 
     @Test
     @PerfTest(invocations = 20, threads = 2)
@@ -128,6 +130,28 @@ public class ServerTest {
         Assert.assertEquals(b1.getAvailable(), false);
         Assert.assertEquals(b1.getPublishDate(), new Date(2022, 1, 10));
         logger.info("Finished UpdateBook");
+    }
+    
+    @Test
+    @PerfTest(invocations = 20, threads = 2)
+    @Required(max = 500, average = 500)
+    public void testAddRoom(){
+        logger.info("Started AddRoom");
+        Room r0 = new Room();
+        r0.setName("Sala de reuniones");
+        r0.setDay(1);
+        r0.setMonth("Enero");
+        r0.setHourBeg(7);
+        r0.setHourEnd(12);
+        r0.setBooked(false);
+        WebTarget donationsWebTarget = webTarget.path("users/addRoom");
+        Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.post(Entity.entity(r0, MediaType.APPLICATION_JSON));
+        Room r1 = response.readEntity(Room.class);
+        Assert.assertEquals(r1.getName(), "Sala de reuniones");
+        Assert.assertEquals(r1.getMonth(), "Enero");
+        Assert.assertEquals(r1.getBooked(), false);
+        logger.info("Finished AddRoom");
     }
 
     @Test
