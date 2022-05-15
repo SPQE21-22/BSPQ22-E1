@@ -20,6 +20,8 @@ import javax.ws.rs.core.Response.Status;
 //import org.apache.logging.log4j.*;
 import server.sql.DB;
 import server.sql.DBException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class Main implements Runnable{
     private Client client;
@@ -31,7 +33,10 @@ public class Main implements Runnable{
     private static final Logger logger = LogManager.getLogger(Main.class);
 
 
+
     public Main(String hostname, String port) throws SQLException {
+        ResourceBundle resourceBundle = ResourceBundle.getBundle("SystemMessages", Locale.getDefault());
+        resourceBundle = ResourceBundle.getBundle("SystemMessages",	Locale.forLanguageTag("en"));
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
         try {
@@ -56,7 +61,7 @@ public class Main implements Runnable{
             e.printStackTrace();
         }
         //Cosas de la interfaz de server
-        logger.info("Server ready");
+        logger.info(resourceBundle.getString("startingMsg"));
         thread = new Thread(this);
         thread.start();
     }
