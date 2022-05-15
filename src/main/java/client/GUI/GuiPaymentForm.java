@@ -149,7 +149,8 @@ public class GuiPaymentForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (isValid(textNumber, textCvv, textName, spinnerMonth, spinnerYear)){
-                    System.out.println("works");
+                    new GuiCafeteria();
+                    paymentForm.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Make sure all the data is filled in correctly.", "Management", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -160,6 +161,13 @@ public class GuiPaymentForm {
         JButton buttonCancel = new JButton("CANCEL");
         buttonCancel.setFont(new Font("Arial", Font.BOLD, 13));
         buttonCancel.setBounds(99, 221, 92, 25);
+        buttonCancel.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new GuiCafeteria();
+                paymentForm.dispose();
+            }
+        });
         paymentForm.getContentPane().add(buttonCancel);
     }
 

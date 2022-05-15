@@ -4,9 +4,9 @@ public class Food {
 
     private String name;
     private String type;
-    private float price;
+    private double price;
 
-    public Food(String name, String type, float price) {
+    public Food(String name, String type, double price) {
         this.name = name;
         this.type = type;
         this.price = price;
@@ -32,10 +32,10 @@ public class Food {
         this.type = type;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }
