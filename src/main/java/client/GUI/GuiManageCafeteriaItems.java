@@ -2,12 +2,18 @@ package client.GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class GuiManageCafeteriaItems {
 
     private JFrame guiCafeteriaItems;
     private JTextField textNameD;
     private JTextField textNameF;
+
+    public boolean isValid(JTextField n){
+        return n.getText() != null;
+    }
 
     public GuiManageCafeteriaItems(){
         guiCafeteriaItems = new JFrame();
@@ -61,10 +67,8 @@ public class GuiManageCafeteriaItems {
         textNameD = new JTextField();
         textNameD.setBounds(10, 131, 195, 20);
         guiCafeteriaItems.getContentPane().add(textNameD);
-        textNameD.setColumns(10);
 
         textNameF = new JTextField();
-        textNameF.setColumns(10);
         textNameF.setBounds(227, 131, 197, 20);
         guiCafeteriaItems.getContentPane().add(textNameF);
 
@@ -78,13 +82,17 @@ public class GuiManageCafeteriaItems {
         labelPriceF.setBounds(227, 162, 60, 14);
         guiCafeteriaItems.getContentPane().add(labelPriceF);
 
+        SpinnerNumberModel snmD = new SpinnerNumberModel(0.01, 0.01, null, 0.01);
+        SpinnerNumberModel snmF = new SpinnerNumberModel(0.01, 0.01, null, 0.01);
+
         JSpinner spinnerPriceD = new JSpinner();
         spinnerPriceD.setBounds(80, 162, 125, 20);
+        spinnerPriceD.setModel(snmD);
         guiCafeteriaItems.getContentPane().add(spinnerPriceD);
 
         JSpinner spinnerPriceF = new JSpinner();
-        spinnerPriceF.setModel(new SpinnerNumberModel(new Float(0), new Float(0), new Float(0), new Float(0)));
         spinnerPriceF.setBounds(299, 162, 125, 20);
+        spinnerPriceF.setModel(snmF);
         guiCafeteriaItems.getContentPane().add(spinnerPriceF);
 
         JLabel labelTypeD = new JLabel("Type:");
@@ -92,24 +100,49 @@ public class GuiManageCafeteriaItems {
         labelTypeD.setBounds(10, 193, 60, 14);
         guiCafeteriaItems.getContentPane().add(labelTypeD);
 
-        JLabel labelTypeD_1 = new JLabel("Type:");
-        labelTypeD_1.setFont(new Font("Arial", Font.BOLD, 13));
-        labelTypeD_1.setBounds(227, 193, 60, 14);
-        guiCafeteriaItems.getContentPane().add(labelTypeD_1);
+        JLabel labelTypeF= new JLabel("Type:");
+        labelTypeF.setFont(new Font("Arial", Font.BOLD, 13));
+        labelTypeF.setBounds(227, 193, 60, 14);
+        guiCafeteriaItems.getContentPane().add(labelTypeF);
 
         JComboBox<String> cTypeD = new JComboBox<String>();
-        cTypeD.setModel(new DefaultComboBoxModel(new String[] {"Soda", "Coffee", "Tea", "Water based", "Juice"}));
+        cTypeD.setModel(new DefaultComboBoxModel<String>(new String[] {"Soda", "Coffee", "Tea", "Water based", "Juice"}));
         cTypeD.setBounds(80, 193, 125, 22);
         guiCafeteriaItems.getContentPane().add(cTypeD);
 
         JComboBox<String> cTypeF = new JComboBox<String>();
-        cTypeF.setModel(new DefaultComboBoxModel(new String[] {"Starter", "Main course", "Sandwich", "Pastry"}));
+        cTypeF.setModel(new DefaultComboBoxModel<String>(new String[] {"Starter", "Main course", "Sandwich", "Pastry"}));
         cTypeF.setBounds(299, 193, 125, 22);
         guiCafeteriaItems.getContentPane().add(cTypeF);
 
-        JButton buttonAdd = new JButton("ADD");
-        buttonAdd.setFont(new Font("Arial", Font.BOLD, 13));
-        buttonAdd.setBounds(172, 256, 92, 25);
-        guiCafeteriaItems.getContentPane().add(buttonAdd);
+        JButton buttonAddD = new JButton("ADD");
+        buttonAddD.setFont(new Font("Arial", Font.BOLD, 13));
+        buttonAddD.setBounds(60, 261, 92, 25);
+        buttonAddD.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (isValid(textNameD)){
+                    System.out.println("Added");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Make sure all the data is filled in correctly.", "Management", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        });
+        guiCafeteriaItems.getContentPane().add(buttonAddD);
+
+        JButton buttonAddF = new JButton("ADD");
+        buttonAddF.setFont(new Font("Arial", Font.BOLD, 13));
+        buttonAddF.setBounds(282, 261, 92, 25);
+        buttonAddF.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f) {
+                if (isValid(textNameF)){
+                    System.out.println("Added");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Make sure all the data is filled in correctly.", "Management", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        });
+        guiCafeteriaItems.getContentPane().add(buttonAddF);
     }
 }
