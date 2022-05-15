@@ -62,9 +62,14 @@ public class GuiAdminManagement {
         buttonRooms.setBounds(30, 173, 285, 25);
         guiAdminManagement.getContentPane().add(buttonRooms);
 
-        JButton buttonManageRooms = new JButton("MANAGE ROOMS");
-        buttonManageRooms.setFont(new Font("Arial", Font.BOLD, 13));
-        buttonManageRooms.setBounds(30, 209, 285, 25);
-        guiAdminManagement.getContentPane().add(buttonManageRooms);
+        JButton buttonManageBooks = new JButton("MANAGE BOOKS");
+        buttonManageBooks.setFont(new Font("Arial", Font.BOLD, 13));
+        buttonManageBooks.setBounds(30, 209, 285, 25);
+        buttonManageBooks.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
+        guiAdminManagement.getContentPane().add(buttonManageBooks);
     }
 }

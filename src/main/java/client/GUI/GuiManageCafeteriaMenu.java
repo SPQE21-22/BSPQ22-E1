@@ -1,13 +1,38 @@
 package client.GUI;
 
+import server.data.domain.Drink;
+import server.data.domain.Food;
+import server.data.domain.Menu;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class GuiManageCafeteriaMenu {
 
     private JFrame guiManageCafeteriaMenu;
 
-    public GuiManageCafeteriaMenu(){
+    public void createCbF(JComboBox<Food> cb, ArrayList<Food> arf) {
+        for (Food f : arf) {
+            cb.addItem(f);
+        }
+    }
+
+    public void createCbD(JComboBox<Drink> cb, ArrayList<Drink> ard) {
+        for (Drink d : ard) {
+            cb.addItem(d);
+        }
+    }
+
+    public GuiManageCafeteriaMenu() {
+
+        ArrayList<Food> arfStarter = new ArrayList<Food>();
+        ArrayList<Food> arfMain = new ArrayList<Food>();
+        ArrayList<Food> arfPastry= new ArrayList<Food>();
+        ArrayList<Drink> ard = new ArrayList<Drink>();
+
         guiManageCafeteriaMenu = new JFrame();
         guiManageCafeteriaMenu.setTitle("ADMIN");
         guiManageCafeteriaMenu.setResizable(false);
@@ -33,8 +58,9 @@ public class GuiManageCafeteriaMenu {
         labelStarter.setBounds(10, 65, 112, 14);
         guiManageCafeteriaMenu.getContentPane().add(labelStarter);
 
-        JComboBox cbStarter = new JComboBox();
+        JComboBox<Food> cbStarter = new JComboBox<Food>();
         cbStarter.setBounds(106, 65, 152, 22);
+        createCbF(cbStarter, arfStarter);
         guiManageCafeteriaMenu.getContentPane().add(cbStarter);
 
         JLabel labelMain = new JLabel("Main course:");
@@ -42,8 +68,9 @@ public class GuiManageCafeteriaMenu {
         labelMain.setBounds(10, 98, 112, 14);
         guiManageCafeteriaMenu.getContentPane().add(labelMain);
 
-        JComboBox cbMain = new JComboBox();
+        JComboBox<Food> cbMain = new JComboBox<Food>();
         cbMain.setBounds(106, 98, 152, 22);
+        createCbF(cbStarter, arfMain);
         guiManageCafeteriaMenu.getContentPane().add(cbMain);
 
         JLabel labelPastry = new JLabel("Pastry");
@@ -51,8 +78,9 @@ public class GuiManageCafeteriaMenu {
         labelPastry.setBounds(10, 131, 112, 14);
         guiManageCafeteriaMenu.getContentPane().add(labelPastry);
 
-        JComboBox cbPastry = new JComboBox();
+        JComboBox<Food> cbPastry = new JComboBox<Food>();
         cbPastry.setBounds(106, 131, 152, 22);
+        createCbF(cbStarter, arfPastry);
         guiManageCafeteriaMenu.getContentPane().add(cbPastry);
 
         JLabel labelDrink = new JLabel("Starter:");
@@ -60,8 +88,9 @@ public class GuiManageCafeteriaMenu {
         labelDrink.setBounds(10, 164, 112, 14);
         guiManageCafeteriaMenu.getContentPane().add(labelDrink);
 
-        JComboBox cbDrink = new JComboBox();
+        JComboBox<Drink> cbDrink = new JComboBox<Drink>();
         cbDrink.setBounds(106, 164, 152, 22);
+        createCbD(cbDrink, ard);
         guiManageCafeteriaMenu.getContentPane().add(cbDrink);
 
         JSeparator separatorBott = new JSeparator();
@@ -73,6 +102,16 @@ public class GuiManageCafeteriaMenu {
         JButton buttonUpdate = new JButton("UPDATE");
         buttonUpdate.setFont(new Font("Arial", Font.BOLD, 13));
         buttonUpdate.setBounds(88, 210, 92, 25);
+        buttonUpdate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu u = new Menu();
+                u.setStarter((Food) cbStarter.getSelectedItem());
+                u.setMain((Food) cbMain.getSelectedItem());
+                u.setPastry((Food) cbPastry.getSelectedItem());
+                u.setDrink((Drink) cbDrink.getSelectedItem());
+            }
+        });
         guiManageCafeteriaMenu.getContentPane().add(buttonUpdate);
     }
 }
