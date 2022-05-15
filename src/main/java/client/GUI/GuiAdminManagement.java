@@ -32,6 +32,12 @@ public class GuiAdminManagement {
         JButton buttonWaitingList = new JButton("VIEW WAITING LIST");
         buttonWaitingList.setFont(new Font("Arial", Font.BOLD, 13));
         buttonWaitingList.setBounds(30, 65, 285, 25);
+        buttonWaitingList.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent i) {
+                new GuiWaitingList();
+            }
+        });
         guiAdminManagement.getContentPane().add(buttonWaitingList);
 
         JButton buttonManageCafeteriaItems = new JButton("MANAGE CAFETERIA ITEMS");
