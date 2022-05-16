@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/SPQE21-22/BSPQ22-E1.git"/>
 		<item value="https://github.com/Oier-Mk/UD-Trabajos.git"/>
 		<item value="https://github.com/Oier-Mk/UD-Trabajos/tree/DesignPatterns"/>
 		<item value="https://github.com/SPQE21-22/BSPQ22-E1"/>
 	</list>
 	<list key="EGit.KnownHosts">
-		<item value="bitbucket.org"/>
 		<item value="git.eclipse.org"/>
+		<item value="bitbucket.org"/>
 		<item value="github.com"/>
+	</list>
+	<list key="CommitDialog.authorValues">
+		<item value="Aida Gomezbueno Berezo &lt;71767272+aidagomezbueno@users.noreply.github.com&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="Aida Gomezbueno Berezo &lt;71767272+aidagomezbueno@users.noreply.github.com&gt;"/>
 	</list>
 	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
 		<item key="DIALOG_X_ORIGIN" value="401"/>
@@ -16,5 +23,31 @@
 		<item key="DIALOG_WIDTH" value="639"/>
 		<item key="DIALOG_HEIGHT" value="396"/>
 		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.fetch.FetchResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="420"/>
+		<item key="DIALOG_Y_ORIGIN" value="114"/>
+		<item key="DIALOG_WIDTH" value="600"/>
+		<item key="DIALOG_HEIGHT" value="445"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="MAIN_SASH_FORM_ORIENTATION_VERTICAL" value="false"/>
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="500,500"/>
+		<item key="sortItemState" value="false"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+	</section>
+	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="395"/>
+		<item key="DIALOG_Y_ORIGIN" value="114"/>
+		<item key="DIALOG_WIDTH" value="650"/>
+		<item key="DIALOG_HEIGHT" value="445"/>
+		<item key="DIALOG_FONT_NAME" value="1|.AppleSystemUIFont|11.0|0|COCOA|1|.AppleSystemUIFont"/>
+		<list key="sashWeights">
+			<item value="600"/>
+			<item value="400"/>
+		</list>
 	</section>
 </section>
