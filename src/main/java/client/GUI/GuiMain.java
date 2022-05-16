@@ -31,13 +31,14 @@ public class GuiMain extends JFrame {
     private JPanel panel;
     private JMenu menuAdmin;
     private JMenuItem menuItemAddBook;
+    private JMenuItem menuItemWaitingList;
     private JMenuItem menuCalendar;
-
-    Client client;
-    WebTarget webTarget;
+    private JMenuItem menuAdministrator;
     private Font arialBlack13;
     private Font arial13;
     private static final Logger logger = LogManager.getLogger(GuiMain.class);
+    Client client;
+    WebTarget webTarget;
 
     public GuiMain(User u, List<Book> ab, String hostname, String port) {
         client = ClientBuilder.newClient();
@@ -52,7 +53,9 @@ public class GuiMain extends JFrame {
         menuItemExit = new JMenuItem("Exit");
         menuAdmin = new JMenu("ADMIN");
         menuItemAddBook = new JMenuItem("Add Book");
+        menuItemWaitingList = new JMenuItem("Waiting List");
         menuCalendar = new JMenuItem("Calendar");
+        menuAdministrator = new JMenuItem("Administration menu");
         panel = new JPanel();
         panel.setVisible(true);
 
@@ -113,6 +116,14 @@ public class GuiMain extends JFrame {
         });
         menuAdmin.add(menuItemAddBook);
 
+        menuItemWaitingList.setFont(arial13);
+        menuItemWaitingList.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new GuiWaitingList(u, ab);
+            }
+        });
+        menuAdmin.add(menuItemWaitingList);
+
         menuCalendar.setFont(arial13);
         menuCalendar.addActionListener(new ActionListener() {
             @Override
@@ -132,6 +143,15 @@ public class GuiMain extends JFrame {
         });
         menuAdmin.add(menuCalendar);
 
+        menuAdministrator.setFont(arial13);
+        menuAdministrator.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new GuiAdminManagement(u, ab, hostname, port);
+                guiMain.dispose();
+            }
+        });
+        menuAdmin.add(menuAdministrator);
 
         panel.setBounds(0, 22, 434, 238);
         panel.setLayout(new GridLayout(10, 10, 0, 0));

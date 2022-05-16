@@ -1,6 +1,7 @@
 package client.GUI;
 
 import server.data.domain.Book;
+import server.data.domain.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -38,7 +39,7 @@ public class GuiWaitingList {
         }
     }
 
-    public GuiWaitingList() {
+    public GuiWaitingList(User u, java.util.List<Book> ab) {
         guiWaitingList = new JFrame();
         guiWaitingList.setBounds(100, 100, 450, 300);
         guiWaitingList.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

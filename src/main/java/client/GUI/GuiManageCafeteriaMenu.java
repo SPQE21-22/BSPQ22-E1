@@ -1,7 +1,6 @@
 package client.GUI;
 
-import server.data.domain.Drink;
-import server.data.domain.Food;
+import server.data.domain.*;
 import server.data.domain.Menu;
 
 import javax.swing.*;
@@ -9,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 public class GuiManageCafeteriaMenu {
 
@@ -26,7 +26,7 @@ public class GuiManageCafeteriaMenu {
         }
     }
 
-    public GuiManageCafeteriaMenu() {
+    public GuiManageCafeteriaMenu(User u, List<Book> ab, String hostname, String port) {
 
         ArrayList<Food> arfStarter = new ArrayList<Food>();
         ArrayList<Food> arfMain = new ArrayList<Food>();
@@ -36,7 +36,7 @@ public class GuiManageCafeteriaMenu {
         guiManageCafeteriaMenu = new JFrame();
         guiManageCafeteriaMenu.setTitle("ADMIN");
         guiManageCafeteriaMenu.setResizable(false);
-        guiManageCafeteriaMenu.setBounds(100, 100, 290, 285);
+        guiManageCafeteriaMenu.setBounds(100, 100, 290, 315);
         guiManageCafeteriaMenu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         guiManageCafeteriaMenu.setVisible(true);
         guiManageCafeteriaMenu.getContentPane().setLayout(null);
@@ -113,5 +113,17 @@ public class GuiManageCafeteriaMenu {
             }
         });
         guiManageCafeteriaMenu.getContentPane().add(buttonUpdate);
+
+        JButton backButton = new JButton("BACK");
+        backButton.setFont(new Font("Arial", Font.BOLD, 13));
+        backButton.setBounds(45, 245, 190, 25);
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new GuiAdminManagement(u, ab, hostname, port);
+                guiManageCafeteriaMenu.dispose();
+            }
+        });
+        guiManageCafeteriaMenu.getContentPane().add(backButton);
     }
 }

@@ -1,9 +1,13 @@
 package client.GUI;
 
+import server.data.domain.Book;
+import server.data.domain.User;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class GuiManageCafeteriaItems {
 
@@ -15,10 +19,10 @@ public class GuiManageCafeteriaItems {
         return n.getText() != null;
     }
 
-    public GuiManageCafeteriaItems(){
+    public GuiManageCafeteriaItems(User u, List<Book> ab, String hostname, String port){
         guiCafeteriaItems = new JFrame();
         guiCafeteriaItems.setResizable(false);
-        guiCafeteriaItems.setBounds(100, 100, 450, 336);
+        guiCafeteriaItems.setBounds(100, 100, 450, 400);
         guiCafeteriaItems.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         guiCafeteriaItems.getContentPane().setLayout(null);
         guiCafeteriaItems.setVisible(true);
@@ -144,5 +148,26 @@ public class GuiManageCafeteriaItems {
             }
         });
         guiCafeteriaItems.getContentPane().add(buttonAddF);
+
+        JSeparator separatorBottom = new JSeparator();
+        separatorBottom.setForeground(Color.BLACK);
+        separatorBottom.setBackground(Color.BLACK);
+        separatorBottom.setBounds(10, 290, 414, 2);
+        guiCafeteriaItems.getContentPane().add(separatorBottom);
+
+        JButton buttonBack = new JButton("BACK");
+        buttonBack.setFont(new Font("Arial", Font.BOLD, 13));
+        buttonBack.setBounds(110, 300, 192, 25);
+        buttonBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent f) {
+                new GuiAdminManagement(u, ab, hostname, port);
+                guiCafeteriaItems.dispose();
+            }
+        });
+        guiCafeteriaItems.getContentPane().add(buttonBack);
+
+
     }
+
 }
