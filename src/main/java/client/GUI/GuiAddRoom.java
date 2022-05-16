@@ -29,6 +29,19 @@ public class GuiAddRoom {
         return result;
     }
 
+    public Boolean available(Room r1, Room r2){
+        if (r1.getHourEnd() == r2.getHourEnd() || r1.getHourBeg() == r2.getHourBeg()){
+            return true;
+        }
+        if (r1.getHourEnd() > r2.getHourBeg() || r1.getHourEnd() < r2.getHourEnd()){
+            return true;
+        }
+        if (r1.getHourBeg() > r2.getHourBeg() || r1.getHourBeg() < r2.getHourEnd()){
+            return true;
+        }
+        return false;
+    }
+
     public GuiAddRoom(User u, List<Room> reservations, String hostname, String port){
         addRoom = new JFrame();
         addRoom.setBounds(100, 100, 380, 284);
@@ -127,7 +140,7 @@ public class GuiAddRoom {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (valid((Integer)daySpinner.getValue(), monthCombo.getItemAt(monthCombo.getSelectedIndex()))){
+                if (valid((Integer)daySpinner.getValue(), monthCombo.getItemAt(monthCombo.getSelectedIndex())) && ((Integer)spinner.getValue() < (Integer)fhSpinner.getValue())){
                     Room r = new Room();
                     r.setName(nameText.getText());
                     r.setUser(u);
@@ -136,27 +149,40 @@ public class GuiAddRoom {
                     r.setHourBeg((Integer)spinner.getValue());
                     r.setHourEnd((Integer)fhSpinner.getValue());
                     r.setBooked(false);
-                    client = ClientBuilder.newClient();
-                    webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
-                    WebTarget bookWebTarget = webTarget.path("users/addRoom");
-                    Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
-                    Response response = invocationBuilder.post(Entity.entity(r, MediaType.APPLICATION_JSON));
-                    if (response.getStatus() == Response.Status.OK.getStatusCode()) {
-                        JOptionPane.showMessageDialog(null, "The room has been booked.", "Management", JOptionPane.INFORMATION_MESSAGE);
-                        reservations.add(r);
-                        GuiCalendar gc = new GuiCalendar(u, reservations, hostname, port);
-                        addRoom.dispose();
-                    } else{
-                        JOptionPane.showMessageDialog(null, "Error while making reservation.", "Management", JOptionPane.INFORMATION_MESSAGE);
+                    Boolean occupied = false;
+                    for (Room room: reservations){
+                        if (available(r, room)){
+                            if (r.getDay() == room.getDay()){
+                                occupied = available(r,room);
+                            }
+                            break;
+                        }
                     }
-
+                    if (!occupied){
+                        client = ClientBuilder.newClient();
+                        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+                        WebTarget bookWebTarget = webTarget.path("users/addRoom");
+                        Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+                        Response response = invocationBuilder.post(Entity.entity(r, MediaType.APPLICATION_JSON));
+                        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+                            JOptionPane.showMessageDialog(null, "The room has been booked.", "Management", JOptionPane.INFORMATION_MESSAGE);
+                            reservations.add(r);
+                            GuiCalendar gc = new GuiCalendar(u, reservations, hostname, port);
+                            addRoom.dispose();
+                        } else{
+                            JOptionPane.showMessageDialog(null, "Error while making reservation.", "Management", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Date not available", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Please make sure the selected day corresponds to the selected month.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Please make sure the selected date is correct", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
         addButton.setBounds(30, 207, 89, 23);
         addRoom.getContentPane().add(addButton);
     }
+
 
 }
