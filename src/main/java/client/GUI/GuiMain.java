@@ -26,13 +26,15 @@ public class GuiMain extends JFrame {
     private JMenu menuUser;
     private JMenuItem menuItemUserInfo;
     private JMenuItem menuItemLogOut;
+    private JMenuItem menuItemWaitingList;
+    private JMenuItem menuCalendar;
+    private JMenuItem menuItemCafeteria;
+    private JMenuItem menuItemReturn;
     private JSeparator separatorMenu;
     private JMenuItem menuItemExit;
     private JPanel panel;
     private JMenu menuAdmin;
     private JMenuItem menuItemAddBook;
-    private JMenuItem menuItemWaitingList;
-    private JMenuItem menuCalendar;
     private JMenuItem menuAdministrator;
     private Font arialBlack13;
     private Font arial13;
@@ -48,13 +50,15 @@ public class GuiMain extends JFrame {
         menuBar = new JMenuBar();
         menuUser = new JMenu("USER");
         menuItemUserInfo = new JMenuItem("User Information");
+        menuItemWaitingList = new JMenuItem("Waiting List");
+        menuCalendar = new JMenuItem("Calendar");
+        menuItemCafeteria = new JMenuItem("Cafeteria");
+        menuItemReturn = new JMenuItem("Make a return");
         menuItemLogOut = new JMenuItem("Log Out");
         separatorMenu = new JSeparator();
         menuItemExit = new JMenuItem("Exit");
         menuAdmin = new JMenu("ADMIN");
         menuItemAddBook = new JMenuItem("Add Book");
-        menuItemWaitingList = new JMenuItem("Waiting List");
-        menuCalendar = new JMenuItem("Calendar");
         menuAdministrator = new JMenuItem("Administration menu");
         panel = new JPanel();
         panel.setVisible(true);
@@ -82,6 +86,57 @@ public class GuiMain extends JFrame {
             }
         });
         menuUser.add(menuItemUserInfo);
+
+        menuItemWaitingList.setFont(arial13);
+        menuItemWaitingList.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new GuiWaitingList(u, ab, hostname, port);
+            }
+        });
+        menuUser.add(menuItemWaitingList);
+
+        menuCalendar.setFont(arial13);
+        menuCalendar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                client = ClientBuilder.newClient();
+                webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
+                WebTarget bookWebTarget = webTarget.path("users/rooms");
+                Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+                Response response = invocationBuilder.get();
+                if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+                    Reserv reserv = response.readEntity(Reserv.class);
+                    new GuiCalendar(u, reserv.getReservs(), hostname, port);
+                }
+
+
+            }
+        });
+        menuUser.add(menuCalendar);
+
+        menuItemCafeteria.setFont(arial13);
+        menuItemCafeteria.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                new GuiCafeteria(u, ab, hostname, port);
+            }
+        });
+        menuUser.add(menuItemCafeteria);
+
+        menuItemReturn.setFont(arial13);
+        menuItemReturn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String ret = JOptionPane.showInputDialog(null, "What book do you want to return?", "Management", JOptionPane.INFORMATION_MESSAGE);
+                if (ret != null) {
+                    for (Book b : ab) {
+                        if (b.getName().equals(ret)){
+                            b.setAvailable(true);
+                            guiMain.getContentPane().add(loadBooks(panel, ab, u));
+                        }
+                    }
+                }
+            }
+        });
+        menuUser.add(menuItemReturn);
 
         menuItemLogOut.setFont(arial13);
         menuItemLogOut.addActionListener(new ActionListener() {
@@ -116,33 +171,6 @@ public class GuiMain extends JFrame {
         });
         menuAdmin.add(menuItemAddBook);
 
-        menuItemWaitingList.setFont(arial13);
-        menuItemWaitingList.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                new GuiWaitingList(u, ab);
-            }
-        });
-        menuAdmin.add(menuItemWaitingList);
-
-        menuCalendar.setFont(arial13);
-        menuCalendar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                client = ClientBuilder.newClient();
-                webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
-                WebTarget bookWebTarget = webTarget.path("users/rooms");
-                Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
-                Response response = invocationBuilder.get();
-                if (response.getStatus() == Response.Status.OK.getStatusCode()) {
-                    Reserv reserv = response.readEntity(Reserv.class);
-                    new GuiCalendar(u, reserv.getReservs(), hostname, port);
-                }
-
-
-            }
-        });
-        menuAdmin.add(menuCalendar);
-
         menuAdministrator.setFont(arial13);
         menuAdministrator.addActionListener(new ActionListener() {
             @Override
@@ -163,9 +191,9 @@ public class GuiMain extends JFrame {
     private JPanel loadBooks(JPanel p2, List<Book> ab2, User us){
         p2.removeAll();
 
-        for (int i = 0; i < ab2.size(); i++){
-            if(ab2.get(i).getAvailable()){
-                JButton button = new JButton(ab2.get(i).getName());
+        for (Book b : ab2){
+            if(b.getAvailable()){
+                JButton button = new JButton(b.getName());
                 button.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         for (int i = 0; i < ab2.size(); i++) {
@@ -184,6 +212,7 @@ public class GuiMain extends JFrame {
                 });
                 p2.add(button);
             }
+            p2.updateUI();
         }
         return p2;
     }
