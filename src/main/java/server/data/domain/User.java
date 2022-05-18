@@ -20,12 +20,20 @@ public class User implements Serializable {
     //@PersistenceCapable(defaultFetchGroup="true")
     private List<Book> books;
 
-    public User(String name, String email, String password, Date birthDate, List<Book> books) {
+//    public User(String name, String email, String password, Date birthDate, List<Book> books) {
+//        this.name = name;
+//        this.email = email;
+//        this.password = password;
+//        this.birthDate = birthDate;
+//        this.books = books;
+//    }
+    
+    public User(String name, String email, String password, Date birthDate) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.birthDate = birthDate;
-        this.books = books;
+//        this.books = books;
     }
     
     public User() {
