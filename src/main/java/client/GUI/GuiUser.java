@@ -20,6 +20,16 @@ public class GuiUser extends JFrame {
     private JTextField textEmail;
     private JLabel labelBooks;
     private JList<String> listBooks;
+    private JScrollPane booksScroll;
+    private JLabel labelFines;
+    private JList<String> listFines;
+    private JScrollPane finesScroll;
+    private JLabel labelMenu;
+    private JList<String> listMenu;
+    private JScrollPane menuScroll;
+    private JLabel labelExpenses;
+    private JList<String> listExpenses;
+    private JScrollPane expensesScroll;
     private JSeparator separatorBottom;
     private JButton buttonBack;
     private JButton buttonUpdate;
@@ -38,6 +48,16 @@ public class GuiUser extends JFrame {
         textEmail = new JTextField();
         labelBooks = new JLabel("BOOKS");
         listBooks = new JList<String>(modelBooks(u));
+        booksScroll = new JScrollPane(listBooks);
+        labelFines = new JLabel("FINES:");
+        listFines = new JList<String>();
+        finesScroll = new JScrollPane(listFines);
+        labelMenu = new JLabel("MENU:");
+        listMenu = new JList<String>();
+        menuScroll = new JScrollPane(listMenu);
+        labelExpenses = new JLabel("EXPENSES:");
+        listExpenses = new JList<String>();
+        expensesScroll = new JScrollPane(listExpenses);
         separatorBottom = new JSeparator();
         buttonBack = new JButton("BACK");
         buttonUpdate = new JButton("UPDATE");
@@ -47,9 +67,9 @@ public class GuiUser extends JFrame {
         arial13 = new Font("Arial",Font.PLAIN, 13);
 
         /* Parametrizaciones */
-        guiUser.setTitle("Sign up");
+        guiUser.setTitle("User information");
         guiUser.setResizable(false);
-        guiUser.setBounds(100, 100, 450, 430);
+        guiUser.setBounds(100, 100, 450, 625);
         guiUser.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         guiUser.getContentPane().setLayout(null);
         guiUser.setVisible(true);
@@ -84,11 +104,40 @@ public class GuiUser extends JFrame {
 
         listBooks.setFont(arial13);
         listBooks.setEnabled(false);
-        listBooks.setBounds(69, 163, 299, 130);
+        listBooks.setBounds(69, 163, 302, 100);
+
+        booksScroll.setBounds(69, 163, 302, 100);
+
+        labelFines.setFont(arialBlack13);
+        labelFines.setBounds(66, 274, 47, 16);
+
+        listFines.setFont(arial13);
+        listFines.setEnabled(false);
+        listFines.setBounds(66, 296, 302, 100);
+
+        finesScroll.setBounds(66, 296, 302, 100);
+
+        labelMenu.setFont(arialBlack13);
+        labelMenu.setBounds(66, 407, 47, 16);
+
+        listMenu.setFont(arial13);
+        listMenu.setEnabled(false);
+        listMenu.setBounds(66, 429, 145, 100);
+
+        menuScroll.setBounds(66, 429, 145, 100);
+
+        labelExpenses.setFont(arial13);
+        labelExpenses.setBounds(223, 407, 89, 16);
+
+        listExpenses.setFont(arial13);
+        listExpenses.setEnabled(false);
+        listExpenses.setBounds(223, 429, 145, 100);
+
+        expensesScroll.setBounds(223, 429, 145, 100);
 
         separatorBottom.setForeground(Color.BLACK);
         separatorBottom.setBackground(Color.BLACK);
-        separatorBottom.setBounds(55, 308, 324, 2);
+        separatorBottom.setBounds(55, 540, 324, 2);
 
         buttonBack.setFont(arialBlack13);
         buttonBack.addActionListener(new ActionListener() {
@@ -98,10 +147,10 @@ public class GuiUser extends JFrame {
                 guiUser.dispose();
             }
         });
-        buttonBack.setBounds(66, 324, 70, 25);
+        buttonBack.setBounds(66, 553, 70, 25);
 
         buttonUpdate.setFont(arialBlack13);
-        buttonUpdate.setBounds(279, 325, 89, 23);
+        buttonUpdate.setBounds(279, 554, 89, 23);
 
         /* Add the components to the GUI */
         guiUser.getContentPane().add(labelTitle);
@@ -112,6 +161,16 @@ public class GuiUser extends JFrame {
         guiUser.getContentPane().add(textEmail);
         guiUser.getContentPane().add(labelBooks);
         guiUser.getContentPane().add(listBooks);
+        guiUser.getContentPane().add(booksScroll);
+        guiUser.getContentPane().add(labelFines);
+        guiUser.getContentPane().add(listFines);
+        guiUser.getContentPane().add(finesScroll);
+        guiUser.getContentPane().add(labelMenu);
+        guiUser.getContentPane().add(listMenu);
+        guiUser.getContentPane().add(menuScroll);
+        guiUser.getContentPane().add(labelExpenses);
+        guiUser.getContentPane().add(listExpenses);
+        guiUser.getContentPane().add(listExpenses);
         guiUser.getContentPane().add(separatorBottom);
         guiUser.getContentPane().add(buttonBack);
     }
