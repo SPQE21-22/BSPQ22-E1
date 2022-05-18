@@ -26,7 +26,6 @@ jobs:
         mysql-version: '8.0'
     - run: mysql -uroot -h127.0.0.1 < src/sql/initlibrarydb.sql 
     - run: mvn clean compile
-    - run: mvn datanucleus:schema-create
     - name: Cache Maven packages
       uses: actions/cache@v2
       with:
@@ -34,6 +33,5 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
     - run: mvn jetty:run &
-    - run: mvn exec:java -Pclient
     - run: mvn test
         
