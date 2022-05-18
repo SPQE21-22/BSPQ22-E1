@@ -33,6 +33,5 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
     - run: mvn jetty:run &
-    - run: mvn exec:java -Pclient
     - run: mvn test
         
