@@ -1,7 +1,6 @@
 package client.GUI;
 
-import server.data.domain.Drink;
-import server.data.domain.Food;
+import server.data.domain.*;
 import server.data.domain.Menu;
 
 import javax.swing.*;
@@ -9,13 +8,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 public class GuiCafeteria {
 
     private JFrame guiCafeteria;
     private int price;
 
-    public GuiCafeteria() {
+    public GuiCafeteria(User u, List<Book> ab, String hostname, String port) {
 
         price = 0;
 
@@ -104,7 +104,7 @@ public class GuiCafeteria {
         Food f2 = new Food("Food2", "Main", 14);
         Food f3 = new Food("Food3", "Pastry", 1.36);
         Drink d1 = new Drink("Drink1", "Soda", 3.54);
-        Menu u = new Menu(f1, f2, f3, d1);
+        Menu menu = new Menu(f1, f2, f3, d1);
 
         JLabel labelMenu = new JLabel("MENU");
         labelMenu.setHorizontalAlignment(SwingConstants.CENTER);
@@ -112,22 +112,22 @@ public class GuiCafeteria {
         labelMenu.setBounds(0, 0, 144, 30);
         panelRight.add(labelMenu);
 
-        JLabel labelStarter = new JLabel(u.getStarter().getName());
+        JLabel labelStarter = new JLabel(menu.getStarter().getName());
         labelStarter.setFont(new Font("Arial", Font.BOLD, 13));
         labelStarter.setBounds(10, 41, 112, 14);
         panelRight.add(labelStarter);
 
-        JLabel labelMain = new JLabel(u.getMain().getName());
+        JLabel labelMain = new JLabel(menu.getMain().getName());
         labelMain.setFont(new Font("Arial", Font.BOLD, 13));
         labelMain.setBounds(10, 66, 112, 14);
         panelRight.add(labelMain);
 
-        JLabel labelPastry = new JLabel(u.getPastry().getName());
+        JLabel labelPastry = new JLabel(menu.getPastry().getName());
         labelPastry.setFont(new Font("Arial", Font.BOLD, 13));
         labelPastry.setBounds(10, 91, 112, 14);
         panelRight.add(labelPastry);
 
-        JLabel labelDrink = new JLabel(u.getDrink().getName());
+        JLabel labelDrink = new JLabel(menu.getDrink().getName());
         labelDrink.setFont(new Font("Arial", Font.BOLD, 13));
         labelDrink.setBounds(10, 116, 112, 14);
         panelRight.add(labelDrink);
@@ -213,11 +213,23 @@ public class GuiCafeteria {
         buttonPay.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new GuiPaymentForm();
+                new GuiPaymentForm(u, ab, hostname, port);
                 guiCafeteria.dispose();
             }
         });
         guiCafeteria.getContentPane().add(buttonPay);
+
+        JButton buttonBack = new JButton("BACK");
+        buttonBack.setFont(new Font("Arial", Font.BOLD, 13));
+        buttonBack.setBounds(240, 319, 110, 25);
+        buttonBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new GuiMain(u, ab, hostname, port);
+                guiCafeteria.dispose();
+            }
+        });
+        guiCafeteria.getContentPane().add(buttonBack);
     }
 
 

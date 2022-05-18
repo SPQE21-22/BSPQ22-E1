@@ -1,5 +1,8 @@
 package client.GUI;
 
+import server.data.domain.Book;
+import server.data.domain.User;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,6 +13,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class GuiPaymentForm {
 
@@ -47,7 +51,7 @@ public class GuiPaymentForm {
         return result;
     }
 
-    public GuiPaymentForm(){
+    public GuiPaymentForm(User u, List<Book> ab, String hostname, String port){
         paymentForm = new JFrame();
         paymentForm.setTitle("PAYMENT");
         paymentForm.setResizable(false);
@@ -149,7 +153,7 @@ public class GuiPaymentForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (isValid(textNumber, textCvv, textName, spinnerMonth, spinnerYear)){
-                    new GuiCafeteria();
+                    new GuiCafeteria(u, ab, hostname, port);
                     paymentForm.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Make sure all the data is filled in correctly.", "Management", JOptionPane.INFORMATION_MESSAGE);
@@ -164,7 +168,7 @@ public class GuiPaymentForm {
         buttonCancel.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new GuiCafeteria();
+                new GuiCafeteria(u, ab, hostname, port);
                 paymentForm.dispose();
             }
         });
