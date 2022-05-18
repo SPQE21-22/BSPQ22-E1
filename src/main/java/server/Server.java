@@ -13,10 +13,7 @@ import java.util.List;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import server.data.domain.Book;
-import server.data.domain.Reserv;
-import server.data.domain.Room;
-import server.data.domain.User;
+import server.data.domain.*;
 import server.sql.DB;
 import server.sql.DBException;
 
@@ -28,6 +25,7 @@ public class Server {
 	private List<User> usersList;
 	private List<Book> booksList;
 	private List<Room> roomList;
+	private List<Fine> finesList;
 	private Connection con;
 	private DB db = new DB();
 	private static final Logger logger = LogManager.getLogger(Server.class);
@@ -38,6 +36,7 @@ public class Server {
 			con = DB.initBD();
 			usersList = DB.getUsersList(con);
 			booksList = DB.getBooksList(con);
+			finesList = DB.getFinesList(con);
 			roomList = DB.getRoomsList(con);
 		} catch (DBException e) {
 			e.printStackTrace();
@@ -76,7 +75,7 @@ public class Server {
 	@Path("/books")
 	public Response getBooks() {
 		//logger.info("Devolviendo listado de libros");
-		User admin = new User("","","",null,this.booksList);
+		User admin = new User(0,"","","",null,this.booksList, null);
 		return Response.ok(admin).build();
 	}
 
@@ -117,10 +116,33 @@ public class Server {
 	@Path("/addRoom")
 	public Response addRoom(Room reserv) throws DBException {
 		logger.info(reserv);
-		DB.addRoom(con, reserv.getName(), reserv.getDay(),  reserv.getMonth(), reserv.getHourBeg(), reserv.getHourEnd(), reserv.getBooked());
+		DB.addRoom(con, reserv.getName(), reserv.getDay(),  reserv.getMonth(), reserv.getHourBeg(), reserv.getHourEnd(), reserv.getBooked(), reserv.getUser().getEmail());
 		this.roomList.add(reserv);
 		logger.info("Libro añadido correctamente");
 		return Response.ok(reserv).build();
+	}
+
+	@POST
+	@Path("/fine")
+	public Response fineUser(Fine fine) throws DBException {
+		logger.info(fine);
+		DB.addFine(con, fine.getQuantity(), fine.getUser().getEmail());
+		logger.info("Usuario multado correctamente");
+		return Response.ok(fine).build();
+	}
+
+	@POST
+	@Path("/fines")
+	public Response getFines(User user) {
+		ArrayList<Fine> f = new ArrayList<Fine>();
+		for (Fine value : finesList) {
+			if (value.getUser().getEmail().equalsIgnoreCase(user.getEmail())) {
+				f.add(value);
+			}
+		}
+		user.setFines(f);
+		logger.info("Devolviendo Multas de usuario");
+		return Response.ok(user).build();
 	}
 
 	@GET

@@ -1,8 +1,12 @@
 package client.GUI;
 
 import server.data.domain.Book;
+import server.data.domain.Fine;
 import server.data.domain.User;
 import javax.swing.*;
+import javax.ws.rs.client.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,12 +37,15 @@ public class GuiUser extends JFrame {
     private JSeparator separatorBottom;
     private JButton buttonBack;
     private JButton buttonUpdate;
-
+    Client client;
+    WebTarget webTarget;
     private Font arialBlack13;
     private Font arial13;
     private Font arialBlack30;
 
     public GuiUser(User u, List<Book> ab, String hostname, String port){
+        client = ClientBuilder.newClient();
+        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
         guiUser = new JFrame();
         labelTitle = new JLabel("USER INFORMATION");
         separatorTop = new JSeparator();
@@ -50,7 +57,7 @@ public class GuiUser extends JFrame {
         listBooks = new JList<String>(modelBooks(u));
         booksScroll = new JScrollPane(listBooks);
         labelFines = new JLabel("FINES:");
-        listFines = new JList<String>();
+        listFines = new JList<String>(modelFines(u));
         finesScroll = new JScrollPane(listFines);
         labelMenu = new JLabel("MENU:");
         listMenu = new JList<String>();
@@ -179,6 +186,23 @@ public class GuiUser extends JFrame {
         DefaultListModel<String> model = new DefaultListModel<String>();
         for (int i = 0; i < u.getBooks().size(); i++){
             model.add(i, u.getBooks().get(i).toString());
+        }
+        return model;
+    }
+
+    public DefaultListModel<String> modelFines(User u){
+        Fine fine = new Fine(u, 30);
+        WebTarget bookWebTarget = webTarget.path("users/fines");
+        Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.post(Entity.entity(u, MediaType.APPLICATION_JSON));
+        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+            User fines = response.readEntity(User.class);
+            u.setFines(fines.getFines());
+        }
+
+        DefaultListModel<String> model = new DefaultListModel<String>();
+        for (int i = 0; i < u.getFines().size(); i++){
+            model.add(i, u.getFines().get(i).toString());
         }
         return model;
     }

@@ -52,11 +52,12 @@ public class Main implements Runnable{
             DB.addBook(con, "Estudio en escarlata", "Arthur Conan Doyle",  new Date(2006, 3, 15), true);
             DB.addBook(con, "El ojo del mundo", "Robert Jordan",  new Date(2006, 3, 15), true);
             DB.addBook(con, "Dracula", "Bran Stroker",  new Date(2006, 3, 15), true);
-            DB.addRoom(con, "SPQ meeting", 1, "May", 13, 16, true);
-            DB.addRoom(con, "DB teamwork", 1, "May", 13, 16, true);
-            DB.addRoom(con, "UI track review", 2, "May", 13, 16, true);
-            DB.addRoom(con, "Reunion", 3, "May", 13, 16, true);
-            DB.addRoom(con, "Algebra studying", 4, "May", 13, 16, true);
+            System.out.println(DB.getUsersList(con));
+            DB.addRoom(con, "SPQ meeting", 1, "May", 13, 16, true,"ai@mail");
+            DB.addRoom(con, "DB teamwork", 1, "May", 13, 16, true,"ai@mail");
+            DB.addRoom(con, "UI track review", 2, "May", 13, 16, true,"ai@mail");
+            DB.addRoom(con, "Reunion", 3, "May", 13, 16, true,"ai@mail");
+            DB.addRoom(con, "Algebra studying", 4, "May", 13, 16, true,"ai@mail");
         } catch (DBException e) {
             e.printStackTrace();
         }
@@ -79,7 +80,7 @@ public class Main implements Runnable{
                     User answer = response.readEntity(User.class);
                     //logger.info("User received");
                 } else {
-                    //logger.info("////////");
+                    logger.info("////////");
                 }
 
             } catch (InterruptedException e){

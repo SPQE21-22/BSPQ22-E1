@@ -11,6 +11,7 @@ import java.util.List;
 public class User implements Serializable {
     
     private static final long serialVersionUID = 1L;
+    private int id;
 	private String name;
     @PrimaryKey
     private String email;
@@ -19,26 +20,25 @@ public class User implements Serializable {
     @Join
     //@PersistenceCapable(defaultFetchGroup="true")
     private List<Book> books;
+    private List<Fine> fines;
 
-//    public User(String name, String email, String password, Date birthDate, List<Book> books) {
-//        this.name = name;
-//        this.email = email;
-//        this.password = password;
-//        this.birthDate = birthDate;
-//        this.books = books;
-//    }
-    
-    public User(String name, String email, String password, Date birthDate) {
+    public User(int id, String name, String email, String password, Date birthDate, List<Book> books, List<Fine> fines) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.birthDate = birthDate;
-//        this.books = books;
+        this.books = books;
+        this.fines = fines;
     }
     
     public User() {
 		super();
 	}
+
+    public int getId() {
+        return id;
+    }
 
 	public String getName() {
         return name;
@@ -60,9 +60,16 @@ public class User implements Serializable {
         return books;
     }
 
+    public List<Fine> getFines() {
+        return fines;
+    }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setEmail(String email) {
@@ -81,10 +88,15 @@ public class User implements Serializable {
         this.books = books;
     }
 
+    public void setFines(List<Fine> fines) {
+        this.fines = fines;
+    }
+
     @Override
     public String toString() {
         return "User [" +
-                "name = " + name +
+                " id = " + id +
+                " name = " + name +
                 ", email = " + email +
                 ", password = " + password +
                 ", birthDate = " + birthDate +

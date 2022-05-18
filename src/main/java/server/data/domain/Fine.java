@@ -34,7 +34,7 @@ public class Fine {
 	
 	@Override
 	public String toString() {
-		return "Fine [user=" + user + ", quantity=" + quantity + "]";
+		return "Fine = " + quantity + "€";
 	}
 
 }

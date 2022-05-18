@@ -30,8 +30,8 @@ public class DBTest {
         DB.addUser(con, "Ruben", "r@mail", "4321",new Date(2022, 1, 10));
         DB.addBook(con, "El Camino de lo reyes", "Brandon Sanderson",  new Date(2006, 3, 15), true);
         DB.addBook(con, "El Imperio Final", "Sandon Branderson",  new Date(2006, 3, 15), true);
-        DB.addRoom(con, "Sala de ordenadores", 14, "Mayo", 17, 19, false);
-        DB.addRoom(con, "Sala de trabajo", 3, "Julio", 10, 13, false);
+        DB.addRoom(con, "Sala de ordenadores", 14, "Mayo", 17, 19, false,"r@mail");
+        DB.addRoom(con, "Sala de trabajo", 3, "Julio", 10, 13, false,"r@mail");
         
         logger.info("Finished SetUp");
     }
@@ -109,7 +109,7 @@ public class DBTest {
     @Test
     public void testAddRoom() throws DBException, SQLException {
         logger.info("Started AddRoom");
-        DB.addRoom(con, "Sala de lectura", 2,  "Febrero",9,10, false);
+        DB.addRoom(con, "Sala de lectura", 2,  "Febrero",9,10, false, "r@mail");
         List<Room> roomList = DB.getRoomsList(con);
         Assert.assertEquals(roomList.size(), 3);
         Assert.assertEquals(roomList.get(2).getName(), "Sala de lectura");

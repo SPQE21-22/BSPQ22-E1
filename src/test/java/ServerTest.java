@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import server.data.domain.Book;
+import server.data.domain.Fine;
 import server.data.domain.Room;
 import server.data.domain.User;
 import server.sql.DB;
@@ -66,7 +67,7 @@ public class ServerTest {
     @Required(max = 1000, average = 500)
     public void testCreateUser() throws InterruptedException {
         logger.info("Started CreateUser");
-        User u0 = new User("Ruben", "r@mail", "4321", new Date(2022, 1, 10), new ArrayList<Book>());
+        User u0 = new User(1,"Ruben", "r@mail", "4321", new Date(2022, 1, 10), new ArrayList<Book>(),new ArrayList<Fine>());
         WebTarget donationsWebTarget = webTarget.path("users/createUser");
         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.post(Entity.entity(u0, MediaType.APPLICATION_JSON));

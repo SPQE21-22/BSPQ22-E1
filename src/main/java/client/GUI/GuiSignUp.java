@@ -10,6 +10,7 @@ package client.GUI;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import server.data.domain.Book;
+import server.data.domain.Fine;
 import server.data.domain.User;
 
 
@@ -109,7 +110,7 @@ public class GuiSignUp extends JFrame {
             public void actionPerformed(ActionEvent e) {
 
                 if (valid()){
-                    User u0 = new User(textName.getText(),textEmail.getText(),textPassword.getText(),dateDob(),new ArrayList<Book>());
+                    User u0 = new User(0,textName.getText(),textEmail.getText(),textPassword.getText(),dateDob(),new ArrayList<Book>(), new ArrayList<Fine>());
 
                     WebTarget bookWebTarget = webTarget.path("users/createUser");
                     Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);

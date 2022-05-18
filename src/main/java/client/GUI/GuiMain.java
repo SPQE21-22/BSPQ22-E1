@@ -2,10 +2,7 @@ package client.GUI;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import server.data.domain.Book;
-import server.data.domain.Reserv;
-import server.data.domain.Room;
-import server.data.domain.User;
+import server.data.domain.*;
 import server.sql.DB;
 
 import java.awt.Color;
@@ -35,6 +32,7 @@ public class GuiMain extends JFrame {
     private JPanel panel;
     private JMenu menuAdmin;
     private JMenuItem menuItemAddBook;
+    private JMenuItem menuItemfineuser;
     private JMenuItem menuAdministrator;
     private Font arialBlack13;
     private Font arial13;
@@ -59,6 +57,7 @@ public class GuiMain extends JFrame {
         menuItemExit = new JMenuItem("Exit");
         menuAdmin = new JMenu("ADMIN");
         menuItemAddBook = new JMenuItem("Add Book");
+        menuItemfineuser = new JMenuItem("Fine a user");
         menuAdministrator = new JMenuItem("Administration menu");
         panel = new JPanel();
         panel.setVisible(true);
@@ -99,8 +98,6 @@ public class GuiMain extends JFrame {
         menuCalendar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                client = ClientBuilder.newClient();
-                webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
                 WebTarget bookWebTarget = webTarget.path("users/rooms");
                 Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
                 Response response = invocationBuilder.get();
@@ -130,7 +127,14 @@ public class GuiMain extends JFrame {
                     for (Book b : ab) {
                         if (b.getName().equals(ret)){
                             b.setAvailable(true);
+                            u.getBooks().remove(b);
                             guiMain.getContentPane().add(loadBooks(panel, ab, u));
+                            WebTarget bookWebTarget = webTarget.path("users/updateBook");
+                            Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+                            Response response = invocationBuilder.put(Entity.entity(b, MediaType.APPLICATION_JSON));
+                            if (response.getStatus() != Response.Status.OK.getStatusCode()) {
+                                logger.error("Error while updating");
+                            }
                         }
                     }
                 }
@@ -170,6 +174,23 @@ public class GuiMain extends JFrame {
             }
         });
         menuAdmin.add(menuItemAddBook);
+
+        menuItemfineuser.setFont(arial13);
+        menuItemfineuser.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String finedus = JOptionPane.showInputDialog(null, "User to be fined: ", "Management", JOptionPane.INFORMATION_MESSAGE);
+                if (finedus != null) {
+                    Fine fine = new Fine(u, 30);
+                    WebTarget bookWebTarget = webTarget.path("users/fine");
+                    Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+                    Response response = invocationBuilder.post(Entity.entity(fine, MediaType.APPLICATION_JSON));
+                    if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+                        JOptionPane.showMessageDialog(null, "User fined correctly ", "Management", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                }
+            }
+        });
+        menuAdmin.add(menuItemfineuser);
 
         menuAdministrator.setFont(arial13);
         menuAdministrator.addActionListener(new ActionListener() {

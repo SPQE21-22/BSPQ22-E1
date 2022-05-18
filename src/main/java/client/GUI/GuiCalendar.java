@@ -119,7 +119,7 @@ public class GuiCalendar {
     public GuiCalendar(User u, List<Room> reservations, String hostname, String port) {
         Date td = new Date();
         List<Book> tb = new ArrayList<Book>();
-        User us = new User("Tyler", "tylerdemier@opendeusto.es", "1234", td, tb);
+        User us = new User(0,"Tyler", "tylerdemier@opendeusto.es", "1234", td, tb, null);
 
         for (Room r : reservations) {
             r.setUser(us);

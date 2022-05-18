@@ -68,12 +68,12 @@ public class DB {
         dropTables(con);
         String bookq = "CREATE TABLE IF NOT EXISTS Book (b_id int auto_increment PRIMARY KEY, name VARCHAR(255) , author VARCHAR(255) , publishDate Date, available Boolean)";
         String userq = "CREATE TABLE IF NOT EXISTS User (u_id int auto_increment PRIMARY KEY, name VARCHAR(255), email VARCHAR(255), password VARCHAR(255), birthDate Date)";
-        String roomq = "CREATE TABLE IF NOT EXISTS Room (r_id int auto_increment PRIMARY KEY, name VARCHAR(255), day INTEGER, month VARCHAR(255), hourBeg INTEGER, hourEnd INTEGER, booked Boolean)";
+        String roomq = "CREATE TABLE IF NOT EXISTS Room (r_id int auto_increment PRIMARY KEY, name VARCHAR(255), day INTEGER, month VARCHAR(255), hourBeg INTEGER, hourEnd INTEGER, booked Boolean, u_id VARCHAR(255))";
 //        String bookingq = "CREATE TABLE IF NOT EXISTS Booking AS (SELECT * FROM USER u, BOOK b WHERE u.u_id = b.u_id)";
         //tabla fines - asociado user y un int de la cantidad a abonar - clase fine - meter metodos a fine. 
-        String bookingq = "CREATE TABLE IF NOT EXISTS Booking (bg_id int auto_increment PRIMARY KEY, FOREIGN KEY (u_id) REFERENCES User(u_id), FOREIGN KEY (b_id) REFERENCES Book(b_id))";
+        String bookingq = "CREATE TABLE IF NOT EXISTS Booking (bg_id int auto_increment PRIMARY KEY, u_id int, b_id int, FOREIGN KEY (u_id) REFERENCES User(u_id), FOREIGN KEY (b_id) REFERENCES Book(b_id))";
         String supplyq = "CREATE TABLE IF NOT EXISTS Supply (s_id int auto_increment PRIMARY KEY, name VARCHAR(255), price DOUBLE, arrivingDate Date)";
-        String fineq = "CREATE TABLE IF NOT EXISTS Fine (f_id int auto_increment PRIMARY KEY, quantity DOUBLE, FOREIGN KEY (u_id) REFERENCES User(u_id))";
+        String fineq = "CREATE TABLE IF NOT EXISTS Fine (f_id int auto_increment PRIMARY KEY, quantity DOUBLE, email VARCHAR(255))";
         Statement st = null;
         try {
             st = con.createStatement();
@@ -114,12 +114,12 @@ public class DB {
         Statement st = null;
         try {
             st = con.createStatement();
-            st.executeUpdate(bookq);
-            st.executeUpdate(userq);
-            st.executeUpdate(roomq);
             st.executeUpdate(bookingq);
             st.executeUpdate(supplyq);
             st.executeUpdate(fineq);
+            st.executeUpdate(roomq);
+            st.executeUpdate(bookq);
+            st.executeUpdate(userq);
             st.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -143,20 +143,18 @@ public class DB {
      * @param email - parameter needed to build the User object in the DB
      * @param password - parameter needed to build the User object in the DB
      * @param birthDate - parameter needed to build the User object in the DB
-     * @param b_id - parameter (foreign key) needed to build the User object in the DB and establish relationships between tables
      * @throws DBException
      */
-    public static void addUser(Connection con, String name, String email, String password, Date birthDate, int b_id)
+    public static void addUser(Connection con, String name, String email, String password, Date birthDate)
             throws DBException {
         birthDate.setYear(birthDate.getYear()-1900);
         try (PreparedStatement stmt = con
-                .prepareStatement("INSERT INTO User (name, email, password , birthDate, b_id) VALUES (?,?,?,?,?)");
+                .prepareStatement("INSERT INTO User (name, email, password , birthDate) VALUES (?,?,?,?)");
              Statement stmtForId = con.createStatement()) {
             stmt.setString(1, name);
             stmt.setString(2, email);
             stmt.setString(3, password);
             stmt.setDate(4, birthDate);
-            stmt.setInt(5, b_id);
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException e) {
@@ -181,20 +179,18 @@ public class DB {
      * @param author - parameter needed to build the Book object in the DB
      * @param publishDate - parameter needed to build the Book object in the DB
      * @param available - parameter needed to build the Book object in the DB
-     * @param u_id - parameter (foreign key) needed to build the Book object in the DB and establish relationships between tables
      * @throws DBException
      */
-    public static void addBook(Connection con, String name, String author, Date publishDate, Boolean available, int u_id)
+    public static void addBook(Connection con, String name, String author, Date publishDate, Boolean available)
             throws DBException {
         publishDate.setYear(publishDate.getYear()-1900);
         try (PreparedStatement stmt = con
-                .prepareStatement("INSERT INTO Book (name, author, publishDate , available, u_id) VALUES (?,?,?,?,?)");
+                .prepareStatement("INSERT INTO Book (name, author, publishDate , available) VALUES (?,?,?,?)");
              Statement stmtForId = con.createStatement()) {
             stmt.setString(1, name);
             stmt.setString(2, author);
             stmt.setDate(3, publishDate);
             stmt.setBoolean(4, available);
-            stmt.setInt(5, u_id);
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException e) {
@@ -223,10 +219,10 @@ public class DB {
      * @param booked - parameter needed to build the Room object in the DB
      * @throws DBException
      */
-    public static void addRoom(Connection con, String name, int day, String month, int hourBeg, int hourEnd, Boolean booked)
+    public static void addRoom(Connection con, String name, int day, String month, int hourBeg, int hourEnd, Boolean booked, String user_name)
             throws DBException {
         try (PreparedStatement stmt = con
-                .prepareStatement("INSERT INTO Room (name, day, month, hourBeg, hourEnd, booked) VALUES (?,?,?,?,?,?)");
+                .prepareStatement("INSERT INTO Room (name, day, month, hourBeg, hourEnd, booked, u_id) VALUES (?,?,?,?,?,?,?)");
              Statement stmtForId = con.createStatement()) {
             stmt.setString(1, name);
             stmt.setInt(2, day);
@@ -234,6 +230,7 @@ public class DB {
             stmt.setInt(4, hourBeg);
             stmt.setInt(5, hourEnd);
             stmt.setBoolean(6, booked);
+            stmt.setString(7, user_name);
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException e) {
@@ -286,35 +283,19 @@ public class DB {
     
     //Menu tabla - 4 strings TODO
     
-    public static void addFine(Connection con, double quantity, int id_user)
+    public static void addFine(Connection con, double quantity, String id_user)
             throws DBException {
-    	
-    	String sql = "INSERT INTO Fine VALUES (" + quantity + ", " + id_user + ")";
-        try {
-        	
-        	Statement st = con.createStatement();
-        	st.executeUpdate(sql);
-//        	(Statement st = con
-//                    .createStatement("INSERT INTO Fine VALUES (" + quantity + ", " + id_user + ")";
-//                 Statement st = con.createStatement()) 
-//            stmt.setString(1, name);
-//            stmt.setDouble(2, price);
-//            stmt.setDate(3, arrivingDate);
-//            stmt.executeUpdate();
-            st.close();
+        try (PreparedStatement stmt = con
+                .prepareStatement("INSERT INTO Fine (quantity, email) VALUES (?, ?)");
+             Statement stmtForId = con.createStatement()) {
+            stmt.setDouble(1, quantity);
+            stmt.setString(2, id_user);
+            stmt.executeUpdate();
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new DBException("Fine cannot be added");
-        } /*finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (SQLException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            }
-        }*/
+            throw new DBException("Supply cannot be added");
+        }
     }
 
     /**
@@ -331,8 +312,7 @@ public class DB {
         User user = new User();
         ResultSet rs = st.executeQuery(sent);
         while (rs.next()) {
-//            user = new User(rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), new ArrayList<Book>());
-        	user = new User(rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5));
+            user = new User(0, rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
             usersList.add(user);
         }
         rs.close();
@@ -374,7 +354,15 @@ public class DB {
         Room room = new Room();
         ResultSet rs = st.executeQuery(sent);
         while (rs.next()) {
-            room = new Room(rs.getString(2), (User)rs.getObject(3), rs.getInt(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getBoolean(8));
+            User u = new User();
+            sent = "SELECT * FROM User WHERE email = '" + rs.getString(8)+"'";
+            st = null;
+            st = con.createStatement();
+            ResultSet rs2 = st.executeQuery(sent);
+            while(rs2.next()) {
+                u = new User(0, rs2.getString(2), rs2.getString(3), rs2.getString(4), rs2.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
+            }
+            room = new Room(rs.getString(2), u, rs.getInt(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getBoolean(7));
             roomsList.add(room);
         }
         rs.close();
@@ -405,26 +393,23 @@ public class DB {
     public static ArrayList<Fine> getFinesList(Connection con) throws SQLException {
         String sent = "SELECT * FROM Fine";
         Statement st = null;
-//        Statement st2 = null;
+
         st = con.createStatement();
-//        st2 = con.createStatement();
+
         finesList = new ArrayList<Fine>();
         Fine fine = new Fine();
-        User u = new User();
         ResultSet rs = st.executeQuery(sent);
         while (rs.next()) {
-//        	b_id int auto_increment PRIMARY KEY, name VARCHAR(255) , author VARCHAR(255) , publishDate Date, available Boolean)";
-        	sent = "SELECT * FROM User WHERE u_id = " + rs.getInt(1);
+            User u = new User();
+            sent = "SELECT * FROM User WHERE email = '" + rs.getString(3)+"'";
         	st = null;
         	st = con.createStatement();
         	ResultSet rs2 = st.executeQuery(sent);
         	while(rs2.next()) {
-        		u = new User(rs2.getString(2), rs2.getString(3), rs2.getString(4), rs2.getDate(5));
-        		usersList.add(u);
-        		fine = new Fine(u, rs.getDouble(3));
-        		finesList.add(fine);
+        		u = new User(0, rs2.getString(2), rs2.getString(3), rs2.getString(4), rs2.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
         	}
-//        	fine = new Supply(rs.getString(2), rs.getDouble(3), rs.getDate(4));
+            fine = new Fine(u, rs.getDouble(2));
+            finesList.add(fine);
         }
         rs.close();
         return finesList;
@@ -655,11 +640,11 @@ public class DB {
     /**
      * 
      * @param con - connection to the DB needed to be able to work or apply changes to the database
-     * @param name - parameter we want to update
-     * @param id - way to find the room we are looking for update
+     * @param newname - parameter we want to update
+     * @param name - way to find the room we are looking for update
      */
-    public static void updateRoomName(Connection con, String name, int id) {
-        String sql = "UPDATE Room SET name = '" + name + "' WHERE id = " + id;
+    public static void updateRoomName(Connection con, String name, String newname) {
+        String sql = "UPDATE Room SET name = '" + newname + "' WHERE name = " + name;
 
         try {
             Statement st = con.createStatement();
