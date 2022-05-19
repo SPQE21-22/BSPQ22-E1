@@ -2,8 +2,6 @@ package server.sql;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 //import org.apache.logging.log4j.LogManager;
 //import org.apache.logging.log4j.Logger;
@@ -33,7 +31,6 @@ public class DB {
     private static ArrayList<Room> roomsList;
     private static ArrayList<Supply> suppliesList;
     private static ArrayList<Fine> finesList;
-    private static HashMap<User, Book> bookingMap;
 
     //private static final Logger logger = LogManager.getLogger(DB.class);
 
@@ -290,6 +287,20 @@ public class DB {
         return b;
     }
     
+    public static Book selectBookFromUser(Connection con, String name, String author) throws SQLException {
+        String sent = "SELECT * FROM Book WHERE name='" + name +"' and author='"+ author + "'";
+        Statement st = null;
+        Book b = new Book();
+        st = con.createStatement();
+        ResultSet rs = st.executeQuery(sent);
+        while (rs.next()) {
+            b = new Book(rs.getString(2), rs.getString(3), rs.getDate(4), rs.getBoolean(5));
+        }
+        rs.close();
+        
+        return b;
+    }
+    
     
     public static int selectBookId(Connection con, String name, String author) throws SQLException {
         String sent = "SELECT * FROM Book WHERE name='" + name +"' and author='"+ author + "'";
@@ -331,13 +342,6 @@ public class DB {
             e.printStackTrace();
         }
         st.close();
-        
-        bookingMap = new HashMap<User, Book>();
-        User user = new User();
-        user = selectUser(con, email);
-        Book book = new Book();
-        book = selectBook(con, name, author);
-        bookingMap.put(user, book);
     }
     
     
