@@ -75,7 +75,7 @@ public class Server {
 	@Path("/books")
 	public Response getBooks() {
 		//logger.info("Devolviendo listado de libros");
-		User admin = new User(0,"","","",null,this.booksList, null);
+		User admin = new User("","","",null,this.booksList, new ArrayList<Fine>());
 		return Response.ok(admin).build();
 	}
 
