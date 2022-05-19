@@ -148,15 +148,24 @@ public class DB {
     public static void addUser(Connection con, String name, String email, String password, Date birthDate)
             throws DBException {
         birthDate.setYear(birthDate.getYear()-1900);
-        try (PreparedStatement stmt = con
-                .prepareStatement("INSERT INTO User (name, email, password , birthDate) VALUES (?,?,?,?)");
-             Statement stmtForId = con.createStatement()) {
-            stmt.setString(1, name);
-            stmt.setString(2, email);
-            stmt.setString(3, password);
-            stmt.setDate(4, birthDate);
-            stmt.executeUpdate();
-            stmt.close();
+        User u = new User(name, email, password, birthDate);
+        int id = u.getId();
+        
+        String sql = "INSERT INTO User (u_id, name, email, password , birthDate) VALUES (" + id + ", '" + name + "', '" + email + "', '" + password + "', " + birthDate + ")";
+//        PreparedStatement stmt = con
+//                .prepareStatement(
+//             Statement stmtForId = con.createStatement()
+        
+        Statement st = null; 
+        try {
+        	st = con.createStatement();
+        	st.executeUpdate(sql);
+//            stmt.setString(1, name);
+//            stmt.setString(2, email);
+//            stmt.setString(3, password);
+//            stmt.setDate(4, birthDate);
+//            stmt.executeUpdate();
+            st.close();
         } catch (SQLException e) {
             e.printStackTrace();
             throw new DBException("User cannot be added");

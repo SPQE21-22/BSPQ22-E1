@@ -44,6 +44,16 @@ public class User implements Serializable {
         this.fines = fines;
     }
     
+    public User(String name, String email, String password, Date birthDate) {
+    	this.id = count++;
+    	this.name = name;
+        this.email = email;
+        this.password = password;
+        this.birthDate = birthDate;
+//        this.books = books;
+//        this.fines = fines;
+    }
+    
     public User() {
 		super();
 	}
