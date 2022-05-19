@@ -7,19 +7,27 @@ import java.util.Date;
 public class Booking {
     @PrimaryKey
     private int id;
-    private User user;
-    private Book book;
-    private Date dueDate;
     private static int count = 0;
+    private int user_id;
+    private int book_id;
+    private Date dueDate;
 
-    public Booking(User user, Book book, Date dueDate) {
+    public Booking(int user_id, int book_id, Date dueDate) {
         this.id = count++;
-        this.user = user;
-        this.book = book;
+        this.user_id = user_id;
+        this.book_id = book_id;
         this.dueDate = dueDate;
     }
+    
+    
 
-    public int getId() {
+    public Booking() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public int getId() {
         return id;
     }
 
@@ -27,21 +35,15 @@ public class Booking {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+
+    public int getBookId() {
+        return book_id;
     }
 
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
 
     public Date getDueDate() {
         return dueDate;
@@ -51,20 +53,13 @@ public class Booking {
         this.dueDate = dueDate;
     }
 
-    public static int getCount() {
-        return count;
-    }
-
-    public static void setCount(int count) {
-        Booking.count = count;
-    }
 
     @Override
     public String toString() {
         return "Booking{" +
                 "id=" + id +
-                ", user=" + user +
-                ", book=" + book +
+                ", user_id=" + user_id +
+                ", book_id=" + book_id +
                 ", dueDate=" + dueDate +
                 '}';
     }

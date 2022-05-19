@@ -2,12 +2,14 @@ package server.sql;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 //import org.apache.logging.log4j.LogManager;
 //import org.apache.logging.log4j.Logger;
 import server.Main;
 import server.data.domain.Book;
+import server.data.domain.Booking;
 import server.data.domain.Fine;
 import server.data.domain.Room;
 import server.data.domain.Supply;
@@ -31,6 +33,7 @@ public class DB {
     private static ArrayList<Room> roomsList;
     private static ArrayList<Supply> suppliesList;
     private static ArrayList<Fine> finesList;
+    private static HashMap<User, Book> bookingMap;
 
     //private static final Logger logger = LogManager.getLogger(DB.class);
 
@@ -66,14 +69,14 @@ public class DB {
      */
     public static void createTables(Connection con) throws DBException {
         dropTables(con);
-        String bookq = "CREATE TABLE IF NOT EXISTS Book (b_id int auto_increment PRIMARY KEY, name VARCHAR(255) , author VARCHAR(255) , publishDate Date, available Boolean)";
-        String userq = "CREATE TABLE IF NOT EXISTS User (u_id int auto_increment PRIMARY KEY, name VARCHAR(255), email VARCHAR(255), password VARCHAR(255), birthDate Date)";
-        String roomq = "CREATE TABLE IF NOT EXISTS Room (r_id int auto_increment PRIMARY KEY, name VARCHAR(255), day INTEGER, month VARCHAR(255), hourBeg INTEGER, hourEnd INTEGER, booked Boolean, u_id VARCHAR(255))";
+        String bookq = "CREATE TABLE IF NOT EXISTS Book (b_id int PRIMARY KEY, name VARCHAR(255) , author VARCHAR(255) , publishDate Date, available Boolean)";
+        String userq = "CREATE TABLE IF NOT EXISTS User (u_id int, name VARCHAR(255), email VARCHAR(255) PRIMARY KEY, password VARCHAR(255), birthDate Date)";
+        String roomq = "CREATE TABLE IF NOT EXISTS Room (r_id int  PRIMARY KEY, name VARCHAR(255), day INTEGER, month VARCHAR(255), hourBeg INTEGER, hourEnd INTEGER, booked Boolean, u_id VARCHAR(255))";
 //        String bookingq = "CREATE TABLE IF NOT EXISTS Booking AS (SELECT * FROM USER u, BOOK b WHERE u.u_id = b.u_id)";
         //tabla fines - asociado user y un int de la cantidad a abonar - clase fine - meter metodos a fine. 
-        String bookingq = "CREATE TABLE IF NOT EXISTS Booking (bg_id int auto_increment PRIMARY KEY, u_id int, b_id int, FOREIGN KEY (u_id) REFERENCES User(u_id), FOREIGN KEY (b_id) REFERENCES Book(b_id))";
-        String supplyq = "CREATE TABLE IF NOT EXISTS Supply (s_id int auto_increment PRIMARY KEY, name VARCHAR(255), price DOUBLE, arrivingDate Date)";
-        String fineq = "CREATE TABLE IF NOT EXISTS Fine (f_id int auto_increment PRIMARY KEY, quantity DOUBLE, email VARCHAR(255))";
+        String bookingq = "CREATE TABLE IF NOT EXISTS Booking (bg_id int  PRIMARY KEY, u_id int, b_id int, dueDate Date, FOREIGN KEY (email) REFERENCES User(email), FOREIGN KEY (b_id) REFERENCES Book(b_id))";
+        String supplyq = "CREATE TABLE IF NOT EXISTS Supply (s_id int PRIMARY KEY, name VARCHAR(255), price DOUBLE, arrivingDate Date)";
+        String fineq = "CREATE TABLE IF NOT EXISTS Fine (f_id int PRIMARY KEY, quantity DOUBLE, email VARCHAR(255))";
         Statement st = null;
         try {
             st = con.createStatement();
@@ -114,12 +117,12 @@ public class DB {
         Statement st = null;
         try {
             st = con.createStatement();
+            st.executeUpdate(bookq);
+            st.executeUpdate(userq);
+            st.executeUpdate(roomq);
             st.executeUpdate(bookingq);
             st.executeUpdate(supplyq);
             st.executeUpdate(fineq);
-            st.executeUpdate(roomq);
-            st.executeUpdate(bookq);
-            st.executeUpdate(userq);
             st.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -248,6 +251,96 @@ public class DB {
         }*/
     }
     
+    public static User selectUser(Connection con, String email) throws SQLException {
+        String sent = "SELECT * FROM User WHERE email='" + email +"'";
+        Statement st = null;
+        User u = new User();
+        st = con.createStatement();
+        ResultSet rs = st.executeQuery(sent);
+        while (rs.next()) {
+            u = new User(rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
+        }
+        rs.close();
+        return u;
+    }
+    
+    public static int selectUserId(Connection con, String email) throws SQLException {
+        String sent = "SELECT * FROM User WHERE email='" + email +"'";
+        Statement st = null;
+        User u = new User();
+        st = con.createStatement();
+        ResultSet rs = st.executeQuery(sent);
+        while (rs.next()) {
+            u = new User(rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
+        }
+        rs.close();
+        return u.getId();
+    }
+    
+    public static Book selectBook(Connection con, String name, String author) throws SQLException {
+        String sent = "SELECT * FROM Book WHERE name='" + name +"' and author='"+ author + "'";
+        Statement st = null;
+        Book b = new Book();
+        st = con.createStatement();
+        ResultSet rs = st.executeQuery(sent);
+        while (rs.next()) {
+            b = new Book(rs.getString(2), rs.getString(3), rs.getDate(4), rs.getBoolean(5));
+        }
+        rs.close();
+        return b;
+    }
+    
+    
+    public static int selectBookId(Connection con, String name, String author) throws SQLException {
+        String sent = "SELECT * FROM Book WHERE name='" + name +"' and author='"+ author + "'";
+        Statement st = null;
+        Book b = new Book();
+        st = con.createStatement();
+        ResultSet rs = st.executeQuery(sent);
+        while (rs.next()) {
+            b = new Book(rs.getString(2), rs.getString(3), rs.getDate(4), rs.getBoolean(5));
+        }
+        rs.close();
+        return b.getId();
+    }
+    
+//    public static void updateSupplyDate(Connection con, String name, Date arrivingDate) {
+//        String sql = "UPDATE Supply SET arrivingDate = " + arrivingDate + " WHERE name = '" + name + "'";
+//        try {
+//            Statement st = con.createStatement();
+//            st.executeUpdate(sql);
+//        } catch (SQLException e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//    }
+    
+    public static void addBooking(Connection con, String name, String author, String email, Date dueDate) throws SQLException {
+        int u_id = selectUserId(con, email);
+        int b_id = selectBookId(con, name, author);
+        Booking b = new Booking(u_id, b_id, dueDate);
+        int bg_id = b.getId();
+    	
+        String sql = "INSERT INTO Booking (bg_id, u_id, b_id, dueDate) VALUES (" + bg_id + ", " + u_id + ", " + b_id + ", " + dueDate + ")";
+    	Statement st = null;
+    	try {
+            st = con.createStatement();
+            st.executeUpdate(sql);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        st.close();
+        
+        bookingMap = new HashMap<User, Book>();
+        User user = new User();
+        user = selectUser(con, email);
+        Book book = new Book();
+        book = selectBook(con, name, author);
+        bookingMap.put(user, book);
+    }
+    
+    
     /**
      * 
      * @param con - connection to the DB needed to be able to work or apply changes to the database
@@ -312,7 +405,7 @@ public class DB {
         User user = new User();
         ResultSet rs = st.executeQuery(sent);
         while (rs.next()) {
-            user = new User(0, rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
+            user = new User(rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
             usersList.add(user);
         }
         rs.close();
@@ -360,7 +453,7 @@ public class DB {
             st = con.createStatement();
             ResultSet rs2 = st.executeQuery(sent);
             while(rs2.next()) {
-                u = new User(0, rs2.getString(2), rs2.getString(3), rs2.getString(4), rs2.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
+                u = new User(rs2.getString(2), rs2.getString(3), rs2.getString(4), rs2.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
             }
             room = new Room(rs.getString(2), u, rs.getInt(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getBoolean(7));
             roomsList.add(room);
@@ -406,7 +499,7 @@ public class DB {
         	st = con.createStatement();
         	ResultSet rs2 = st.executeQuery(sent);
         	while(rs2.next()) {
-        		u = new User(0, rs2.getString(2), rs2.getString(3), rs2.getString(4), rs2.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
+        		u = new User(rs2.getString(2), rs2.getString(3), rs2.getString(4), rs2.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
         	}
             fine = new Fine(u, rs.getDouble(2));
             finesList.add(fine);

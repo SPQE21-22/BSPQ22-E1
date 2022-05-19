@@ -6,6 +6,9 @@ import java.util.Date;
 
 @PersistenceCapable(detachable="true")
 public class Book {
+	
+	private int id;
+    private static int count = 0;
     @PrimaryKey
     private String name;
     private String author;
@@ -13,6 +16,7 @@ public class Book {
     private Boolean available;
 
     public Book(String name, String author, Date publishDate, Boolean available) {
+    	this.id = count++;
         this.name = name;
         this.author = author;
         this.publishDate = publishDate;
@@ -55,7 +59,15 @@ public class Book {
         this.available = available;
     }
 
-    @Override
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	@Override
     public String toString() {
         return "Book = " + name;
     }

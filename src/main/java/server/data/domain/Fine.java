@@ -2,6 +2,8 @@ package server.data.domain;
 
 public class Fine {
 	
+	private int id;
+    private static int count = 0;
 	private User user;
 	private double quantity;
 	
@@ -13,6 +15,7 @@ public class Fine {
 	
 	public Fine(User user, double quantity) {
 		super();
+		this.id = count++;
 		this.user = user;
 		this.quantity = quantity;
 	}

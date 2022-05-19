@@ -10,8 +10,9 @@ import java.util.List;
 @PersistenceCapable(detachable="true")
 public class User implements Serializable {
     
+	private int id;
+    private static int count = 0;
     private static final long serialVersionUID = 1L;
-    private int id;
 	private String name;
     @PrimaryKey
     private String email;
@@ -22,9 +23,20 @@ public class User implements Serializable {
     private List<Book> books;
     private List<Fine> fines;
 
-    public User(int id, String name, String email, String password, Date birthDate, List<Book> books, List<Fine> fines) {
-        this.id = id;
-        this.name = name;
+//    public User(int id, String name, String email, String password, Date birthDate, List<Book> books, List<Fine> fines) {
+//        this.id = id;
+//        this.name = name;
+//        this.email = email;
+//        this.password = password;
+//        this.birthDate = birthDate;
+//        this.books = books;
+//        this.fines = fines;
+//    }
+    
+    
+    public User(String name, String email, String password, Date birthDate, List<Book> books, List<Fine> fines) {
+    	this.id = count++;
+    	this.name = name;
         this.email = email;
         this.password = password;
         this.birthDate = birthDate;
@@ -68,9 +80,6 @@ public class User implements Serializable {
         this.name = name;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public void setEmail(String email) {
         this.email = email;
@@ -100,7 +109,7 @@ public class User implements Serializable {
                 ", email = " + email +
                 ", password = " + password +
                 ", birthDate = " + birthDate +
-                ", books = " + books +
+//                ", books = " + books +
                 ']';
     }
 }
