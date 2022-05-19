@@ -1,9 +1,13 @@
 package client.GUI;
 
 import server.data.domain.Book;
+import server.data.domain.Supply;
 import server.data.domain.User;
 
 import javax.swing.*;
+import javax.ws.rs.client.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,12 +18,15 @@ public class GuiManageCafeteriaItems {
     private JFrame guiCafeteriaItems;
     private JTextField textNameD;
     private JTextField textNameF;
-
+    Client client;
+    WebTarget webTarget;
     public boolean isValid(JTextField n){
         return n.getText() != null;
     }
 
     public GuiManageCafeteriaItems(User u, List<Book> ab, String hostname, String port){
+        client = ClientBuilder.newClient();
+        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
         guiCafeteriaItems = new JFrame();
         guiCafeteriaItems.setResizable(false);
         guiCafeteriaItems.setBounds(100, 100, 450, 400);
@@ -115,7 +122,7 @@ public class GuiManageCafeteriaItems {
         guiCafeteriaItems.getContentPane().add(cTypeD);
 
         JComboBox<String> cTypeF = new JComboBox<String>();
-        cTypeF.setModel(new DefaultComboBoxModel<String>(new String[] {"Starter", "Main course", "Sandwich", "Pastry"}));
+        cTypeF.setModel(new DefaultComboBoxModel<String>(new String[] {"Starter", "Main course", "Pastry"}));
         cTypeF.setBounds(299, 193, 125, 22);
         guiCafeteriaItems.getContentPane().add(cTypeF);
 
@@ -126,7 +133,13 @@ public class GuiManageCafeteriaItems {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (isValid(textNameD)){
-                    System.out.println("Added");
+                    Supply s = new Supply(textNameD.getText(), (Double) spinnerPriceD.getValue(),String.valueOf(cTypeD.getSelectedItem()));
+                    WebTarget bookWebTarget = webTarget.path("users/addSupply");
+                    Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+                    Response response = invocationBuilder.post(Entity.entity(s, MediaType.APPLICATION_JSON));
+                    if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+                        JOptionPane.showMessageDialog(null, "The Drink has been added.", "Management", JOptionPane.INFORMATION_MESSAGE);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Make sure all the data is filled in correctly.", "Management", JOptionPane.INFORMATION_MESSAGE);
                 }
@@ -141,7 +154,13 @@ public class GuiManageCafeteriaItems {
             @Override
             public void actionPerformed(ActionEvent f) {
                 if (isValid(textNameF)){
-                    System.out.println("Added");
+                    Supply s = new Supply(textNameF.getText(), (Double) spinnerPriceF.getValue(),String.valueOf(cTypeF.getSelectedItem()));
+                    WebTarget bookWebTarget = webTarget.path("users/addSupply");
+                    Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+                    Response response = invocationBuilder.post(Entity.entity(s, MediaType.APPLICATION_JSON));
+                    if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+                        JOptionPane.showMessageDialog(null, "The Food has been added.", "Management", JOptionPane.INFORMATION_MESSAGE);
+                    }
                 } else {
                     JOptionPane.showMessageDialog(null, "Make sure all the data is filled in correctly.", "Management", JOptionPane.INFORMATION_MESSAGE);
                 }

@@ -58,6 +58,10 @@ public class Main implements Runnable{
             DB.addRoom(con, "UI track review", 2, "May", 13, 16, true,"ai@mail");
             DB.addRoom(con, "Reunion", 3, "May", 13, 16, true,"ai@mail");
             DB.addRoom(con, "Algebra studying", 4, "May", 13, 16, true,"ai@mail");
+            DB.addSupply(con, "Spaghety", 10.5, "Starter");
+            DB.addSupply(con, "Fish & Chips", 7.5, "Main Course");
+            DB.addSupply(con, "Flan", 2.5, "Pastry");
+            DB.addSupply(con, "Water Bottle", 2.5, "Water Based");
         } catch (DBException e) {
             e.printStackTrace();
         }

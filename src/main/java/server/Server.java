@@ -26,6 +26,7 @@ public class Server {
 	private List<Book> booksList;
 	private List<Room> roomList;
 	private List<Fine> finesList;
+	private List<Supply> supplysList;
 	private Connection con;
 	private DB db = new DB();
 	private static final Logger logger = LogManager.getLogger(Server.class);
@@ -38,6 +39,7 @@ public class Server {
 			booksList = DB.getBooksList(con);
 			finesList = DB.getFinesList(con);
 			roomList = DB.getRoomsList(con);
+			supplysList = DB.getSuppliesList(con);
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
@@ -118,7 +120,7 @@ public class Server {
 		logger.info(reserv);
 		DB.addRoom(con, reserv.getName(), reserv.getDay(),  reserv.getMonth(), reserv.getHourBeg(), reserv.getHourEnd(), reserv.getBooked(), reserv.getUser().getEmail());
 		this.roomList.add(reserv);
-		logger.info("Libro añadido correctamente");
+		logger.info("Habitacion añadida correctamente");
 		return Response.ok(reserv).build();
 	}
 
@@ -143,6 +145,44 @@ public class Server {
 		user.setFines(f);
 		logger.info("Devolviendo Multas de usuario");
 		return Response.ok(user).build();
+	}
+
+	@GET
+	@Path("/supplies")
+	public Response getSupplies() {
+		ArrayList<Supply> starter = new ArrayList<Supply>();
+		ArrayList<Supply> main = new ArrayList<Supply>();
+		ArrayList<Supply> pastry = new ArrayList<Supply>();
+		ArrayList<Supply> drink = new ArrayList<Supply>();
+		for (Supply s: supplysList){
+			switch (s.getType()) {
+				case "Starter":
+					starter.add(s);
+					break;
+				case "Main Course":
+					main.add(s);
+					break;
+				case "Pastry":
+					pastry.add(s);
+					break;
+				default:
+					drink.add(s);
+					break;
+			}
+		}
+		Menu res = new Menu(starter, main, pastry, drink);
+		logger.info("Devolviendo contenidos de cafeteria");
+		return Response.ok(res).build();
+	}
+
+	@POST
+	@Path("/addSupply")
+	public Response addSupply(Supply supply) throws DBException {
+		logger.info(supply);
+		DB.addSupply(con, supply.getName(), supply.getPrice(), supply.getType());
+		this.supplysList.add(supply);
+		logger.info("Supply añadido correctamente");
+		return Response.ok(supply).build();
 	}
 
 	@GET

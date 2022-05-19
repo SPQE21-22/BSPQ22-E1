@@ -8,19 +8,19 @@ public class Supply {
     private static int count = 0;
 	private String name;
 	private double price;
-	private Date arrivingDate;
+	private String type;
 	
 	public Supply() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Supply(String name, double price, Date arrivingDate) {
+	public Supply(String name, double price, String type) {
 		super();
 		this.id = count++;
 		this.name = name;
 		this.price = price;
-		this.arrivingDate = arrivingDate;
+		this.type = type;
 	}
 	
 	
@@ -47,19 +47,19 @@ public class Supply {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	
-	public Date getArrivingDate() {
-		return arrivingDate;
+
+	public String getType() {
+		return type;
 	}
-	
-	public void setArrivingDate(Date arrivingDate) {
-		this.arrivingDate = arrivingDate;
+
+	public void setType(String type) {
+		this.type = type;
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
-		return "Supply [name=" + name + ", price=" + price + ", arrivingDate=" + arrivingDate + "]";
+		return name;
 	}
 	
 }

@@ -2,8 +2,14 @@ package client.GUI;
 
 import server.data.domain.*;
 import server.data.domain.Menu;
-
+import java.util.Random;
 import javax.swing.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Invocation;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,11 +20,13 @@ public class GuiCafeteria {
 
     private JFrame guiCafeteria;
     private int price;
-
+    Client client;
+    WebTarget webTarget;
     public GuiCafeteria(User u, List<Book> ab, String hostname, String port) {
 
         price = 0;
-
+        client = ClientBuilder.newClient();
+        webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
         guiCafeteria = new JFrame();
         guiCafeteria.setResizable(false);
         guiCafeteria.setBounds(100, 100, 600, 400);
@@ -26,7 +34,7 @@ public class GuiCafeteria {
         guiCafeteria.getContentPane().setLayout(null);
         guiCafeteria.setVisible(true);
 
-        JLabel labelTittle = new JLabel("WAITING LIST");
+        JLabel labelTittle = new JLabel("CAFETERIA");
         labelTittle.setHorizontalAlignment(SwingConstants.CENTER);
         labelTittle.setFont(new Font("Arial", Font.BOLD, 25));
         labelTittle.setBounds(10, 11, 564, 30);
@@ -57,14 +65,18 @@ public class GuiCafeteria {
         gbl_panelLeftInside.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
         panelLeftInside.setLayout(gbl_panelLeftInside);
 
-        /* EXAMPLE */
-        ArrayList<Drink> ad = new ArrayList<>();
-        ad.add(new Drink("Bebida1", "Soda", 12));
-        ad.add(new Drink("Bebida2", "Water based", 14.56));
+        Menu menu = new Menu();
+        WebTarget bookWebTarget = webTarget.path("users/supplies");
+        Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+        Response response = invocationBuilder.get();
+        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+            menu = response.readEntity(Menu.class);
+        }
+        ArrayList<Supply> drinks = menu.getDrink();
 
         int yL = 0;
         int xL = 0;
-        for (Drink d : ad) {
+        for (Supply d : drinks) {
             JLabel labelDName = new JLabel(d.getName());
             GridBagConstraints gbc_labelDName = new GridBagConstraints();
             gbc_labelDName.fill = GridBagConstraints.BOTH;
@@ -99,12 +111,7 @@ public class GuiCafeteria {
         guiCafeteria.getContentPane().add(panelRight);
         panelRight.setLayout(null);
 
-        /* EXAMPLE */
-        Food f1 = new Food("Food1", "Starter", 36);
-        Food f2 = new Food("Food2", "Main", 14);
-        Food f3 = new Food("Food3", "Pastry", 1.36);
-        Drink d1 = new Drink("Drink1", "Soda", 3.54);
-        Menu menu = new Menu(f1, f2, f3, d1);
+        Random random = new Random();
 
         JLabel labelMenu = new JLabel("MENU");
         labelMenu.setHorizontalAlignment(SwingConstants.CENTER);
@@ -112,22 +119,22 @@ public class GuiCafeteria {
         labelMenu.setBounds(0, 0, 144, 30);
         panelRight.add(labelMenu);
 
-        JLabel labelStarter = new JLabel(menu.getStarter().getName());
+        JLabel labelStarter = new JLabel(menu.getStarter().get(random.nextInt(menu.getStarter().size())).getName());
         labelStarter.setFont(new Font("Arial", Font.BOLD, 13));
         labelStarter.setBounds(10, 41, 112, 14);
         panelRight.add(labelStarter);
 
-        JLabel labelMain = new JLabel(menu.getMain().getName());
+        JLabel labelMain = new JLabel(menu.getMain().get(random.nextInt(menu.getMain().size())).getName());
         labelMain.setFont(new Font("Arial", Font.BOLD, 13));
         labelMain.setBounds(10, 66, 112, 14);
         panelRight.add(labelMain);
 
-        JLabel labelPastry = new JLabel(menu.getPastry().getName());
+        JLabel labelPastry = new JLabel(menu.getPastry().get(random.nextInt(menu.getPastry().size())).getName());
         labelPastry.setFont(new Font("Arial", Font.BOLD, 13));
         labelPastry.setBounds(10, 91, 112, 14);
         panelRight.add(labelPastry);
 
-        JLabel labelDrink = new JLabel(menu.getDrink().getName());
+        JLabel labelDrink = new JLabel(menu.getDrink().get(random.nextInt(menu.getDrink().size())).getName());
         labelDrink.setFont(new Font("Arial", Font.BOLD, 13));
         labelDrink.setBounds(10, 116, 112, 14);
         panelRight.add(labelDrink);
@@ -161,17 +168,14 @@ public class GuiCafeteria {
         gbl_panelCentreInside.rowWeights = new double[]{0.0, Double.MIN_VALUE};
         panelCentreInside.setLayout(gbl_panelCentreInside);
 
-        ArrayList<Food> af = new ArrayList<>();
-        Food f4 = new Food("Food1", "Starter", 36);
-        Food f5 = new Food("Food2", "Main", 14);
-        Food f6 = new Food("Food3", "Pastry", 1.36);
-        af.add(f4);
-        af.add(f5);
-        af.add(f6);
+        ArrayList<Supply> dailymenu = new ArrayList<>();
+        dailymenu.add(menu.getStarter().get(random.nextInt(menu.getStarter().size())));
+        dailymenu.add(menu.getMain().get(random.nextInt(menu.getMain().size())));
+        dailymenu.add(menu.getPastry().get(random.nextInt(menu.getPastry().size())));
 
         int yF = 0;
         int xF = 0;
-        for (Food f : af) {
+        for (Supply f : dailymenu) {
             JLabel labelFName = new JLabel(f.getName());
             GridBagConstraints gbc_labelFName = new GridBagConstraints();
             gbc_labelFName.fill = GridBagConstraints.BOTH;

@@ -1,50 +1,52 @@
 package server.data.domain;
 
+import java.util.ArrayList;
+
 public class Menu {
 
-    private Food starter;
-    private Food main;
-    private Food pastry;
-    private Drink drink;
+    private ArrayList<Supply> starter;
+    private ArrayList<Supply> main;
+    private ArrayList<Supply> pastry;
+    private ArrayList<Supply> drink;
 
-    public Menu(Food starter, Food main, Food pastry, Drink drink) {
+    public Menu(ArrayList<Supply> starter, ArrayList<Supply> main, ArrayList<Supply> pastry, ArrayList<Supply> drink) {
         this.starter = starter;
         this.main = main;
         this.pastry = pastry;
         this.drink = drink;
     }
     public Menu() {
-        this.starter = new Food();
-        this.main = new Food();
-        this.pastry = new Food();
-        this.drink = new Drink();
+        this.starter = new ArrayList<Supply>();
+        this.main = new ArrayList<Supply>();
+        this.pastry = new ArrayList<Supply>();
+        this.drink = new ArrayList<Supply>();
     }
 
-    public Food getStarter() {
+    public ArrayList<Supply> getStarter() {
         return starter;
     }
-    public void setStarter(Food starter) {
+    public void setStarter(ArrayList<Supply> starter) {
         this.starter = starter;
     }
 
-    public Food getMain() {
+    public ArrayList<Supply> getMain() {
         return main;
     }
-    public void setMain(Food main) {
+    public void setMain(ArrayList<Supply> main) {
         this.main = main;
     }
 
-    public Food getPastry() {
+    public ArrayList<Supply> getPastry() {
         return pastry;
     }
-    public void setPastry(Food pastry) {
+    public void setPastry(ArrayList<Supply> pastry) {
         this.pastry = pastry;
     }
 
-    public Drink getDrink() {
+    public ArrayList<Supply> getDrink() {
         return drink;
     }
-    public void setDrink(Drink drink) {
+    public void setDrink(ArrayList<Supply> drink) {
         this.drink = drink;
     }
 

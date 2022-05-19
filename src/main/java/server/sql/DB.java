@@ -2,12 +2,12 @@ package server.sql;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 //import org.apache.logging.log4j.LogManager;
 //import org.apache.logging.log4j.Logger;
 import server.Main;
 import server.data.domain.Book;
-import server.data.domain.Booking;
 import server.data.domain.Fine;
 import server.data.domain.Room;
 import server.data.domain.Supply;
@@ -35,7 +35,7 @@ public class DB {
     //private static final Logger logger = LogManager.getLogger(DB.class);
 
     /**
-     * 
+     *
      * @return connection to the DB needed to be able to work or apply changes to the database
      * @throws DBException
      * @throws SQLException
@@ -60,27 +60,23 @@ public class DB {
     }
 
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @throws DBException
      */
     public static void createTables(Connection con) throws DBException {
         dropTables(con);
-        String bookq = "CREATE TABLE IF NOT EXISTS Book (b_id int PRIMARY KEY, name VARCHAR(255) , author VARCHAR(255) , publishDate Date, available Boolean)";
-        String userq = "CREATE TABLE IF NOT EXISTS User (u_id int, name VARCHAR(255), email VARCHAR(255) PRIMARY KEY, password VARCHAR(255), birthDate Date)";
-        String roomq = "CREATE TABLE IF NOT EXISTS Room (r_id int  PRIMARY KEY, name VARCHAR(255), day INTEGER, month VARCHAR(255), hourBeg INTEGER, hourEnd INTEGER, booked Boolean, u_id VARCHAR(255))";
-//        String bookingq = "CREATE TABLE IF NOT EXISTS Booking AS (SELECT * FROM USER u, BOOK b WHERE u.u_id = b.u_id)";
-        //tabla fines - asociado user y un int de la cantidad a abonar - clase fine - meter metodos a fine. 
-        String bookingq = "CREATE TABLE IF NOT EXISTS Booking (bg_id int  PRIMARY KEY, u_id int, b_id int, dueDate Date, FOREIGN KEY (email) REFERENCES User(email), FOREIGN KEY (b_id) REFERENCES Book(b_id))";
-        String supplyq = "CREATE TABLE IF NOT EXISTS Supply (s_id int PRIMARY KEY, name VARCHAR(255), price DOUBLE, arrivingDate Date)";
-        String fineq = "CREATE TABLE IF NOT EXISTS Fine (f_id int PRIMARY KEY, quantity DOUBLE, email VARCHAR(255))";
+        String bookq = "CREATE TABLE IF NOT EXISTS Book (b_id int auto_increment PRIMARY KEY, name VARCHAR(255) , author VARCHAR(255) , publishDate Date, available Boolean)";
+        String userq = "CREATE TABLE IF NOT EXISTS User (u_id int auto_increment PRIMARY KEY, name VARCHAR(255), email VARCHAR(255), password VARCHAR(255), birthDate Date)";
+        String roomq = "CREATE TABLE IF NOT EXISTS Room (r_id int auto_increment PRIMARY KEY, name VARCHAR(255), day INTEGER, month VARCHAR(255), hourBeg INTEGER, hourEnd INTEGER, booked Boolean, u_id VARCHAR(255))";
+        String supplyq = "CREATE TABLE IF NOT EXISTS Supply (s_id int auto_increment PRIMARY KEY, name VARCHAR(255), price DOUBLE, type VARCHAR(255))";
+        String fineq = "CREATE TABLE IF NOT EXISTS Fine (f_id int auto_increment PRIMARY KEY, quantity DOUBLE, email VARCHAR(255))";
         Statement st = null;
         try {
             st = con.createStatement();
             st.executeUpdate(bookq);
             st.executeUpdate(userq);
             st.executeUpdate(roomq);
-            st.executeUpdate(bookingq);
             st.executeUpdate(supplyq);
             st.executeUpdate(fineq);
             st.close();
@@ -100,7 +96,7 @@ public class DB {
     }
 
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @throws DBException
      */
@@ -108,18 +104,16 @@ public class DB {
         String bookq = "DROP TABLE IF EXISTS Book";
         String userq = "DROP TABLE IF EXISTS User";
         String roomq = "DROP TABLE IF EXISTS Room";
-        String bookingq = "DROP TABLE IF EXISTS Booking";
         String supplyq = "DROP TABLE IF EXISTS Supply";
         String fineq = "DROP TABLE IF EXISTS Fine";
         Statement st = null;
         try {
             st = con.createStatement();
-            st.executeUpdate(bookq);
-            st.executeUpdate(userq);
-            st.executeUpdate(roomq);
-            st.executeUpdate(bookingq);
             st.executeUpdate(supplyq);
             st.executeUpdate(fineq);
+            st.executeUpdate(roomq);
+            st.executeUpdate(bookq);
+            st.executeUpdate(userq);
             st.close();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -135,9 +129,9 @@ public class DB {
             }
         }
     }
- 
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - parameter needed to build the User object in the DB
      * @param email - parameter needed to build the User object in the DB
@@ -148,24 +142,15 @@ public class DB {
     public static void addUser(Connection con, String name, String email, String password, Date birthDate)
             throws DBException {
         birthDate.setYear(birthDate.getYear()-1900);
-        User u = new User(name, email, password, birthDate);
-        int id = u.getId();
-        
-        String sql = "INSERT INTO User (u_id, name, email, password , birthDate) VALUES (" + id + ", '" + name + "', '" + email + "', '" + password + "', " + birthDate + ")";
-//        PreparedStatement stmt = con
-//                .prepareStatement(
-//             Statement stmtForId = con.createStatement()
-        
-        Statement st = null; 
-        try {
-        	st = con.createStatement();
-        	st.executeUpdate(sql);
-//            stmt.setString(1, name);
-//            stmt.setString(2, email);
-//            stmt.setString(3, password);
-//            stmt.setDate(4, birthDate);
-//            stmt.executeUpdate();
-            st.close();
+        try (PreparedStatement stmt = con
+                .prepareStatement("INSERT INTO User (name, email, password , birthDate) VALUES (?,?,?,?)");
+             Statement stmtForId = con.createStatement()) {
+            stmt.setString(1, name);
+            stmt.setString(2, email);
+            stmt.setString(3, password);
+            stmt.setDate(4, birthDate);
+            stmt.executeUpdate();
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
             throw new DBException("User cannot be added");
@@ -180,9 +165,9 @@ public class DB {
             }
         }*/
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - parameter needed to build the Book object in the DB
      * @param author - parameter needed to build the Book object in the DB
@@ -216,9 +201,9 @@ public class DB {
             }
         }*/
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - parameter needed to build the Room object in the DB
      * @param day - parameter needed to build the Room object in the DB
@@ -256,120 +241,22 @@ public class DB {
             }
         }*/
     }
-    
-    public static User selectUser(Connection con, String email) throws SQLException {
-        String sent = "SELECT * FROM User WHERE email='" + email +"'";
-        Statement st = null;
-        User u = new User();
-        st = con.createStatement();
-        ResultSet rs = st.executeQuery(sent);
-        while (rs.next()) {
-            u = new User(rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
-        }
-        rs.close();
-        return u;
-    }
-    
-    public static int selectUserId(Connection con, String email) throws SQLException {
-        String sent = "SELECT * FROM User WHERE email='" + email +"'";
-        Statement st = null;
-        User u = new User();
-        st = con.createStatement();
-        ResultSet rs = st.executeQuery(sent);
-        while (rs.next()) {
-            u = new User(rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
-        }
-        rs.close();
-        return u.getId();
-    }
-    
-    public static Book selectBook(Connection con, String name, String author) throws SQLException {
-        String sent = "SELECT * FROM Book WHERE name='" + name +"' and author='"+ author + "'";
-        Statement st = null;
-        Book b = new Book();
-        st = con.createStatement();
-        ResultSet rs = st.executeQuery(sent);
-        while (rs.next()) {
-            b = new Book(rs.getString(2), rs.getString(3), rs.getDate(4), rs.getBoolean(5));
-        }
-        rs.close();
-        return b;
-    }
-    
-    public static Book selectBookFromUser(Connection con, String name, String author) throws SQLException {
-        String sent = "SELECT * FROM Book WHERE name='" + name +"' and author='"+ author + "'";
-        Statement st = null;
-        Book b = new Book();
-        st = con.createStatement();
-        ResultSet rs = st.executeQuery(sent);
-        while (rs.next()) {
-            b = new Book(rs.getString(2), rs.getString(3), rs.getDate(4), rs.getBoolean(5));
-        }
-        rs.close();
-        
-        return b;
-    }
-    
-    
-    public static int selectBookId(Connection con, String name, String author) throws SQLException {
-        String sent = "SELECT * FROM Book WHERE name='" + name +"' and author='"+ author + "'";
-        Statement st = null;
-        Book b = new Book();
-        st = con.createStatement();
-        ResultSet rs = st.executeQuery(sent);
-        while (rs.next()) {
-            b = new Book(rs.getString(2), rs.getString(3), rs.getDate(4), rs.getBoolean(5));
-        }
-        rs.close();
-        return b.getId();
-    }
-    
-//    public static void updateSupplyDate(Connection con, String name, Date arrivingDate) {
-//        String sql = "UPDATE Supply SET arrivingDate = " + arrivingDate + " WHERE name = '" + name + "'";
-//        try {
-//            Statement st = con.createStatement();
-//            st.executeUpdate(sql);
-//        } catch (SQLException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
-//    }
-    
-    public static void addBooking(Connection con, String name, String author, String email, Date dueDate) throws SQLException {
-        int u_id = selectUserId(con, email);
-        int b_id = selectBookId(con, name, author);
-        Booking b = new Booking(u_id, b_id, dueDate);
-        int bg_id = b.getId();
-    	
-        String sql = "INSERT INTO Booking (bg_id, u_id, b_id, dueDate) VALUES (" + bg_id + ", " + u_id + ", " + b_id + ", " + dueDate + ")";
-    	Statement st = null;
-    	try {
-            st = con.createStatement();
-            st.executeUpdate(sql);
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        st.close();
-    }
-    
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - parameter needed to build the Supply object in the DB
      * @param price - parameter needed to build the Supply object in the DB
-     * @param arrivingDate - parameter needed to build the Supply object in the DB
      * @throws DBException
      */
-    public static void addSupply(Connection con, String name, double price, Date arrivingDate)
+    public static void addSupply(Connection con, String name, double price, String type)
             throws DBException {
         try (PreparedStatement stmt = con
-                .prepareStatement("INSERT INTO Supply (name, price, arrivingDate) VALUES (?,?,?)");
+                .prepareStatement("INSERT INTO Supply (name, price, type) VALUES (?,?,?)");
              Statement stmtForId = con.createStatement()) {
             stmt.setString(1, name);
             stmt.setDouble(2, price);
-            stmt.setDate(3, arrivingDate);
+            stmt.setString(3, type);
             stmt.executeUpdate();
             stmt.close();
         } catch (SQLException e) {
@@ -386,9 +273,9 @@ public class DB {
             }
         }*/
     }
-    
+
     //Menu tabla - 4 strings TODO
-    
+
     public static void addFine(Connection con, double quantity, String id_user)
             throws DBException {
         try (PreparedStatement stmt = con
@@ -405,7 +292,7 @@ public class DB {
     }
 
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @return ArrayList containing all users stored in the DB
      * @throws SQLException
@@ -426,7 +313,7 @@ public class DB {
     }
 
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @return ArrayList containing all books stored in the DB
      * @throws SQLException
@@ -445,9 +332,9 @@ public class DB {
         rs.close();
         return booksList;
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @return ArrayList containing all rooms stored in the DB
      * @throws SQLException
@@ -474,9 +361,9 @@ public class DB {
         rs.close();
         return roomsList;
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @return ArrayList containing all supplies stored in the DB
      * @throws SQLException
@@ -489,13 +376,13 @@ public class DB {
         Supply supply = new Supply();
         ResultSet rs = st.executeQuery(sent);
         while (rs.next()) {
-        	supply = new Supply(rs.getString(2), rs.getDouble(3), rs.getDate(4));
+            supply = new Supply(rs.getString(2), rs.getDouble(3), rs.getString(4));
             suppliesList.add(supply);
         }
         rs.close();
         return suppliesList;
     }
-    
+
     public static ArrayList<Fine> getFinesList(Connection con) throws SQLException {
         String sent = "SELECT * FROM Fine";
         Statement st = null;
@@ -508,12 +395,12 @@ public class DB {
         while (rs.next()) {
             User u = new User();
             sent = "SELECT * FROM User WHERE email = '" + rs.getString(3)+"'";
-        	st = null;
-        	st = con.createStatement();
-        	ResultSet rs2 = st.executeQuery(sent);
-        	while(rs2.next()) {
-        		u = new User(rs2.getString(2), rs2.getString(3), rs2.getString(4), rs2.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
-        	}
+            st = null;
+            st = con.createStatement();
+            ResultSet rs2 = st.executeQuery(sent);
+            while(rs2.next()) {
+                u = new User(rs2.getString(2), rs2.getString(3), rs2.getString(4), rs2.getDate(5), new ArrayList<Book>(), new ArrayList<Fine>());
+            }
             fine = new Fine(u, rs.getDouble(2));
             finesList.add(fine);
         }
@@ -522,7 +409,7 @@ public class DB {
     }
 
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - way to find the book we are looking for delete
      */
@@ -538,7 +425,7 @@ public class DB {
     }
 
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - way to find the user we are looking for delete
      */
@@ -552,9 +439,9 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - way to find the room we are looking for delete
      */
@@ -568,9 +455,9 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - way to find the supply we are looking for delete
      */
@@ -584,8 +471,8 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
-    
+
+
     public static void deleteFine(Connection con, int f_id) {
         String sent = "DELETE FROM Fine WHERE f_id = " + f_id;
         Statement st = null;
@@ -598,7 +485,7 @@ public class DB {
     }
 
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - way to find the book we are looking for update
      * @param author - parameter we want to update
@@ -616,7 +503,7 @@ public class DB {
     }
 
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - way to find the book we are looking for update
      * @param newName - parameter we want to update
@@ -634,7 +521,7 @@ public class DB {
     }
 
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - way to find the book we are looking for update
      * @param date - parameter we want to update
@@ -653,7 +540,7 @@ public class DB {
     }
 
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - way to find the book we are looking for update
      * @param available - parameter we want to update
@@ -671,7 +558,7 @@ public class DB {
     }
 
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - way to find the user we are looking for update
      * @param newName - parameter we want to update
@@ -689,7 +576,7 @@ public class DB {
     }
 
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - way to find the user we are looking for update
      * @param email - parameter we want to update
@@ -707,7 +594,7 @@ public class DB {
     }
 
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - way to find the user we are looking for update
      * @param password - parameter we want to update
@@ -723,9 +610,9 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - way to find the user we are looking for update
      * @param birthdate - parameter we want to update
@@ -742,9 +629,9 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param newname - parameter we want to update
      * @param name - way to find the room we are looking for update
@@ -760,9 +647,9 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param day - parameter we want to update
      * @param name - way to find the room we are looking for update
@@ -778,9 +665,9 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param month - parameter we want to update
      * @param name - way to find the room we are looking for update
@@ -796,9 +683,9 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param hourBeg - parameter we want to update
      * @param name - way to find the room we are looking for update
@@ -814,9 +701,9 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param hourEnd - parameter we want to update
      * @param name - way to find the room we are looking for update
@@ -832,9 +719,9 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param booked - parameter we want to update
      * @param name - way to find the room we are looking for update
@@ -850,9 +737,9 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param id - way to find the supply we are looking for update
      * @param name - parameter we want to update
@@ -867,9 +754,9 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - way to find the supply we are looking for update
      * @param price - parameter we want to update
@@ -884,10 +771,10 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
-    
+
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param name - way to find the supply we are looking for update
      * @param arrivingDate - parameter we want to update
@@ -902,9 +789,9 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param f_id - way to find the fine we are looking for update
      * @param newQuantity - parameter we want to update
@@ -919,9 +806,9 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
+
     /**
-     * 
+     *
      * @param con - connection to the DB needed to be able to work or apply changes to the database
      * @param f_id - way to find the fine we are looking for update
      * @param u_id - parameter we want to update
@@ -936,7 +823,7 @@ public class DB {
             e.printStackTrace();
         }
     }
-    
+
 
 /* DB TESTING
     public static void main(String args[]) {
