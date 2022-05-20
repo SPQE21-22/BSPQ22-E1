@@ -67,14 +67,15 @@ public class ServerTest {
     @Required(max = 1000, average = 500)
     public void testCreateUser() throws InterruptedException {
         logger.info("Started CreateUser");
-        User u0 = new User("Ruben", "r@mail", "4321", new Date(2022, 1, 10), new ArrayList<Book>(),new ArrayList<Fine>());
+        User u0 = new User("Aida", "ai@mail", "4321", new Date(2022, 1, 10), new ArrayList<Book>(),new ArrayList<Fine>());
         WebTarget donationsWebTarget = webTarget.path("users/createUser");
         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.post(Entity.entity(u0, MediaType.APPLICATION_JSON));
         User u1 = response.readEntity(User.class);
-        Assert.assertEquals(u1.getName(), "Ruben");
-        Assert.assertEquals(u1.getEmail(), "r@mail");
+        Assert.assertEquals(u1.getName(), "Aida");
+        Assert.assertEquals(u1.getEmail(), "ai@mail");
         Assert.assertEquals(u1.getPassword(), "4321");
+        DB.deleteUser(con,"Aida");
         logger.info("Finished CreateUser");
         Thread.sleep(30);
     }
@@ -135,22 +136,21 @@ public class ServerTest {
     
     @Test
     @PerfTest(invocations = 20, threads = 2)
-    @Required(max = 500, average = 500)
+    @Required(max = 1000, average = 500)
     public void testAddRoom(){
         logger.info("Started AddRoom");
-        Room r0 = new Room();
-        r0.setName("Sala de reuniones");
-        r0.setDay(1);
-        r0.setMonth("Enero");
-        r0.setHourBeg(7);
-        r0.setHourEnd(12);
-        r0.setBooked(false);
+        User u0 = new User("Ruben", "r@mail", "4321", new Date(2022, 1, 10), new ArrayList<Book>(),new ArrayList<Fine>());
+        Room r0 = new Room("Reuniones",u0, 1, "Enero", 7, 12, false);
         WebTarget donationsWebTarget = webTarget.path("users/addRoom");
         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION_JSON);
         Response response = invocationBuilder.post(Entity.entity(r0, MediaType.APPLICATION_JSON));
         Room r1 = response.readEntity(Room.class);
-        Assert.assertEquals(r1.getName(), "Sala de reuniones");
+        Assert.assertEquals(r1.getName(), "Reuniones");
+        Assert.assertEquals(r1.getUser().getName(), "Ruben");
+        Assert.assertEquals(r1.getDay(), 1);
         Assert.assertEquals(r1.getMonth(), "Enero");
+        Assert.assertEquals(r1.getHourBeg(), 7);
+        Assert.assertEquals(r1.getHourEnd(), 12);
         Assert.assertEquals(r1.getBooked(), false);
         logger.info("Finished AddRoom");
     }

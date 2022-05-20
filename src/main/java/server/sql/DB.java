@@ -637,7 +637,7 @@ public class DB {
      * @param name - way to find the room we are looking for update
      */
     public static void updateRoomName(Connection con, String name, String newname) {
-        String sql = "UPDATE Room SET name = '" + newname + "' WHERE name = " + name;
+        String sql = "UPDATE Room SET name = '" + newname + "' WHERE name = '" + name + "'";
 
         try {
             Statement st = con.createStatement();

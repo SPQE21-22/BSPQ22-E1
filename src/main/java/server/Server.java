@@ -66,7 +66,7 @@ public class Server {
 	@POST
 	@Path("/createUser")
 	public Response createUser(User userRequest) throws DBException {
-		DB.addUser(con, userRequest.getName(), userRequest.getEmail(), userRequest.getPassword(), new Date(userRequest.getBirthDate().getYear(), userRequest.getBirthDate().getYear(), userRequest.getBirthDate().getDay()));
+		DB.addUser(con, userRequest.getName(), userRequest.getEmail(), userRequest.getPassword(), new Date(userRequest.getBirthDate().getYear(), userRequest.getBirthDate().getMonth(), userRequest.getBirthDate().getDay()));
 		this.usersList.add(userRequest);
 		logger.info("Usuario creado correctamente");
 		return Response.ok(userRequest).build();
