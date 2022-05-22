@@ -1,1 +1,1 @@
-target/ linguist-detectable=false
+target/** linguist-detectable=false
