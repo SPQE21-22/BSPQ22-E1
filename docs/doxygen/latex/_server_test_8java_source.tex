@@ -1,0 +1,174 @@
+\hypertarget{_server_test_8java_source}{}\doxysection{Server\+Test.\+java}
+\label{_server_test_8java_source}\index{src/test/java/ServerTest.java@{src/test/java/ServerTest.java}}
+\mbox{\hyperlink{_server_test_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00001}00001 \textcolor{keyword}{import} org.apache.log4j.Logger;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00002}00002 \textcolor{keyword}{import} org.databene.contiperf.*;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00003}00003 \textcolor{keyword}{import} org.databene.contiperf.junit.ContiPerfRule;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00004}00004 \textcolor{keyword}{import} org.junit.Assert;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00005}00005 \textcolor{keyword}{import} org.junit.Before;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00006}00006 \textcolor{keyword}{import} org.junit.Rule;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00007}00007 \textcolor{keyword}{import} org.junit.Test;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00008}00008 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}};}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00009}00009 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_fine}{Fine}};}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00010}00010 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room}{Room}};}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00011}00011 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}};}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00012}00012 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1sql}{sql}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}};}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00013}00013 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1sql}{sql}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}};}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00015}00015 \textcolor{keyword}{import} javax.ws.rs.client.*;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00016}00016 \textcolor{keyword}{import} javax.ws.rs.core.MediaType;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00017}00017 \textcolor{keyword}{import} javax.ws.rs.core.Response;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00019}00019 \textcolor{keyword}{import} java.sql.Connection;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00020}00020 \textcolor{keyword}{import} java.sql.Date;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00021}00021 \textcolor{keyword}{import} java.sql.SQLException;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00022}00022 \textcolor{keyword}{import} java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00024}00024 \textcolor{keyword}{import} \textcolor{keyword}{static} org.junit.Assert.assertNotNull;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00026}\mbox{\hyperlink{class_server_test}{00026}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_server_test}{ServerTest}} \{}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00027}00027     \textcolor{keyword}{private} Client \mbox{\hyperlink{namespaceclient}{client}};}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00028}00028     \textcolor{keyword}{private} WebTarget webTarget;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00029}00029     \textcolor{keyword}{private} Connection con;}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00030}00030     \textcolor{keyword}{private} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}} db = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}();}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00032}00032     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} Logger logger = Logger.getLogger(\mbox{\hyperlink{class_server_test}{ServerTest}}.class.getName());}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00035}00035     @Rule}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00036}\mbox{\hyperlink{class_server_test_a7b421dd4b0da3fd272049c250acc6ecb}{00036}}     \textcolor{keyword}{public} ContiPerfRule \mbox{\hyperlink{class_server_test_a7b421dd4b0da3fd272049c250acc6ecb}{rule}} = \textcolor{keyword}{new} ContiPerfRule();}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00038}00038     @Before}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00039}\mbox{\hyperlink{class_server_test_a723c76777cdd66aec0660a8474b5e8a7}{00039}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_server_test_a723c76777cdd66aec0660a8474b5e8a7}{setUp}}() throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}, SQLException \{}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00040}00040         logger.info(\textcolor{stringliteral}{"{}Started Setup"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00041}00041         \mbox{\hyperlink{namespaceclient}{client}} = ClientBuilder.newClient();}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00042}00042         webTarget = \mbox{\hyperlink{namespaceclient}{client}}.target(String.format(\textcolor{stringliteral}{"{}http://\%s:\%s/rest"{}}, \textcolor{stringliteral}{"{}127.0.0.1"{}}, \textcolor{stringliteral}{"{}8080"{}}));}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00043}00043         con = \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aaa17518ad729f8f95bfe8540cfd3e29e}{initBD}}();}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00044}00044         \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a03dd5a61e94d380d897a2c1691547e3b}{createTables}}(con);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00045}00045         \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_adf18c6d1f82e4d1ebbaaebf7f54d6f17}{addUser}}(con, \textcolor{stringliteral}{"{}Alex"{}}, \textcolor{stringliteral}{"{}a@mail"{}}, \textcolor{stringliteral}{"{}1234"{}},\textcolor{keyword}{new} Date(2022, 1, 10));}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00046}00046         \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_adf18c6d1f82e4d1ebbaaebf7f54d6f17}{addUser}}(con, \textcolor{stringliteral}{"{}Ruben"{}}, \textcolor{stringliteral}{"{}r@mail"{}}, \textcolor{stringliteral}{"{}4321"{}},\textcolor{keyword}{new} Date(2022, 1, 10));}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00047}00047         \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7b30a91d00dc662184674f25e6db2d2d}{addBook}}(con, \textcolor{stringliteral}{"{}El Camino de lo reyes"{}}, \textcolor{stringliteral}{"{}Brandon Sanderson"{}},  \textcolor{keyword}{new} Date(2006, 3, 15), \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00048}00048         \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7b30a91d00dc662184674f25e6db2d2d}{addBook}}(con, \textcolor{stringliteral}{"{}El Imperio Final"{}}, \textcolor{stringliteral}{"{}Sandon Branderson"{}},  \textcolor{keyword}{new} Date(2006, 3, 15), \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00049}00049         logger.info(\textcolor{stringliteral}{"{}Finished Setup"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00050}00050     \}}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00052}00052     @Test}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00053}\mbox{\hyperlink{class_server_test_a285cda38e224e0810e9fe5bd157f27ca}{00053}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_server_test_a285cda38e224e0810e9fe5bd157f27ca}{testUserLogin}}()\{}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00054}00054         logger.info(\textcolor{stringliteral}{"{}Started UserLogin"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00055}00055         WebTarget donationsWebTarget = webTarget.path(\textcolor{stringliteral}{"{}users/login"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00056}00056         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00057}00057         Response response = invocationBuilder.post(Entity.entity(\textcolor{stringliteral}{"{}a@mail"{}}, MediaType.APPLICATION\_JSON));}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00058}00058         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} u1 = response.readEntity(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}.class);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00059}00059         Assert.assertEquals(u1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user_a499733f9d9881242459978b1943eeb84}{getName}}(), \textcolor{stringliteral}{"{}Alex"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00060}00060         Assert.assertEquals(u1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user_a2c89e6e3ff2471dc4a40d74198e9a946}{getEmail}}(), \textcolor{stringliteral}{"{}a@mail"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00061}00061         Assert.assertEquals(u1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user_a0803681942ad8dedbac798143b8b5c5b}{getPassword}}(), \textcolor{stringliteral}{"{}1234"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00062}00062         logger.info(\textcolor{stringliteral}{"{}Finished UserLogin"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00063}00063     \}}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00065}00065     @Test}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00066}00066     @PerfTest(invocations = 30, threads = 3)}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00067}00067     @Required(max = 1000, average = 500)}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00068}\mbox{\hyperlink{class_server_test_a61c17bd77dbfbffcfe222424fe494300}{00068}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{class_server_test_a61c17bd77dbfbffcfe222424fe494300}{testCreateUser}}() throws InterruptedException \{}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00069}00069         logger.info(\textcolor{stringliteral}{"{}Started CreateUser"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00070}00070         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} u0 = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}(\textcolor{stringliteral}{"{}Aida"{}}, \textcolor{stringliteral}{"{}ai@mail"{}}, \textcolor{stringliteral}{"{}4321"{}}, \textcolor{keyword}{new} Date(2022, 1, 10), \textcolor{keyword}{new} ArrayList<Book>(),\textcolor{keyword}{new} ArrayList<Fine>());}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00071}00071         WebTarget donationsWebTarget = webTarget.path(\textcolor{stringliteral}{"{}users/createUser"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00072}00072         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00073}00073         Response response = invocationBuilder.post(Entity.entity(u0, MediaType.APPLICATION\_JSON));}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00074}00074         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} u1 = response.readEntity(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}.class);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00075}00075         Assert.assertEquals(u1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user_a499733f9d9881242459978b1943eeb84}{getName}}(), \textcolor{stringliteral}{"{}Aida"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00076}00076         Assert.assertEquals(u1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user_a2c89e6e3ff2471dc4a40d74198e9a946}{getEmail}}(), \textcolor{stringliteral}{"{}ai@mail"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00077}00077         Assert.assertEquals(u1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user_a0803681942ad8dedbac798143b8b5c5b}{getPassword}}(), \textcolor{stringliteral}{"{}4321"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00078}00078         \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a5294c6851f1f9c3243dd09a2e71f2142}{deleteUser}}(con,\textcolor{stringliteral}{"{}Aida"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00079}00079         logger.info(\textcolor{stringliteral}{"{}Finished CreateUser"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00080}00080         Thread.sleep(30);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00081}00081     \}}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00082}00082 }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00083}00083     @Test}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00084}\mbox{\hyperlink{class_server_test_a9855dddc574a4f7453c097e43110a1bc}{00084}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_server_test_a9855dddc574a4f7453c097e43110a1bc}{testGetBooks}}()\{}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00085}00085         logger.info(\textcolor{stringliteral}{"{}Started GetBooks"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00086}00086         WebTarget donationsWebTarget = webTarget.path(\textcolor{stringliteral}{"{}users/books"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00087}00087         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00088}00088         Response response = invocationBuilder.get();}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00089}00089         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} u1 = response.readEntity(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}.class);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00090}00090         logger.info(u1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user_ae94d94c54c1e2789b5d3e16cb5ed2c00}{getBooks}}().get(0));}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00091}00091         logger.info(\textcolor{stringliteral}{"{}Finished GetBooks"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00092}00092     \}}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00093}00093     }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00095}00095     @Test}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00096}00096     @PerfTest(invocations = 20, threads = 2)}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00097}00097     @Required(max = 1000, average = 500)}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00098}\mbox{\hyperlink{class_server_test_adaaea4df9e85e0f3495aeaedb1947334}{00098}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{class_server_test_adaaea4df9e85e0f3495aeaedb1947334}{testAddBook}}()\{}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00099}00099         logger.info(\textcolor{stringliteral}{"{}Started AddBook"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00100}00100         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}} b0 = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}}();}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00101}00101         b0.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_ab4afa8319db1389e855d2f425c0436db}{setName}}(\textcolor{stringliteral}{"{}A"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00102}00102         b0.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_af1b1740c61e6b556a035ecf4755fa024}{setAuthor}}(\textcolor{stringliteral}{"{}auth"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00103}00103         b0.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_aa2f672b46eea611905a9b03f844f9cad}{setAvailable}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00104}00104         b0.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_a04a5a2bc37b40240f158f589171e4bdb}{setPublishDate}}(\textcolor{keyword}{new} Date(2022, 1, 10));}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00105}00105         WebTarget donationsWebTarget = webTarget.path(\textcolor{stringliteral}{"{}users/addBook"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00106}00106         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00107}00107         Response response = invocationBuilder.post(Entity.entity(b0, MediaType.APPLICATION\_JSON));}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00108}00108         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}} b1 = response.readEntity(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}}.class);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00109}00109         Assert.assertEquals(b1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_a3c7368f7f971bcd7cc359f9a29ac07b0}{getName}}(), \textcolor{stringliteral}{"{}A"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00110}00110         Assert.assertEquals(b1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_a9a81f3a94fcb8e5412983d28e95a015a}{getAuthor}}(), \textcolor{stringliteral}{"{}auth"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00111}00111         Assert.assertEquals(b1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_ae0754a2f8f298dbb77a57513f3db131d}{getAvailable}}(), \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00112}00112         Assert.assertEquals(b1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_aad169965ae5ae308e7fd1bcf81920e1a}{getPublishDate}}(), \textcolor{keyword}{new} Date(2022, 1, 10));}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00113}00113         logger.info(\textcolor{stringliteral}{"{}Finished AddBook"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00114}00114     \}}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00115}00115 }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00116}00116     @Test}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00117}00117     @PerfTest(invocations = 20, threads = 3)}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00118}00118     @Required(max = 1000, average = 500)}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00119}\mbox{\hyperlink{class_server_test_aea0e6aa080d926df157e77ba5f8a8c72}{00119}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{class_server_test_aea0e6aa080d926df157e77ba5f8a8c72}{testUpdateBook}}()\{}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00120}00120         logger.info(\textcolor{stringliteral}{"{}Started UpdateBook"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00121}00121         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}} b0 = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}}();}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00122}00122         b0.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_ab4afa8319db1389e855d2f425c0436db}{setName}}(\textcolor{stringliteral}{"{}A"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00123}00123         b0.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_af1b1740c61e6b556a035ecf4755fa024}{setAuthor}}(\textcolor{stringliteral}{"{}auth"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00124}00124         b0.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_aa2f672b46eea611905a9b03f844f9cad}{setAvailable}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00125}00125         b0.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_a04a5a2bc37b40240f158f589171e4bdb}{setPublishDate}}(\textcolor{keyword}{new} Date(2022, 1, 10));}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00126}00126         WebTarget donationsWebTarget = webTarget.path(\textcolor{stringliteral}{"{}users/addBook"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00127}00127         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00128}00128         Response response = invocationBuilder.post(Entity.entity(b0, MediaType.APPLICATION\_JSON));}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00129}00129         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}} b1 = response.readEntity(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}}.class);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00130}00130         Assert.assertEquals(b1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_a3c7368f7f971bcd7cc359f9a29ac07b0}{getName}}(), \textcolor{stringliteral}{"{}A"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00131}00131         Assert.assertEquals(b1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_a9a81f3a94fcb8e5412983d28e95a015a}{getAuthor}}(), \textcolor{stringliteral}{"{}auth"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00132}00132         Assert.assertEquals(b1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_ae0754a2f8f298dbb77a57513f3db131d}{getAvailable}}(), \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00133}00133         Assert.assertEquals(b1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book_aad169965ae5ae308e7fd1bcf81920e1a}{getPublishDate}}(), \textcolor{keyword}{new} Date(2022, 1, 10));}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00134}00134         logger.info(\textcolor{stringliteral}{"{}Finished UpdateBook"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00135}00135     \}}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00136}00136     }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00137}00137     @Test}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00138}00138     @PerfTest(invocations = 20, threads = 2)}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00139}00139     @Required(max = 1000, average = 500)}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00140}\mbox{\hyperlink{class_server_test_ab600f01fe552b4efb527d33d1306f479}{00140}}     public \textcolor{keywordtype}{void} \mbox{\hyperlink{class_server_test_ab600f01fe552b4efb527d33d1306f479}{testAddRoom}}()\{}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00141}00141         logger.info(\textcolor{stringliteral}{"{}Started AddRoom"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00142}00142         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} u0 = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}(\textcolor{stringliteral}{"{}Ruben"{}}, \textcolor{stringliteral}{"{}r@mail"{}}, \textcolor{stringliteral}{"{}4321"{}}, \textcolor{keyword}{new} Date(2022, 1, 10), \textcolor{keyword}{new} ArrayList<Book>(),\textcolor{keyword}{new} ArrayList<Fine>());}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00143}00143         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room}{Room}} r0 = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room}{Room}}(\textcolor{stringliteral}{"{}Reuniones"{}},u0, 1, \textcolor{stringliteral}{"{}Enero"{}}, 7, 12, \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00144}00144         WebTarget donationsWebTarget = webTarget.path(\textcolor{stringliteral}{"{}users/addRoom"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00145}00145         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00146}00146         Response response = invocationBuilder.post(Entity.entity(r0, MediaType.APPLICATION\_JSON));}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00147}00147         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room}{Room}} r1 = response.readEntity(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room}{Room}}.class);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00148}00148         Assert.assertEquals(r1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room_aef920f722b88861a12be9abbbee7de18}{getName}}(), \textcolor{stringliteral}{"{}Reuniones"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00149}00149         Assert.assertEquals(r1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room_ab0db315a48942c8b2472ef1d4729ea2b}{getUser}}().\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user_a499733f9d9881242459978b1943eeb84}{getName}}(), \textcolor{stringliteral}{"{}Ruben"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00150}00150         Assert.assertEquals(r1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room_a72ffbde32138b59b57b4189294b52955}{getDay}}(), 1);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00151}00151         Assert.assertEquals(r1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room_ad6fa4841dfd44908589a7bb545681e93}{getMonth}}(), \textcolor{stringliteral}{"{}Enero"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00152}00152         Assert.assertEquals(r1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room_a57c38a428f868553a383316451ef5d8f}{getHourBeg}}(), 7);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00153}00153         Assert.assertEquals(r1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room_ad13cfc6e5b45720273ea1b385de795fc}{getHourEnd}}(), 12);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00154}00154         Assert.assertEquals(r1.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room_a9f231a12e2684ff9650ceb3777702b62}{getBooked}}(), \textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00155}00155         logger.info(\textcolor{stringliteral}{"{}Finished AddRoom"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00156}00156     \}}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00157}00157 }
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00158}00158     @Test}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00159}\mbox{\hyperlink{class_server_test_a814a7fa839c0dc6442edddea91aded17}{00159}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_server_test_a814a7fa839c0dc6442edddea91aded17}{testGetResp}}()\{}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00160}00160         logger.info(\textcolor{stringliteral}{"{}Started GetResp"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00161}00161         WebTarget donationsWebTarget = webTarget.path(\textcolor{stringliteral}{"{}users/response"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00162}00162         Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00163}00163         Response response = invocationBuilder.get();}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00164}00164         String str = response.readEntity(String.class);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00165}00165         Assert.assertEquals(\textcolor{stringliteral}{"{}Response"{}}, str);}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00166}00166         logger.info(\textcolor{stringliteral}{"{}Finished GetResp"{}});}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00167}00167     \}}
+\DoxyCodeLine{\Hypertarget{_server_test_8java_source_l00168}00168 \}}
+
+\end{DoxyCode}

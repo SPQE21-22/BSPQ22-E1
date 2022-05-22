@@ -1,0 +1,330 @@
+\hypertarget{classserver_1_1_server}{}\doxysection{server.\+Server Class Reference}
+\label{classserver_1_1_server}\index{server.Server@{server.Server}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classserver_1_1_server_ae9b3c7fddd5254ee3e575f2c61044a9b}{Server}} ()  throws SQLException 
+\item 
+Response \mbox{\hyperlink{classserver_1_1_server_afcc087c782b201e2e047a54ab976044e}{login}} (String email)
+\item 
+Response \mbox{\hyperlink{classserver_1_1_server_a86f831d30e336297aed5eb692d00e187}{create\+User}} (\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} user\+Request)  throws DBException 
+\item 
+Response \mbox{\hyperlink{classserver_1_1_server_af89152100b55a68866bf8ed21be08b8c}{get\+Books}} ()
+\item 
+Response \mbox{\hyperlink{classserver_1_1_server_ad0ce783bffe949b805d4663cd635f3aa}{add\+Book}} (\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}} book)  throws DBException 
+\item 
+Response \mbox{\hyperlink{classserver_1_1_server_a6766bf87777d964a212c748371ec182a}{update\+Book}} (\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}} book)  throws DBException 
+\item 
+Response \mbox{\hyperlink{classserver_1_1_server_a393a0a7130ff4bbb36889c8077cfcc31}{get\+Rooms}} ()
+\item 
+Response \mbox{\hyperlink{classserver_1_1_server_aa3e2a1fd2759320463980568454be91f}{add\+Room}} (\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room}{Room}} reserve)  throws DBException 
+\item 
+Response \mbox{\hyperlink{classserver_1_1_server_a89eaead1dd6728170b2a155c8bb6166f}{fine\+User}} (\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_fine}{Fine}} fine)  throws DBException 
+\item 
+Response \mbox{\hyperlink{classserver_1_1_server_a84ca3bca6143dfe2b611fa873357bc3e}{get\+Fines}} (\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} user)
+\item 
+Response \mbox{\hyperlink{classserver_1_1_server_ac524e2c1b98aeee72f91f38975d75cdc}{get\+Supplies}} ()
+\item 
+Response \mbox{\hyperlink{classserver_1_1_server_a3756e4a40215aed04914c28c0e41c643}{add\+Supply}} (\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_supply}{Supply}} supply)  throws DBException 
+\item 
+Response \mbox{\hyperlink{classserver_1_1_server_a11e4fa8eb312a819254f93f060c7f101}{create\+Menu}} (\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu}{Menu}} menu)  throws DBException 
+\item 
+Response \mbox{\hyperlink{classserver_1_1_server_aabb2ef80fb0d20f30dea5825f836aea3}{get\+Menu}} ()
+\item 
+Response \mbox{\hyperlink{classserver_1_1_server_a8743fe4c241984b06f686ab445add879}{get\+Resp}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00032}{32}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classserver_1_1_server_ae9b3c7fddd5254ee3e575f2c61044a9b}\label{classserver_1_1_server_ae9b3c7fddd5254ee3e575f2c61044a9b}} 
+\index{server.Server@{server.Server}!Server@{Server}}
+\index{Server@{Server}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{Server()}{Server()}}
+{\footnotesize\ttfamily server.\+Server.\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws SQLException}
+
+Gets DB information. 
+\begin{DoxyExceptions}{Exceptions}
+{\em SQLException} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00049}{49}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classserver_1_1_server_ad0ce783bffe949b805d4663cd635f3aa}\label{classserver_1_1_server_ad0ce783bffe949b805d4663cd635f3aa}} 
+\index{server.Server@{server.Server}!addBook@{addBook}}
+\index{addBook@{addBook}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{addBook()}{addBook()}}
+{\footnotesize\ttfamily Response server.\+Server.\+add\+Book (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}}}]{book }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}}
+
+Adds a book to the DB. 
+\begin{DoxyParams}{Parameters}
+{\em book} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response ok new book. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em DBException} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00121}{121}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+\mbox{\Hypertarget{classserver_1_1_server_aa3e2a1fd2759320463980568454be91f}\label{classserver_1_1_server_aa3e2a1fd2759320463980568454be91f}} 
+\index{server.Server@{server.Server}!addRoom@{addRoom}}
+\index{addRoom@{addRoom}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{addRoom()}{addRoom()}}
+{\footnotesize\ttfamily Response server.\+Server.\+add\+Room (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room}{Room}}}]{reserve }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}}
+
+Adds a room to the DB. 
+\begin{DoxyParams}{Parameters}
+{\em reserve} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response ok new reservation. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em DBException} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00170}{170}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+\mbox{\Hypertarget{classserver_1_1_server_a3756e4a40215aed04914c28c0e41c643}\label{classserver_1_1_server_a3756e4a40215aed04914c28c0e41c643}} 
+\index{server.Server@{server.Server}!addSupply@{addSupply}}
+\index{addSupply@{addSupply}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{addSupply()}{addSupply()}}
+{\footnotesize\ttfamily Response server.\+Server.\+add\+Supply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_supply}{Supply}}}]{supply }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}}
+
+Adds a supply to the DB. 
+\begin{DoxyParams}{Parameters}
+{\em supply} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response ok new supply. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em DBException} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00252}{252}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+\mbox{\Hypertarget{classserver_1_1_server_a11e4fa8eb312a819254f93f060c7f101}\label{classserver_1_1_server_a11e4fa8eb312a819254f93f060c7f101}} 
+\index{server.Server@{server.Server}!createMenu@{createMenu}}
+\index{createMenu@{createMenu}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{createMenu()}{createMenu()}}
+{\footnotesize\ttfamily Response server.\+Server.\+create\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu}{Menu}}}]{menu }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}}
+
+Creates a new menu. 
+\begin{DoxyParams}{Parameters}
+{\em menu} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response ok menu. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em DBException} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00268}{268}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+\mbox{\Hypertarget{classserver_1_1_server_a86f831d30e336297aed5eb692d00e187}\label{classserver_1_1_server_a86f831d30e336297aed5eb692d00e187}} 
+\index{server.Server@{server.Server}!createUser@{createUser}}
+\index{createUser@{createUser}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{createUser()}{createUser()}}
+{\footnotesize\ttfamily Response server.\+Server.\+create\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}}]{user\+Request }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}}
+
+Adds a user to the DB. 
+\begin{DoxyParams}{Parameters}
+{\em user\+Request} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response ok new user. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em DBException} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00093}{93}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+\mbox{\Hypertarget{classserver_1_1_server_a89eaead1dd6728170b2a155c8bb6166f}\label{classserver_1_1_server_a89eaead1dd6728170b2a155c8bb6166f}} 
+\index{server.Server@{server.Server}!fineUser@{fineUser}}
+\index{fineUser@{fineUser}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{fineUser()}{fineUser()}}
+{\footnotesize\ttfamily Response server.\+Server.\+fine\+User (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_fine}{Fine}}}]{fine }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}}
+
+Adds a fine in the DB. 
+\begin{DoxyParams}{Parameters}
+{\em fine} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response ok new fine. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em DBException} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00186}{186}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+\mbox{\Hypertarget{classserver_1_1_server_af89152100b55a68866bf8ed21be08b8c}\label{classserver_1_1_server_af89152100b55a68866bf8ed21be08b8c}} 
+\index{server.Server@{server.Server}!getBooks@{getBooks}}
+\index{getBooks@{getBooks}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{getBooks()}{getBooks()}}
+{\footnotesize\ttfamily Response server.\+Server.\+get\+Books (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets all the books from the DB. \begin{DoxyReturn}{Returns}
+Response ok book list. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00107}{107}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+\mbox{\Hypertarget{classserver_1_1_server_a84ca3bca6143dfe2b611fa873357bc3e}\label{classserver_1_1_server_a84ca3bca6143dfe2b611fa873357bc3e}} 
+\index{server.Server@{server.Server}!getFines@{getFines}}
+\index{getFines@{getFines}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{getFines()}{getFines()}}
+{\footnotesize\ttfamily Response server.\+Server.\+get\+Fines (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}}]{user }\end{DoxyParamCaption})}
+
+Displays all the fines of a user. 
+\begin{DoxyParams}{Parameters}
+{\em user} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response ok user fines. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00200}{200}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+\mbox{\Hypertarget{classserver_1_1_server_aabb2ef80fb0d20f30dea5825f836aea3}\label{classserver_1_1_server_aabb2ef80fb0d20f30dea5825f836aea3}} 
+\index{server.Server@{server.Server}!getMenu@{getMenu}}
+\index{getMenu@{getMenu}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{getMenu()}{getMenu()}}
+{\footnotesize\ttfamily Response server.\+Server.\+get\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Displays today\textquotesingle{}s menu. \begin{DoxyReturn}{Returns}
+Response ok daily menu. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00281}{281}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+\mbox{\Hypertarget{classserver_1_1_server_a8743fe4c241984b06f686ab445add879}\label{classserver_1_1_server_a8743fe4c241984b06f686ab445add879}} 
+\index{server.Server@{server.Server}!getResp@{getResp}}
+\index{getResp@{getResp}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{getResp()}{getResp()}}
+{\footnotesize\ttfamily Response server.\+Server.\+get\+Resp (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get response. \begin{DoxyReturn}{Returns}
+Response ok. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00293}{293}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+\mbox{\Hypertarget{classserver_1_1_server_a393a0a7130ff4bbb36889c8077cfcc31}\label{classserver_1_1_server_a393a0a7130ff4bbb36889c8077cfcc31}} 
+\index{server.Server@{server.Server}!getRooms@{getRooms}}
+\index{getRooms@{getRooms}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{getRooms()}{getRooms()}}
+{\footnotesize\ttfamily Response server.\+Server.\+get\+Rooms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets all the rooms from the DB. \begin{DoxyReturn}{Returns}
+Response ok all rooms. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00155}{155}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+\mbox{\Hypertarget{classserver_1_1_server_ac524e2c1b98aeee72f91f38975d75cdc}\label{classserver_1_1_server_ac524e2c1b98aeee72f91f38975d75cdc}} 
+\index{server.Server@{server.Server}!getSupplies@{getSupplies}}
+\index{getSupplies@{getSupplies}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{getSupplies()}{getSupplies()}}
+{\footnotesize\ttfamily Response server.\+Server.\+get\+Supplies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Displays all the supplies (Menu) \begin{DoxyReturn}{Returns}
+Response ok menu. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00218}{218}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+\mbox{\Hypertarget{classserver_1_1_server_afcc087c782b201e2e047a54ab976044e}\label{classserver_1_1_server_afcc087c782b201e2e047a54ab976044e}} 
+\index{server.Server@{server.Server}!login@{login}}
+\index{login@{login}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{login()}{login()}}
+{\footnotesize\ttfamily Response server.\+Server.\+login (\begin{DoxyParamCaption}\item[{String}]{email }\end{DoxyParamCaption})}
+
+Login function. 
+\begin{DoxyParams}{Parameters}
+{\em email} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response ok found if user found. Bad\+\_\+\+Request if not found. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00070}{70}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+\mbox{\Hypertarget{classserver_1_1_server_a6766bf87777d964a212c748371ec182a}\label{classserver_1_1_server_a6766bf87777d964a212c748371ec182a}} 
+\index{server.Server@{server.Server}!updateBook@{updateBook}}
+\index{updateBook@{updateBook}!server.Server@{server.Server}}
+\doxysubsubsection{\texorpdfstring{updateBook()}{updateBook()}}
+{\footnotesize\ttfamily Response server.\+Server.\+update\+Book (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}}}]{book }\end{DoxyParamCaption}) throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}}
+
+Changes availability of a book and removes from the available list. 
+\begin{DoxyParams}{Parameters}
+{\em book} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Response ok updated book. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em DBException} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Definition at line \mbox{\hyperlink{_server_8java_source_l00137}{137}} of file \mbox{\hyperlink{_server_8java_source}{Server.\+java}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/server/\mbox{\hyperlink{_server_8java}{Server.\+java}}\end{DoxyCompactItemize}

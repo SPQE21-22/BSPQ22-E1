@@ -1,0 +1,114 @@
+\hypertarget{_main_8java_source}{}\doxysection{Main.\+java}
+\label{_main_8java_source}\index{src/main/java/server/Main.java@{src/main/java/server/Main.java}}
+\mbox{\hyperlink{_main_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00001}00001 \textcolor{keyword}{package }server;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00003}00003 \textcolor{keyword}{import} org.apache.log4j.LogManager;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00004}00004 \textcolor{keyword}{import} org.apache.log4j.Logger;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00005}00005 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room}{Room}};}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00006}00006 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}};}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00008}00008 \textcolor{keyword}{import} java.sql.Connection;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00009}00009 \textcolor{keyword}{import} java.sql.Date;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00010}00010 \textcolor{keyword}{import} java.sql.SQLException;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00011}00011 \textcolor{keyword}{import} java.util.concurrent.atomic.AtomicBoolean;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00013}00013 \textcolor{keyword}{import} javax.ws.rs.client.Client;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00014}00014 \textcolor{keyword}{import} javax.ws.rs.client.ClientBuilder;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00015}00015 \textcolor{keyword}{import} javax.ws.rs.client.Invocation;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00016}00016 \textcolor{keyword}{import} javax.ws.rs.client.WebTarget;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00017}00017 \textcolor{keyword}{import} javax.ws.rs.core.MediaType;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00018}00018 \textcolor{keyword}{import} javax.ws.rs.core.Response;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00019}00019 \textcolor{keyword}{import} javax.ws.rs.core.Response.Status;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00020}00020 \textcolor{comment}{//import org.apache.logging.log4j.*;}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00021}00021 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1sql}{sql}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}};}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00022}00022 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1sql}{sql}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}};}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00023}00023 \textcolor{keyword}{import} java.util.Locale;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00024}00024 \textcolor{keyword}{import} java.util.ResourceBundle;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00033}\mbox{\hyperlink{classserver_1_1_main}{00033}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classserver_1_1_main}{Main}} \textcolor{keyword}{implements} Runnable\{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00034}00034     \textcolor{keyword}{private} Client \mbox{\hyperlink{namespaceclient}{client}};}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00035}00035     \textcolor{keyword}{private} WebTarget webTarget;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00036}00036     \textcolor{keyword}{private} Thread thread;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00037}00037     \textcolor{keyword}{private} Connection con;}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00038}00038     \textcolor{keyword}{private} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}} db = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}();}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00039}00039     \textcolor{keyword}{private} \textcolor{keyword}{final} AtomicBoolean running = \textcolor{keyword}{new} AtomicBoolean(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00040}00040     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} Logger logger = LogManager.getLogger(\mbox{\hyperlink{classserver_1_1_main}{Main}}.class);}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00041}00041     \textcolor{keyword}{private} ResourceBundle resourceBundle = ResourceBundle.getBundle(\textcolor{stringliteral}{"{}SystemMessages"{}}, Locale.getDefault());}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00049}\mbox{\hyperlink{classserver_1_1_main_a08313e1a8037567f468bb243247930af}{00049}}     \textcolor{keyword}{public} \mbox{\hyperlink{classserver_1_1_main_a08313e1a8037567f468bb243247930af}{Main}}(String hostname, String port) \textcolor{keywordflow}{throws} SQLException \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00051}00051         \mbox{\hyperlink{namespaceclient}{client}} = ClientBuilder.newClient();}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00052}00052         webTarget = \mbox{\hyperlink{namespaceclient}{client}}.target(String.format(\textcolor{stringliteral}{"{}http://\%s:\%s/rest"{}}, hostname, port));}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00053}00053         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00054}00054             con = \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aaa17518ad729f8f95bfe8540cfd3e29e}{initBD}}();}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00055}00055             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a03dd5a61e94d380d897a2c1691547e3b}{createTables}}(con);}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00056}00056             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_adf18c6d1f82e4d1ebbaaebf7f54d6f17}{addUser}}(con, \textcolor{stringliteral}{"{}Alex"{}}, \textcolor{stringliteral}{"{}a@mail"{}}, \textcolor{stringliteral}{"{}1234"{}},\textcolor{keyword}{new} Date(2022, 1, 10));}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00057}00057             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_adf18c6d1f82e4d1ebbaaebf7f54d6f17}{addUser}}(con, \textcolor{stringliteral}{"{}Aida"{}}, \textcolor{stringliteral}{"{}ai@mail"{}}, \textcolor{stringliteral}{"{}1234"{}}, \textcolor{keyword}{new} Date(2001, 2, 10));}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00059}00059             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7b30a91d00dc662184674f25e6db2d2d}{addBook}}(con, \textcolor{stringliteral}{"{}El nombre del Viento"{}}, \textcolor{stringliteral}{"{}Path"{}},  \textcolor{keyword}{new} Date(2006, 3, 15), \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00060}00060             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7b30a91d00dc662184674f25e6db2d2d}{addBook}}(con, \textcolor{stringliteral}{"{}El Camino de lo reyes"{}}, \textcolor{stringliteral}{"{}Brandon Sanderson"{}},  \textcolor{keyword}{new} Date(2006, 3, 15), \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00061}00061             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7b30a91d00dc662184674f25e6db2d2d}{addBook}}(con, \textcolor{stringliteral}{"{}El Imperio Final"{}}, \textcolor{stringliteral}{"{}Brandon Sanderson"{}},  \textcolor{keyword}{new} Date(2006, 3, 15), \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00062}00062             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7b30a91d00dc662184674f25e6db2d2d}{addBook}}(con, \textcolor{stringliteral}{"{}Asesinato en el Orient Express"{}}, \textcolor{stringliteral}{"{}Agatha Christie"{}},  \textcolor{keyword}{new} Date(2006, 3, 15), \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00063}00063             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7b30a91d00dc662184674f25e6db2d2d}{addBook}}(con, \textcolor{stringliteral}{"{}Viaje al centro de la tierra"{}}, \textcolor{stringliteral}{"{}Julio Verne"{}},  \textcolor{keyword}{new} Date(2006, 3, 15), \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00064}00064             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7b30a91d00dc662184674f25e6db2d2d}{addBook}}(con, \textcolor{stringliteral}{"{}Estudio en escarlata"{}}, \textcolor{stringliteral}{"{}Arthur Conan Doyle"{}},  \textcolor{keyword}{new} Date(2006, 3, 15), \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00065}00065             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7b30a91d00dc662184674f25e6db2d2d}{addBook}}(con, \textcolor{stringliteral}{"{}El ojo del mundo"{}}, \textcolor{stringliteral}{"{}Robert Jordan"{}},  \textcolor{keyword}{new} Date(2006, 3, 15), \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00066}00066             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7b30a91d00dc662184674f25e6db2d2d}{addBook}}(con, \textcolor{stringliteral}{"{}Dracula"{}}, \textcolor{stringliteral}{"{}Bran Stroker"{}},  \textcolor{keyword}{new} Date(2006, 3, 15), \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00068}00068             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aeca148762a98ed3ed6e32ac726dcb114}{addRoom}}(con, \textcolor{stringliteral}{"{}SPQ meeting"{}}, 1, \textcolor{stringliteral}{"{}May"{}}, 13, 16, \textcolor{keyword}{true},\textcolor{stringliteral}{"{}ai@mail"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00069}00069             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aeca148762a98ed3ed6e32ac726dcb114}{addRoom}}(con, \textcolor{stringliteral}{"{}DB teamwork"{}}, 1, \textcolor{stringliteral}{"{}May"{}}, 13, 16, \textcolor{keyword}{true},\textcolor{stringliteral}{"{}ai@mail"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00070}00070             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aeca148762a98ed3ed6e32ac726dcb114}{addRoom}}(con, \textcolor{stringliteral}{"{}UI track review"{}}, 2, \textcolor{stringliteral}{"{}May"{}}, 13, 16, \textcolor{keyword}{true},\textcolor{stringliteral}{"{}ai@mail"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00071}00071             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aeca148762a98ed3ed6e32ac726dcb114}{addRoom}}(con, \textcolor{stringliteral}{"{}Reunion"{}}, 3, \textcolor{stringliteral}{"{}May"{}}, 13, 16, \textcolor{keyword}{true},\textcolor{stringliteral}{"{}ai@mail"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00072}00072             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aeca148762a98ed3ed6e32ac726dcb114}{addRoom}}(con, \textcolor{stringliteral}{"{}Algebra studying"{}}, 4, \textcolor{stringliteral}{"{}May"{}}, 13, 16, \textcolor{keyword}{true},\textcolor{stringliteral}{"{}ai@mail"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00074}00074             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aaadef16f92c7c404b57632b3e885bf5a}{addSupply}}(con, \textcolor{stringliteral}{"{}Spaghety"{}}, 10.5, \textcolor{stringliteral}{"{}Starter"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00075}00075             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aaadef16f92c7c404b57632b3e885bf5a}{addSupply}}(con, \textcolor{stringliteral}{"{}Fish \& Chips"{}}, 7.5, \textcolor{stringliteral}{"{}Main Course"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00076}00076             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aaadef16f92c7c404b57632b3e885bf5a}{addSupply}}(con, \textcolor{stringliteral}{"{}Flan"{}}, 2.5, \textcolor{stringliteral}{"{}Pastry"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00077}00077             \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aaadef16f92c7c404b57632b3e885bf5a}{addSupply}}(con, \textcolor{stringliteral}{"{}Water Bottle"{}}, 2.5, \textcolor{stringliteral}{"{}Water Based"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00079}00079         \} \textcolor{keywordflow}{catch} (\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} e) \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00080}00080             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00081}00081         \}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00082}00082         logger.info(resourceBundle.getString(\textcolor{stringliteral}{"{}startingMsg"{}}));}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00083}00083         thread = \textcolor{keyword}{new} Thread(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00084}00084         thread.start();}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00085}00085     \}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00087}00087     @Override}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00088}\mbox{\hyperlink{classserver_1_1_main_a4334b742b97f2e2df16f2edca1955807}{00088}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1_main_a4334b742b97f2e2df16f2edca1955807}{run}}() \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00089}00089         running.set(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00090}00090         \textcolor{keywordflow}{while}(running.get()) \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00091}00091             \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00092}00092                 Thread.sleep(2000);}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00093}00093                 WebTarget donationsWebTarget = webTarget.path(\textcolor{stringliteral}{"{}users/books"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00094}00094                 Invocation.Builder invocationBuilder = donationsWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00095}00095                 Response response = invocationBuilder.get();}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00096}00096                 \textcolor{keywordflow}{if} (response.getStatus() == Status.OK.getStatusCode()) \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00097}00097                     \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} answer = response.readEntity(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}.class);}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00098}00098                     \textcolor{comment}{//logger.info("{}User received"{});}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00099}00099                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00100}00100                     logger.info(\textcolor{stringliteral}{"{}////////"{}});}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00101}00101                 \}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00102}00102 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00103}00103             \} \textcolor{keywordflow}{catch} (InterruptedException e)\{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00104}00104                 Thread.currentThread().interrupt();}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00105}00105                 logger.error(resourceBundle.getString(\textcolor{stringliteral}{"{}runningError"{}}));}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00106}00106             \}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00107}00107         \}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00108}00108     \}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00109}00109 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00110}\mbox{\hyperlink{classserver_1_1_main_a485ff13a0726374c73106c6c84570313}{00110}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1_main_a485ff13a0726374c73106c6c84570313}{main}}(String[] args) \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00111}00111         String hostname = args[0]; \textcolor{comment}{//Prestar atención a los properties, empieza en 1}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00112}00112         String port = args[1];}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00113}00113 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00114}00114         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00115}00115             \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1_main_a08313e1a8037567f468bb243247930af}{Main}}(hostname, port);}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00116}00116         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00117}00117             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00118}00118         \}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00119}00119 }
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00120}00120     \}}
+\DoxyCodeLine{\Hypertarget{_main_8java_source_l00121}00121 \}}
+
+\end{DoxyCode}
