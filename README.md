@@ -1,4 +1,6 @@
 # BSPQ22-E1
+![GitHubActions](https://github.com/SPQE21-22/BSPQ22-E1/actions/workflows/maven.yaml/badge.svg)
+
 BSPQ22-E1
 
 First, compile the whole code:
