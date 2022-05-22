@@ -3,14 +3,12 @@ package client.GUI;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import server.data.domain.*;
-import server.sql.DB;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import javax.ws.rs.client.*;
@@ -102,8 +100,8 @@ public class GuiMain extends JFrame {
                 Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
                 Response response = invocationBuilder.get();
                 if (response.getStatus() == Response.Status.OK.getStatusCode()) {
-                    Reserv reserv = response.readEntity(Reserv.class);
-                    new GuiCalendar(u, reserv.getReservs(), hostname, port);
+                    Reserve reserve = response.readEntity(Reserve.class);
+                    new GuiCalendar(u, reserve.getReserves(), hostname, port);
                 }
 
 

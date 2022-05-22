@@ -14,7 +14,7 @@ import server.data.domain.Supply;
 import server.data.domain.User;
 
 /**
- * DB class implemented
+ * DB class implemented.
  * @author Alex Egaña, Eneko Eguiguren, Rubén García, Aida Gomezbueno & Tyler de Mier - BSPQ22-E1
  * @version 1.0
  * @since 2022-03-20
@@ -382,6 +382,13 @@ public class DB {
         rs.close();
         return suppliesList;
     }
+
+    /**
+     *
+     * @param con
+     * @return Fine list.
+     * @throws SQLException
+     */
 
     public static ArrayList<Fine> getFinesList(Connection con) throws SQLException {
         String sent = "SELECT * FROM Fine";

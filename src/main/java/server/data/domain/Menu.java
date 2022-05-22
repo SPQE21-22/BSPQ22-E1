@@ -1,5 +1,10 @@
 package server.data.domain;
-
+/**
+ * Menu class.
+ * @author Alex Egaña, Eneko Eguiguren, Rubén García, Aida Gomezbueno & Tyler de Mier - BSPQ22-E1
+ * @version 1.0
+ * @since 2022-03-20
+ */
 import java.util.ArrayList;
 
 public class Menu {
@@ -9,6 +14,13 @@ public class Menu {
     private ArrayList<Supply> pastry;
     private ArrayList<Supply> drink;
 
+    /**
+     * Menu constructor.
+     * @param starter
+     * @param main
+     * @param pastry
+     * @param drink
+     */
     public Menu(ArrayList<Supply> starter, ArrayList<Supply> main, ArrayList<Supply> pastry, ArrayList<Supply> drink) {
         this.starter = starter;
         this.main = main;

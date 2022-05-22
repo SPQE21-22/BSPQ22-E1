@@ -1,5 +1,12 @@
 package server;
 
+/**
+ * Server functionality.
+ * @author Alex Egaña, Eneko Eguiguren, Rubén García, Aida Gomezbueno & Tyler de Mier - BSPQ22-E1
+ * @version 1.0
+ * @since 2022-03-20
+ */
+
 import javax.ws.rs.*;
 
 import javax.ws.rs.core.MediaType;
@@ -32,6 +39,10 @@ public class Server {
 	private DB db = new DB();
 	private static final Logger logger = LogManager.getLogger(Server.class);
 
+	/**
+	 * Gets DB information.
+	 * @throws SQLException
+	 */
 	public Server() throws SQLException {
 
 		try {
@@ -47,6 +58,11 @@ public class Server {
 		//logger.info("Servidor Iniciado");
 	};
 
+	/**
+	 * Login function.
+	 * @param email
+	 * @return Response ok found if user found. Bad_Request if not found.
+	 */
 	@POST
 	@Path("/login")
 	public Response login(String email) {
@@ -64,6 +80,12 @@ public class Server {
 		}
 	}
 
+	/**
+	 * Adds a user to the DB.
+	 * @param userRequest
+	 * @return Response ok new user.
+	 * @throws DBException
+	 */
 	@POST
 	@Path("/createUser")
 	public Response createUser(User userRequest) throws DBException {
@@ -74,6 +96,10 @@ public class Server {
 
 	}
 
+	/**
+	 * Gets all the books from the DB.
+	 * @return Response ok book list.
+	 */
 	@GET
 	@Path("/books")
 	public Response getBooks() {
@@ -82,6 +108,12 @@ public class Server {
 		return Response.ok(admin).build();
 	}
 
+	/**
+	 * Adds a book to the DB.
+	 * @param book
+	 * @return Response ok new book.
+	 * @throws DBException
+	 */
 	@POST
 	@Path("/addBook")
 	public Response addBook(Book book) throws DBException {
@@ -92,6 +124,12 @@ public class Server {
 
 	}
 
+	/**
+	 * Changes availability of a book and removes from the available list.
+	 * @param book
+	 * @return Response ok updated book.
+	 * @throws DBException
+	 */
 	@PUT
 	@Path("/updateBook")
 	public Response updateBook(Book book) throws DBException {
@@ -106,25 +144,41 @@ public class Server {
 
 	}
 
+	/**
+	 * Gets all the rooms from the DB.
+	 * @return Response ok all rooms.
+	 */
 	@GET
 	@Path("/rooms")
 	public Response getRooms() {
 		logger.info("Devolviendo Reservas de habitaciones");
-		Reserv res = new Reserv(roomList);
-		logger.info(res.getReservs().get(0));
+		Reserve res = new Reserve(roomList);
+		logger.info(res.getReserves().get(0));
 		return Response.ok(res).build();
 	}
 
+	/**
+	 * Adds a room to the DB.
+	 * @param reserve
+	 * @return Response ok new reservation.
+	 * @throws DBException
+	 */
 	@POST
 	@Path("/addRoom")
-	public Response addRoom(Room reserv) throws DBException {
-		logger.info(reserv);
-		DB.addRoom(con, reserv.getName(), reserv.getDay(),  reserv.getMonth(), reserv.getHourBeg(), reserv.getHourEnd(), reserv.getBooked(), reserv.getUser().getEmail());
-		this.roomList.add(reserv);
+	public Response addRoom(Room reserve) throws DBException {
+		logger.info(reserve);
+		DB.addRoom(con, reserve.getName(), reserve.getDay(),  reserve.getMonth(), reserve.getHourBeg(), reserve.getHourEnd(), reserve.getBooked(), reserve.getUser().getEmail());
+		this.roomList.add(reserve);
 		logger.info("Habitacion añadida correctamente");
-		return Response.ok(reserv).build();
+		return Response.ok(reserve).build();
 	}
 
+	/**
+	 * Adds a fine in the DB.
+	 * @param fine
+	 * @return Response ok new fine.
+	 * @throws DBException
+	 */
 	@POST
 	@Path("/fine")
 	public Response fineUser(Fine fine) throws DBException {
@@ -134,6 +188,11 @@ public class Server {
 		return Response.ok(fine).build();
 	}
 
+	/**
+	 * Displays all the fines of a user.
+	 * @param user
+	 * @return Response ok user fines.
+	 */
 	@POST
 	@Path("/fines")
 	public Response getFines(User user) {
@@ -148,6 +207,10 @@ public class Server {
 		return Response.ok(user).build();
 	}
 
+	/**
+	 * Displays all the supplies (Menu)
+	 * @return Response ok menu.
+	 */
 	@GET
 	@Path("/supplies")
 	public Response getSupplies() {
@@ -176,6 +239,12 @@ public class Server {
 		return Response.ok(res).build();
 	}
 
+	/**
+	 * Adds a supply to the DB.
+	 * @param supply
+	 * @return Response ok new supply.
+	 * @throws DBException
+	 */
 	@POST
 	@Path("/addSupply")
 	public Response addSupply(Supply supply) throws DBException {
@@ -186,6 +255,12 @@ public class Server {
 		return Response.ok(supply).build();
 	}
 
+	/**
+	 * Creates a new menu.
+	 * @param menu
+	 * @return Response ok menu.
+	 * @throws DBException
+	 */
 	@POST
 	@Path("/createMenu")
 	public Response createMenu(Menu menu) throws DBException {
@@ -195,6 +270,10 @@ public class Server {
 		return Response.ok(menu).build();
 	}
 
+	/**
+	 * Displays today's menu.
+	 * @return Response ok daily menu.
+	 */
 	@GET
 	@Path("/menu")
 	public Response getMenu() {
@@ -203,6 +282,10 @@ public class Server {
 		return Response.ok(res).build();
 	}
 
+	/**
+	 * Get response.
+	 * @return Response ok.
+	 */
 	@GET
 	@Path("/response")
 	public Response getResp() {

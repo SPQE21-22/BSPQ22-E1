@@ -1,5 +1,10 @@
 package server.data.domain;
-
+/**
+ * User class.
+ * @author Alex Egaña, Eneko Eguiguren, Rubén García, Aida Gomezbueno & Tyler de Mier - BSPQ22-E1
+ * @version 1.0
+ * @since 2022-03-20
+ */
 import javax.jdo.annotations.Join;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
@@ -19,11 +24,18 @@ public class User implements Serializable {
     private String password;
     private Date birthDate;
     @Join
-    //@PersistenceCapable(defaultFetchGroup="true")
     private List<Book> books;
     private List<Fine> fines;
-    
-    
+
+    /**
+     * User constructor.
+     * @param name
+     * @param email
+     * @param password
+     * @param birthDate
+     * @param books
+     * @param fines
+     */
     public User(String name, String email, String password, Date birthDate, List<Book> books, List<Fine> fines) {
     	this.id = count++;
     	this.name = name;

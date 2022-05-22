@@ -1,5 +1,10 @@
 package client;
-
+/**
+ * Host class.
+ * @author Alex Egaña, Eneko Eguiguren, Rubén García, Aida Gomezbueno & Tyler de Mier - BSPQ22-E1
+ * @version 1.0
+ * @since 2022-03-20
+ */
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Date;

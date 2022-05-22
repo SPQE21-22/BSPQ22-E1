@@ -1,4 +1,10 @@
 package server.data.domain;
+/**
+ * Booking class.
+ * @author Alex Egaña, Eneko Eguiguren, Rubén García, Aida Gomezbueno & Tyler de Mier - BSPQ22-E1
+ * @version 1.0
+ * @since 2022-03-20
+ */
 
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
@@ -12,6 +18,12 @@ public class Booking {
     private int book_id;
     private Date dueDate;
 
+    /**
+     * Booking constructor.
+     * @param user_id
+     * @param book_id
+     * @param dueDate
+     */
     public Booking(int user_id, int book_id, Date dueDate) {
         this.id = count++;
         this.user_id = user_id;

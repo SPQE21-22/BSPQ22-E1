@@ -1,6 +1,10 @@
 package server.data.domain;
-
-import java.util.Date;
+/**
+ * Supply class.
+ * @author Alex Egaña, Eneko Eguiguren, Rubén García, Aida Gomezbueno & Tyler de Mier - BSPQ22-E1
+ * @version 1.0
+ * @since 2022-03-20
+ */
 
 public class Supply {
 
@@ -12,9 +16,14 @@ public class Supply {
 	
 	public Supply() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-	
+
+	/**
+	 * Supply constructor.
+	 * @param name
+	 * @param price
+	 * @param type
+	 */
 	public Supply(String name, double price, String type) {
 		super();
 		this.id = count++;

@@ -1,5 +1,10 @@
 package server.data.domain;
-
+/**
+ * Book class.
+ * @author Alex Egaña, Eneko Eguiguren, Rubén García, Aida Gomezbueno & Tyler de Mier - BSPQ22-E1
+ * @version 1.0
+ * @since 2022-03-20
+ */
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.PrimaryKey;
 import java.util.Date;
@@ -15,6 +20,13 @@ public class Book {
     private Date publishDate;
     private Boolean available;
 
+    /**
+     * Book Constructor.
+     * @param name
+     * @param author
+     * @param publishDate
+     * @param available
+     */
     public Book(String name, String author, Date publishDate, Boolean available) {
     	this.id = count++;
         this.name = name;

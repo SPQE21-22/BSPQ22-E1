@@ -1,5 +1,10 @@
 package server.data.domain;
-
+/**
+ * Room class.
+ * @author Alex Egaña, Eneko Eguiguren, Rubén García, Aida Gomezbueno & Tyler de Mier - BSPQ22-E1
+ * @version 1.0
+ * @since 2022-03-20
+ */
 
 public class Room {
     private int id;
@@ -12,6 +17,16 @@ public class Room {
     private int hourEnd;
     private Boolean booked;
 
+    /**
+     * Room constructor.
+     * @param name
+     * @param user
+     * @param day
+     * @param month
+     * @param hourBeg
+     * @param hourEnd
+     * @param booked
+     */
     public Room(String name, User user, int day, String month, int hourBeg, int hourEnd, Boolean booked) {
         this.id = count++;
         this.name = name;

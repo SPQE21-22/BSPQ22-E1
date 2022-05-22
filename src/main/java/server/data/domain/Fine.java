@@ -1,5 +1,10 @@
 package server.data.domain;
-
+/**
+ * Fine class.
+ * @author Alex Egaña, Eneko Eguiguren, Rubén García, Aida Gomezbueno & Tyler de Mier - BSPQ22-E1
+ * @version 1.0
+ * @since 2022-03-20
+ */
 public class Fine {
 	
 	private int id;
@@ -12,7 +17,12 @@ public class Fine {
 		//
 		// TODO Auto-generated constructor stub
 	}
-	
+
+	/**
+	 * Fine constructor.
+	 * @param user
+	 * @param quantity
+	 */
 	public Fine(User user, double quantity) {
 		super();
 		this.id = count++;

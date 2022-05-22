@@ -23,6 +23,13 @@ import server.sql.DBException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+/**
+ * Server main.
+ * @author Alex Egaña, Eneko Eguiguren, Rubén García, Aida Gomezbueno & Tyler de Mier - BSPQ22-E1
+ * @version 1.0
+ * @since 2022-03-20
+ */
+
 public class Main implements Runnable{
     private Client client;
     private WebTarget webTarget;
@@ -33,7 +40,12 @@ public class Main implements Runnable{
     private static final Logger logger = LogManager.getLogger(Main.class);
 
 
-
+    /**
+     * Main function to connect to deploy the server.
+     * @param hostname
+     * @param port
+     * @throws SQLException
+     */
     public Main(String hostname, String port) throws SQLException {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("SystemMessages", Locale.getDefault());
         resourceBundle = ResourceBundle.getBundle("SystemMessages",	Locale.forLanguageTag("en"));

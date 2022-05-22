@@ -133,7 +133,7 @@ public class GuiUser extends JFrame {
 
         menuScroll.setBounds(66, 429, 145, 100);
 
-        labelExpenses.setFont(arial13);
+        labelExpenses.setFont(arialBlack13);
         labelExpenses.setBounds(223, 407, 89, 16);
 
         listExpenses.setFont(arial13);
