@@ -1842,3 +1842,2872 @@
 2022-05-22 19:59:15 INFO  Server:108 - Returning every book.
 2022-05-22 19:59:17 INFO  Server:108 - Returning every book.
 2022-05-22 19:59:19 INFO  Server:108 - Returning every book.
+2022-05-22 21:53:43 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:53:43 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:53:43 INFO  DBTest:56 - Started GetBooks
+2022-05-22 21:53:43 INFO  DBTest:65 - Finished GetBooks
+2022-05-22 21:53:43 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:53:44 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:53:44 INFO  DBTest:70 - Started GetRooms
+2022-05-22 21:53:44 INFO  DBTest:81 - Finished GetRooms
+2022-05-22 21:53:44 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:53:45 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:53:45 INFO  DBTest:41 - Started GetUsers
+2022-05-22 21:53:45 INFO  DBTest:50 - Finished GetUsers
+2022-05-22 21:53:45 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:53:45 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:53:45 INFO  DBTest:99 - Started AddBook
+2022-05-22 21:53:45 INFO  DBTest:106 - Finished AddBook
+2022-05-22 21:53:45 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:53:45 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:53:45 INFO  DBTest:111 - Started AddRoom
+2022-05-22 21:53:45 INFO  DBTest:119 - Finished AddRoom
+2022-05-22 21:53:45 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:53:46 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:53:46 INFO  DBTest:86 - Started AddUser
+2022-05-22 21:53:46 INFO  DBTest:94 - Finished AddUser
+2022-05-22 21:53:46 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:53:47 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:53:47 INFO  DBTest:151 - Started UpdateBook
+2022-05-22 21:53:47 INFO  DBTest:161 - Finished UpdateBook
+2022-05-22 21:53:47 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:53:47 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:53:47 INFO  DBTest:182 - Started UpdateRoom
+2022-05-22 21:53:47 INFO  DBTest:197 - Finished UpdateRoom
+2022-05-22 21:53:47 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:53:48 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:53:48 INFO  DBTest:167 - Started UpdateUser
+2022-05-22 21:53:48 INFO  DBTest:177 - Finished UpdateUser
+2022-05-22 21:53:48 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:53:48 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:53:48 INFO  DBTest:124 - Started DeleteBook
+2022-05-22 21:53:48 INFO  DBTest:128 - Finished DeleteBook
+2022-05-22 21:53:48 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:53:49 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:53:49 INFO  DBTest:142 - Started DeleteRoom
+2022-05-22 21:53:49 INFO  DBTest:146 - Finished DeleteRoom
+2022-05-22 21:53:49 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:53:50 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:53:50 INFO  DBTest:133 - Started DeleteUser
+2022-05-22 21:53:50 INFO  DBTest:137 - Finished DeleteUser
+2022-05-22 21:53:50 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:50 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:50 INFO  ServerTest:331 - Started Integration test supplies
+2022-05-22 21:53:51 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:51 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:51 INFO  ServerTest:86 - Started GetBooks
+2022-05-22 21:53:51 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:52 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:52 INFO  ServerTest:173 - Started GetFines
+2022-05-22 21:53:52 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:52 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:52 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:53:52 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:53:52 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:53 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:53 INFO  ServerTest:159 - Started AddFine
+2022-05-22 21:53:53 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:54 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:54 INFO  ServerTest:140 - Started AddRoom
+2022-05-22 21:53:54 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:54 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:54 INFO  ServerTest:306 - Started Integration test fines
+2022-05-22 21:53:54 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:55 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:55 INFO  ServerTest:121 - Started addBook
+2022-05-22 21:53:55 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:55 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:55 INFO  ServerTest:248 - Started GetResp
+2022-05-22 21:53:56 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:56 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:56 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:53:56 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:53:56 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:57 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:57 INFO  ServerTest:224 - Started CreateMenu
+2022-05-22 21:53:57 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:57 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:57 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:53:57 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:53:57 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:53:57 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:58 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:58 INFO  ServerTest:210 - Started AddSupply
+2022-05-22 21:53:58 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:58 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:58 INFO  ServerTest:55 - Started UserLogin
+2022-05-22 21:53:58 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:53:59 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:53:59 INFO  ServerTest:282 - Started Integration test Books
+2022-05-22 21:53:59 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:00 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:00 INFO  ServerTest:259 - Started Integration test User
+2022-05-22 21:54:21 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:54:22 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:54:22 INFO  DBTest:56 - Started GetBooks
+2022-05-22 21:54:22 INFO  DBTest:65 - Finished GetBooks
+2022-05-22 21:54:22 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:54:22 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:54:22 INFO  DBTest:70 - Started GetRooms
+2022-05-22 21:54:22 INFO  DBTest:81 - Finished GetRooms
+2022-05-22 21:54:22 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:54:23 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:54:23 INFO  DBTest:41 - Started GetUsers
+2022-05-22 21:54:23 INFO  DBTest:50 - Finished GetUsers
+2022-05-22 21:54:23 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:54:23 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:54:23 INFO  DBTest:99 - Started AddBook
+2022-05-22 21:54:23 INFO  DBTest:106 - Finished AddBook
+2022-05-22 21:54:23 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:54:24 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:54:24 INFO  DBTest:111 - Started AddRoom
+2022-05-22 21:54:24 INFO  DBTest:119 - Finished AddRoom
+2022-05-22 21:54:24 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:54:24 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:54:24 INFO  DBTest:86 - Started AddUser
+2022-05-22 21:54:24 INFO  DBTest:94 - Finished AddUser
+2022-05-22 21:54:24 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:54:25 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:54:25 INFO  DBTest:151 - Started UpdateBook
+2022-05-22 21:54:25 INFO  DBTest:161 - Finished UpdateBook
+2022-05-22 21:54:25 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:54:25 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:54:25 INFO  DBTest:182 - Started UpdateRoom
+2022-05-22 21:54:25 INFO  DBTest:197 - Finished UpdateRoom
+2022-05-22 21:54:25 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:54:26 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:54:26 INFO  DBTest:167 - Started UpdateUser
+2022-05-22 21:54:26 INFO  DBTest:177 - Finished UpdateUser
+2022-05-22 21:54:26 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:54:27 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:54:27 INFO  DBTest:124 - Started DeleteBook
+2022-05-22 21:54:27 INFO  DBTest:128 - Finished DeleteBook
+2022-05-22 21:54:27 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:54:27 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:54:27 INFO  DBTest:142 - Started DeleteRoom
+2022-05-22 21:54:27 INFO  DBTest:146 - Finished DeleteRoom
+2022-05-22 21:54:27 INFO  DBTest:26 - Started SetUp
+2022-05-22 21:54:29 INFO  DBTest:36 - Finished SetUp
+2022-05-22 21:54:29 INFO  DBTest:133 - Started DeleteUser
+2022-05-22 21:54:29 INFO  DBTest:137 - Finished DeleteUser
+2022-05-22 21:54:29 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:30 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:30 INFO  ServerTest:331 - Started Integration test supplies
+2022-05-22 21:54:31 INFO  Server:253 - Tarta
+2022-05-22 21:54:31 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 21:54:31 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:31 INFO  ServerTest:353 - Finished Integration test supplies
+2022-05-22 21:54:31 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:31 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:31 INFO  ServerTest:86 - Started GetBooks
+2022-05-22 21:54:31 INFO  ServerTest:93 - Book = El Camino de lo reyes
+2022-05-22 21:54:31 INFO  ServerTest:94 - Finished GetBooks
+2022-05-22 21:54:31 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:32 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:32 INFO  ServerTest:173 - Started GetFines
+2022-05-22 21:54:32 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 21:54:32 INFO  ServerTest:184 - Finished GetFines
+2022-05-22 21:54:32 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:33 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  ServerTest:102 - Started AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 21:54:33 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:33 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:33 INFO  ServerTest:159 - Started AddFine
+2022-05-22 21:54:33 INFO  Server:187 - Fine = 40.0€
+2022-05-22 21:54:33 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 21:54:33 INFO  ServerTest:168 - Finished AddFine
+2022-05-22 21:54:33 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:34 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:34 INFO  ServerTest:140 - Started AddRoom
+2022-05-22 21:54:34 INFO  Server:171 - Room{id=9, name='Reuniones, user=User [ id = 20 name = Ruben, email = r@mail, password = 4321, birthDate = Fri Feb 10 00:00:00 CET 3922], day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-22 21:54:34 INFO  Server:174 - Habitación añadida exitosamente.
+2022-05-22 21:54:34 INFO  ServerTest:154 - Finished AddRoom
+2022-05-22 21:54:34 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:35 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:35 INFO  ServerTest:306 - Started Integration test fines
+2022-05-22 21:54:35 INFO  Server:187 - Fine = 40.0€
+2022-05-22 21:54:35 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 21:54:35 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 21:54:35 INFO  ServerTest:326 - Started Integration test fines
+2022-05-22 21:54:35 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:35 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:35 INFO  ServerTest:121 - Started addBook
+2022-05-22 21:54:35 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:35 INFO  ServerTest:135 - Finished UpdateBook
+2022-05-22 21:54:35 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:36 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:36 INFO  ServerTest:248 - Started GetResp
+2022-05-22 21:54:36 INFO  ServerTest:254 - Finished GetResp
+2022-05-22 21:54:36 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:37 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 21:54:37 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 21:54:37 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 21:54:37 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:38 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:38 INFO  ServerTest:224 - Started CreateMenu
+2022-05-22 21:54:38 INFO  Server:269 - Menu{starter=[Fabada], main=[Chuleton], pastry=[Manzana], drink=[Vino]}
+2022-05-22 21:54:38 INFO  Server:271 - Menú creado exitosamente.
+2022-05-22 21:54:38 INFO  ServerTest:243 - Finished CreateMenu
+2022-05-22 21:54:38 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:38 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:38 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:38 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:38 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:38 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:38 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:38 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:38 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:38 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:38 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:38 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:38 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:38 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:38 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:38 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 21:54:39 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:39 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:39 INFO  ServerTest:210 - Started AddSupply
+2022-05-22 21:54:39 INFO  Server:253 - Tarta
+2022-05-22 21:54:39 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 21:54:39 INFO  ServerTest:219 - Finished AddSupply
+2022-05-22 21:54:39 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:40 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:40 INFO  ServerTest:55 - Started UserLogin
+2022-05-22 21:54:40 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 21:54:40 INFO  ServerTest:63 - Finished UserLogin
+2022-05-22 21:54:40 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:41 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:41 INFO  ServerTest:282 - Started Integration test Books
+2022-05-22 21:54:41 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 21:54:41 INFO  ServerTest:301 - Finished Integration test Books
+2022-05-22 21:54:41 INFO  ServerTest:35 - Started Setup
+2022-05-22 21:54:41 INFO  ServerTest:50 - Finished Setup
+2022-05-22 21:54:41 INFO  ServerTest:259 - Started Integration test User
+2022-05-22 21:54:41 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 21:54:41 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 21:54:41 INFO  ServerTest:277 - Finished Integration test User
+2022-05-22 22:08:09 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:08:10 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:08:10 INFO  DBTest:56 - Started GetBooks
+2022-05-22 22:08:10 INFO  DBTest:65 - Finished GetBooks
+2022-05-22 22:08:10 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:08:11 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:08:11 INFO  DBTest:70 - Started GetRooms
+2022-05-22 22:08:11 INFO  DBTest:81 - Finished GetRooms
+2022-05-22 22:08:11 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:08:11 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:08:11 INFO  DBTest:41 - Started GetUsers
+2022-05-22 22:08:11 INFO  DBTest:50 - Finished GetUsers
+2022-05-22 22:08:11 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:08:12 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:08:12 INFO  DBTest:99 - Started AddBook
+2022-05-22 22:08:12 INFO  DBTest:106 - Finished AddBook
+2022-05-22 22:08:12 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:08:12 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:08:12 INFO  DBTest:111 - Started AddRoom
+2022-05-22 22:08:12 INFO  DBTest:119 - Finished AddRoom
+2022-05-22 22:08:12 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:08:13 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:08:13 INFO  DBTest:86 - Started AddUser
+2022-05-22 22:08:13 INFO  DBTest:94 - Finished AddUser
+2022-05-22 22:08:13 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:08:13 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:08:13 INFO  DBTest:151 - Started UpdateBook
+2022-05-22 22:08:13 INFO  DBTest:161 - Finished UpdateBook
+2022-05-22 22:08:13 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:08:14 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:08:14 INFO  DBTest:182 - Started UpdateRoom
+2022-05-22 22:08:14 INFO  DBTest:197 - Finished UpdateRoom
+2022-05-22 22:08:14 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:08:14 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:08:14 INFO  DBTest:167 - Started UpdateUser
+2022-05-22 22:08:14 INFO  DBTest:177 - Finished UpdateUser
+2022-05-22 22:08:14 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:08:15 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:08:15 INFO  DBTest:124 - Started DeleteBook
+2022-05-22 22:08:15 INFO  DBTest:128 - Finished DeleteBook
+2022-05-22 22:08:15 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:08:15 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:08:15 INFO  DBTest:142 - Started DeleteRoom
+2022-05-22 22:08:15 INFO  DBTest:146 - Finished DeleteRoom
+2022-05-22 22:08:15 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:08:16 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:08:16 INFO  DBTest:133 - Started DeleteUser
+2022-05-22 22:08:16 INFO  DBTest:137 - Finished DeleteUser
+2022-05-22 22:08:16 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:17 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:17 INFO  ServerTest:331 - Started Integration test supplies
+2022-05-22 22:08:17 INFO  Server:253 - Tarta
+2022-05-22 22:08:17 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:08:17 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:17 INFO  ServerTest:353 - Finished Integration test supplies
+2022-05-22 22:08:17 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:17 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:17 INFO  ServerTest:86 - Started GetBooks
+2022-05-22 22:08:17 INFO  ServerTest:93 - Book = El Camino de lo reyes
+2022-05-22 22:08:17 INFO  ServerTest:94 - Finished GetBooks
+2022-05-22 22:08:17 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:18 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:18 INFO  ServerTest:173 - Started GetFines
+2022-05-22 22:08:18 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:08:18 INFO  ServerTest:184 - Finished GetFines
+2022-05-22 22:08:18 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:19 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:19 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:08:19 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:20 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:20 INFO  ServerTest:159 - Started AddFine
+2022-05-22 22:08:20 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:08:20 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:08:20 INFO  ServerTest:168 - Finished AddFine
+2022-05-22 22:08:20 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:20 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:20 INFO  ServerTest:140 - Started AddRoom
+2022-05-22 22:08:20 INFO  Server:171 - Room{id=9, name='Reuniones, user=User [ id = 20 name = Ruben, email = r@mail, password = 4321, birthDate = Fri Feb 10 00:00:00 CET 3922], day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-22 22:08:20 INFO  Server:174 - Habitación añadida exitosamente.
+2022-05-22 22:08:20 INFO  ServerTest:154 - Finished AddRoom
+2022-05-22 22:08:20 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:21 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:21 INFO  ServerTest:306 - Started Integration test fines
+2022-05-22 22:08:21 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:08:21 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:08:21 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:08:21 INFO  ServerTest:326 - Started Integration test fines
+2022-05-22 22:08:21 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:21 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:21 INFO  ServerTest:121 - Started addBook
+2022-05-22 22:08:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:21 INFO  ServerTest:135 - Finished UpdateBook
+2022-05-22 22:08:21 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:22 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:22 INFO  ServerTest:248 - Started GetResp
+2022-05-22 22:08:22 INFO  ServerTest:254 - Finished GetResp
+2022-05-22 22:08:22 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:23 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:08:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:08:23 INFO  ServerTest:204 - Finished GetSupplies
+2022-05-22 22:08:23 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:24 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:24 INFO  ServerTest:224 - Started CreateMenu
+2022-05-22 22:08:24 INFO  Server:269 - Menu{starter=[Fabada], main=[Chuleton], pastry=[Manzana], drink=[Vino]}
+2022-05-22 22:08:24 INFO  Server:271 - Menú creado exitosamente.
+2022-05-22 22:08:24 INFO  ServerTest:243 - Finished CreateMenu
+2022-05-22 22:08:24 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:24 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:24 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:08:25 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:25 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:25 INFO  ServerTest:210 - Started AddSupply
+2022-05-22 22:08:25 INFO  Server:253 - Tarta
+2022-05-22 22:08:25 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:08:25 INFO  ServerTest:219 - Finished AddSupply
+2022-05-22 22:08:25 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:26 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:26 INFO  ServerTest:55 - Started UserLogin
+2022-05-22 22:08:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:08:26 INFO  ServerTest:63 - Finished UserLogin
+2022-05-22 22:08:26 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:27 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:27 INFO  ServerTest:282 - Started Integration test Books
+2022-05-22 22:08:27 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:08:27 INFO  ServerTest:301 - Finished Integration test Books
+2022-05-22 22:08:27 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:08:27 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:08:27 INFO  ServerTest:259 - Started Integration test User
+2022-05-22 22:08:27 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:08:27 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:08:27 INFO  ServerTest:277 - Finished Integration test User
+2022-05-22 22:11:17 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:11:18 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:18 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:11:19 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:19 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:11:19 INFO  ServerTest:196 - Menu{starter=[Pollo], main=[Lentejas], pastry=[Bizcocho], drink=[Pure]}
+2022-05-22 22:11:19 INFO  ServerTest:196 - Menu{starter=[Pollo, Pollo], main=[Lentejas, Lentejas], pastry=[Bizcocho, Bizcocho], drink=[Pure, Pure]}
+2022-05-22 22:11:19 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:11:19 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:22 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:12:23 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:191 - Started GetSupplies
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:12:23 INFO  ServerTest:196 - Pure
+2022-05-22 22:12:23 INFO  ServerTest:205 - Finished GetSupplies
+2022-05-22 22:13:04 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:13:05 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:13:05 INFO  DBTest:56 - Started GetBooks
+2022-05-22 22:13:05 INFO  DBTest:65 - Finished GetBooks
+2022-05-22 22:13:05 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:13:05 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:13:05 INFO  DBTest:70 - Started GetRooms
+2022-05-22 22:13:05 INFO  DBTest:81 - Finished GetRooms
+2022-05-22 22:13:05 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:13:06 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:13:06 INFO  DBTest:41 - Started GetUsers
+2022-05-22 22:13:06 INFO  DBTest:50 - Finished GetUsers
+2022-05-22 22:13:06 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:13:06 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:13:06 INFO  DBTest:99 - Started AddBook
+2022-05-22 22:13:06 INFO  DBTest:106 - Finished AddBook
+2022-05-22 22:13:06 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:13:07 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:13:07 INFO  DBTest:111 - Started AddRoom
+2022-05-22 22:13:07 INFO  DBTest:119 - Finished AddRoom
+2022-05-22 22:13:07 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:13:07 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:13:07 INFO  DBTest:86 - Started AddUser
+2022-05-22 22:13:07 INFO  DBTest:94 - Finished AddUser
+2022-05-22 22:13:08 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:13:08 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:13:08 INFO  DBTest:151 - Started UpdateBook
+2022-05-22 22:13:08 INFO  DBTest:161 - Finished UpdateBook
+2022-05-22 22:13:08 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:13:08 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:13:08 INFO  DBTest:182 - Started UpdateRoom
+2022-05-22 22:13:09 INFO  DBTest:197 - Finished UpdateRoom
+2022-05-22 22:13:09 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:13:09 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:13:09 INFO  DBTest:167 - Started UpdateUser
+2022-05-22 22:13:09 INFO  DBTest:177 - Finished UpdateUser
+2022-05-22 22:13:09 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:13:10 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:13:10 INFO  DBTest:124 - Started DeleteBook
+2022-05-22 22:13:10 INFO  DBTest:128 - Finished DeleteBook
+2022-05-22 22:13:10 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:13:10 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:13:10 INFO  DBTest:142 - Started DeleteRoom
+2022-05-22 22:13:10 INFO  DBTest:146 - Finished DeleteRoom
+2022-05-22 22:13:10 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:13:11 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:13:11 INFO  DBTest:133 - Started DeleteUser
+2022-05-22 22:13:11 INFO  DBTest:137 - Finished DeleteUser
+2022-05-22 22:13:11 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:11 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:11 INFO  ServerTest:330 - Started Integration test supplies
+2022-05-22 22:13:12 INFO  Server:253 - Tarta
+2022-05-22 22:13:12 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:13:12 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:13:12 INFO  ServerTest:352 - Finished Integration test supplies
+2022-05-22 22:13:12 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:13 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:13 INFO  ServerTest:86 - Started GetBooks
+2022-05-22 22:13:13 INFO  ServerTest:93 - Book = El Camino de lo reyes
+2022-05-22 22:13:13 INFO  ServerTest:94 - Finished GetBooks
+2022-05-22 22:13:13 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:13 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:13 INFO  ServerTest:173 - Started GetFines
+2022-05-22 22:13:13 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:13:13 INFO  ServerTest:184 - Finished GetFines
+2022-05-22 22:13:13 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:14 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:14 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:13:14 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:15 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:15 INFO  ServerTest:159 - Started AddFine
+2022-05-22 22:13:15 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:13:15 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:13:15 INFO  ServerTest:168 - Finished AddFine
+2022-05-22 22:13:15 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:15 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:15 INFO  ServerTest:140 - Started AddRoom
+2022-05-22 22:13:15 INFO  Server:171 - Room{id=9, name='Reuniones, user=User [ id = 20 name = Ruben, email = r@mail, password = 4321, birthDate = Fri Feb 10 00:00:00 CET 3922], day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-22 22:13:15 INFO  Server:174 - Habitación añadida exitosamente.
+2022-05-22 22:13:15 INFO  ServerTest:154 - Finished AddRoom
+2022-05-22 22:13:15 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:16 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:16 INFO  ServerTest:305 - Started Integration test fines
+2022-05-22 22:13:16 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:13:16 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:13:16 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:13:16 INFO  ServerTest:325 - Started Integration test fines
+2022-05-22 22:13:16 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:16 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:16 INFO  ServerTest:121 - Started addBook
+2022-05-22 22:13:16 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:16 INFO  ServerTest:135 - Finished UpdateBook
+2022-05-22 22:13:16 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:17 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:17 INFO  ServerTest:247 - Started GetResp
+2022-05-22 22:13:17 INFO  ServerTest:253 - Finished GetResp
+2022-05-22 22:13:17 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:17 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:17 INFO  ServerTest:189 - Started GetSupplies
+2022-05-22 22:13:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:13:18 INFO  ServerTest:194 - Pure
+2022-05-22 22:13:18 INFO  ServerTest:203 - Finished GetSupplies
+2022-05-22 22:13:18 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:18 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:18 INFO  ServerTest:223 - Started CreateMenu
+2022-05-22 22:13:18 INFO  Server:269 - Menu{starter=[Fabada], main=[Chuleton], pastry=[Manzana], drink=[Vino]}
+2022-05-22 22:13:18 INFO  Server:271 - Menú creado exitosamente.
+2022-05-22 22:13:18 INFO  ServerTest:242 - Finished CreateMenu
+2022-05-22 22:13:18 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:19 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:19 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:13:19 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:13:19 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:13:19 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:13:19 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:13:19 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:13:19 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:13:19 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:13:19 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:13:19 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:13:19 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:13:19 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:13:19 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:13:19 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:13:19 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:13:19 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:13:19 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:13:19 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:20 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:20 INFO  ServerTest:209 - Started AddSupply
+2022-05-22 22:13:20 INFO  Server:253 - Tarta
+2022-05-22 22:13:20 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:13:20 INFO  ServerTest:218 - Finished AddSupply
+2022-05-22 22:13:20 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:20 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:20 INFO  ServerTest:55 - Started UserLogin
+2022-05-22 22:13:20 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:13:20 INFO  ServerTest:63 - Finished UserLogin
+2022-05-22 22:13:20 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:21 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:21 INFO  ServerTest:281 - Started Integration test Books
+2022-05-22 22:13:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:13:21 INFO  ServerTest:300 - Finished Integration test Books
+2022-05-22 22:13:21 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:21 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:21 INFO  ServerTest:258 - Started Integration test User
+2022-05-22 22:13:21 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:13:21 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:13:21 INFO  ServerTest:276 - Finished Integration test User
+2022-05-22 22:13:59 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:13:59 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:13:59 INFO  ServerTest:330 - Started Integration test supplies
+2022-05-22 22:14:00 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:00 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:00 INFO  ServerTest:86 - Started GetBooks
+2022-05-22 22:14:00 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:01 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:01 INFO  ServerTest:173 - Started GetFines
+2022-05-22 22:14:01 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:01 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:01 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:01 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:01 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:02 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:02 INFO  ServerTest:159 - Started AddFine
+2022-05-22 22:14:02 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:03 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:03 INFO  ServerTest:140 - Started AddRoom
+2022-05-22 22:14:03 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:03 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:03 INFO  ServerTest:305 - Started Integration test fines
+2022-05-22 22:14:03 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:04 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:04 INFO  ServerTest:121 - Started addBook
+2022-05-22 22:14:04 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:05 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:05 INFO  ServerTest:247 - Started GetResp
+2022-05-22 22:14:05 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:05 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:05 INFO  ServerTest:189 - Started GetSupplies
+2022-05-22 22:14:05 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:06 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:06 INFO  ServerTest:223 - Started CreateMenu
+2022-05-22 22:14:06 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:07 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:07 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:14:07 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:14:07 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:14:07 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:07 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:07 INFO  ServerTest:209 - Started AddSupply
+2022-05-22 22:14:07 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:08 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:08 INFO  ServerTest:55 - Started UserLogin
+2022-05-22 22:14:08 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:09 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:09 INFO  ServerTest:281 - Started Integration test Books
+2022-05-22 22:14:09 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:09 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:09 INFO  ServerTest:258 - Started Integration test User
+2022-05-22 22:14:48 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:14:49 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:14:49 INFO  DBTest:56 - Started GetBooks
+2022-05-22 22:14:49 INFO  DBTest:65 - Finished GetBooks
+2022-05-22 22:14:49 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:14:49 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:14:49 INFO  DBTest:70 - Started GetRooms
+2022-05-22 22:14:49 INFO  DBTest:81 - Finished GetRooms
+2022-05-22 22:14:49 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:14:50 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:14:50 INFO  DBTest:41 - Started GetUsers
+2022-05-22 22:14:50 INFO  DBTest:50 - Finished GetUsers
+2022-05-22 22:14:50 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:14:50 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:14:50 INFO  DBTest:99 - Started AddBook
+2022-05-22 22:14:50 INFO  DBTest:106 - Finished AddBook
+2022-05-22 22:14:50 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:14:51 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:14:51 INFO  DBTest:111 - Started AddRoom
+2022-05-22 22:14:51 INFO  DBTest:119 - Finished AddRoom
+2022-05-22 22:14:51 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:14:52 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:14:52 INFO  DBTest:86 - Started AddUser
+2022-05-22 22:14:52 INFO  DBTest:94 - Finished AddUser
+2022-05-22 22:14:52 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:14:52 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:14:52 INFO  DBTest:151 - Started UpdateBook
+2022-05-22 22:14:52 INFO  DBTest:161 - Finished UpdateBook
+2022-05-22 22:14:52 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:14:52 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:14:52 INFO  DBTest:182 - Started UpdateRoom
+2022-05-22 22:14:52 INFO  DBTest:197 - Finished UpdateRoom
+2022-05-22 22:14:52 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:14:53 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:14:53 INFO  DBTest:167 - Started UpdateUser
+2022-05-22 22:14:53 INFO  DBTest:177 - Finished UpdateUser
+2022-05-22 22:14:53 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:14:54 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:14:54 INFO  DBTest:124 - Started DeleteBook
+2022-05-22 22:14:54 INFO  DBTest:128 - Finished DeleteBook
+2022-05-22 22:14:54 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:14:54 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:14:54 INFO  DBTest:142 - Started DeleteRoom
+2022-05-22 22:14:54 INFO  DBTest:146 - Finished DeleteRoom
+2022-05-22 22:14:54 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:14:55 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:14:55 INFO  DBTest:133 - Started DeleteUser
+2022-05-22 22:14:55 INFO  DBTest:137 - Finished DeleteUser
+2022-05-22 22:14:55 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:55 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:55 INFO  ServerTest:330 - Started Integration test supplies
+2022-05-22 22:14:56 INFO  Server:253 - Tarta
+2022-05-22 22:14:56 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:14:56 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:14:56 INFO  ServerTest:352 - Finished Integration test supplies
+2022-05-22 22:14:56 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:57 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:57 INFO  ServerTest:86 - Started GetBooks
+2022-05-22 22:14:57 INFO  ServerTest:93 - Book = El Camino de lo reyes
+2022-05-22 22:14:57 INFO  ServerTest:94 - Finished GetBooks
+2022-05-22 22:14:57 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:57 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:57 INFO  ServerTest:173 - Started GetFines
+2022-05-22 22:14:57 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:14:57 INFO  ServerTest:184 - Finished GetFines
+2022-05-22 22:14:57 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:58 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:14:58 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:14:58 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:59 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:59 INFO  ServerTest:159 - Started AddFine
+2022-05-22 22:14:59 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:14:59 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:14:59 INFO  ServerTest:168 - Finished AddFine
+2022-05-22 22:14:59 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:14:59 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:14:59 INFO  ServerTest:140 - Started AddRoom
+2022-05-22 22:14:59 INFO  Server:171 - Room{id=9, name='Reuniones, user=User [ id = 20 name = Ruben, email = r@mail, password = 4321, birthDate = Fri Feb 10 00:00:00 CET 3922], day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-22 22:14:59 INFO  Server:174 - Habitación añadida exitosamente.
+2022-05-22 22:14:59 INFO  ServerTest:154 - Finished AddRoom
+2022-05-22 22:14:59 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:15:00 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:15:00 INFO  ServerTest:305 - Started Integration test fines
+2022-05-22 22:15:00 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:15:00 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:15:00 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:15:00 INFO  ServerTest:325 - Started Integration test fines
+2022-05-22 22:15:00 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:15:01 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:15:01 INFO  ServerTest:121 - Started addBook
+2022-05-22 22:15:01 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:15:01 INFO  ServerTest:135 - Finished UpdateBook
+2022-05-22 22:15:01 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:15:02 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:15:02 INFO  ServerTest:247 - Started GetResp
+2022-05-22 22:15:02 INFO  ServerTest:253 - Finished GetResp
+2022-05-22 22:15:02 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:15:02 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:15:02 INFO  ServerTest:189 - Started GetSupplies
+2022-05-22 22:15:02 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:15:02 INFO  ServerTest:194 - Pure
+2022-05-22 22:15:02 INFO  ServerTest:203 - Finished GetSupplies
+2022-05-22 22:15:02 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:15:03 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:15:03 INFO  ServerTest:223 - Started CreateMenu
+2022-05-22 22:15:03 INFO  Server:269 - Menu{starter=[Fabada], main=[Chuleton], pastry=[Manzana], drink=[Vino]}
+2022-05-22 22:15:03 INFO  Server:271 - Menú creado exitosamente.
+2022-05-22 22:15:03 INFO  ServerTest:242 - Finished CreateMenu
+2022-05-22 22:15:03 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:15:03 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:15:03 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:03 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:03 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:03 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:03 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:03 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:03 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:03 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:03 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:15:04 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:15:04 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:15:04 INFO  ServerTest:209 - Started AddSupply
+2022-05-22 22:15:05 INFO  Server:253 - Tarta
+2022-05-22 22:15:05 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:15:05 INFO  ServerTest:218 - Finished AddSupply
+2022-05-22 22:15:05 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:15:05 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:15:05 INFO  ServerTest:55 - Started UserLogin
+2022-05-22 22:15:05 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:15:05 INFO  ServerTest:63 - Finished UserLogin
+2022-05-22 22:15:05 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:15:06 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:15:06 INFO  ServerTest:281 - Started Integration test Books
+2022-05-22 22:15:06 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:15:06 INFO  ServerTest:300 - Finished Integration test Books
+2022-05-22 22:15:06 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:15:06 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:15:06 INFO  ServerTest:258 - Started Integration test User
+2022-05-22 22:15:07 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:15:07 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:15:07 INFO  ServerTest:276 - Finished Integration test User
+2022-05-22 22:16:02 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:03 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:03 INFO  ServerTest:330 - Started Integration test supplies
+2022-05-22 22:16:03 INFO  Server:253 - Tarta
+2022-05-22 22:16:03 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:16:03 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:16:03 INFO  ServerTest:352 - Finished Integration test supplies
+2022-05-22 22:16:03 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:04 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:04 INFO  ServerTest:86 - Started GetBooks
+2022-05-22 22:16:04 INFO  ServerTest:93 - Book = El Camino de lo reyes
+2022-05-22 22:16:04 INFO  ServerTest:94 - Finished GetBooks
+2022-05-22 22:16:04 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:04 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:04 INFO  ServerTest:173 - Started GetFines
+2022-05-22 22:16:04 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:16:04 INFO  ServerTest:184 - Finished GetFines
+2022-05-22 22:16:04 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:05 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:05 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:16:05 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:06 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:06 INFO  ServerTest:159 - Started AddFine
+2022-05-22 22:16:06 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:16:06 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:16:06 INFO  ServerTest:168 - Finished AddFine
+2022-05-22 22:16:06 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:06 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:06 INFO  ServerTest:140 - Started AddRoom
+2022-05-22 22:16:06 INFO  Server:171 - Room{id=0, name='Reuniones, user=User [ id = 2 name = Ruben, email = r@mail, password = 4321, birthDate = Fri Feb 10 00:00:00 CET 3922], day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-22 22:16:06 INFO  Server:174 - Habitación añadida exitosamente.
+2022-05-22 22:16:06 INFO  ServerTest:154 - Finished AddRoom
+2022-05-22 22:16:06 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:07 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:07 INFO  ServerTest:305 - Started Integration test fines
+2022-05-22 22:16:07 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:16:07 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:16:07 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:16:07 INFO  ServerTest:325 - Started Integration test fines
+2022-05-22 22:16:07 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:08 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:08 INFO  ServerTest:121 - Started addBook
+2022-05-22 22:16:08 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:08 INFO  ServerTest:135 - Finished UpdateBook
+2022-05-22 22:16:08 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:08 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:08 INFO  ServerTest:247 - Started GetResp
+2022-05-22 22:16:08 INFO  ServerTest:253 - Finished GetResp
+2022-05-22 22:16:08 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:09 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:09 INFO  ServerTest:189 - Started GetSupplies
+2022-05-22 22:16:09 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:16:09 INFO  ServerTest:194 - Pure
+2022-05-22 22:16:09 INFO  ServerTest:203 - Finished GetSupplies
+2022-05-22 22:16:09 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:10 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:10 INFO  ServerTest:223 - Started CreateMenu
+2022-05-22 22:16:10 INFO  Server:269 - Menu{starter=[Fabada], main=[Chuleton], pastry=[Manzana], drink=[Vino]}
+2022-05-22 22:16:10 INFO  Server:271 - Menú creado exitosamente.
+2022-05-22 22:16:10 INFO  ServerTest:242 - Finished CreateMenu
+2022-05-22 22:16:10 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:10 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:10 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:11 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:11 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:11 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:11 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:11 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:16:11 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:11 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:11 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:11 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:16:11 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:11 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:11 INFO  ServerTest:209 - Started AddSupply
+2022-05-22 22:16:11 INFO  Server:253 - Tarta
+2022-05-22 22:16:11 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:16:11 INFO  ServerTest:218 - Finished AddSupply
+2022-05-22 22:16:11 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:12 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:12 INFO  ServerTest:55 - Started UserLogin
+2022-05-22 22:16:12 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:16:12 INFO  ServerTest:63 - Finished UserLogin
+2022-05-22 22:16:12 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:12 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:12 INFO  ServerTest:281 - Started Integration test Books
+2022-05-22 22:16:12 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:16:12 INFO  ServerTest:300 - Finished Integration test Books
+2022-05-22 22:16:12 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:16:13 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:16:13 INFO  ServerTest:258 - Started Integration test User
+2022-05-22 22:16:13 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:16:13 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:16:13 INFO  ServerTest:276 - Finished Integration test User
+2022-05-22 22:21:17 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:18 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:18 INFO  ServerTest:330 - Started Integration test supplies
+2022-05-22 22:21:18 INFO  Server:253 - Tarta
+2022-05-22 22:21:18 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:21:18 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:21:18 INFO  ServerTest:352 - Finished Integration test supplies
+2022-05-22 22:21:18 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:19 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:19 INFO  ServerTest:86 - Started GetBooks
+2022-05-22 22:21:19 INFO  ServerTest:93 - Book = El Camino de lo reyes
+2022-05-22 22:21:19 INFO  ServerTest:94 - Finished GetBooks
+2022-05-22 22:21:19 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:19 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:19 INFO  ServerTest:173 - Started GetFines
+2022-05-22 22:21:19 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:21:19 INFO  ServerTest:184 - Finished GetFines
+2022-05-22 22:21:19 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:20 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:20 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:21:20 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:21 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:21 INFO  ServerTest:159 - Started AddFine
+2022-05-22 22:21:21 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:21:21 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:21:21 INFO  ServerTest:168 - Finished AddFine
+2022-05-22 22:21:21 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:21 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:21 INFO  ServerTest:140 - Started AddRoom
+2022-05-22 22:21:22 INFO  Server:171 - Room{id=0, name='Reuniones, user=User [ id = 2 name = Ruben, email = r@mail, password = 4321, birthDate = Fri Feb 10 00:00:00 CET 3922], day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-22 22:21:22 INFO  Server:174 - Habitación añadida exitosamente.
+2022-05-22 22:21:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-22 22:21:22 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:22 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:22 INFO  ServerTest:305 - Started Integration test fines
+2022-05-22 22:21:22 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:21:22 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:21:22 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:21:22 INFO  ServerTest:325 - Started Integration test fines
+2022-05-22 22:21:22 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:23 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:23 INFO  ServerTest:121 - Started addBook
+2022-05-22 22:21:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:23 INFO  ServerTest:135 - Finished UpdateBook
+2022-05-22 22:21:23 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:23 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:23 INFO  ServerTest:247 - Started GetResp
+2022-05-22 22:21:23 INFO  ServerTest:253 - Finished GetResp
+2022-05-22 22:21:23 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:24 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:24 INFO  ServerTest:189 - Started GetSupplies
+2022-05-22 22:21:24 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:21:24 INFO  ServerTest:194 - Pure
+2022-05-22 22:21:24 INFO  ServerTest:203 - Finished GetSupplies
+2022-05-22 22:21:24 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:24 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:24 INFO  ServerTest:223 - Started CreateMenu
+2022-05-22 22:21:24 INFO  Server:269 - Menu{starter=[Fabada], main=[Chuleton], pastry=[Manzana], drink=[Vino]}
+2022-05-22 22:21:24 INFO  Server:271 - Menú creado exitosamente.
+2022-05-22 22:21:24 INFO  ServerTest:242 - Finished CreateMenu
+2022-05-22 22:21:24 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:25 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:25 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:21:25 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:21:25 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:21:25 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:26 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:26 INFO  ServerTest:209 - Started AddSupply
+2022-05-22 22:21:26 INFO  Server:253 - Tarta
+2022-05-22 22:21:26 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:21:26 INFO  ServerTest:218 - Finished AddSupply
+2022-05-22 22:21:26 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:26 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:21:26 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:27 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:27 INFO  ServerTest:281 - Started Integration test Books
+2022-05-22 22:21:27 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:21:27 INFO  ServerTest:300 - Finished Integration test Books
+2022-05-22 22:21:27 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:21:28 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:21:28 INFO  ServerTest:258 - Started Integration test User
+2022-05-22 22:21:28 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:21:28 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:21:28 INFO  ServerTest:276 - Finished Integration test User
+2022-05-22 22:22:12 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:22:13 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:22:13 INFO  DBTest:56 - Started GetBooks
+2022-05-22 22:22:13 INFO  DBTest:65 - Finished GetBooks
+2022-05-22 22:22:13 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:22:14 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:22:14 INFO  DBTest:70 - Started GetRooms
+2022-05-22 22:22:14 INFO  DBTest:81 - Finished GetRooms
+2022-05-22 22:22:14 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:22:14 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:22:14 INFO  DBTest:41 - Started GetUsers
+2022-05-22 22:22:14 INFO  DBTest:50 - Finished GetUsers
+2022-05-22 22:22:14 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:22:15 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:22:15 INFO  DBTest:99 - Started AddBook
+2022-05-22 22:22:15 INFO  DBTest:106 - Finished AddBook
+2022-05-22 22:22:15 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:22:15 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:22:15 INFO  DBTest:111 - Started AddRoom
+2022-05-22 22:22:15 INFO  DBTest:119 - Finished AddRoom
+2022-05-22 22:22:15 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:22:16 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:22:16 INFO  DBTest:86 - Started AddUser
+2022-05-22 22:22:16 INFO  DBTest:94 - Finished AddUser
+2022-05-22 22:22:16 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:22:16 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:22:16 INFO  DBTest:151 - Started UpdateBook
+2022-05-22 22:22:16 INFO  DBTest:161 - Finished UpdateBook
+2022-05-22 22:22:16 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:22:17 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:22:17 INFO  DBTest:182 - Started UpdateRoom
+2022-05-22 22:22:17 INFO  DBTest:197 - Finished UpdateRoom
+2022-05-22 22:22:17 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:22:18 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:22:18 INFO  DBTest:167 - Started UpdateUser
+2022-05-22 22:22:18 INFO  DBTest:177 - Finished UpdateUser
+2022-05-22 22:22:18 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:22:18 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:22:18 INFO  DBTest:124 - Started DeleteBook
+2022-05-22 22:22:18 INFO  DBTest:128 - Finished DeleteBook
+2022-05-22 22:22:18 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:22:19 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:22:19 INFO  DBTest:142 - Started DeleteRoom
+2022-05-22 22:22:19 INFO  DBTest:146 - Finished DeleteRoom
+2022-05-22 22:22:19 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:22:19 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:22:19 INFO  DBTest:133 - Started DeleteUser
+2022-05-22 22:22:19 INFO  DBTest:137 - Finished DeleteUser
+2022-05-22 22:22:19 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:20 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:20 INFO  ServerTest:330 - Started Integration test supplies
+2022-05-22 22:22:21 INFO  Server:253 - Tarta
+2022-05-22 22:22:21 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:22:21 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:22:21 INFO  ServerTest:352 - Finished Integration test supplies
+2022-05-22 22:22:21 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:22 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:22 INFO  ServerTest:86 - Started GetBooks
+2022-05-22 22:22:22 INFO  ServerTest:93 - Book = El Camino de lo reyes
+2022-05-22 22:22:22 INFO  ServerTest:94 - Finished GetBooks
+2022-05-22 22:22:22 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:22 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:22 INFO  ServerTest:173 - Started GetFines
+2022-05-22 22:22:22 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:22:22 INFO  ServerTest:184 - Finished GetFines
+2022-05-22 22:22:22 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:23 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:23 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:22:23 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:24 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:24 INFO  ServerTest:159 - Started AddFine
+2022-05-22 22:22:24 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:22:24 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:22:24 INFO  ServerTest:168 - Finished AddFine
+2022-05-22 22:22:24 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:24 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:24 INFO  ServerTest:140 - Started AddRoom
+2022-05-22 22:22:24 INFO  Server:171 - Room{id=9, name='Reuniones, user=User [ id = 20 name = Ruben, email = r@mail, password = 4321, birthDate = Fri Feb 10 00:00:00 CET 3922], day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-22 22:22:24 INFO  Server:174 - Habitación añadida exitosamente.
+2022-05-22 22:22:24 INFO  ServerTest:154 - Finished AddRoom
+2022-05-22 22:22:24 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:25 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:25 INFO  ServerTest:305 - Started Integration test fines
+2022-05-22 22:22:25 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:22:25 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:22:25 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:22:25 INFO  ServerTest:325 - Started Integration test fines
+2022-05-22 22:22:25 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:25 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:25 INFO  ServerTest:121 - Started addBook
+2022-05-22 22:22:25 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:25 INFO  ServerTest:135 - Finished UpdateBook
+2022-05-22 22:22:25 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:26 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:26 INFO  ServerTest:247 - Started GetResp
+2022-05-22 22:22:26 INFO  ServerTest:253 - Finished GetResp
+2022-05-22 22:22:26 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:26 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:26 INFO  ServerTest:189 - Started GetSupplies
+2022-05-22 22:22:26 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:22:26 INFO  ServerTest:194 - Pure
+2022-05-22 22:22:26 INFO  ServerTest:203 - Finished GetSupplies
+2022-05-22 22:22:26 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:27 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:27 INFO  ServerTest:223 - Started CreateMenu
+2022-05-22 22:22:27 INFO  Server:269 - Menu{starter=[Fabada], main=[Chuleton], pastry=[Manzana], drink=[Vino]}
+2022-05-22 22:22:27 INFO  Server:271 - Menú creado exitosamente.
+2022-05-22 22:22:27 INFO  ServerTest:242 - Finished CreateMenu
+2022-05-22 22:22:27 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:28 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:28 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:22:28 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:22:28 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:22:28 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:28 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:28 INFO  ServerTest:209 - Started AddSupply
+2022-05-22 22:22:28 INFO  Server:253 - Tarta
+2022-05-22 22:22:28 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:22:28 INFO  ServerTest:218 - Finished AddSupply
+2022-05-22 22:22:28 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:29 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:22:29 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:30 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:30 INFO  ServerTest:281 - Started Integration test Books
+2022-05-22 22:22:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:22:30 INFO  ServerTest:300 - Finished Integration test Books
+2022-05-22 22:22:30 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:22:31 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:22:31 INFO  ServerTest:258 - Started Integration test User
+2022-05-22 22:22:31 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:22:31 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:22:31 INFO  ServerTest:276 - Finished Integration test User
+2022-05-22 22:25:20 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:21 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:21 INFO  ServerTest:330 - Started Integration test supplies
+2022-05-22 22:25:21 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:22 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:22 INFO  ServerTest:86 - Started GetBooks
+2022-05-22 22:25:22 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:22 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:22 INFO  ServerTest:173 - Started GetFines
+2022-05-22 22:25:22 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:23 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:25:23 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:25:23 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:24 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:24 INFO  ServerTest:159 - Started AddFine
+2022-05-22 22:25:24 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:24 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:24 INFO  ServerTest:140 - Started AddRoom
+2022-05-22 22:25:24 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:25 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:25 INFO  ServerTest:305 - Started Integration test fines
+2022-05-22 22:25:25 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:25 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:25 INFO  ServerTest:121 - Started addBook
+2022-05-22 22:25:25 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:26 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:26 INFO  ServerTest:247 - Started GetResp
+2022-05-22 22:25:26 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:26 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:26 INFO  ServerTest:189 - Started GetSupplies
+2022-05-22 22:25:27 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:27 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:27 INFO  ServerTest:223 - Started CreateMenu
+2022-05-22 22:25:27 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:28 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:28 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:25:28 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:28 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:28 INFO  ServerTest:209 - Started AddSupply
+2022-05-22 22:25:28 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:29 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:25:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:25:29 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:25:29 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:30 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:30 INFO  ServerTest:281 - Started Integration test Books
+2022-05-22 22:25:30 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:25:30 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:25:30 INFO  ServerTest:258 - Started Integration test User
+2022-05-22 22:26:27 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:27 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:27 INFO  ServerTest:330 - Started Integration test supplies
+2022-05-22 22:26:28 INFO  Server:253 - Tarta
+2022-05-22 22:26:28 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:26:28 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:26:28 INFO  ServerTest:352 - Finished Integration test supplies
+2022-05-22 22:26:28 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:29 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:29 INFO  ServerTest:86 - Started GetBooks
+2022-05-22 22:26:29 INFO  ServerTest:93 - Book = El Camino de lo reyes
+2022-05-22 22:26:29 INFO  ServerTest:94 - Finished GetBooks
+2022-05-22 22:26:29 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:29 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:29 INFO  ServerTest:173 - Started GetFines
+2022-05-22 22:26:29 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:26:29 INFO  ServerTest:184 - Finished GetFines
+2022-05-22 22:26:29 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:30 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:30 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:30 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:31 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:31 INFO  ServerTest:159 - Started AddFine
+2022-05-22 22:26:31 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:26:31 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:26:31 INFO  ServerTest:168 - Finished AddFine
+2022-05-22 22:26:31 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:31 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:31 INFO  ServerTest:140 - Started AddRoom
+2022-05-22 22:26:31 INFO  Server:171 - Room{id=0, name='Reuniones, user=User [ id = 2 name = Ruben, email = r@mail, password = 4321, birthDate = Fri Feb 10 00:00:00 CET 3922], day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-22 22:26:31 INFO  Server:174 - Habitación añadida exitosamente.
+2022-05-22 22:26:31 INFO  ServerTest:154 - Finished AddRoom
+2022-05-22 22:26:31 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:32 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:32 INFO  ServerTest:305 - Started Integration test fines
+2022-05-22 22:26:32 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:26:32 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:26:32 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:26:32 INFO  ServerTest:325 - Started Integration test fines
+2022-05-22 22:26:32 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:32 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:32 INFO  ServerTest:121 - Started addBook
+2022-05-22 22:26:33 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:33 INFO  ServerTest:135 - Finished UpdateBook
+2022-05-22 22:26:33 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:33 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:33 INFO  ServerTest:247 - Started GetResp
+2022-05-22 22:26:33 INFO  ServerTest:253 - Finished GetResp
+2022-05-22 22:26:33 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:34 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:34 INFO  ServerTest:189 - Started GetSupplies
+2022-05-22 22:26:34 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:26:34 INFO  ServerTest:194 - Pure
+2022-05-22 22:26:34 INFO  ServerTest:203 - Finished GetSupplies
+2022-05-22 22:26:34 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:34 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:34 INFO  ServerTest:223 - Started CreateMenu
+2022-05-22 22:26:34 INFO  Server:269 - Menu{starter=[Fabada], main=[Chuleton], pastry=[Manzana], drink=[Vino]}
+2022-05-22 22:26:34 INFO  Server:271 - Menú creado exitosamente.
+2022-05-22 22:26:34 INFO  ServerTest:242 - Finished CreateMenu
+2022-05-22 22:26:34 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:35 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:35 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:26:35 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:26:35 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:26:35 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:36 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:36 INFO  ServerTest:209 - Started AddSupply
+2022-05-22 22:26:36 INFO  Server:253 - Tarta
+2022-05-22 22:26:36 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:26:36 INFO  ServerTest:218 - Finished AddSupply
+2022-05-22 22:26:36 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:36 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:36 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:36 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:36 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:37 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:37 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:37 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:37 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:37 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:37 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:37 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:37 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:37 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:37 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:37 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:37 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:37 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:37 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:37 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:37 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:37 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:37 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:37 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:37 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:37 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:37 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:37 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:37 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:37 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:37 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:37 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:37 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:37 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:37 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:37 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:37 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:37 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:37 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:37 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:37 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:37 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:37 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:37 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:37 INFO  ServerTest:281 - Started Integration test Books
+2022-05-22 22:26:37 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:37 INFO  ServerTest:300 - Finished Integration test Books
+2022-05-22 22:26:37 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:38 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:38 INFO  ServerTest:258 - Started Integration test User
+2022-05-22 22:26:38 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:26:38 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:38 INFO  ServerTest:276 - Finished Integration test User
+2022-05-22 22:26:48 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:49 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:49 INFO  ServerTest:330 - Started Integration test supplies
+2022-05-22 22:26:49 INFO  Server:253 - Tarta
+2022-05-22 22:26:49 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:26:49 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:26:49 INFO  ServerTest:352 - Finished Integration test supplies
+2022-05-22 22:26:49 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:50 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:50 INFO  ServerTest:86 - Started GetBooks
+2022-05-22 22:26:50 INFO  ServerTest:93 - Book = El Camino de lo reyes
+2022-05-22 22:26:50 INFO  ServerTest:94 - Finished GetBooks
+2022-05-22 22:26:50 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:50 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:50 INFO  ServerTest:173 - Started GetFines
+2022-05-22 22:26:50 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:26:50 INFO  ServerTest:184 - Finished GetFines
+2022-05-22 22:26:50 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:51 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:51 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:26:51 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:52 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:52 INFO  ServerTest:159 - Started AddFine
+2022-05-22 22:26:52 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:26:52 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:26:52 INFO  ServerTest:168 - Finished AddFine
+2022-05-22 22:26:52 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:53 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:53 INFO  ServerTest:140 - Started AddRoom
+2022-05-22 22:26:53 INFO  Server:171 - Room{id=0, name='Reuniones, user=User [ id = 2 name = Ruben, email = r@mail, password = 4321, birthDate = Fri Feb 10 00:00:00 CET 3922], day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-22 22:26:53 INFO  Server:174 - Habitación añadida exitosamente.
+2022-05-22 22:26:53 INFO  ServerTest:154 - Finished AddRoom
+2022-05-22 22:26:53 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:53 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:53 INFO  ServerTest:305 - Started Integration test fines
+2022-05-22 22:26:53 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:26:53 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:26:53 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:26:53 INFO  ServerTest:325 - Started Integration test fines
+2022-05-22 22:26:53 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:54 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:54 INFO  ServerTest:121 - Started addBook
+2022-05-22 22:26:54 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:54 INFO  ServerTest:135 - Finished UpdateBook
+2022-05-22 22:26:54 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:54 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:54 INFO  ServerTest:247 - Started GetResp
+2022-05-22 22:26:54 INFO  ServerTest:253 - Finished GetResp
+2022-05-22 22:26:54 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:55 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:55 INFO  ServerTest:189 - Started GetSupplies
+2022-05-22 22:26:55 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:26:55 INFO  ServerTest:194 - Pure
+2022-05-22 22:26:55 INFO  ServerTest:203 - Finished GetSupplies
+2022-05-22 22:26:55 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:56 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:56 INFO  ServerTest:223 - Started CreateMenu
+2022-05-22 22:26:56 INFO  Server:269 - Menu{starter=[Fabada], main=[Chuleton], pastry=[Manzana], drink=[Vino]}
+2022-05-22 22:26:56 INFO  Server:271 - Menú creado exitosamente.
+2022-05-22 22:26:56 INFO  ServerTest:242 - Finished CreateMenu
+2022-05-22 22:26:56 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:56 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:56 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:26:56 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:26:56 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:26:56 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:57 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:57 INFO  ServerTest:209 - Started AddSupply
+2022-05-22 22:26:57 INFO  Server:253 - Tarta
+2022-05-22 22:26:57 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:26:57 INFO  ServerTest:218 - Finished AddSupply
+2022-05-22 22:26:57 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:58 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:26:58 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:58 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:58 INFO  ServerTest:281 - Started Integration test Books
+2022-05-22 22:26:58 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:26:58 INFO  ServerTest:300 - Finished Integration test Books
+2022-05-22 22:26:58 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:26:59 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:26:59 INFO  ServerTest:258 - Started Integration test User
+2022-05-22 22:26:59 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:26:59 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:26:59 INFO  ServerTest:276 - Finished Integration test User
+2022-05-22 22:27:18 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:19 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:19 INFO  ServerTest:330 - Started Integration test supplies
+2022-05-22 22:27:19 INFO  Server:253 - Tarta
+2022-05-22 22:27:19 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:27:19 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:27:19 INFO  ServerTest:352 - Finished Integration test supplies
+2022-05-22 22:27:19 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:20 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:20 INFO  ServerTest:86 - Started GetBooks
+2022-05-22 22:27:20 INFO  ServerTest:93 - Book = El Camino de lo reyes
+2022-05-22 22:27:20 INFO  ServerTest:94 - Finished GetBooks
+2022-05-22 22:27:20 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:20 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:20 INFO  ServerTest:173 - Started GetFines
+2022-05-22 22:27:20 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:27:20 INFO  ServerTest:184 - Finished GetFines
+2022-05-22 22:27:20 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:21 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  ServerTest:102 - Started AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:21 INFO  ServerTest:116 - Finished AddBook
+2022-05-22 22:27:21 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:22 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:22 INFO  ServerTest:159 - Started AddFine
+2022-05-22 22:27:22 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:27:22 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:27:22 INFO  ServerTest:168 - Finished AddFine
+2022-05-22 22:27:22 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:22 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:22 INFO  ServerTest:140 - Started AddRoom
+2022-05-22 22:27:22 INFO  Server:171 - Room{id=0, name='Reuniones, user=User [ id = 2 name = Ruben, email = r@mail, password = 4321, birthDate = Fri Feb 10 00:00:00 CET 3922], day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-22 22:27:22 INFO  Server:174 - Habitación añadida exitosamente.
+2022-05-22 22:27:22 INFO  ServerTest:154 - Finished AddRoom
+2022-05-22 22:27:22 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:23 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:23 INFO  ServerTest:305 - Started Integration test fines
+2022-05-22 22:27:23 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:27:23 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:27:23 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:27:23 INFO  ServerTest:325 - Started Integration test fines
+2022-05-22 22:27:23 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:24 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:24 INFO  ServerTest:121 - Started addBook
+2022-05-22 22:27:24 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:24 INFO  ServerTest:135 - Finished UpdateBook
+2022-05-22 22:27:24 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:24 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:24 INFO  ServerTest:247 - Started GetResp
+2022-05-22 22:27:24 INFO  ServerTest:253 - Finished GetResp
+2022-05-22 22:27:24 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:25 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:25 INFO  ServerTest:189 - Started GetSupplies
+2022-05-22 22:27:25 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:27:25 INFO  ServerTest:194 - Pure
+2022-05-22 22:27:25 INFO  ServerTest:203 - Finished GetSupplies
+2022-05-22 22:27:25 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:26 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:26 INFO  ServerTest:223 - Started CreateMenu
+2022-05-22 22:27:26 INFO  Server:269 - Menu{starter=[Fabada], main=[Chuleton], pastry=[Manzana], drink=[Vino]}
+2022-05-22 22:27:26 INFO  Server:271 - Menú creado exitosamente.
+2022-05-22 22:27:26 INFO  ServerTest:242 - Finished CreateMenu
+2022-05-22 22:27:26 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:26 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:26 INFO  ServerTest:70 - Started CreateUser
+2022-05-22 22:27:26 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:27:26 INFO  ServerTest:80 - Finished CreateUser
+2022-05-22 22:27:26 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:27 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:27 INFO  ServerTest:209 - Started AddSupply
+2022-05-22 22:27:27 INFO  Server:253 - Tarta
+2022-05-22 22:27:27 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:27:27 INFO  ServerTest:218 - Finished AddSupply
+2022-05-22 22:27:27 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:28 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:28 INFO  ServerTest:57 - Started UserLogin
+2022-05-22 22:27:28 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:27:28 INFO  ServerTest:65 - Finished UserLogin
+2022-05-22 22:27:28 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:28 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:28 INFO  ServerTest:281 - Started Integration test Books
+2022-05-22 22:27:28 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:27:28 INFO  ServerTest:300 - Finished Integration test Books
+2022-05-22 22:27:28 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:27:29 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:27:29 INFO  ServerTest:258 - Started Integration test User
+2022-05-22 22:27:29 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:27:29 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:27:29 INFO  ServerTest:276 - Finished Integration test User
+2022-05-22 22:28:03 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:28:04 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:28:04 INFO  DBTest:56 - Started GetBooks
+2022-05-22 22:28:04 INFO  DBTest:65 - Finished GetBooks
+2022-05-22 22:28:04 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:28:04 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:28:04 INFO  DBTest:70 - Started GetRooms
+2022-05-22 22:28:04 INFO  DBTest:81 - Finished GetRooms
+2022-05-22 22:28:04 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:28:05 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:28:05 INFO  DBTest:41 - Started GetUsers
+2022-05-22 22:28:05 INFO  DBTest:50 - Finished GetUsers
+2022-05-22 22:28:05 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:28:05 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:28:05 INFO  DBTest:99 - Started AddBook
+2022-05-22 22:28:05 INFO  DBTest:106 - Finished AddBook
+2022-05-22 22:28:05 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:28:06 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:28:06 INFO  DBTest:111 - Started AddRoom
+2022-05-22 22:28:06 INFO  DBTest:119 - Finished AddRoom
+2022-05-22 22:28:06 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:28:07 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:28:07 INFO  DBTest:86 - Started AddUser
+2022-05-22 22:28:07 INFO  DBTest:94 - Finished AddUser
+2022-05-22 22:28:07 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:28:07 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:28:07 INFO  DBTest:151 - Started UpdateBook
+2022-05-22 22:28:07 INFO  DBTest:161 - Finished UpdateBook
+2022-05-22 22:28:07 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:28:08 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:28:08 INFO  DBTest:182 - Started UpdateRoom
+2022-05-22 22:28:08 INFO  DBTest:197 - Finished UpdateRoom
+2022-05-22 22:28:08 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:28:08 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:28:08 INFO  DBTest:167 - Started UpdateUser
+2022-05-22 22:28:08 INFO  DBTest:177 - Finished UpdateUser
+2022-05-22 22:28:08 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:28:09 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:28:09 INFO  DBTest:124 - Started DeleteBook
+2022-05-22 22:28:09 INFO  DBTest:128 - Finished DeleteBook
+2022-05-22 22:28:09 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:28:10 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:28:10 INFO  DBTest:142 - Started DeleteRoom
+2022-05-22 22:28:10 INFO  DBTest:146 - Finished DeleteRoom
+2022-05-22 22:28:10 INFO  DBTest:26 - Started SetUp
+2022-05-22 22:28:10 INFO  DBTest:36 - Finished SetUp
+2022-05-22 22:28:10 INFO  DBTest:133 - Started DeleteUser
+2022-05-22 22:28:10 INFO  DBTest:137 - Finished DeleteUser
+2022-05-22 22:28:10 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:11 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:11 INFO  ServerTest:328 - Started Integration test supplies
+2022-05-22 22:28:11 INFO  Server:253 - Tarta
+2022-05-22 22:28:11 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:28:11 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:28:11 INFO  ServerTest:350 - Finished Integration test supplies
+2022-05-22 22:28:11 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:12 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:12 INFO  ServerTest:84 - Started GetBooks
+2022-05-22 22:28:12 INFO  ServerTest:91 - Book = El Camino de lo reyes
+2022-05-22 22:28:12 INFO  ServerTest:92 - Finished GetBooks
+2022-05-22 22:28:12 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:13 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:13 INFO  ServerTest:171 - Started GetFines
+2022-05-22 22:28:13 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:28:13 INFO  ServerTest:182 - Finished GetFines
+2022-05-22 22:28:13 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:13 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  ServerTest:100 - Started AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:13 INFO  ServerTest:114 - Finished AddBook
+2022-05-22 22:28:13 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:14 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:14 INFO  ServerTest:157 - Started AddFine
+2022-05-22 22:28:14 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:28:14 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:28:14 INFO  ServerTest:166 - Finished AddFine
+2022-05-22 22:28:14 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:14 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:14 INFO  ServerTest:138 - Started AddRoom
+2022-05-22 22:28:14 INFO  Server:171 - Room{id=9, name='Reuniones, user=User [ id = 20 name = Ruben, email = r@mail, password = 4321, birthDate = Fri Feb 10 00:00:00 CET 3922], day=1, month=Enero, hourBeg=7, hourEnd=12, booked=false}
+2022-05-22 22:28:15 INFO  Server:174 - Habitación añadida exitosamente.
+2022-05-22 22:28:15 INFO  ServerTest:152 - Finished AddRoom
+2022-05-22 22:28:15 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:15 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:15 INFO  ServerTest:303 - Started Integration test fines
+2022-05-22 22:28:15 INFO  Server:187 - Fine = 40.0€
+2022-05-22 22:28:15 INFO  Server:189 - Usuario multado exitosamente.
+2022-05-22 22:28:15 INFO  Server:208 - Devolviendo todas las multas.
+2022-05-22 22:28:15 INFO  ServerTest:323 - Started Integration test fines
+2022-05-22 22:28:15 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:16 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:16 INFO  ServerTest:119 - Started addBook
+2022-05-22 22:28:16 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:16 INFO  ServerTest:133 - Finished UpdateBook
+2022-05-22 22:28:16 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:16 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:16 INFO  ServerTest:245 - Started GetResp
+2022-05-22 22:28:16 INFO  ServerTest:251 - Finished GetResp
+2022-05-22 22:28:16 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:17 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:17 INFO  ServerTest:187 - Started GetSupplies
+2022-05-22 22:28:17 INFO  Server:240 - Devolviendo todos los suministros.
+2022-05-22 22:28:17 INFO  ServerTest:192 - Pure
+2022-05-22 22:28:17 INFO  ServerTest:201 - Finished GetSupplies
+2022-05-22 22:28:17 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:18 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:18 INFO  ServerTest:221 - Started CreateMenu
+2022-05-22 22:28:18 INFO  Server:269 - Menu{starter=[Fabada], main=[Chuleton], pastry=[Manzana], drink=[Vino]}
+2022-05-22 22:28:18 INFO  Server:271 - Menú creado exitosamente.
+2022-05-22 22:28:18 INFO  ServerTest:240 - Finished CreateMenu
+2022-05-22 22:28:18 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:18 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:18 INFO  ServerTest:68 - Started CreateUser
+2022-05-22 22:28:18 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:28:18 INFO  ServerTest:78 - Finished CreateUser
+2022-05-22 22:28:18 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:19 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:19 INFO  ServerTest:207 - Started AddSupply
+2022-05-22 22:28:19 INFO  Server:253 - Tarta
+2022-05-22 22:28:19 INFO  Server:256 - Suministro añadido exitosamente.
+2022-05-22 22:28:19 INFO  ServerTest:216 - Finished AddSupply
+2022-05-22 22:28:19 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:19 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:19 INFO  ServerTest:55 - Started UserLogin
+2022-05-22 22:28:19 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:28:19 INFO  ServerTest:63 - Finished UserLogin
+2022-05-22 22:28:19 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:20 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:20 INFO  ServerTest:279 - Started Integration test Books
+2022-05-22 22:28:20 INFO  Server:124 - Libro añadido exitosamente.
+2022-05-22 22:28:20 INFO  ServerTest:298 - Finished Integration test Books
+2022-05-22 22:28:20 INFO  ServerTest:35 - Started Setup
+2022-05-22 22:28:21 INFO  ServerTest:50 - Finished Setup
+2022-05-22 22:28:21 INFO  ServerTest:256 - Started Integration test User
+2022-05-22 22:28:21 INFO  Server:96 - Usuario creado exitosamente.
+2022-05-22 22:28:21 INFO  Server:80 - Inicio de sesión existoso.
+2022-05-22 22:28:21 INFO  ServerTest:274 - Finished Integration test User

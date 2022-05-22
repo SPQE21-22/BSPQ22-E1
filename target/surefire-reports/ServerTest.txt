@@ -1,25 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: ServerTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.658 sec <<< FAILURE!
-testAddRoom(ServerTest)  Time elapsed: 1.03 sec  <<< ERROR!
-org.databene.contiperf.PerfTestExecutionError: java.lang.NullPointerException: Cannot invoke "server.data.domain.Room.getName()" because "r1" is null
-	at org.databene.contiperf.util.ContiPerfUtil.executionError(ContiPerfUtil.java:58)
-	at org.databene.contiperf.junit.JUnitInvoker.invoke(JUnitInvoker.java:46)
-	at org.databene.contiperf.util.InvokerProxy.invoke(InvokerProxy.java:38)
-	at org.databene.contiperf.PerformanceTracker.invoke(PerformanceTracker.java:87)
-	at org.databene.contiperf.CountRunner.run(CountRunner.java:44)
-	at java.base/java.lang.Thread.run(Thread.java:831)
-Caused by: java.lang.NullPointerException: Cannot invoke "server.data.domain.Room.getName()" because "r1" is null
-	at ServerTest.testAddRoom(ServerTest.java:148)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.databene.contiperf.junit.JUnitInvoker.invoke(JUnitInvoker.java:43)
-	... 4 more
-
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.617 sec

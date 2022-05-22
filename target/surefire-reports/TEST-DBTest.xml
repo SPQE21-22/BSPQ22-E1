@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="12" failures="0" name="DBTest" time="6.245" errors="0" skipped="0">
+<testsuite tests="12" failures="0" name="DBTest" time="6.884" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="16.0.1+9-24"/>
@@ -60,16 +60,16 @@
     <property name="sun.stdout.encoding" value="cp850"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="DBTest" name="testGetBooks" time="0.673"/>
-  <testcase classname="DBTest" name="testGetRooms" time="0.374"/>
-  <testcase classname="DBTest" name="testGetUsers" time="0.59"/>
-  <testcase classname="DBTest" name="testAddBook" time="0.444"/>
-  <testcase classname="DBTest" name="testAddRoom" time="0.461"/>
-  <testcase classname="DBTest" name="testAddUser" time="0.391"/>
-  <testcase classname="DBTest" name="testUpdateBook" time="0.72"/>
-  <testcase classname="DBTest" name="testUpdateRoom" time="0.4"/>
-  <testcase classname="DBTest" name="testUpdateUser" time="0.37"/>
-  <testcase classname="DBTest" name="testDeleteBook" time="0.72"/>
-  <testcase classname="DBTest" name="testDeleteRoom" time="0.728"/>
-  <testcase classname="DBTest" name="testDeleteUser" time="0.374"/>
+  <testcase classname="DBTest" name="testGetBooks" time="0.884"/>
+  <testcase classname="DBTest" name="testGetRooms" time="0.389"/>
+  <testcase classname="DBTest" name="testGetUsers" time="0.56"/>
+  <testcase classname="DBTest" name="testAddBook" time="0.405"/>
+  <testcase classname="DBTest" name="testAddRoom" time="0.79"/>
+  <testcase classname="DBTest" name="testAddUser" time="0.412"/>
+  <testcase classname="DBTest" name="testUpdateBook" time="0.57"/>
+  <testcase classname="DBTest" name="testUpdateRoom" time="0.423"/>
+  <testcase classname="DBTest" name="testUpdateUser" time="0.775"/>
+  <testcase classname="DBTest" name="testDeleteBook" time="0.396"/>
+  <testcase classname="DBTest" name="testDeleteRoom" time="0.698"/>
+  <testcase classname="DBTest" name="testDeleteUser" time="0.582"/>
 </testsuite>
