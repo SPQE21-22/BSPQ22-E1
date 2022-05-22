@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="7" failures="0" name="ServerTest" time="5.653" errors="1" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="16.0.1+9-24"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-16.0.1\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\ruben\IdeaProjects\BSPQ22-E1"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="ES"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="C:\Users\ruben\IdeaProjects\BSPQ22-E1"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="16.0.1+9-24"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.io.tmpdir" value="C:\Users\ruben\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="classworlds.conf" value="C:\Users\ruben\apache-maven-3.8.5\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-16.0.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Eclipse Foundation\jdk-16.0.2.7-hotspot\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Razer\ChromaBroadcast\bin;C:\Program Files\Razer\ChromaBroadcast\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\MinGW\bin;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Git\cmd;C:\apache-ant-1.9.16\bin;D:\Documentos\jdk-16.0.2+7\bin;C:\Program Files\nodejs\;C:\Users\ruben\apache-maven-3.8.5\bin;D:\Documentos\jdk-16.0.2+7;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Ruby30-x64\bin;C:\Users\ruben\AppData\Local\Programs\Python\Python38\Scripts\;C:\Users\ruben\AppData\Local\Programs\Python\Python38\;C:\Users\ruben\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\ruben\AppData\Local\Programs\Python\Python39\;C:\Users\ruben\AppData\Local\Microsoft\WindowsApps;C:\Users\ruben\AppData\Local\GitHubDesktop\bin;C:\Program Files\JetBrains\PyCharm 2021.2.1\bin;C:\Users\ruben\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\ruben\AppData\Roaming\npm;."/>
+    <property name="maven.conf" value="C:\Users\ruben\apache-maven-3.8.5/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="60.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.0"/>
+    <property name="library.jansi.path" value="C:\Users\ruben\apache-maven-3.8.5\lib\jansi-native"/>
+    <property name="user.home" value="C:\Users\ruben"/>
+    <property name="user.timezone" value="Europe/Madrid"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.specification.version" value="16"/>
+    <property name="user.name" value="ruben"/>
+    <property name="java.class.path" value="C:\Users\ruben\apache-maven-3.8.5\boot\plexus-classworlds-2.6.0.jar"/>
+    <property name="java.vm.specification.version" value="16"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-16.0.1"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.version" value="16.0.1"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="sun.stderr.encoding" value="cp850"/>
+    <property name="maven.home" value="C:\Users\ruben\apache-maven-3.8.5"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.version.date" value="2021-04-20"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.stdout.encoding" value="cp850"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="ServerTest" name="testGetBooks" time="1.146"/>
+  <testcase classname="ServerTest" name="testAddBook" time="0.771"/>
+  <testcase classname="ServerTest" name="testAddRoom" time="1.03">
+    <error message="java.lang.NullPointerException: Cannot invoke &quot;server.data.domain.Room.getName()&quot; because &quot;r1&quot; is null" type="org.databene.contiperf.PerfTestExecutionError">org.databene.contiperf.PerfTestExecutionError: java.lang.NullPointerException: Cannot invoke &quot;server.data.domain.Room.getName()&quot; because &quot;r1&quot; is null
+	at org.databene.contiperf.util.ContiPerfUtil.executionError(ContiPerfUtil.java:58)
+	at org.databene.contiperf.junit.JUnitInvoker.invoke(JUnitInvoker.java:46)
+	at org.databene.contiperf.util.InvokerProxy.invoke(InvokerProxy.java:38)
+	at org.databene.contiperf.PerformanceTracker.invoke(PerformanceTracker.java:87)
+	at org.databene.contiperf.CountRunner.run(CountRunner.java:44)
+	at java.base/java.lang.Thread.run(Thread.java:831)
+Caused by: java.lang.NullPointerException: Cannot invoke &quot;server.data.domain.Room.getName()&quot; because &quot;r1&quot; is null
+	at ServerTest.testAddRoom(ServerTest.java:148)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.databene.contiperf.junit.JUnitInvoker.invoke(JUnitInvoker.java:43)
+	... 4 more
+</error>
+    <system-out>2022-05-22 17:21:35 INFO  ServerTest:40 - Started Setup
+2022-05-22 17:21:36 INFO  ServerTest:49 - Finished Setup
+ServerTest.testAddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:141 - Started AddRoom
+2022-05-22 17:21:36 INFO  ServerTest:155 - Finished AddRoom
+samples: 19
+max:     54
+average: 32.36842105263158
+median:  30
+</system-out>
+  </testcase>
+  <testcase classname="ServerTest" name="testUpdateBook" time="0.566"/>
+  <testcase classname="ServerTest" name="testGetResp" time="0.562"/>
+  <testcase classname="ServerTest" name="testCreateUser" time="1.135"/>
+  <testcase classname="ServerTest" name="testUserLogin" time="0.443"/>
+</testsuite>
