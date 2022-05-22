@@ -1,0 +1,247 @@
+\hypertarget{_gui_main_8java_source}{}\doxysection{Gui\+Main.\+java}
+\label{_gui_main_8java_source}\index{src/main/java/client/GUI/GuiMain.java@{src/main/java/client/GUI/GuiMain.java}}
+\mbox{\hyperlink{_gui_main_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00001}00001 \textcolor{keyword}{package }client.GUI;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00003}00003 \textcolor{keyword}{import} org.apache.log4j.LogManager;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00004}00004 \textcolor{keyword}{import} org.apache.log4j.Logger;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00005}00005 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.*;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00007}00007 \textcolor{keyword}{import} java.awt.Color;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00008}00008 \textcolor{keyword}{import} java.awt.Font;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00009}00009 \textcolor{keyword}{import} java.awt.GridLayout;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00010}00010 \textcolor{keyword}{import} java.awt.event.ActionEvent;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00011}00011 \textcolor{keyword}{import} java.awt.event.ActionListener;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00012}00012 \textcolor{keyword}{import} java.util.\mbox{\hyperlink{classjava_1_1util_1_1_list}{List}};}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00013}00013 \textcolor{keyword}{import} java.util.Locale;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00014}00014 \textcolor{keyword}{import} java.util.ResourceBundle;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00015}00015 \textcolor{keyword}{import} javax.swing.*;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00016}00016 \textcolor{keyword}{import} javax.ws.rs.client.*;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00017}00017 \textcolor{keyword}{import} javax.ws.rs.core.MediaType;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00018}00018 \textcolor{keyword}{import} javax.ws.rs.core.Response;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00020}\mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_main}{00020}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_main}{GuiMain}} \textcolor{keyword}{extends} JFrame \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00021}00021     \textcolor{keyword}{private} \textcolor{keyword}{static} JFrame guiMain;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00022}00022     \textcolor{keyword}{private} JMenuBar menuBar;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00023}00023     \textcolor{keyword}{private} JMenu menuUser;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00024}00024     \textcolor{keyword}{private} JMenuItem menuItemUserInfo;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00025}00025     \textcolor{keyword}{private} JMenuItem menuItemLogOut;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00026}00026     \textcolor{keyword}{private} JMenuItem menuItemWaitingList;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00027}00027     \textcolor{keyword}{private} JMenuItem menuCalendar;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00028}00028     \textcolor{keyword}{private} JMenuItem menuItemCafeteria;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00029}00029     \textcolor{keyword}{private} JMenuItem menuItemReturn;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00030}00030     \textcolor{keyword}{private} JSeparator separatorMenu;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00031}00031     \textcolor{keyword}{private} JMenuItem menuItemExit;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00032}00032     \textcolor{keyword}{private} JPanel panel;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00033}00033     \textcolor{keyword}{private} JMenu menuAdmin;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00034}00034     \textcolor{keyword}{private} JMenuItem menuItemAddBook;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00035}00035     \textcolor{keyword}{private} JMenuItem menuItemfineuser;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00036}00036     \textcolor{keyword}{private} JMenuItem menuAdministrator;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00037}00037     \textcolor{keyword}{private} Font arialBlack13;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00038}00038     \textcolor{keyword}{private} Font arial13;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00039}00039     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} Logger logger = LogManager.getLogger(\mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_main}{GuiMain}}.class);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00040}00040     Client \mbox{\hyperlink{namespaceclient}{client}};}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00041}00041     WebTarget webTarget;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00042}00042     \textcolor{keyword}{private} ResourceBundle resourceBundle = ResourceBundle.getBundle(\textcolor{stringliteral}{"{}SystemMessages"{}}, Locale.getDefault());}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00044}\mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_main_ab9931da7886a99579d80b50eaf759127}{00044}}     \textcolor{keyword}{public} \mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_main_ab9931da7886a99579d80b50eaf759127}{GuiMain}}(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} u, List<Book> ab, String hostname, String port) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00045}00045         \mbox{\hyperlink{namespaceclient}{client}} = ClientBuilder.newClient();}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00046}00046         webTarget = \mbox{\hyperlink{namespaceclient}{client}}.target(String.format(\textcolor{stringliteral}{"{}http://\%s:\%s/rest"{}}, hostname, port));}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00048}00048         guiMain = \textcolor{keyword}{new} JFrame();}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00049}00049         menuBar = \textcolor{keyword}{new} JMenuBar();}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00050}00050         menuUser = \textcolor{keyword}{new} JMenu(\textcolor{stringliteral}{"{}USER"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00051}00051         menuItemUserInfo = \textcolor{keyword}{new} JMenuItem(\textcolor{stringliteral}{"{}User Information"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00052}00052         menuItemWaitingList = \textcolor{keyword}{new} JMenuItem(\textcolor{stringliteral}{"{}Waiting List"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00053}00053         menuCalendar = \textcolor{keyword}{new} JMenuItem(\textcolor{stringliteral}{"{}Calendar"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00054}00054         menuItemCafeteria = \textcolor{keyword}{new} JMenuItem(\textcolor{stringliteral}{"{}Cafeteria"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00055}00055         menuItemReturn = \textcolor{keyword}{new} JMenuItem(\textcolor{stringliteral}{"{}Make a return"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00056}00056         menuItemLogOut = \textcolor{keyword}{new} JMenuItem(\textcolor{stringliteral}{"{}Log Out"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00057}00057         separatorMenu = \textcolor{keyword}{new} JSeparator();}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00058}00058         menuItemExit = \textcolor{keyword}{new} JMenuItem(\textcolor{stringliteral}{"{}Exit"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00059}00059         menuAdmin = \textcolor{keyword}{new} JMenu(\textcolor{stringliteral}{"{}ADMIN"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00060}00060         menuItemAddBook = \textcolor{keyword}{new} JMenuItem(\textcolor{stringliteral}{"{}Add Book"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00061}00061         menuItemfineuser = \textcolor{keyword}{new} JMenuItem(\textcolor{stringliteral}{"{}Fine a user"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00062}00062         menuAdministrator = \textcolor{keyword}{new} JMenuItem(\textcolor{stringliteral}{"{}Administration menu"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00063}00063         panel = \textcolor{keyword}{new} JPanel();}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00064}00064         panel.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00066}00066         arialBlack13 = \textcolor{keyword}{new} Font(\textcolor{stringliteral}{"{}Arial"{}}, 1, 13);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00067}00067         arial13 = \textcolor{keyword}{new} Font(\textcolor{stringliteral}{"{}Arial"{}}, 0, 13);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00069}00069         guiMain.setTitle(\textcolor{stringliteral}{"{}Library"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00070}00070         guiMain.setResizable(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00071}00071         guiMain.setBounds(100, 100, 450, 300);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00072}00072         guiMain.setDefaultCloseOperation(3);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00073}00073         guiMain.getContentPane().setLayout(\textcolor{keyword}{null});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00074}00074         guiMain.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00076}00076         menuBar.setBounds(0, 0, 434, 22);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00077}00077 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00078}00078         menuUser.setFont(arialBlack13);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00079}00079         menuBar.add(menuUser);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00081}00081         menuItemUserInfo.setFont(arial13);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00082}00082         menuItemUserInfo.addActionListener(\textcolor{keyword}{new} ActionListener() \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00083}00083             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00084}00084                 \textcolor{keyword}{new} \mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_user}{GuiUser}}(u, ab, hostname, port);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00085}00085                 guiMain.dispose();}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00086}00086             \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00087}00087         \});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00088}00088         menuUser.add(menuItemUserInfo);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00090}00090         menuItemWaitingList.setFont(arial13);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00091}00091         menuItemWaitingList.addActionListener(\textcolor{keyword}{new} ActionListener() \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00092}00092             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00093}00093                 \textcolor{keyword}{new} \mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_waiting_list}{GuiWaitingList}}(u, ab, hostname, port);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00094}00094             \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00095}00095         \});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00096}00096         menuUser.add(menuItemWaitingList);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00098}00098         menuCalendar.setFont(arial13);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00099}00099         menuCalendar.addActionListener(\textcolor{keyword}{new} ActionListener() \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00100}00100             @Override}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00101}00101             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00102}00102                 WebTarget bookWebTarget = webTarget.path(\textcolor{stringliteral}{"{}users/rooms"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00103}00103                 Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00104}00104                 Response response = invocationBuilder.get();}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00105}00105                 \textcolor{keywordflow}{if} (response.getStatus() == Response.Status.OK.getStatusCode()) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00106}00106                     \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_reserve}{Reserve}} reserve = response.readEntity(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_reserve}{Reserve}}.class);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00107}00107                     \textcolor{keyword}{new} \mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_calendar}{GuiCalendar}}(u, reserve.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_reserve_ab1e294fd25c341fddd4a16eb7aa0f22a}{getReserves}}(), hostname, port);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00108}00108                 \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00109}00109 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00110}00110 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00111}00111             \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00112}00112         \});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00113}00113         menuUser.add(menuCalendar);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00114}00114 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00115}00115         menuItemCafeteria.setFont(arial13);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00116}00116         menuItemCafeteria.addActionListener(\textcolor{keyword}{new} ActionListener() \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00117}00117             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00118}00118                 \textcolor{keyword}{new} \mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_cafeteria}{GuiCafeteria}}(u, ab, hostname, port);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00119}00119             \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00120}00120         \});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00121}00121         menuUser.add(menuItemCafeteria);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00122}00122 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00123}00123         menuItemReturn.setFont(arial13);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00124}00124         menuItemReturn.addActionListener(\textcolor{keyword}{new} ActionListener() \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00125}00125             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00126}00126                 String ret = JOptionPane.showInputDialog(\textcolor{keyword}{null}, \textcolor{stringliteral}{"{}What book do you want to return?"{}}, \textcolor{stringliteral}{"{}Management"{}}, JOptionPane.INFORMATION\_MESSAGE);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00127}00127                 \textcolor{keywordflow}{if} (ret != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00128}00128                     \textcolor{keywordflow}{for} (\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}} b : ab) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00129}00129                         \textcolor{keywordflow}{if} (b.getName().equals(ret))\{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00130}00130                             b.setAvailable(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00131}00131                             u.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user_ae94d94c54c1e2789b5d3e16cb5ed2c00}{getBooks}}().remove(b);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00132}00132                             guiMain.getContentPane().add(loadBooks(panel, ab, u));}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00133}00133                             WebTarget bookWebTarget = webTarget.path(\textcolor{stringliteral}{"{}users/updateBook"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00134}00134                             Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00135}00135                             Response response = invocationBuilder.put(Entity.entity(b, MediaType.APPLICATION\_JSON));}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00136}00136                             \textcolor{keywordflow}{if} (response.getStatus() != Response.Status.OK.getStatusCode()) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00137}00137                                 logger.error(resourceBundle.getString(\textcolor{stringliteral}{"{}updateBookError"{}}));}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00138}00138                             \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00139}00139                         \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00140}00140                     \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00141}00141                 \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00142}00142             \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00143}00143         \});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00144}00144         menuUser.add(menuItemReturn);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00145}00145 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00146}00146         menuItemLogOut.setFont(arial13);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00147}00147         menuItemLogOut.addActionListener(\textcolor{keyword}{new} ActionListener() \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00148}00148             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00149}00149                 \textcolor{keyword}{new} \mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_login}{GuiLogin}}(hostname, port);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00150}00150                 guiMain.dispose();}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00151}00151             \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00152}00152         \});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00153}00153         menuUser.add(menuItemLogOut);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00155}00155         separatorMenu.setForeground(Color.BLACK);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00156}00156         separatorMenu.setBackground(Color.BLACK);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00157}00157         menuUser.add(separatorMenu);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00159}00159         menuItemExit.setFont(arial13);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00160}00160         menuItemExit.addActionListener(\textcolor{keyword}{new} ActionListener() \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00161}00161             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00162}00162                 guiMain.dispose();}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00163}00163             \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00164}00164         \});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00165}00165         menuUser.add(menuItemExit);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00166}00166 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00167}00167         menuAdmin.setFont(arialBlack13);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00168}00168         menuBar.add(menuAdmin);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00169}00169 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00170}00170         menuItemAddBook.setFont(arial13);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00171}00171         menuItemAddBook.addActionListener(\textcolor{keyword}{new} ActionListener() \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00172}00172             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00173}00173                 \textcolor{keyword}{new} \mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_create_book}{GuiCreateBook}}(u, ab, hostname, port);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00174}00174                 guiMain.dispose();}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00175}00175             \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00176}00176         \});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00177}00177         menuAdmin.add(menuItemAddBook);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00178}00178 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00179}00179         menuItemfineuser.setFont(arial13);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00180}00180         menuItemfineuser.addActionListener(\textcolor{keyword}{new} ActionListener() \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00181}00181             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00182}00182                 String finedus = JOptionPane.showInputDialog(\textcolor{keyword}{null}, \textcolor{stringliteral}{"{}User to be fined: "{}}, \textcolor{stringliteral}{"{}Management"{}}, JOptionPane.INFORMATION\_MESSAGE);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00183}00183                 \textcolor{keywordflow}{if} (finedus != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00184}00184                     \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_fine}{Fine}} fine = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_fine}{Fine}}(u, 30);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00185}00185                     WebTarget bookWebTarget = webTarget.path(\textcolor{stringliteral}{"{}users/fine"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00186}00186                     Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00187}00187                     Response response = invocationBuilder.post(Entity.entity(fine, MediaType.APPLICATION\_JSON));}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00188}00188                     \textcolor{keywordflow}{if} (response.getStatus() == Response.Status.OK.getStatusCode()) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00189}00189                         JOptionPane.showMessageDialog(\textcolor{keyword}{null}, \textcolor{stringliteral}{"{}User fined correctly "{}}, \textcolor{stringliteral}{"{}Management"{}}, JOptionPane.INFORMATION\_MESSAGE);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00190}00190                     \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00191}00191                 \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00192}00192             \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00193}00193         \});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00194}00194         menuAdmin.add(menuItemfineuser);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00195}00195 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00196}00196         menuAdministrator.setFont(arial13);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00197}00197         menuAdministrator.addActionListener(\textcolor{keyword}{new} ActionListener() \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00198}00198             @Override}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00199}00199             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00200}00200                 \textcolor{keyword}{new} \mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_admin_management}{GuiAdminManagement}}(u, ab, hostname, port);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00201}00201                 guiMain.dispose();}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00202}00202             \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00203}00203         \});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00204}00204         menuAdmin.add(menuAdministrator);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00205}00205 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00206}00206         panel.setBounds(0, 22, 434, 238);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00207}00207         panel.setLayout(\textcolor{keyword}{new} GridLayout(10, 10, 0, 0));}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00208}00208 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00209}00209         guiMain.getContentPane().add(menuBar);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00210}00210         guiMain.getContentPane().add(loadBooks(panel, ab, u));}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00211}00211     \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00212}00212 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00213}00213     \textcolor{keyword}{private} JPanel loadBooks(JPanel p2, List<Book> ab2, \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} us)\{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00214}00214         p2.removeAll();}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00215}00215 }
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00216}00216         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}} b : ab2)\{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00217}00217             \textcolor{keywordflow}{if}(b.getAvailable())\{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00218}00218                 JButton button = \textcolor{keyword}{new} JButton(b.getName());}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00219}00219                 button.addActionListener(\textcolor{keyword}{new} ActionListener() \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00220}00220                     \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00221}00221                         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < ab2.size(); i++) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00222}00222                             \textcolor{keywordflow}{if}(ab2.get(i).getName().equals(button.getText()))\{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00223}00223                                 ab2.get(i).setAvailable(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00224}00224                                 us.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user_ae94d94c54c1e2789b5d3e16cb5ed2c00}{getBooks}}().add(ab2.get(i));}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00225}00225                                 WebTarget bookWebTarget = webTarget.path(\textcolor{stringliteral}{"{}users/updateBook"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00226}00226                                 Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00227}00227                                 Response response = invocationBuilder.put(Entity.entity(ab2.get(i), MediaType.APPLICATION\_JSON));}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00228}00228                                 \textcolor{keywordflow}{if} (response.getStatus() != Response.Status.OK.getStatusCode()) \{}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00229}00229                                     logger.error(resourceBundle.getString(\textcolor{stringliteral}{"{}updateBookError"{}}));}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00230}00230                                 \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00231}00231                             \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00232}00232                         \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00233}00233                     \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00234}00234                 \});}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00235}00235                 p2.add(button);}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00236}00236             \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00237}00237             p2.updateUI();}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00238}00238         \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00239}00239         \textcolor{keywordflow}{return} p2;}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00240}00240     \}}
+\DoxyCodeLine{\Hypertarget{_gui_main_8java_source_l00241}00241 \}}
+
+\end{DoxyCode}

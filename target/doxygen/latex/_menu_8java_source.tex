@@ -1,0 +1,67 @@
+\hypertarget{_menu_8java_source}{}\doxysection{Menu.\+java}
+\label{_menu_8java_source}\index{src/main/java/server/data/domain/Menu.java@{src/main/java/server/data/domain/Menu.java}}
+\mbox{\hyperlink{_menu_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00001}00001 \textcolor{keyword}{package }server.data.domain;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00008}00008 \textcolor{keyword}{import} java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00010}\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu}{00010}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu}{Menu}} \{}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00012}00012     \textcolor{keyword}{private} ArrayList<Supply> starter;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00013}00013     \textcolor{keyword}{private} ArrayList<Supply> main;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00014}00014     \textcolor{keyword}{private} ArrayList<Supply> pastry;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00015}00015     \textcolor{keyword}{private} ArrayList<Supply> drink;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00024}\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a447c2d98c5697f07ceeadb7bd6d5611d}{00024}}     \textcolor{keyword}{public} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a447c2d98c5697f07ceeadb7bd6d5611d}{Menu}}(ArrayList<Supply> starter, ArrayList<Supply> main, ArrayList<Supply> pastry, ArrayList<Supply> drink) \{}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00025}00025         this.starter = starter;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00026}00026         this.main = main;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00027}00027         this.pastry = pastry;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00028}00028         this.drink = drink;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00029}00029     \}}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00030}\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a84218121d1afdef93bdbbd754955443e}{00030}}     \textcolor{keyword}{public} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a84218121d1afdef93bdbbd754955443e}{Menu}}() \{}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00031}00031         this.starter = \textcolor{keyword}{new} ArrayList<Supply>();}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00032}00032         this.main = \textcolor{keyword}{new} ArrayList<Supply>();}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00033}00033         this.pastry = \textcolor{keyword}{new} ArrayList<Supply>();}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00034}00034         this.drink = \textcolor{keyword}{new} ArrayList<Supply>();}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00035}00035     \}}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00037}\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_ad49d7753553df3caf14284ce8ec12cba}{00037}}     \textcolor{keyword}{public} ArrayList<Supply> \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_ad49d7753553df3caf14284ce8ec12cba}{getStarter}}() \{}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00038}00038         \textcolor{keywordflow}{return} starter;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00039}00039     \}}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00040}\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a21d28750d7802f02770173c18f5fa74d}{00040}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a21d28750d7802f02770173c18f5fa74d}{setStarter}}(ArrayList<Supply> starter) \{}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00041}00041         this.starter = starter;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00042}00042     \}}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00044}\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a2b989107796eb2c15e4200b02a662b66}{00044}}     \textcolor{keyword}{public} ArrayList<Supply> \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a2b989107796eb2c15e4200b02a662b66}{getMain}}() \{}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00045}00045         \textcolor{keywordflow}{return} main;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00046}00046     \}}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00047}\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_aa62fae24294047768e84dd03c63bfdee}{00047}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_aa62fae24294047768e84dd03c63bfdee}{setMain}}(ArrayList<Supply> main) \{}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00048}00048         this.main = main;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00049}00049     \}}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00051}\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a9126bf0522176241dcb0fac998ab3b6a}{00051}}     \textcolor{keyword}{public} ArrayList<Supply> \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a9126bf0522176241dcb0fac998ab3b6a}{getPastry}}() \{}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00052}00052         \textcolor{keywordflow}{return} pastry;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00053}00053     \}}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00054}\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a20f49e95bd1eb535c14ba628997406d0}{00054}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a20f49e95bd1eb535c14ba628997406d0}{setPastry}}(ArrayList<Supply> pastry) \{}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00055}00055         this.pastry = pastry;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00056}00056     \}}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00058}\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a6ba3141daacdf5699e4dd2eb9f082f08}{00058}}     \textcolor{keyword}{public} ArrayList<Supply> \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a6ba3141daacdf5699e4dd2eb9f082f08}{getDrink}}() \{}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00059}00059         \textcolor{keywordflow}{return} drink;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00060}00060     \}}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00061}\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a961f4398a3ac6ea49d41091891203b35}{00061}}     \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_a961f4398a3ac6ea49d41091891203b35}{setDrink}}(ArrayList<Supply> drink) \{}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00062}00062         this.drink = drink;}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00063}00063     \}}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00065}00065     @Override}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00066}\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_aa1d977305705e9a185b074dae65f1cb3}{00066}}     \textcolor{keyword}{public} String \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu_aa1d977305705e9a185b074dae65f1cb3}{toString}}() \{}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00067}00067         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}Menu\{"{}} +}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00068}00068                 \textcolor{stringliteral}{"{}starter="{}} + starter +}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00069}00069                 \textcolor{stringliteral}{"{}, main="{}} + main +}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00070}00070                 \textcolor{stringliteral}{"{}, pastry="{}} + pastry +}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00071}00071                 \textcolor{stringliteral}{"{}, drink="{}} + drink +}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00072}00072                 \textcolor{charliteral}{'\}'};}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00073}00073     \}}
+\DoxyCodeLine{\Hypertarget{_menu_8java_source_l00074}00074 \}}
+
+\end{DoxyCode}

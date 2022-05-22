@@ -1,0 +1,663 @@
+\hypertarget{_d_b_8java_source}{}\doxysection{DB.\+java}
+\label{_d_b_8java_source}\index{src/main/java/server/sql/DB.java@{src/main/java/server/sql/DB.java}}
+\mbox{\hyperlink{_d_b_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00001}\mbox{\hyperlink{namespaceserver_1_1sql}{00001}} \textcolor{keyword}{package }server.sql;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00003}00003 \textcolor{keyword}{import} java.sql.*;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00004}00004 \textcolor{keyword}{import} java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00005}00005 \textcolor{keyword}{import} java.util.List;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00007}00007 \textcolor{comment}{//import org.apache.logging.log4j.LogManager;}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00008}00008 \textcolor{comment}{//import org.apache.logging.log4j.Logger;}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00009}00009 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{classserver_1_1_main}{Main}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00010}00010 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00011}00011 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_fine}{Fine}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00012}00012 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room}{Room}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00013}00013 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_supply}{Supply}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00014}00014 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00024}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{00024}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00026}00026     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} \textcolor{keywordtype}{long} serialVersionUID = 1L;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00027}00027     \textcolor{comment}{// private static ArrayList<UserDTO> usersList;}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00028}00028     \textcolor{keyword}{private} \textcolor{keyword}{static} ArrayList<User> usersList;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00029}00029     \textcolor{comment}{//  private static ArrayList<BookDTO> booksList;}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00030}00030     \textcolor{keyword}{private} \textcolor{keyword}{static} ArrayList<Book> booksList;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00031}00031     \textcolor{keyword}{private} \textcolor{keyword}{static} ArrayList<Room> roomsList;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00032}00032     \textcolor{keyword}{private} \textcolor{keyword}{static} ArrayList<Supply> suppliesList;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00033}00033     \textcolor{keyword}{private} \textcolor{keyword}{static} ArrayList<Fine> finesList;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00035}00035     \textcolor{comment}{//private static final Logger logger = LogManager.getLogger(DB.class);}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00036}00036 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00043}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aaa17518ad729f8f95bfe8540cfd3e29e}{00043}}     \textcolor{keyword}{public} \textcolor{keyword}{static} Connection \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aaa17518ad729f8f95bfe8540cfd3e29e}{initBD}}() throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}, SQLException \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00044}00044         Connection con = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00046}00046         String driver = \textcolor{stringliteral}{"{}com.mysql.cj.jdbc.Driver"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00047}00047         String url = \textcolor{stringliteral}{"{}jdbc:mysql://localhost:3306/librarydb"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00048}00048         String username = \textcolor{stringliteral}{"{}root"{}}; \textcolor{comment}{//root}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00049}00049         String password = \textcolor{stringliteral}{"{}root"{}}; \textcolor{comment}{//"{}root"{}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00050}00050         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00051}00051             Class.forName(driver);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00052}00052             con = DriverManager.getConnection(url, username, password);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00053}00053             \textcolor{comment}{//logger.info("{}Connection with librarydb succeeded"{});}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00054}00054         \} \textcolor{keywordflow}{catch} (ClassNotFoundException ex) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00055}00055             ex.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00056}00056         \} \textcolor{keywordflow}{catch} (SQLException throwable) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00057}00057             throwable.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00058}00058         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00059}00059         \textcolor{keywordflow}{return} con;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00060}00060     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00067}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a03dd5a61e94d380d897a2c1691547e3b}{00067}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a03dd5a61e94d380d897a2c1691547e3b}{createTables}}(Connection con) \textcolor{keywordflow}{throws} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00068}00068         \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7c01714cc464a8e91bd076a74f29d493}{dropTables}}(con);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00069}00069         String bookq = \textcolor{stringliteral}{"{}CREATE TABLE IF NOT EXISTS Book (b\_id int auto\_increment PRIMARY KEY, name VARCHAR(255) , author VARCHAR(255) , publishDate Date, available Boolean)"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00070}00070         String userq = \textcolor{stringliteral}{"{}CREATE TABLE IF NOT EXISTS User (u\_id int auto\_increment PRIMARY KEY, name VARCHAR(255), email VARCHAR(255), password VARCHAR(255), birthDate Date)"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00071}00071         String roomq = \textcolor{stringliteral}{"{}CREATE TABLE IF NOT EXISTS Room (r\_id int auto\_increment PRIMARY KEY, name VARCHAR(255), day INTEGER, month VARCHAR(255), hourBeg INTEGER, hourEnd INTEGER, booked Boolean, u\_id VARCHAR(255))"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00072}00072         String supplyq = \textcolor{stringliteral}{"{}CREATE TABLE IF NOT EXISTS Supply (s\_id int auto\_increment PRIMARY KEY, name VARCHAR(255), price DOUBLE, type VARCHAR(255))"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00073}00073         String fineq = \textcolor{stringliteral}{"{}CREATE TABLE IF NOT EXISTS Fine (f\_id int auto\_increment PRIMARY KEY, quantity DOUBLE, email VARCHAR(255))"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00074}00074         Statement st = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00075}00075         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00076}00076             st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00077}00077             st.executeUpdate(bookq);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00078}00078             st.executeUpdate(userq);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00079}00079             st.executeUpdate(roomq);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00080}00080             st.executeUpdate(supplyq);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00081}00081             st.executeUpdate(fineq);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00082}00082             st.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00083}00083         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00084}00084             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00085}00085             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}(\textcolor{stringliteral}{"{}Failure to create database tables"{}}, e);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00086}00086         \} \textcolor{keywordflow}{finally} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00087}00087             \textcolor{keywordflow}{if} (st != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00088}00088                 \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00089}00089                     st.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00090}00090                 \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00091}00091                     \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00092}00092                     e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00093}00093                 \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00094}00094             \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00095}00095         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00096}00096     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00103}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7c01714cc464a8e91bd076a74f29d493}{00103}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7c01714cc464a8e91bd076a74f29d493}{dropTables}}(Connection con) \textcolor{keywordflow}{throws} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00104}00104         String bookq = \textcolor{stringliteral}{"{}DROP TABLE IF EXISTS Book"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00105}00105         String userq = \textcolor{stringliteral}{"{}DROP TABLE IF EXISTS User"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00106}00106         String roomq = \textcolor{stringliteral}{"{}DROP TABLE IF EXISTS Room"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00107}00107         String supplyq = \textcolor{stringliteral}{"{}DROP TABLE IF EXISTS Supply"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00108}00108         String fineq = \textcolor{stringliteral}{"{}DROP TABLE IF EXISTS Fine"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00109}00109         Statement st = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00110}00110         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00111}00111             st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00112}00112             st.executeUpdate(supplyq);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00113}00113             st.executeUpdate(fineq);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00114}00114             st.executeUpdate(roomq);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00115}00115             st.executeUpdate(bookq);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00116}00116             st.executeUpdate(userq);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00117}00117             st.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00118}00118         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00119}00119             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00120}00120             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}(\textcolor{stringliteral}{"{}Failure to create database tables"{}}, e);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00121}00121         \} \textcolor{keywordflow}{finally} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00122}00122             \textcolor{keywordflow}{if} (st != \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00123}00123                 \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00124}00124                     st.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00125}00125                 \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00126}00126                     \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00127}00127                     e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00128}00128                 \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00129}00129             \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00130}00130         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00131}00131     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00142}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_adf18c6d1f82e4d1ebbaaebf7f54d6f17}{00142}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_adf18c6d1f82e4d1ebbaaebf7f54d6f17}{addUser}}(Connection con, String name, String email, String password, Date birthDate)}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00143}00143             \textcolor{keywordflow}{throws} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00144}00144         birthDate.setYear(birthDate.getYear()-\/1900);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00145}00145         \textcolor{keywordflow}{try} (PreparedStatement stmt = con}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00146}00146                 .prepareStatement(\textcolor{stringliteral}{"{}INSERT INTO User (name, email, password , birthDate) VALUES (?,?,?,?)"{}});}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00147}00147              Statement stmtForId = con.createStatement()) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00148}00148             stmt.setString(1, name);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00149}00149             stmt.setString(2, email);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00150}00150             stmt.setString(3, password);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00151}00151             stmt.setDate(4, birthDate);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00152}00152             stmt.executeUpdate();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00153}00153             stmt.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00154}00154         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00155}00155             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00156}00156             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}(\textcolor{stringliteral}{"{}User cannot be added"{}});}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00157}00157         \} \textcolor{comment}{/*finally \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00158}00158 \textcolor{comment}{            if (con != null) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00159}00159 \textcolor{comment}{                try \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00160}00160 \textcolor{comment}{                    con.close();}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00161}00161 \textcolor{comment}{                \} catch (SQLException e) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00162}00162 \textcolor{comment}{                    // TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00163}00163 \textcolor{comment}{                    e.printStackTrace();}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00164}00164 \textcolor{comment}{                \}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00165}00165 \textcolor{comment}{            \}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00166}00166 \textcolor{comment}{        \}*/}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00167}00167     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00168}00168 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00178}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7b30a91d00dc662184674f25e6db2d2d}{00178}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7b30a91d00dc662184674f25e6db2d2d}{addBook}}(Connection con, String name, String author, Date publishDate, Boolean available)}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00179}00179             \textcolor{keywordflow}{throws} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00180}00180         publishDate.setYear(publishDate.getYear()-\/1900);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00181}00181         \textcolor{keywordflow}{try} (PreparedStatement stmt = con}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00182}00182                 .prepareStatement(\textcolor{stringliteral}{"{}INSERT INTO Book (name, author, publishDate , available) VALUES (?,?,?,?)"{}});}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00183}00183              Statement stmtForId = con.createStatement()) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00184}00184             stmt.setString(1, name);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00185}00185             stmt.setString(2, author);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00186}00186             stmt.setDate(3, publishDate);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00187}00187             stmt.setBoolean(4, available);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00188}00188             stmt.executeUpdate();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00189}00189             stmt.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00190}00190         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00191}00191             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00192}00192             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}(\textcolor{stringliteral}{"{}Book cannot be added"{}});}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00193}00193         \} \textcolor{comment}{/*finally \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00194}00194 \textcolor{comment}{            if (con != null) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00195}00195 \textcolor{comment}{                try \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00196}00196 \textcolor{comment}{                    con.close();}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00197}00197 \textcolor{comment}{                \} catch (SQLException e) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00198}00198 \textcolor{comment}{                    // TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00199}00199 \textcolor{comment}{                    e.printStackTrace();}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00200}00200 \textcolor{comment}{                \}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00201}00201 \textcolor{comment}{            \}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00202}00202 \textcolor{comment}{        \}*/}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00203}00203     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00204}00204 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00216}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aeca148762a98ed3ed6e32ac726dcb114}{00216}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aeca148762a98ed3ed6e32ac726dcb114}{addRoom}}(Connection con, String name, \textcolor{keywordtype}{int} day, String month, \textcolor{keywordtype}{int} hourBeg, \textcolor{keywordtype}{int} hourEnd, Boolean booked, String user\_name)}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00217}00217             \textcolor{keywordflow}{throws} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00218}00218         \textcolor{keywordflow}{try} (PreparedStatement stmt = con}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00219}00219                 .prepareStatement(\textcolor{stringliteral}{"{}INSERT INTO Room (name, day, month, hourBeg, hourEnd, booked, u\_id) VALUES (?,?,?,?,?,?,?)"{}});}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00220}00220              Statement stmtForId = con.createStatement()) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00221}00221             stmt.setString(1, name);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00222}00222             stmt.setInt(2, day);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00223}00223             stmt.setString(3, month);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00224}00224             stmt.setInt(4, hourBeg);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00225}00225             stmt.setInt(5, hourEnd);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00226}00226             stmt.setBoolean(6, booked);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00227}00227             stmt.setString(7, user\_name);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00228}00228             stmt.executeUpdate();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00229}00229             stmt.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00230}00230         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00231}00231             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00232}00232             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}(\textcolor{stringliteral}{"{}Room cannot be added"{}});}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00233}00233         \} \textcolor{comment}{/*finally \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00234}00234 \textcolor{comment}{            if (con != null) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00235}00235 \textcolor{comment}{                try \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00236}00236 \textcolor{comment}{                    con.close();}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00237}00237 \textcolor{comment}{                \} catch (SQLException e) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00238}00238 \textcolor{comment}{                    // TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00239}00239 \textcolor{comment}{                    e.printStackTrace();}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00240}00240 \textcolor{comment}{                \}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00241}00241 \textcolor{comment}{            \}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00242}00242 \textcolor{comment}{        \}*/}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00243}00243     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00244}00244 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00252}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aaadef16f92c7c404b57632b3e885bf5a}{00252}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aaadef16f92c7c404b57632b3e885bf5a}{addSupply}}(Connection con, String name, \textcolor{keywordtype}{double} price, String type)}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00253}00253             \textcolor{keywordflow}{throws} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00254}00254         \textcolor{keywordflow}{try} (PreparedStatement stmt = con}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00255}00255                 .prepareStatement(\textcolor{stringliteral}{"{}INSERT INTO Supply (name, price, type) VALUES (?,?,?)"{}});}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00256}00256              Statement stmtForId = con.createStatement()) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00257}00257             stmt.setString(1, name);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00258}00258             stmt.setDouble(2, price);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00259}00259             stmt.setString(3, type);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00260}00260             stmt.executeUpdate();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00261}00261             stmt.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00262}00262         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00263}00263             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00264}00264             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}(\textcolor{stringliteral}{"{}Supply cannot be added"{}});}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00265}00265         \} \textcolor{comment}{/*finally \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00266}00266 \textcolor{comment}{            if (con != null) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00267}00267 \textcolor{comment}{                try \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00268}00268 \textcolor{comment}{                    con.close();}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00269}00269 \textcolor{comment}{                \} catch (SQLException e) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00270}00270 \textcolor{comment}{                    // TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00271}00271 \textcolor{comment}{                    e.printStackTrace();}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00272}00272 \textcolor{comment}{                \}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00273}00273 \textcolor{comment}{            \}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00274}00274 \textcolor{comment}{        \}*/}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00275}00275     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00276}00276 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00277}00277     \textcolor{comment}{//Menu tabla -\/ 4 strings TODO}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00278}00278 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00279}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a1e635b4d5f3c9ea0c4421b7128297036}{00279}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a1e635b4d5f3c9ea0c4421b7128297036}{addFine}}(Connection con, \textcolor{keywordtype}{double} quantity, String id\_user)}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00280}00280             \textcolor{keywordflow}{throws} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00281}00281         \textcolor{keywordflow}{try} (PreparedStatement stmt = con}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00282}00282                 .prepareStatement(\textcolor{stringliteral}{"{}INSERT INTO Fine (quantity, email) VALUES (?, ?)"{}});}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00283}00283              Statement stmtForId = con.createStatement()) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00284}00284             stmt.setDouble(1, quantity);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00285}00285             stmt.setString(2, id\_user);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00286}00286             stmt.executeUpdate();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00287}00287             stmt.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00288}00288         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00289}00289             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00290}00290             \textcolor{keywordflow}{throw} \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}}(\textcolor{stringliteral}{"{}Supply cannot be added"{}});}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00291}00291         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00292}00292     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00293}00293 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00300}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a53db4824c31c25df57bb6554abee552e}{00300}}     \textcolor{keyword}{public} \textcolor{keyword}{static} ArrayList<User> \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a53db4824c31c25df57bb6554abee552e}{getUsersList}}(Connection con) \textcolor{keywordflow}{throws} SQLException \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00301}00301         String sent = \textcolor{stringliteral}{"{}SELECT * FROM User"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00302}00302         Statement st = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00303}00303         st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00304}00304         usersList = \textcolor{keyword}{new} ArrayList<User>();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00305}00305         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} user = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00306}00306         ResultSet rs = st.executeQuery(sent);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00307}00307         \textcolor{keywordflow}{while} (rs.next()) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00308}00308             user = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}(rs.getString(2), rs.getString(3), rs.getString(4), rs.getDate(5), \textcolor{keyword}{new} ArrayList<Book>(), \textcolor{keyword}{new} ArrayList<Fine>());}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00309}00309             usersList.add(user);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00310}00310         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00311}00311         rs.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00312}00312         \textcolor{keywordflow}{return} usersList;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00313}00313     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00314}00314 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00321}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a6377e4f62358c0246eb2c5d20e393df1}{00321}}     \textcolor{keyword}{public} \textcolor{keyword}{static} ArrayList<Book> \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a6377e4f62358c0246eb2c5d20e393df1}{getBooksList}}(Connection con) \textcolor{keywordflow}{throws} SQLException \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00322}00322         String sent = \textcolor{stringliteral}{"{}SELECT * FROM Book"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00323}00323         Statement st = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00324}00324         st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00325}00325         booksList = \textcolor{keyword}{new} ArrayList<Book>();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00326}00326         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}} book = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}}();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00327}00327         ResultSet rs = st.executeQuery(sent);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00328}00328         \textcolor{keywordflow}{while} (rs.next()) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00329}00329             book = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}}(rs.getString(2), rs.getString(3), rs.getDate(4), rs.getBoolean(5));}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00330}00330             booksList.add(book);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00331}00331         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00332}00332         rs.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00333}00333         \textcolor{keywordflow}{return} booksList;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00334}00334     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00335}00335 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00342}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a1706df17cf94b2aeabd156ba3b821873}{00342}}     \textcolor{keyword}{public} \textcolor{keyword}{static} ArrayList<Room> \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a1706df17cf94b2aeabd156ba3b821873}{getRoomsList}}(Connection con) \textcolor{keywordflow}{throws} SQLException \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00343}00343         String sent = \textcolor{stringliteral}{"{}SELECT * FROM Room"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00344}00344         Statement st = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00345}00345         st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00346}00346         roomsList = \textcolor{keyword}{new} ArrayList<Room>();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00347}00347         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room}{Room}} room = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room}{Room}}();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00348}00348         ResultSet rs = st.executeQuery(sent);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00349}00349         \textcolor{keywordflow}{while} (rs.next()) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00350}00350             \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} u = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00351}00351             sent = \textcolor{stringliteral}{"{}SELECT * FROM User WHERE email = '"{}} + rs.getString(8)+\textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00352}00352             st = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00353}00353             st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00354}00354             ResultSet rs2 = st.executeQuery(sent);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00355}00355             \textcolor{keywordflow}{while}(rs2.next()) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00356}00356                 u = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}(rs2.getString(2), rs2.getString(3), rs2.getString(4), rs2.getDate(5), \textcolor{keyword}{new} ArrayList<Book>(), \textcolor{keyword}{new} ArrayList<Fine>());}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00357}00357             \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00358}00358             room = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room}{Room}}(rs.getString(2), u, rs.getInt(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getBoolean(7));}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00359}00359             roomsList.add(room);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00360}00360         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00361}00361         rs.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00362}00362         \textcolor{keywordflow}{return} roomsList;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00363}00363     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00364}00364 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00371}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_ad37597a1fa2e249f19a7c930674dd294}{00371}}     \textcolor{keyword}{public} \textcolor{keyword}{static} ArrayList<Supply> \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_ad37597a1fa2e249f19a7c930674dd294}{getSuppliesList}}(Connection con) \textcolor{keywordflow}{throws} SQLException \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00372}00372         String sent = \textcolor{stringliteral}{"{}SELECT * FROM Supply"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00373}00373         Statement st = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00374}00374         st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00375}00375         suppliesList = \textcolor{keyword}{new} ArrayList<Supply>();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00376}00376         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_supply}{Supply}} supply = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_supply}{Supply}}();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00377}00377         ResultSet rs = st.executeQuery(sent);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00378}00378         \textcolor{keywordflow}{while} (rs.next()) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00379}00379             supply = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_supply}{Supply}}(rs.getString(2), rs.getDouble(3), rs.getString(4));}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00380}00380             suppliesList.add(supply);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00381}00381         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00382}00382         rs.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00383}00383         \textcolor{keywordflow}{return} suppliesList;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00384}00384     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00385}00385 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00393}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_ac55cf2e1133ab6bed7d984bd85bbe82d}{00393}}     \textcolor{keyword}{public} \textcolor{keyword}{static} ArrayList<Fine> \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_ac55cf2e1133ab6bed7d984bd85bbe82d}{getFinesList}}(Connection con) \textcolor{keywordflow}{throws} SQLException \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00394}00394         String sent = \textcolor{stringliteral}{"{}SELECT * FROM Fine"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00395}00395         Statement st = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00396}00396 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00397}00397         st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00398}00398 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00399}00399         finesList = \textcolor{keyword}{new} ArrayList<Fine>();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00400}00400         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_fine}{Fine}} fine = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_fine}{Fine}}();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00401}00401         ResultSet rs = st.executeQuery(sent);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00402}00402         \textcolor{keywordflow}{while} (rs.next()) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00403}00403             \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} u = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00404}00404             sent = \textcolor{stringliteral}{"{}SELECT * FROM User WHERE email = '"{}} + rs.getString(3)+\textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00405}00405             st = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00406}00406             st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00407}00407             ResultSet rs2 = st.executeQuery(sent);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00408}00408             \textcolor{keywordflow}{while}(rs2.next()) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00409}00409                 u = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}(rs2.getString(2), rs2.getString(3), rs2.getString(4), rs2.getDate(5), \textcolor{keyword}{new} ArrayList<Book>(), \textcolor{keyword}{new} ArrayList<Fine>());}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00410}00410             \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00411}00411             fine = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_fine}{Fine}}(u, rs.getDouble(2));}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00412}00412             finesList.add(fine);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00413}00413         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00414}00414         rs.close();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00415}00415         \textcolor{keywordflow}{return} finesList;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00416}00416     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00417}00417 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00423}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a95d13f9a1f4140407d96bb4ba8e23d5f}{00423}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a95d13f9a1f4140407d96bb4ba8e23d5f}{deleteBook}}(Connection con, String name) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00424}00424         String sent = \textcolor{stringliteral}{"{}DELETE FROM Book WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00425}00425         Statement st = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00426}00426         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00427}00427             st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00428}00428             st.executeUpdate(sent);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00429}00429         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00430}00430             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00431}00431         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00432}00432     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00433}00433 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00439}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a5294c6851f1f9c3243dd09a2e71f2142}{00439}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a5294c6851f1f9c3243dd09a2e71f2142}{deleteUser}}(Connection con, String name) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00440}00440         String sent = \textcolor{stringliteral}{"{}DELETE FROM User WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00441}00441         Statement st = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00442}00442         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00443}00443             st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00444}00444             st.executeUpdate(sent);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00445}00445         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00446}00446             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00447}00447         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00448}00448     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00449}00449 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00455}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a63ca5dcffa917722255466923208f955}{00455}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a63ca5dcffa917722255466923208f955}{deleteRoom}}(Connection con, String name) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00456}00456         String sent = \textcolor{stringliteral}{"{}DELETE FROM Room WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00457}00457         Statement st = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00458}00458         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00459}00459             st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00460}00460             st.executeUpdate(sent);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00461}00461         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00462}00462             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00463}00463         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00464}00464     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00465}00465 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00471}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_af7e18150e0ab3d328fc821955568177f}{00471}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_af7e18150e0ab3d328fc821955568177f}{deleteSupply}}(Connection con, String name) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00472}00472         String sent = \textcolor{stringliteral}{"{}DELETE FROM Supply WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00473}00473         Statement st = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00474}00474         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00475}00475             st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00476}00476             st.executeUpdate(sent);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00477}00477         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00478}00478             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00479}00479         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00480}00480     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00481}00481 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00482}00482 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00483}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a73fed534b6c046b8bf840ce6c0121bf3}{00483}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a73fed534b6c046b8bf840ce6c0121bf3}{deleteFine}}(Connection con, \textcolor{keywordtype}{int} f\_id) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00484}00484         String sent = \textcolor{stringliteral}{"{}DELETE FROM Fine WHERE f\_id = "{}} + f\_id;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00485}00485         Statement st = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00486}00486         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00487}00487             st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00488}00488             st.executeUpdate(sent);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00489}00489         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00490}00490             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00491}00491         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00492}00492     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00493}00493 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00500}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aa345918b72e83e565841d0b143e0b71b}{00500}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aa345918b72e83e565841d0b143e0b71b}{updateBookAuthor}}(Connection con, String name, String author) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00501}00501         String sql = \textcolor{stringliteral}{"{}UPDATE Book SET author = '"{}} + author + \textcolor{stringliteral}{"{}' WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00502}00502 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00503}00503         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00504}00504             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00505}00505             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00506}00506         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00507}00507             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00508}00508             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00509}00509         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00510}00510     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00511}00511 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00518}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_afba3f7daff742b9d90cc2cfa602fb27b}{00518}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_afba3f7daff742b9d90cc2cfa602fb27b}{updateBookName}}(Connection con, String name, String newName) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00519}00519         String sql = \textcolor{stringliteral}{"{}UPDATE Book SET name = '"{}} + newName + \textcolor{stringliteral}{"{}' WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00520}00520 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00521}00521         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00522}00522             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00523}00523             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00524}00524         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00525}00525             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00526}00526             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00527}00527         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00528}00528     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00529}00529 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00536}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a269ca5e75aa594a300b6b3a1134f962a}{00536}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a269ca5e75aa594a300b6b3a1134f962a}{updateBookPublishDate}}(Connection con, String name, Date date) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00537}00537         date.setYear(date.getYear()-\/1900);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00538}00538         String sql = \textcolor{stringliteral}{"{}UPDATE Book SET publishDate = '"{}} + date + \textcolor{stringliteral}{"{}' WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00539}00539 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00540}00540         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00541}00541             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00542}00542             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00543}00543         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00544}00544             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00545}00545             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00546}00546         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00547}00547     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00548}00548 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00555}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a74e4f9ddc9b32f2431b0200117ded984}{00555}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a74e4f9ddc9b32f2431b0200117ded984}{updateBookAvailability}}(Connection con, String name, Boolean available) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00556}00556         String sql = \textcolor{stringliteral}{"{}UPDATE Book SET available = "{}} + available + \textcolor{stringliteral}{"{} WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00557}00557 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00558}00558         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00559}00559             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00560}00560             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00561}00561         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00562}00562             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00563}00563             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00564}00564         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00565}00565     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00566}00566 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00573}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aea7b50c42e2796b4215e8880a777b068}{00573}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aea7b50c42e2796b4215e8880a777b068}{updateUserName}}(Connection con, String name, String newName) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00574}00574         String sql = \textcolor{stringliteral}{"{}UPDATE User SET name = '"{}} + newName + \textcolor{stringliteral}{"{}' WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00575}00575 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00576}00576         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00577}00577             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00578}00578             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00579}00579         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00580}00580             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00581}00581             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00582}00582         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00583}00583     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00584}00584 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00591}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a164ceb7b9ecd7139173ca04f79685c4f}{00591}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a164ceb7b9ecd7139173ca04f79685c4f}{updateUserEmail}}(Connection con, String name, String email) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00592}00592         String sql = \textcolor{stringliteral}{"{}UPDATE User SET email = '"{}} + email + \textcolor{stringliteral}{"{}' WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00593}00593 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00594}00594         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00595}00595             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00596}00596             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00597}00597         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00598}00598             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00599}00599             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00600}00600         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00601}00601     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00602}00602 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00609}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a59d74177cd8677d04de18e52329f91c5}{00609}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a59d74177cd8677d04de18e52329f91c5}{updateUserPassword}}(Connection con, String name, String password) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00610}00610         String sql = \textcolor{stringliteral}{"{}UPDATE User SET password= '"{}} + password + \textcolor{stringliteral}{"{}' WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00611}00611 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00612}00612         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00613}00613             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00614}00614             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00615}00615         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00616}00616             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00617}00617             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00618}00618         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00619}00619     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00620}00620 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00627}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7bfaae7fd678b129897ea05cd547861f}{00627}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7bfaae7fd678b129897ea05cd547861f}{updateUserBirthdate}}(Connection con, String name, Date birthdate) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00628}00628         birthdate.setYear(birthdate.getYear()-\/1900);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00629}00629         String sql = \textcolor{stringliteral}{"{}UPDATE User SET birthDate = '"{}} + birthdate + \textcolor{stringliteral}{"{}' WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00630}00630 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00631}00631         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00632}00632             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00633}00633             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00634}00634         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00635}00635             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00636}00636             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00637}00637         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00638}00638     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00639}00639 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00646}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7ddc1905826fa9c022944b0c9e1140c5}{00646}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7ddc1905826fa9c022944b0c9e1140c5}{updateRoomName}}(Connection con, String name, String newname) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00647}00647         String sql = \textcolor{stringliteral}{"{}UPDATE Room SET name = '"{}} + newname + \textcolor{stringliteral}{"{}' WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00648}00648 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00649}00649         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00650}00650             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00651}00651             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00652}00652         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00653}00653             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00654}00654             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00655}00655         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00656}00656     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00657}00657 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00664}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a410c1a42487ddfa51cc54f6edc8453e2}{00664}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a410c1a42487ddfa51cc54f6edc8453e2}{updateRoomDay}}(Connection con, \textcolor{keywordtype}{int} day, String name) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00665}00665         String sql = \textcolor{stringliteral}{"{}UPDATE Room SET day = "{}} + day + \textcolor{stringliteral}{"{} WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00666}00666 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00667}00667         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00668}00668             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00669}00669             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00670}00670         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00671}00671             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00672}00672             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00673}00673         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00674}00674     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00675}00675 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00682}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a15bd3dda444f959de10a208ee9f9e594}{00682}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a15bd3dda444f959de10a208ee9f9e594}{updateRoomMonth}}(Connection con, String month, String name) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00683}00683         String sql = \textcolor{stringliteral}{"{}UPDATE Room SET month = '"{}} + month + \textcolor{stringliteral}{"{}' WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00684}00684 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00685}00685         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00686}00686             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00687}00687             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00688}00688         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00689}00689             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00690}00690             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00691}00691         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00692}00692     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00693}00693 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00700}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a797e40c7f3aedfd713fa595a70d1c43f}{00700}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a797e40c7f3aedfd713fa595a70d1c43f}{updateRoomHourBeg}}(Connection con, \textcolor{keywordtype}{int} hourBeg, String name) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00701}00701         String sql = \textcolor{stringliteral}{"{}UPDATE Room SET hourBeg = "{}} + hourBeg + \textcolor{stringliteral}{"{} WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00702}00702 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00703}00703         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00704}00704             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00705}00705             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00706}00706         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00707}00707             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00708}00708             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00709}00709         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00710}00710     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00711}00711 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00718}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a4cc9779b683b7e06b0be914917cd994f}{00718}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a4cc9779b683b7e06b0be914917cd994f}{updateRoomHourEnd}}(Connection con, \textcolor{keywordtype}{int} hourEnd, String name) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00719}00719         String sql = \textcolor{stringliteral}{"{}UPDATE Room SET hourEnd = "{}} + hourEnd + \textcolor{stringliteral}{"{} WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00720}00720 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00721}00721         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00722}00722             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00723}00723             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00724}00724         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00725}00725             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00726}00726             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00727}00727         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00728}00728     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00729}00729 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00736}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_ad442f8f1f5012ed934032529dcd08b29}{00736}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_ad442f8f1f5012ed934032529dcd08b29}{updateRoomBooked}}(Connection con, Boolean booked, String name) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00737}00737         String sql = \textcolor{stringliteral}{"{}UPDATE Room SET booked = "{}} + booked + \textcolor{stringliteral}{"{} WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00738}00738 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00739}00739         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00740}00740             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00741}00741             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00742}00742         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00743}00743             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00744}00744             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00745}00745         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00746}00746     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00747}00747 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00754}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a989eaca9859751c9bb105629387210c5}{00754}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a989eaca9859751c9bb105629387210c5}{updateSupplyName}}(Connection con, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, String name) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00755}00755         String sql = \textcolor{stringliteral}{"{}UPDATE Supply SET name = '"{}} + name + \textcolor{stringliteral}{"{}' WHERE id = "{}} + id;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00756}00756         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00757}00757             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00758}00758             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00759}00759         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00760}00760             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00761}00761             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00762}00762         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00763}00763     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00764}00764 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00771}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a955d66fa36fee5293e8575c5c7f2d8be}{00771}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a955d66fa36fee5293e8575c5c7f2d8be}{updateSupplyPrice}}(Connection con, String name, \textcolor{keywordtype}{double} price) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00772}00772         String sql = \textcolor{stringliteral}{"{}UPDATE Supply SET price = "{}} + price + \textcolor{stringliteral}{"{} WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00773}00773         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00774}00774             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00775}00775             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00776}00776         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00777}00777             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00778}00778             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00779}00779         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00780}00780     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00781}00781 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00782}00782 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00789}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_ab988333e3fd0881316a2c7330b240c30}{00789}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_ab988333e3fd0881316a2c7330b240c30}{updateSupplyDate}}(Connection con, String name, Date arrivingDate) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00790}00790         String sql = \textcolor{stringliteral}{"{}UPDATE Supply SET arrivingDate = "{}} + arrivingDate + \textcolor{stringliteral}{"{} WHERE name = '"{}} + name + \textcolor{stringliteral}{"{}'"{}};}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00791}00791         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00792}00792             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00793}00793             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00794}00794         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00795}00795             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00796}00796             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00797}00797         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00798}00798     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00799}00799 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00806}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a49d0ed1fdf3d78be307c4fdab575b16e}{00806}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a49d0ed1fdf3d78be307c4fdab575b16e}{updateFineQuantity}}(Connection con, \textcolor{keywordtype}{int} f\_id, \textcolor{keywordtype}{double} newQuantity) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00807}00807         String sql = \textcolor{stringliteral}{"{}UPDATE Fine SET quantity = "{}} + newQuantity + \textcolor{stringliteral}{"{} WHERE f\_id = "{}} + f\_id;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00808}00808         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00809}00809             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00810}00810             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00811}00811         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00812}00812             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00813}00813             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00814}00814         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00815}00815     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00816}00816 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00823}\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_ae29048fd11e658e809eb8f1d015c2fd1}{00823}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_ae29048fd11e658e809eb8f1d015c2fd1}{updateFineUser}}(Connection con, \textcolor{keywordtype}{int} f\_id, \textcolor{keywordtype}{int} u\_id) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00824}00824         String sql = \textcolor{stringliteral}{"{}UPDATE Fine SET u\_id = "{}} + u\_id + \textcolor{stringliteral}{"{} WHERE f\_id = "{}} + f\_id;}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00825}00825         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00826}00826             Statement st = con.createStatement();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00827}00827             st.executeUpdate(sql);}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00828}00828         \} \textcolor{keywordflow}{catch} (SQLException e) \{}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00829}00829             \textcolor{comment}{// TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00830}00830             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00831}00831         \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00832}00832     \}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00833}00833 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00834}00834 }
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00835}00835 \textcolor{comment}{/* DB TESTING}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00836}00836 \textcolor{comment}{    public static void main(String args[]) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00837}00837 \textcolor{comment}{        Connection con = null;}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00838}00838 \textcolor{comment}{        try \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00839}00839 \textcolor{comment}{            con = initBD();}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00840}00840 \textcolor{comment}{            createTables(con);}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00841}00841 \textcolor{comment}{            addUser(con, "{}Alex"{}, "{}a@mail"{}, "{}1234"{}, new Date(2022, 1, 10));}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00842}00842 \textcolor{comment}{            addUser(con, "{}Aida"{}, "{}a@mail"{}, "{}1234"{}, new Date(2001, 2, 10));}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00843}00843 \textcolor{comment}{            addBook(con, "{}El nombre del Viento"{}, "{}Path"{}, new Date(2006, 3, 15), true);}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00844}00844 \textcolor{comment}{            usersList = getUsersList(con);}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00845}00845 \textcolor{comment}{            booksList = getBooksList(con);}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00846}00846 \textcolor{comment}{            for (User u :}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00847}00847 \textcolor{comment}{                    usersList) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00848}00848 \textcolor{comment}{                logger.info(u);}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00849}00849 \textcolor{comment}{            \}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00850}00850 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00851}00851 \textcolor{comment}{            for (Book u :}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00852}00852 \textcolor{comment}{                    booksList) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00853}00853 \textcolor{comment}{                logger.info(u);}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00854}00854 \textcolor{comment}{            \}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00855}00855 \textcolor{comment}{            updateBookAuthor(con, "{}El nombre del Viento"{}, "{}yo"{});}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00856}00856 \textcolor{comment}{            updateBookName(con, "{}El nombre del Viento"{}, "{}hola"{});}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00857}00857 \textcolor{comment}{            updateBookAvailability(con, "{}hola"{}, false);}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00858}00858 \textcolor{comment}{            updateBookPublishDate(con, "{}hola"{}, new Date(2000, 0, 1));}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00859}00859 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00860}00860 \textcolor{comment}{            updateUserName(con, "{}Aida"{}, "{}Aida2"{});}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00861}00861 \textcolor{comment}{            updateUserEmail(con, "{}Aida2"{}, "{}email@g.com"{});}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00862}00862 \textcolor{comment}{            updateUserBirthdate(con, "{}Aida2"{}, new Date(1900, 0, 3));}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00863}00863 \textcolor{comment}{            updateUserPassword(con, "{}Aida2"{}, "{}hola"{});}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00864}00864 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00865}00865 \textcolor{comment}{        \} catch (SQLException e) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00866}00866 \textcolor{comment}{            e.printStackTrace();}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00867}00867 \textcolor{comment}{        \} catch (DBException e) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00868}00868 \textcolor{comment}{            e.printStackTrace();}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00869}00869 \textcolor{comment}{        \} finally \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00870}00870 \textcolor{comment}{            if (con != null) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00871}00871 \textcolor{comment}{                try \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00872}00872 \textcolor{comment}{                    con.close();}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00873}00873 \textcolor{comment}{                \} catch (SQLException e) \{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00874}00874 \textcolor{comment}{                    // TODO Auto-\/generated catch block}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00875}00875 \textcolor{comment}{                    e.printStackTrace();}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00876}00876 \textcolor{comment}{                \}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00877}00877 \textcolor{comment}{            \}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00878}00878 \textcolor{comment}{        \}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00879}00879 \textcolor{comment}{    \}}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00880}00880 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00881}00881 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{_d_b_8java_source_l00882}00882 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,194 @@
+\hypertarget{_gui_sign_up_8java_source}{}\doxysection{Gui\+Sign\+Up.\+java}
+\label{_gui_sign_up_8java_source}\index{src/main/java/client/GUI/GuiSignUp.java@{src/main/java/client/GUI/GuiSignUp.java}}
+\mbox{\hyperlink{_gui_sign_up_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00001}00001 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00002}00002 \textcolor{comment}{// Source code recreated from a .class file by IntelliJ IDEA}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00003}00003 \textcolor{comment}{// (powered by FernFlower decompiler)}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00004}00004 \textcolor{comment}{//}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00006}00006 \textcolor{keyword}{package }client.GUI;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00008}00008 \textcolor{comment}{//import org.apache.logging.log4j.LogManager;}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00009}00009 \textcolor{comment}{//import org.apache.logging.log4j.Logger;}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00010}00010 \textcolor{keyword}{import} org.apache.log4j.LogManager;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00011}00011 \textcolor{keyword}{import} org.apache.log4j.Logger;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00012}00012 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}};}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00013}00013 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_fine}{Fine}};}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00014}00014 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}};}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00017}00017 \textcolor{keyword}{import} java.awt.Color;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00018}00018 \textcolor{keyword}{import} java.awt.Font;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00019}00019 \textcolor{keyword}{import} java.awt.LayoutManager;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00020}00020 \textcolor{keyword}{import} java.awt.event.ActionEvent;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00021}00021 \textcolor{keyword}{import} java.awt.event.ActionListener;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00022}00022 \textcolor{keyword}{import} java.text.DateFormat;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00023}00023 \textcolor{keyword}{import} java.text.ParseException;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00024}00024 \textcolor{keyword}{import} java.text.SimpleDateFormat;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00025}00025 \textcolor{keyword}{import} java.util.*;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00026}00026 \textcolor{keyword}{import} javax.swing.*;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00027}00027 \textcolor{keyword}{import} javax.ws.rs.client.*;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00028}00028 \textcolor{keyword}{import} javax.ws.rs.core.MediaType;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00029}00029 \textcolor{keyword}{import} javax.ws.rs.core.Response;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00031}\mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_sign_up}{00031}} \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_sign_up}{GuiSignUp}} \textcolor{keyword}{extends} JFrame \{}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00032}00032     \textcolor{keyword}{private} Client \mbox{\hyperlink{namespaceclient}{client}} = ClientBuilder.newClient();}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00033}00033     \textcolor{keyword}{private} WebTarget webTarget;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00034}00034     \textcolor{keyword}{private} \textcolor{keyword}{static} JFrame guiSignUp;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00035}00035     \textcolor{keyword}{private} JLabel labelTitle;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00036}00036     \textcolor{keyword}{private} JSeparator separatorTop;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00037}00037     \textcolor{keyword}{private} JLabel labelName;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00038}00038     \textcolor{keyword}{private} JTextField textName;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00039}00039     \textcolor{keyword}{private} JLabel labelEmail;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00040}00040     \textcolor{keyword}{private} JTextField textEmail;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00041}00041     \textcolor{keyword}{private} JLabel labelPassword;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00042}00042     \textcolor{keyword}{private} JTextField textPassword;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00043}00043     \textcolor{keyword}{private} JLabel labelDob;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00044}00044     \textcolor{keyword}{private} JFormattedTextField textDob;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00045}00045     \textcolor{keyword}{private} JSeparator separatorBottom;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00046}00046     \textcolor{keyword}{private} JButton buttonSignUp;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00047}00047     \textcolor{keyword}{private} Font arialBlack13;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00048}00048     \textcolor{keyword}{private} Font arialBlack30;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00049}00049     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} Logger logger = LogManager.getLogger(\mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_sign_up}{GuiSignUp}}.class);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00050}00050     \textcolor{keyword}{private} ResourceBundle resourceBundle = ResourceBundle.getBundle(\textcolor{stringliteral}{"{}SystemMessages"{}}, Locale.getDefault());}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00052}\mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_sign_up_ac2f59678109ed8a06d3fb5b2dcedda28}{00052}}     \textcolor{keyword}{public} \mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_sign_up_ac2f59678109ed8a06d3fb5b2dcedda28}{GuiSignUp}}(String hostname, String port) \{}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00053}00053         webTarget = \mbox{\hyperlink{namespaceclient}{client}}.target(String.format(\textcolor{stringliteral}{"{}http://\%s:\%s/rest"{}}, hostname, port));}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00054}00054         guiSignUp = \textcolor{keyword}{new} JFrame();}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00055}00055         separatorTop = \textcolor{keyword}{new} JSeparator();}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00056}00056         labelTitle = \textcolor{keyword}{new} JLabel(\textcolor{stringliteral}{"{}SIGN UP"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00057}00057         labelName = \textcolor{keyword}{new} JLabel(\textcolor{stringliteral}{"{}NAME"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00058}00058         textName = \textcolor{keyword}{new} JTextField();}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00059}00059         labelEmail = \textcolor{keyword}{new} JLabel(\textcolor{stringliteral}{"{}E-\/MAIL"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00060}00060         textEmail = \textcolor{keyword}{new} JTextField();}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00061}00061         labelPassword = \textcolor{keyword}{new} JLabel(\textcolor{stringliteral}{"{}PASSWORD"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00062}00062         textPassword = \textcolor{keyword}{new} JTextField();}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00063}00063         labelDob = \textcolor{keyword}{new} JLabel(\textcolor{stringliteral}{"{}DATE OF BIRTH (day, month, year)"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00064}00064         DateFormat df = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"{}dd/MM/yyyy"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00065}00065         textDob = \textcolor{keyword}{new} JFormattedTextField(df);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00066}00066         separatorBottom = \textcolor{keyword}{new} JSeparator();}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00067}00067         buttonSignUp = \textcolor{keyword}{new} JButton(\textcolor{stringliteral}{"{}SIGN UP"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00069}00069         arialBlack13 = \textcolor{keyword}{new} Font(\textcolor{stringliteral}{"{}Arial"{}}, 1, 13);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00070}00070         arialBlack30 = \textcolor{keyword}{new} Font(\textcolor{stringliteral}{"{}Arial"{}}, 1, 30);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00072}00072         guiSignUp.setTitle(\textcolor{stringliteral}{"{}Sign up"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00073}00073         guiSignUp.setResizable(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00074}00074         guiSignUp.setBounds(100, 100, 330, 430);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00075}00075         guiSignUp.setDefaultCloseOperation(3);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00076}00076         guiSignUp.getContentPane().setLayout(\textcolor{keyword}{null});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00077}00077         guiSignUp.setVisible(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00079}00079         labelTitle.setFont(arialBlack30);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00080}00080         labelTitle.setBounds(95, 11, 123, 36);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00082}00082         separatorTop.setForeground(Color.BLACK);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00083}00083         separatorTop.setBackground(Color.BLACK);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00084}00084         separatorTop.setBounds(40, 58, 238, 2);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00085}00085 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00086}00086         labelName.setFont(arialBlack13);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00087}00087         labelName.setBounds(40, 71, 37, 16);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00088}00088         textName.setBounds(40, 98, 238, 20);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00090}00090         labelEmail.setFont(arialBlack13);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00091}00091         labelEmail.setBounds(40, 129, 44, 16);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00092}00092         textEmail.setBounds(40, 156, 238, 20);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00093}00093 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00094}00094         labelPassword.setFont(arialBlack13);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00095}00095         labelPassword.setBounds(40, 187, 77, 16);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00096}00096         textPassword.setBounds(40, 214, 238, 20);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00097}00097 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00098}00098         labelDob.setFont(arialBlack13);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00099}00099         labelDob.setBounds(40, 245, 218, 16);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00100}00100         textDob.setBounds(40, 272, 238, 20);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00102}00102         separatorBottom.setForeground(Color.BLACK);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00103}00103         separatorBottom.setBackground(Color.BLACK);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00104}00104         separatorBottom.setBounds(40, 311, 238, 2);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00105}00105 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00106}00106         buttonSignUp.setFont(arialBlack13);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00107}00107         buttonSignUp.addActionListener(\textcolor{keyword}{new} ActionListener() \{}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00108}00108             @Override}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00109}00109             \textcolor{keyword}{public} \textcolor{keywordtype}{void} actionPerformed(ActionEvent e) \{}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00110}00110 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00111}00111                 \textcolor{keywordflow}{if} (valid())\{}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00112}00112                     \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} u0 = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}(textName.getText(),textEmail.getText(),textPassword.getText(),dateDob(),\textcolor{keyword}{new} ArrayList<Book>(), \textcolor{keyword}{new} ArrayList<Fine>());}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00113}00113 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00114}00114                     WebTarget bookWebTarget = webTarget.path(\textcolor{stringliteral}{"{}users/createUser"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00115}00115                     Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00116}00116                     Response response = invocationBuilder.post(Entity.entity(u0, MediaType.APPLICATION\_JSON));}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00117}00117                     \textcolor{keywordflow}{if} (response.getStatus() != Response.Status.OK.getStatusCode()) \{}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00118}00118                         logger.error(resourceBundle.getString(\textcolor{stringliteral}{"{}registerError"{}}));}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00119}00119                     \} \textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00120}00120                         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} userInfo = response.readEntity(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}.class);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00121}00121                         bookWebTarget = webTarget.path(\textcolor{stringliteral}{"{}users/books"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00122}00122                         invocationBuilder = bookWebTarget.request(MediaType.APPLICATION\_JSON);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00123}00123                         response = invocationBuilder.get();}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00124}00124                         \textcolor{keywordflow}{if} (response.getStatus() == Response.Status.OK.getStatusCode()) \{}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00125}00125                             \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} admin = response.readEntity(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}.class);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00126}00126                             List<Book> ab = admin.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user_ae94d94c54c1e2789b5d3e16cb5ed2c00}{getBooks}}();}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00127}00127                             \textcolor{keyword}{new} \mbox{\hyperlink{classclient_1_1_g_u_i_1_1_gui_main}{GuiMain}}(userInfo, ab, hostname, port);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00128}00128                             guiSignUp.dispose();}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00129}00129                         \}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00130}00130                     \}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00131}00131                     \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00132}00132 \textcolor{comment}{                    Book b0 = new Book();}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00133}00133 \textcolor{comment}{                    b0.setName("{}El imperio final"{});}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00134}00134 \textcolor{comment}{                    b0.setAuthor("{}Brandon Sanderson"{});}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00135}00135 \textcolor{comment}{                    b0.setPublishDate(new Date());}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00136}00136 \textcolor{comment}{                    b0.setAvailable(true);}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00137}00137 \textcolor{comment}{                    Book b1 = new Book();}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00138}00138 \textcolor{comment}{                    b1.setName("{}El pozo de la ascension"{});}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00139}00139 \textcolor{comment}{                    b1.setAuthor("{}Brandon Sanderson"{});}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00140}00140 \textcolor{comment}{                    b1.setPublishDate(new Date());}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00141}00141 \textcolor{comment}{                    b1.setAvailable(true);}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00142}00142 \textcolor{comment}{                    ArrayList<Book> prueba = new ArrayList<Book>();}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00143}00143 \textcolor{comment}{                    prueba.add(b1);}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00144}00144 \textcolor{comment}{                    prueba.add(b0);}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00145}00145 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00146}00146 \textcolor{comment}{                    List<Book> ab = new ArrayList<Book>();}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00147}00147 \textcolor{comment}{                    ab.add(b0);}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00148}00148 \textcolor{comment}{                    ab.add(b1);}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00149}00149 \textcolor{comment}{                     */}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00150}00150 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00151}00151                 \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00152}00152                     JOptionPane.showMessageDialog(\textcolor{keyword}{null}, \textcolor{stringliteral}{"{}Please, fill in all the data."{}}, \textcolor{stringliteral}{"{}Error"{}}, JOptionPane.ERROR\_MESSAGE);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00153}00153                 \}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00154}00154 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00155}00155             \}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00156}00156         \});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00157}00157         buttonSignUp.setBounds(112, 324, 89, 25);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00158}00158 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00159}00159         guiSignUp.getContentPane().add(labelTitle);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00160}00160         guiSignUp.getContentPane().add(separatorTop);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00161}00161         guiSignUp.getContentPane().add(labelName);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00162}00162         guiSignUp.getContentPane().add(textName);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00163}00163         guiSignUp.getContentPane().add(labelEmail);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00164}00164         guiSignUp.getContentPane().add(textEmail);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00165}00165         guiSignUp.getContentPane().add(labelPassword);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00166}00166         guiSignUp.getContentPane().add(textPassword);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00167}00167         guiSignUp.getContentPane().add(labelDob);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00168}00168         guiSignUp.getContentPane().add(textDob);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00169}00169         guiSignUp.getContentPane().add(separatorBottom);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00170}00170         guiSignUp.getContentPane().add(buttonSignUp);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00171}00171     \}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00172}00172 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00173}00173     \textcolor{keyword}{private} Date dateDob()\{}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00174}00174         String dobStr = textDob.getText();}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00175}00175         SimpleDateFormat f = \textcolor{keyword}{new} SimpleDateFormat(\textcolor{stringliteral}{"{}dd/MM/yyyy"{}});}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00176}00176         Date dobD = \textcolor{keyword}{new} Date();}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00177}00177         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00178}00178             f.parse(dobStr);}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00179}00179         \} \textcolor{keywordflow}{catch} (ParseException e) \{}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00180}00180             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00181}00181         \}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00182}00182         \textcolor{keywordflow}{return} dobD;}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00183}00183     \}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00184}00184 }
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00185}00185     \textcolor{keyword}{private} \textcolor{keywordtype}{boolean} valid()\{}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00186}00186         \textcolor{keywordflow}{return} !textName.getText().isEmpty() \&\& !textEmail.getText().isEmpty() \&\& !textPassword.getText().isEmpty() \&\& !textDob.getText().isEmpty();}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00187}00187     \}}
+\DoxyCodeLine{\Hypertarget{_gui_sign_up_8java_source_l00188}00188 \}}
+
+\end{DoxyCode}

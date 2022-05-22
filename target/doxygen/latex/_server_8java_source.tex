@@ -1,0 +1,221 @@
+\hypertarget{_server_8java_source}{}\doxysection{Server.\+java}
+\label{_server_8java_source}\index{src/main/java/server/Server.java@{src/main/java/server/Server.java}}
+\mbox{\hyperlink{_server_8java}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00001}00001 \textcolor{keyword}{package }server;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00010}00010 \textcolor{keyword}{import} javax.ws.rs.*;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00012}00012 \textcolor{keyword}{import} javax.ws.rs.core.MediaType;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00013}00013 \textcolor{keyword}{import} javax.ws.rs.core.Response;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00015}00015 \textcolor{keyword}{import} java.sql.Connection;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00016}00016 \textcolor{keyword}{import} java.sql.SQLException;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00017}00017 \textcolor{keyword}{import} java.util.ArrayList;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00018}00018 \textcolor{keyword}{import} java.sql.Date;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00019}00019 \textcolor{keyword}{import} java.util.List;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00020}00020 \textcolor{keyword}{import} java.util.Locale;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00021}00021 \textcolor{keyword}{import} java.util.ResourceBundle;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00023}00023 \textcolor{keyword}{import} org.apache.log4j.LogManager;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00024}00024 \textcolor{keyword}{import} org.apache.log4j.Logger;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00025}00025 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1data}{data}}.\mbox{\hyperlink{namespaceserver_1_1data_1_1domain}{domain}}.*;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00026}00026 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1sql}{sql}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}};}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00027}00027 \textcolor{keyword}{import} \mbox{\hyperlink{namespaceserver}{server}}.\mbox{\hyperlink{namespaceserver_1_1sql}{sql}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}};}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00030}00030 @Path(\textcolor{stringliteral}{"{}/users"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00031}00031 @Produces(MediaType.APPLICATION\_JSON)}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00032}\mbox{\hyperlink{classserver_1_1_server}{00032}} public class \mbox{\hyperlink{classserver_1_1_server}{Server}} \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00034}00034     \textcolor{keyword}{private} List<User> usersList;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00035}00035     \textcolor{keyword}{private} List<Book> booksList;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00036}00036     \textcolor{keyword}{private} List<Room> roomList;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00037}00037     \textcolor{keyword}{private} List<Fine> finesList;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00038}00038     \textcolor{keyword}{private} List<Supply> supplysList;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00039}00039     \textcolor{keyword}{private} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu}{Menu}} dailymenu;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00040}00040     \textcolor{keyword}{private} Connection con;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00041}00041     \textcolor{keyword}{private} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}} db = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00042}00042     \textcolor{keyword}{private} \textcolor{keyword}{static} \textcolor{keyword}{final} Logger logger = LogManager.getLogger(\mbox{\hyperlink{classserver_1_1_server}{Server}}.class);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00043}00043     \textcolor{keyword}{private} ResourceBundle resourceBundle = ResourceBundle.getBundle(\textcolor{stringliteral}{"{}SystemMessages"{}}, Locale.getDefault());}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00049}\mbox{\hyperlink{classserver_1_1_server_ae9b3c7fddd5254ee3e575f2c61044a9b}{00049}}     \textcolor{keyword}{public} \mbox{\hyperlink{classserver_1_1_server_ae9b3c7fddd5254ee3e575f2c61044a9b}{Server}}() throws SQLException \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00051}00051         \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00052}00052             con = \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aaa17518ad729f8f95bfe8540cfd3e29e}{initBD}}();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00053}00053             usersList = \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a53db4824c31c25df57bb6554abee552e}{getUsersList}}(con);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00054}00054             booksList = \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a6377e4f62358c0246eb2c5d20e393df1}{getBooksList}}(con);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00055}00055             finesList = \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_ac55cf2e1133ab6bed7d984bd85bbe82d}{getFinesList}}(con);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00056}00056             roomList = \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a1706df17cf94b2aeabd156ba3b821873}{getRoomsList}}(con);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00057}00057             supplysList = \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_ad37597a1fa2e249f19a7c930674dd294}{getSuppliesList}}(con);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00058}00058         \} \textcolor{keywordflow}{catch} (\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} e) \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00059}00059             e.printStackTrace();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00060}00060         \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00061}00061     \};}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00068}00068     @POST}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00069}00069     @Path(\textcolor{stringliteral}{"{}/login"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00070}\mbox{\hyperlink{classserver_1_1_server_afcc087c782b201e2e047a54ab976044e}{00070}}     public Response login(String email) \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00071}00071         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} found = \textcolor{keyword}{null};}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00072}00072         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < usersList.size(); i++) \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00073}00073             \textcolor{keywordflow}{if} (usersList.get(i).getEmail().equalsIgnoreCase(email) ) \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00074}00074                 found = usersList.get(i);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00075}00075             \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00076}00076         \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00077}00077         \textcolor{keywordflow}{if} (found == \textcolor{keyword}{null}) \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00078}00078             \textcolor{keywordflow}{return} Response.status(Response.Status.BAD\_REQUEST).entity(\textcolor{stringliteral}{"{}User not found"{}}).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00079}00079         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00080}00080             logger.info(resourceBundle.getString(\textcolor{stringliteral}{"{}loginSuccess"{}}));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00081}00081             \textcolor{keywordflow}{return} Response.ok(found).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00082}00082         \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00083}00083     \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00091}00091     @POST}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00092}00092     @Path(\textcolor{stringliteral}{"{}/createUser"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00093}\mbox{\hyperlink{classserver_1_1_server_a86f831d30e336297aed5eb692d00e187}{00093}}     public Response createUser(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} userRequest) throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00094}00094         \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_adf18c6d1f82e4d1ebbaaebf7f54d6f17}{addUser}}(con, userRequest.getName(), userRequest.getEmail(), userRequest.getPassword(), \textcolor{keyword}{new} Date(userRequest.getBirthDate().getYear(), userRequest.getBirthDate().getMonth(), userRequest.getBirthDate().getDay()));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00095}00095         this.usersList.add(userRequest);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00096}00096         logger.info(resourceBundle.getString(\textcolor{stringliteral}{"{}userCreated"{}}));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00097}00097         \textcolor{keywordflow}{return} Response.ok(userRequest).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00099}00099     \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00100}00100 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00105}00105     @GET}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00106}00106     @Path(\textcolor{stringliteral}{"{}/books"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00107}\mbox{\hyperlink{classserver_1_1_server_af89152100b55a68866bf8ed21be08b8c}{00107}}     public Response getBooks() \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00108}00108         \textcolor{comment}{//logger.info(resourceBundle.getString("{}bookList"{}));}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00109}00109         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} admin = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}}(\textcolor{stringliteral}{"{}"{}},\textcolor{stringliteral}{"{}"{}},\textcolor{stringliteral}{"{}"{}},\textcolor{keyword}{null},this.booksList, \textcolor{keyword}{new} ArrayList<Fine>());}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00110}00110         \textcolor{keywordflow}{return} Response.ok(admin).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00111}00111     \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00119}00119     @POST}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00120}00120     @Path(\textcolor{stringliteral}{"{}/addBook"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00121}\mbox{\hyperlink{classserver_1_1_server_ad0ce783bffe949b805d4663cd635f3aa}{00121}}     public Response addBook(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}} book) throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00122}00122         \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a7b30a91d00dc662184674f25e6db2d2d}{addBook}}(con, book.getName(), book.getAuthor(),  \textcolor{keyword}{new} Date(book.getPublishDate().getYear(), book.getPublishDate().getMonth(), book.getPublishDate().getDay()), \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00123}00123         this.booksList.add(book);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00124}00124         logger.info(resourceBundle.getString(\textcolor{stringliteral}{"{}addBook"{}}));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00125}00125         \textcolor{keywordflow}{return} Response.ok(book).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00127}00127     \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00128}00128 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00135}00135     @PUT}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00136}00136     @Path(\textcolor{stringliteral}{"{}/updateBook"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00137}\mbox{\hyperlink{classserver_1_1_server_a6766bf87777d964a212c748371ec182a}{00137}}     public Response updateBook(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_book}{Book}} book) throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00138}00138         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < booksList.size(); i++) \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00139}00139             \textcolor{keywordflow}{if} (booksList.get(i).getName().equalsIgnoreCase(book.getName()) ) \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00140}00140                 this.booksList.remove(booksList.get(i));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00141}00141             \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00142}00142         \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00143}00143         \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a74e4f9ddc9b32f2431b0200117ded984}{updateBookAvailability}}(con, book.getName(), book.getAvailable());}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00144}00144         logger.info(resourceBundle.getString(\textcolor{stringliteral}{"{}updateBook"{}}));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00145}00145         \textcolor{keywordflow}{return} Response.ok(book).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00146}00146 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00147}00147     \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00148}00148 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00153}00153     @GET}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00154}00154     @Path(\textcolor{stringliteral}{"{}/rooms"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00155}\mbox{\hyperlink{classserver_1_1_server_a393a0a7130ff4bbb36889c8077cfcc31}{00155}}     public Response getRooms() \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00156}00156         logger.info(resourceBundle.getString(\textcolor{stringliteral}{"{}getRooms"{}}));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00157}00157         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_reserve}{Reserve}} res = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_reserve}{Reserve}}(roomList);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00158}00158         logger.info(res.\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_reserve_ab1e294fd25c341fddd4a16eb7aa0f22a}{getReserves}}().get(0));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00159}00159         \textcolor{keywordflow}{return} Response.ok(res).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00160}00160     \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00161}00161 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00168}00168     @POST}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00169}00169     @Path(\textcolor{stringliteral}{"{}/addRoom"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00170}\mbox{\hyperlink{classserver_1_1_server_aa3e2a1fd2759320463980568454be91f}{00170}}     public Response addRoom(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_room}{Room}} reserve) throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00171}00171         logger.info(reserve);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00172}00172         \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aeca148762a98ed3ed6e32ac726dcb114}{addRoom}}(con, reserve.getName(), reserve.getDay(),  reserve.getMonth(), reserve.getHourBeg(), reserve.getHourEnd(), reserve.getBooked(), reserve.getUser().getEmail());}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00173}00173         this.roomList.add(reserve);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00174}00174         logger.info(resourceBundle.getString(\textcolor{stringliteral}{"{}addRoom"{}}));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00175}00175         \textcolor{keywordflow}{return} Response.ok(reserve).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00176}00176     \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00177}00177 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00184}00184     @POST}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00185}00185     @Path(\textcolor{stringliteral}{"{}/fine"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00186}\mbox{\hyperlink{classserver_1_1_server_a89eaead1dd6728170b2a155c8bb6166f}{00186}}     public Response fineUser(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_fine}{Fine}} fine) throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00187}00187         logger.info(fine);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00188}00188         \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_a1e635b4d5f3c9ea0c4421b7128297036}{addFine}}(con, fine.getQuantity(), fine.getUser().getEmail());}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00189}00189         logger.info(resourceBundle.getString(\textcolor{stringliteral}{"{}fine"{}}));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00190}00190         \textcolor{keywordflow}{return} Response.ok(fine).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00191}00191     \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00192}00192 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00198}00198     @POST}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00199}00199     @Path(\textcolor{stringliteral}{"{}/fines"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00200}\mbox{\hyperlink{classserver_1_1_server_a84ca3bca6143dfe2b611fa873357bc3e}{00200}}     public Response getFines(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_user}{User}} user) \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00201}00201         ArrayList<Fine> f = \textcolor{keyword}{new} ArrayList<Fine>();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00202}00202         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_fine}{Fine}} value : finesList) \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00203}00203             \textcolor{keywordflow}{if} (value.getUser().getEmail().equalsIgnoreCase(user.getEmail())) \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00204}00204                 f.add(value);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00205}00205             \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00206}00206         \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00207}00207         user.setFines(f);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00208}00208         logger.info(resourceBundle.getString(\textcolor{stringliteral}{"{}getFines"{}}));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00209}00209         \textcolor{keywordflow}{return} Response.ok(user).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00210}00210     \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00211}00211 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00216}00216     @GET}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00217}00217     @Path(\textcolor{stringliteral}{"{}/supplies"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00218}\mbox{\hyperlink{classserver_1_1_server_ac524e2c1b98aeee72f91f38975d75cdc}{00218}}     public Response getSupplies() \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00219}00219         ArrayList<Supply> starter = \textcolor{keyword}{new} ArrayList<Supply>();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00220}00220         ArrayList<Supply> main = \textcolor{keyword}{new} ArrayList<Supply>();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00221}00221         ArrayList<Supply> pastry = \textcolor{keyword}{new} ArrayList<Supply>();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00222}00222         ArrayList<Supply> drink = \textcolor{keyword}{new} ArrayList<Supply>();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00223}00223         \textcolor{keywordflow}{for} (\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_supply}{Supply}} s: supplysList)\{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00224}00224             \textcolor{keywordflow}{switch} (s.getType()) \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00225}00225                 \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}Starter"{}}:}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00226}00226                     starter.add(s);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00227}00227                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00228}00228                 \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}Main Course"{}}:}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00229}00229                     main.add(s);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00230}00230                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00231}00231                 \textcolor{keywordflow}{case} \textcolor{stringliteral}{"{}Pastry"{}}:}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00232}00232                     pastry.add(s);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00233}00233                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00234}00234                 \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00235}00235                     drink.add(s);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00236}00236                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00237}00237             \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00238}00238         \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00239}00239         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu}{Menu}} res = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu}{Menu}}(starter, main, pastry, drink);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00240}00240         logger.info(resourceBundle.getString(\textcolor{stringliteral}{"{}getSupplies"{}}));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00241}00241         \textcolor{keywordflow}{return} Response.ok(res).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00242}00242     \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00243}00243 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00250}00250     @POST}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00251}00251     @Path(\textcolor{stringliteral}{"{}/addSupply"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00252}\mbox{\hyperlink{classserver_1_1_server_a3756e4a40215aed04914c28c0e41c643}{00252}}     public Response addSupply(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_supply}{Supply}} supply) throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00253}00253         logger.info(supply);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00254}00254         \mbox{\hyperlink{classserver_1_1sql_1_1_d_b}{DB}}.\mbox{\hyperlink{classserver_1_1sql_1_1_d_b_aaadef16f92c7c404b57632b3e885bf5a}{addSupply}}(con, supply.getName(), supply.getPrice(), supply.getType());}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00255}00255         this.supplysList.add(supply);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00256}00256         logger.info(resourceBundle.getString(\textcolor{stringliteral}{"{}addSupply"{}}));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00257}00257         \textcolor{keywordflow}{return} Response.ok(supply).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00258}00258     \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00259}00259 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00266}00266     @POST}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00267}00267     @Path(\textcolor{stringliteral}{"{}/createMenu"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00268}\mbox{\hyperlink{classserver_1_1_server_a11e4fa8eb312a819254f93f060c7f101}{00268}}     public Response createMenu(\mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu}{Menu}} menu) throws \mbox{\hyperlink{classserver_1_1sql_1_1_d_b_exception}{DBException}} \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00269}00269         logger.info(menu);}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00270}00270         dailymenu = \textcolor{keyword}{new} \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu}{Menu}}(menu.getStarter(), menu.getMain(), menu.getPastry(), menu.getDrink());}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00271}00271         logger.info(resourceBundle.getString(\textcolor{stringliteral}{"{}createMenu"{}}));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00272}00272         \textcolor{keywordflow}{return} Response.ok(menu).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00273}00273     \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00274}00274 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00279}00279     @GET}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00280}00280     @Path(\textcolor{stringliteral}{"{}/menu"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00281}\mbox{\hyperlink{classserver_1_1_server_aabb2ef80fb0d20f30dea5825f836aea3}{00281}}     public Response getMenu() \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00282}00282         \mbox{\hyperlink{classserver_1_1data_1_1domain_1_1_menu}{Menu}} res = dailymenu;}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00283}00283         logger.info(resourceBundle.getString(\textcolor{stringliteral}{"{}displayMenu"{}}));}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00284}00284         \textcolor{keywordflow}{return} Response.ok(res).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00285}00285     \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00286}00286 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00291}00291     @GET}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00292}00292     @Path(\textcolor{stringliteral}{"{}/response"{}})}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00293}\mbox{\hyperlink{classserver_1_1_server_a8743fe4c241984b06f686ab445add879}{00293}}     public Response getResp() \{}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00294}00294         String s = \textcolor{stringliteral}{"{}Response"{}};}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00295}00295         \textcolor{keywordflow}{return} Response.ok(s).build();}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00296}00296     \}}
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00297}00297 }
+\DoxyCodeLine{\Hypertarget{_server_8java_source_l00298}00298 \}}
+
+\end{DoxyCode}
