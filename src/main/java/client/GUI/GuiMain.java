@@ -10,6 +10,8 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.*;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
@@ -37,6 +39,7 @@ public class GuiMain extends JFrame {
     private static final Logger logger = LogManager.getLogger(GuiMain.class);
     Client client;
     WebTarget webTarget;
+    private ResourceBundle resourceBundle = ResourceBundle.getBundle("SystemMessages", Locale.getDefault());
 
     public GuiMain(User u, List<Book> ab, String hostname, String port) {
         client = ClientBuilder.newClient();
@@ -131,7 +134,7 @@ public class GuiMain extends JFrame {
                             Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
                             Response response = invocationBuilder.put(Entity.entity(b, MediaType.APPLICATION_JSON));
                             if (response.getStatus() != Response.Status.OK.getStatusCode()) {
-                                logger.error("Error while updating");
+                                logger.error(resourceBundle.getString("updateBookError"));
                             }
                         }
                     }
@@ -223,7 +226,7 @@ public class GuiMain extends JFrame {
                                 Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
                                 Response response = invocationBuilder.put(Entity.entity(ab2.get(i), MediaType.APPLICATION_JSON));
                                 if (response.getStatus() != Response.Status.OK.getStatusCode()) {
-                                    logger.error("Error while updating");
+                                    logger.error(resourceBundle.getString("updateBookError"));
                                 }
                             }
                         }

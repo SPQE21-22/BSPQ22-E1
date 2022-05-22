@@ -14,6 +14,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import javax.swing.*;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
@@ -37,6 +39,7 @@ public class GuiCreateBook extends JFrame {
     private Font arialBlack13;
     private Font arialBlack30;
     private static final Logger logger = LogManager.getLogger(GuiCreateBook.class);
+    private ResourceBundle resourceBundle = ResourceBundle.getBundle("SystemMessages", Locale.getDefault());
 
     public GuiCreateBook(User u, List<Book> ab, String hostname, String port) {
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
@@ -108,7 +111,7 @@ public class GuiCreateBook extends JFrame {
                     Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
                     Response response = invocationBuilder.post(Entity.entity(b0, MediaType.APPLICATION_JSON));
                     if (response.getStatus() != Response.Status.OK.getStatusCode()) {
-                        logger.error("Error while creating book");
+                        logger.error(resourceBundle.getString("errorCreateBook"));
                     } else{
                         new GuiMain(u, ab, hostname, port);
                         guiCreateBook.dispose();

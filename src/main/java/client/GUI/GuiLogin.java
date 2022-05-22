@@ -15,8 +15,7 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,7 +28,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.List;
 
 public class GuiLogin extends JFrame {
     private List<User> usersList;
@@ -53,6 +51,7 @@ public class GuiLogin extends JFrame {
     private Font arialBlack30;
     private Font arial13;
     private static final Logger logger = LogManager.getLogger(GuiLogin.class);
+    private ResourceBundle resourceBundle = ResourceBundle.getBundle("SystemMessages", Locale.getDefault());
 
     public GuiLogin(String hostname, String port) {
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
@@ -117,7 +116,7 @@ public class GuiLogin extends JFrame {
                             guiLogin.dispose();
                         }
                     } else {
-                        logger.error("Error while logging");
+                        logger.error(resourceBundle.getString("errorLogin"));
                         JOptionPane.showMessageDialog((Component) null, "Login was unsuccessful", "Error", 0);
                     }
                 } else {

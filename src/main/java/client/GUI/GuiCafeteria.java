@@ -1,5 +1,7 @@
 package client.GUI;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import server.data.domain.*;
 import server.data.domain.Menu;
 import java.util.Random;
@@ -21,6 +23,7 @@ public class GuiCafeteria {
     private JFrame guiCafeteria;
     Client client;
     WebTarget webTarget;
+    private static final Logger logger = LogManager.getLogger(GuiCafeteria.class);
     public GuiCafeteria(User u, List<Book> ab, String hostname, String port) {
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
@@ -77,7 +80,7 @@ public class GuiCafeteria {
         response = invocationBuilder.get();
         if (response.getStatus() == Response.Status.OK.getStatusCode()) {
             daily = response.readEntity(Menu.class);
-            System.out.println(daily);
+            logger.info(daily);
         }
 
         int yL = 0;

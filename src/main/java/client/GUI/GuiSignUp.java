@@ -22,9 +22,7 @@ import java.awt.event.ActionListener;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import javax.swing.*;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
@@ -49,6 +47,7 @@ public class GuiSignUp extends JFrame {
     private Font arialBlack13;
     private Font arialBlack30;
     private static final Logger logger = LogManager.getLogger(GuiSignUp.class);
+    private ResourceBundle resourceBundle = ResourceBundle.getBundle("SystemMessages", Locale.getDefault());
 
     public GuiSignUp(String hostname, String port) {
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
@@ -116,7 +115,7 @@ public class GuiSignUp extends JFrame {
                     Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
                     Response response = invocationBuilder.post(Entity.entity(u0, MediaType.APPLICATION_JSON));
                     if (response.getStatus() != Response.Status.OK.getStatusCode()) {
-                        logger.error("Error while registering");
+                        logger.error(resourceBundle.getString("registerError"));
                     } else{
                         User userInfo = response.readEntity(User.class);
                         bookWebTarget = webTarget.path("users/books");

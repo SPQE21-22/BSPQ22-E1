@@ -38,7 +38,7 @@ public class Main implements Runnable{
     private DB db = new DB();
     private final AtomicBoolean running = new AtomicBoolean(false);
     private static final Logger logger = LogManager.getLogger(Main.class);
-
+    private ResourceBundle resourceBundle = ResourceBundle.getBundle("SystemMessages", Locale.getDefault());
 
     /**
      * Main function to connect to deploy the server.
@@ -47,8 +47,7 @@ public class Main implements Runnable{
      * @throws SQLException
      */
     public Main(String hostname, String port) throws SQLException {
-        ResourceBundle resourceBundle = ResourceBundle.getBundle("SystemMessages", Locale.getDefault());
-        resourceBundle = ResourceBundle.getBundle("SystemMessages",	Locale.forLanguageTag("en"));
+
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
         try {
@@ -56,6 +55,7 @@ public class Main implements Runnable{
             DB.createTables(con);
             DB.addUser(con, "Alex", "a@mail", "1234",new Date(2022, 1, 10));
             DB.addUser(con, "Aida", "ai@mail", "1234", new Date(2001, 2, 10));
+
             DB.addBook(con, "El nombre del Viento", "Path",  new Date(2006, 3, 15), true);
             DB.addBook(con, "El Camino de lo reyes", "Brandon Sanderson",  new Date(2006, 3, 15), true);
             DB.addBook(con, "El Imperio Final", "Brandon Sanderson",  new Date(2006, 3, 15), true);
@@ -64,20 +64,21 @@ public class Main implements Runnable{
             DB.addBook(con, "Estudio en escarlata", "Arthur Conan Doyle",  new Date(2006, 3, 15), true);
             DB.addBook(con, "El ojo del mundo", "Robert Jordan",  new Date(2006, 3, 15), true);
             DB.addBook(con, "Dracula", "Bran Stroker",  new Date(2006, 3, 15), true);
-            System.out.println(DB.getUsersList(con));
+
             DB.addRoom(con, "SPQ meeting", 1, "May", 13, 16, true,"ai@mail");
             DB.addRoom(con, "DB teamwork", 1, "May", 13, 16, true,"ai@mail");
             DB.addRoom(con, "UI track review", 2, "May", 13, 16, true,"ai@mail");
             DB.addRoom(con, "Reunion", 3, "May", 13, 16, true,"ai@mail");
             DB.addRoom(con, "Algebra studying", 4, "May", 13, 16, true,"ai@mail");
+
             DB.addSupply(con, "Spaghety", 10.5, "Starter");
             DB.addSupply(con, "Fish & Chips", 7.5, "Main Course");
             DB.addSupply(con, "Flan", 2.5, "Pastry");
             DB.addSupply(con, "Water Bottle", 2.5, "Water Based");
+
         } catch (DBException e) {
             e.printStackTrace();
         }
-        //Cosas de la interfaz de server
         logger.info(resourceBundle.getString("startingMsg"));
         thread = new Thread(this);
         thread.start();
@@ -101,7 +102,7 @@ public class Main implements Runnable{
 
             } catch (InterruptedException e){
                 Thread.currentThread().interrupt();
-                logger.error("Thread was interrupted, Failed to complete operation");
+                logger.error(resourceBundle.getString("runningError"));
             }
         }
     }

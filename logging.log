@@ -1801,3 +1801,44 @@
 2022-05-22 18:08:05 INFO  Server:78 - Login correcto
 2022-05-22 18:08:09 INFO  Server:154 - Devolviendo Reservas de habitaciones
 2022-05-22 18:08:09 INFO  Server:156 - Room{id=70, name='SPQ meeting, user=User [ id = 113 name = Aida, email = ai@mail, password = 1234, birthDate = 2001-03-10], day=1, month=May, hourBeg=13, hourEnd=16, booked=true}
+2022-05-22 19:07:34 INFO  Main:82 - Servidor Listo.
+2022-05-22 19:58:06 INFO  Main:82 - Servidor Listo.
+2022-05-22 19:58:08 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:11 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:13 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:15 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:17 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:19 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:21 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:23 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:25 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:27 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:29 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:31 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:33 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:35 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:37 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:39 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:41 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:43 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:45 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:47 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:49 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:51 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:53 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:55 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:57 INFO  Server:108 - Returning every book.
+2022-05-22 19:58:59 INFO  Server:108 - Returning every book.
+2022-05-22 19:59:01 INFO  Server:108 - Returning every book.
+2022-05-22 19:59:03 INFO  Server:80 - Login successful.
+2022-05-22 19:59:03 INFO  Server:108 - Returning every book.
+2022-05-22 19:59:03 INFO  Server:108 - Returning every book.
+2022-05-22 19:59:05 INFO  Server:108 - Returning every book.
+2022-05-22 19:59:06 INFO  Server:144 - Book successfully updated.
+2022-05-22 19:59:07 INFO  Server:108 - Returning every book.
+2022-05-22 19:59:09 INFO  Server:108 - Returning every book.
+2022-05-22 19:59:11 INFO  Server:108 - Returning every book.
+2022-05-22 19:59:13 INFO  Server:108 - Returning every book.
+2022-05-22 19:59:15 INFO  Server:108 - Returning every book.
+2022-05-22 19:59:17 INFO  Server:108 - Returning every book.
+2022-05-22 19:59:19 INFO  Server:108 - Returning every book.

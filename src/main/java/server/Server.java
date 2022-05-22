@@ -17,6 +17,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -38,6 +40,7 @@ public class Server {
 	private Connection con;
 	private DB db = new DB();
 	private static final Logger logger = LogManager.getLogger(Server.class);
+	private ResourceBundle resourceBundle = ResourceBundle.getBundle("SystemMessages", Locale.getDefault());
 
 	/**
 	 * Gets DB information.
@@ -55,7 +58,6 @@ public class Server {
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
-		//logger.info("Servidor Iniciado");
 	};
 
 	/**
@@ -75,7 +77,7 @@ public class Server {
 		if (found == null) {
 			return Response.status(Response.Status.BAD_REQUEST).entity("User not found").build();
 		} else {
-			logger.info("Login correcto");
+			logger.info(resourceBundle.getString("loginSuccess"));
 			return Response.ok(found).build();
 		}
 	}
@@ -91,7 +93,7 @@ public class Server {
 	public Response createUser(User userRequest) throws DBException {
 		DB.addUser(con, userRequest.getName(), userRequest.getEmail(), userRequest.getPassword(), new Date(userRequest.getBirthDate().getYear(), userRequest.getBirthDate().getMonth(), userRequest.getBirthDate().getDay()));
 		this.usersList.add(userRequest);
-		logger.info("Usuario creado correctamente");
+		logger.info(resourceBundle.getString("userCreated"));
 		return Response.ok(userRequest).build();
 
 	}
@@ -103,7 +105,7 @@ public class Server {
 	@GET
 	@Path("/books")
 	public Response getBooks() {
-		//logger.info("Devolviendo listado de libros");
+		//logger.info(resourceBundle.getString("bookList"));
 		User admin = new User("","","",null,this.booksList, new ArrayList<Fine>());
 		return Response.ok(admin).build();
 	}
@@ -119,7 +121,7 @@ public class Server {
 	public Response addBook(Book book) throws DBException {
 		DB.addBook(con, book.getName(), book.getAuthor(),  new Date(book.getPublishDate().getYear(), book.getPublishDate().getMonth(), book.getPublishDate().getDay()), true);
 		this.booksList.add(book);
-		logger.info("Libro añadido correctamente");
+		logger.info(resourceBundle.getString("addBook"));
 		return Response.ok(book).build();
 
 	}
@@ -139,7 +141,7 @@ public class Server {
 			}
 		}
 		DB.updateBookAvailability(con, book.getName(), book.getAvailable());
-		logger.info("Libro actualizado correctamente");
+		logger.info(resourceBundle.getString("updateBook"));
 		return Response.ok(book).build();
 
 	}
@@ -151,7 +153,7 @@ public class Server {
 	@GET
 	@Path("/rooms")
 	public Response getRooms() {
-		logger.info("Devolviendo Reservas de habitaciones");
+		logger.info(resourceBundle.getString("getRooms"));
 		Reserve res = new Reserve(roomList);
 		logger.info(res.getReserves().get(0));
 		return Response.ok(res).build();
@@ -169,7 +171,7 @@ public class Server {
 		logger.info(reserve);
 		DB.addRoom(con, reserve.getName(), reserve.getDay(),  reserve.getMonth(), reserve.getHourBeg(), reserve.getHourEnd(), reserve.getBooked(), reserve.getUser().getEmail());
 		this.roomList.add(reserve);
-		logger.info("Habitacion añadida correctamente");
+		logger.info(resourceBundle.getString("addRoom"));
 		return Response.ok(reserve).build();
 	}
 
@@ -184,7 +186,7 @@ public class Server {
 	public Response fineUser(Fine fine) throws DBException {
 		logger.info(fine);
 		DB.addFine(con, fine.getQuantity(), fine.getUser().getEmail());
-		logger.info("Usuario multado correctamente");
+		logger.info(resourceBundle.getString("fine"));
 		return Response.ok(fine).build();
 	}
 
@@ -203,7 +205,7 @@ public class Server {
 			}
 		}
 		user.setFines(f);
-		logger.info("Devolviendo Multas de usuario");
+		logger.info(resourceBundle.getString("getFines"));
 		return Response.ok(user).build();
 	}
 
@@ -235,7 +237,7 @@ public class Server {
 			}
 		}
 		Menu res = new Menu(starter, main, pastry, drink);
-		logger.info("Devolviendo contenidos de cafeteria");
+		logger.info(resourceBundle.getString("getSupplies"));
 		return Response.ok(res).build();
 	}
 
@@ -251,7 +253,7 @@ public class Server {
 		logger.info(supply);
 		DB.addSupply(con, supply.getName(), supply.getPrice(), supply.getType());
 		this.supplysList.add(supply);
-		logger.info("Supply añadido correctamente");
+		logger.info(resourceBundle.getString("addSupply"));
 		return Response.ok(supply).build();
 	}
 
@@ -266,7 +268,7 @@ public class Server {
 	public Response createMenu(Menu menu) throws DBException {
 		logger.info(menu);
 		dailymenu = new Menu(menu.getStarter(), menu.getMain(), menu.getPastry(), menu.getDrink());
-		logger.info("Menu diario creado correctamente");
+		logger.info(resourceBundle.getString("createMenu"));
 		return Response.ok(menu).build();
 	}
 
@@ -278,7 +280,7 @@ public class Server {
 	@Path("/menu")
 	public Response getMenu() {
 		Menu res = dailymenu;
-		logger.info("Devolviendo contenidos de cafeteria");
+		logger.info(resourceBundle.getString("displayMenu"));
 		return Response.ok(res).build();
 	}
 
