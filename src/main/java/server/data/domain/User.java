@@ -22,16 +22,6 @@ public class User implements Serializable {
     //@PersistenceCapable(defaultFetchGroup="true")
     private List<Book> books;
     private List<Fine> fines;
-
-//    public User(int id, String name, String email, String password, Date birthDate, List<Book> books, List<Fine> fines) {
-//        this.id = id;
-//        this.name = name;
-//        this.email = email;
-//        this.password = password;
-//        this.birthDate = birthDate;
-//        this.books = books;
-//        this.fines = fines;
-//    }
     
     
     public User(String name, String email, String password, Date birthDate, List<Book> books, List<Fine> fines) {
@@ -42,16 +32,6 @@ public class User implements Serializable {
         this.birthDate = birthDate;
         this.books = books;
         this.fines = fines;
-    }
-    
-    public User(String name, String email, String password, Date birthDate) {
-    	this.id = count++;
-    	this.name = name;
-        this.email = email;
-        this.password = password;
-        this.birthDate = birthDate;
-//        this.books = books;
-//        this.fines = fines;
     }
     
     public User() {

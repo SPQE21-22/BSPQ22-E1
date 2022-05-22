@@ -19,17 +19,14 @@ import java.util.List;
 public class GuiCafeteria {
 
     private JFrame guiCafeteria;
-    private int price;
     Client client;
     WebTarget webTarget;
     public GuiCafeteria(User u, List<Book> ab, String hostname, String port) {
-
-        price = 0;
         client = ClientBuilder.newClient();
         webTarget = client.target(String.format("http://%s:%s/rest", hostname, port));
         guiCafeteria = new JFrame();
         guiCafeteria.setResizable(false);
-        guiCafeteria.setBounds(100, 100, 600, 400);
+        guiCafeteria.setBounds(100, 100, 620, 400);
         guiCafeteria.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         guiCafeteria.getContentPane().setLayout(null);
         guiCafeteria.setVisible(true);
@@ -74,6 +71,15 @@ public class GuiCafeteria {
         }
         ArrayList<Supply> drinks = menu.getDrink();
 
+        Menu daily = new Menu();
+        bookWebTarget = webTarget.path("users/menu");
+        invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+        response = invocationBuilder.get();
+        if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+            daily = response.readEntity(Menu.class);
+            System.out.println(daily);
+        }
+
         int yL = 0;
         int xL = 0;
         for (Supply d : drinks) {
@@ -112,6 +118,18 @@ public class GuiCafeteria {
         panelRight.setLayout(null);
 
         Random random = new Random();
+        ArrayList<Supply> dailymenu = new ArrayList<>();
+        if (daily.getStarter().size() > 0){
+            dailymenu.add(daily.getStarter().get(0));
+            dailymenu.add(daily.getMain().get(0));
+            dailymenu.add(daily.getPastry().get(0));
+            dailymenu.add(daily.getDrink().get(0));
+        } else {
+            dailymenu.add(menu.getStarter().get(random.nextInt(menu.getStarter().size())));
+            dailymenu.add(menu.getMain().get(random.nextInt(menu.getMain().size())));
+            dailymenu.add(menu.getPastry().get(random.nextInt(menu.getPastry().size())));
+            dailymenu.add(menu.getDrink().get(random.nextInt(menu.getDrink().size())));
+        }
 
         JLabel labelMenu = new JLabel("MENU");
         labelMenu.setHorizontalAlignment(SwingConstants.CENTER);
@@ -119,29 +137,29 @@ public class GuiCafeteria {
         labelMenu.setBounds(0, 0, 144, 30);
         panelRight.add(labelMenu);
 
-        JLabel labelStarter = new JLabel(menu.getStarter().get(random.nextInt(menu.getStarter().size())).getName());
+        JLabel labelStarter = new JLabel(dailymenu.get(0).getName());
         labelStarter.setFont(new Font("Arial", Font.BOLD, 13));
-        labelStarter.setBounds(10, 41, 112, 14);
+        labelStarter.setBounds(15, 41, 112, 14);
         panelRight.add(labelStarter);
 
-        JLabel labelMain = new JLabel(menu.getMain().get(random.nextInt(menu.getMain().size())).getName());
+        JLabel labelMain = new JLabel(dailymenu.get(1).getName());
         labelMain.setFont(new Font("Arial", Font.BOLD, 13));
-        labelMain.setBounds(10, 66, 112, 14);
+        labelMain.setBounds(15, 66, 112, 14);
         panelRight.add(labelMain);
 
-        JLabel labelPastry = new JLabel(menu.getPastry().get(random.nextInt(menu.getPastry().size())).getName());
+        JLabel labelPastry = new JLabel(dailymenu.get(2).getName());
         labelPastry.setFont(new Font("Arial", Font.BOLD, 13));
-        labelPastry.setBounds(10, 91, 112, 14);
+        labelPastry.setBounds(15, 91, 112, 14);
         panelRight.add(labelPastry);
 
-        JLabel labelDrink = new JLabel(menu.getDrink().get(random.nextInt(menu.getDrink().size())).getName());
+        JLabel labelDrink = new JLabel(dailymenu.get(3).getName());
         labelDrink.setFont(new Font("Arial", Font.BOLD, 13));
-        labelDrink.setBounds(10, 116, 112, 14);
+        labelDrink.setBounds(15, 116, 112, 14);
         panelRight.add(labelDrink);
 
         JLabel labelPrice = new JLabel("PRICE = 15 €");
         labelPrice.setFont(new Font("Arial", Font.BOLD, 13));
-        labelPrice.setBounds(10, 141, 112, 14);
+        labelPrice.setBounds(15, 141, 112, 14);
         panelRight.add(labelPrice);
 
         JSpinner spinnerMenu = new JSpinner();
@@ -167,11 +185,6 @@ public class GuiCafeteria {
         gbl_panelCentreInside.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
         gbl_panelCentreInside.rowWeights = new double[]{0.0, Double.MIN_VALUE};
         panelCentreInside.setLayout(gbl_panelCentreInside);
-
-        ArrayList<Supply> dailymenu = new ArrayList<>();
-        dailymenu.add(menu.getStarter().get(random.nextInt(menu.getStarter().size())));
-        dailymenu.add(menu.getMain().get(random.nextInt(menu.getMain().size())));
-        dailymenu.add(menu.getPastry().get(random.nextInt(menu.getPastry().size())));
 
         int yF = 0;
         int xF = 0;

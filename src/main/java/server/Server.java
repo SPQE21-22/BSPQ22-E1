@@ -27,6 +27,7 @@ public class Server {
 	private List<Room> roomList;
 	private List<Fine> finesList;
 	private List<Supply> supplysList;
+	private Menu dailymenu;
 	private Connection con;
 	private DB db = new DB();
 	private static final Logger logger = LogManager.getLogger(Server.class);
@@ -183,6 +184,23 @@ public class Server {
 		this.supplysList.add(supply);
 		logger.info("Supply añadido correctamente");
 		return Response.ok(supply).build();
+	}
+
+	@POST
+	@Path("/createMenu")
+	public Response createMenu(Menu menu) throws DBException {
+		logger.info(menu);
+		dailymenu = new Menu(menu.getStarter(), menu.getMain(), menu.getPastry(), menu.getDrink());
+		logger.info("Menu diario creado correctamente");
+		return Response.ok(menu).build();
+	}
+
+	@GET
+	@Path("/menu")
+	public Response getMenu() {
+		Menu res = dailymenu;
+		logger.info("Devolviendo contenidos de cafeteria");
+		return Response.ok(res).build();
 	}
 
 	@GET

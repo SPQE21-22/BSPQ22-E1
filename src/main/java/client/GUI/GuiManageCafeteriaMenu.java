@@ -4,10 +4,7 @@ import server.data.domain.*;
 import server.data.domain.Menu;
 
 import javax.swing.*;
-import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Invocation;
-import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.awt.*;
@@ -123,11 +120,18 @@ public class GuiManageCafeteriaMenu {
         buttonUpdate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Menu u = new Menu();
-                //u.setStarter((Food) cbStarter.getSelectedItem());
-                //.setMain((Food) cbMain.getSelectedItem());
-                //u.setPastry((Food) cbPastry.getSelectedItem());
-                //u.setDrink((Drink) cbDrink.getSelectedItem());
+                Menu men = new Menu();
+                men.getStarter().add((Supply) cbStarter.getSelectedItem());
+                men.getMain().add((Supply) cbMain.getSelectedItem());
+                men.getPastry().add((Supply) cbPastry.getSelectedItem());
+                men.getDrink().add((Supply) cbDrink.getSelectedItem());
+                WebTarget bookWebTarget = webTarget.path("users/createMenu");
+                Invocation.Builder invocationBuilder = bookWebTarget.request(MediaType.APPLICATION_JSON);
+                Response response = invocationBuilder.post(Entity.entity(men, MediaType.APPLICATION_JSON));
+                if (response.getStatus() == Response.Status.OK.getStatusCode()) {
+                    JOptionPane.showMessageDialog(null, "Menu set correctly ", "Management", JOptionPane.INFORMATION_MESSAGE);
+                }
+
             }
         });
         guiManageCafeteriaMenu.getContentPane().add(buttonUpdate);
